@@ -1,25 +1,25 @@
 import type { CaseChecklistItem, CaseStatItem } from "../types";
 
 export const interseedDefineBullets: string[] = [
-    "Main problem: startup discovery and matching was inconsistent and manual.",
-    "Primary users: founders seeking support and collaborators evaluating fit.",
-    "Product goal: make first discovery and first contact happen faster and with better context.",
+    "Matching and startup discovery were still handled manually across chats and spreadsheets.",
+    "I scoped the MVP around two primary users: founders seeking support and ecosystem partners assessing fit.",
+    "The main constraint was a 12-week build window with no existing product codebase to extend.",
 ];
 
 export const interseedSprintPlan: CaseChecklistItem[] = [
-    ["Need this now", "Founder profiles, search/discovery, profile pages, intro/contact flow"],
-    ["Good to have", "Bookmarks, richer filtering, startup updates, mentor matching signals"],
-    ["Long term", "Community layer, events, recommendation engine, data-driven matching"],
+    ["Need this now", "Founder profiles, startup listings, search and filter, and a direct first-contact flow"],
+    ["Good to have", "Bookmarks, richer matching filters, startup updates, and collaboration signals"],
+    ["Long term", "Mentor matching, community features, events, and recommendation workflows"],
 ];
 
 export const interseedDesignBullets: string[] = [
-    "Reusable card patterns reduced UI inconsistency across key pages.",
-    "Profile hierarchy emphasized stage, focus area, and collaboration intent.",
-    "Interaction design prioritized short paths to first contact.",
+    "I designed low-fidelity to high-fidelity flows in Figma, then translated them into React-ready implementation plans.",
+    "Reusable card and list patterns reduced UI drift and helped the team ship faster in sprints.",
+    "Profile hierarchy emphasized startup stage, sustainability focus, and collaboration intent for quicker decision-making.",
 ];
 
 export const interseedOutcomes: CaseStatItem[] = [
-    ["~300", "Soft-launch users"],
+    ["300+", "Users reached at soft launch"],
     ["12 wks", "MVP scope delivered"],
-    ["30+", "Screens shipped"],
+    ["2 wks", "Ramp-up to React + TypeScript"],
 ];

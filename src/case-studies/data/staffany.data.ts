@@ -1,19 +1,19 @@
 import type { CaseChecklistItem, CaseStatItem } from "../types";
 
 export const staffanyResearchBullets: string[] = [
-    "Analyzed onboarding drop-off with PMs to locate where users stalled.",
-    "Reviewed competitor and best-practice patterns for progress gamification.",
-    "Mapped first-week jobs-to-be-done into actionable task milestones.",
+    "I audited onboarding drop-off points with PMs to identify where first-week users stalled.",
+    "I benchmarked gamified onboarding and checklist patterns from adjacent SaaS products.",
+    "I mapped onboarding jobs-to-be-done into concrete tasks users could complete in one session.",
 ];
 
 export const staffanySolutionCards: CaseChecklistItem[] = [
-    ["Card A", "Quick setup actions to get users moving immediately."],
-    ["Card B", "Mid-funnel tasks tied to product depth and confidence."],
-    ["Card C", "Higher-value tasks that reinforce retention behaviors."],
+    ["Concept A", "A mobile-first checklist that prioritized quick setup wins for new users."],
+    ["Concept B", "A milestone-based flow that made progress and reward logic explicit."],
+    ["Concept C", "A web dashboard variant for users who preferred desktop onboarding."],
 ];
 
 export const staffanyOutcomes: CaseStatItem[] = [
     ["48k+", "Users reached"],
     ["2", "Rounds of user testing"],
-    ["3", "Core activation cards"],
+    ["3", "Concept directions validated"],
 ];

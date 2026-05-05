@@ -35,10 +35,10 @@ export function HomeTerminalHero() {
 
                         <div style={{ color: "var(--term-cmd)" }}>$ cat about.md</div>
                         <div className="mb-3" style={{ color: "var(--term-output)" }}>
-                            Hi! I'm <span className="text-accent">Tan Yi Jia</span>. A software engineer in Singapore
+                            Hi! I'm <span className="text-accent">Tan Yi Jia</span>, a software engineer in Singapore.
+                            <br />I currently ship React Native + TypeScript at Great Eastern,
                             <br />
-                            who came up through UX design and filmmaking.
-                            <br />I build well-crafted interfaces that pay attention to the small things.
+                            after starting out in UX design and product storytelling.
                         </div>
 
                         <div style={{ color: "var(--term-cmd)" }}>$ ls --skills</div>

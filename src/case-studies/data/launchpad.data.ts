@@ -1,21 +1,27 @@
 import type { CaseChecklistItem, CaseStatItem } from "../types";
 
 export const launchpadDefineBullets: string[] = [
-    "Audience: incoming students experiencing Tembusu remotely for the first time.",
-    "Constraints: short timeline, distributed committee workflows, and changing event details.",
-    "Goal: a coherent online journey that felt welcoming, navigable, and reliable.",
+    "COVID-19 moved orientation online, so the site had to replace key in-person experiences for ~300 residents.",
+    "Content came from 6+ sub-committees with frequent updates and shifting event details.",
+    "The core goal was a welcoming, easy-to-update digital journey that non-engineers could maintain.",
 ];
 
 export const launchpadDesignChecklist: CaseChecklistItem[] = [
-    ["Visual direction", "Warm, event-forward look to mirror orientation energy in a digital setting."],
-    ["Information architecture", "Clear top-level routes for schedule, teams, stories, and resources."],
-    ["Interaction planning", "Prototype-first iterations to stress-test navigation and page hierarchy."],
+    ["Visual direction", "I designed a space-themed direction in Figma to preserve orientation energy online."],
+    [
+        "Information architecture",
+        "I mapped key routes for schedules, houses, stories, and resources to reduce confusion.",
+    ],
+    [
+        "Interaction planning",
+        "Prototype reviews with committee leads helped validate hierarchy and CTA clarity before build.",
+    ],
 ];
 
 export const launchpadBuildBullets: string[] = [
-    "Implemented with HTML/CSS/JavaScript and Bootstrap for fast delivery.",
-    "Integrated dynamic content workflows through Node and MySQL.",
-    "Coordinated content intake across multiple sub-committees.",
+    "I implemented the responsive frontend with HTML, CSS, JavaScript, and Bootstrap.",
+    "I integrated dynamic content workflows with Node.js and MySQL for fast updates.",
+    "I coordinated content QA and release timing across committee deadlines.",
 ];
 
 export const launchpadOutcomes: CaseStatItem[] = [

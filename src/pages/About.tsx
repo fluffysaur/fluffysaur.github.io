@@ -27,9 +27,11 @@ export function About() {
                     {/* Bio + photo */}
                     <div className="grid gap-12 mb-16 grid-cols-1 md:grid-cols-[1fr_280px]">
                         <p className="font-light text-[20px] leading-relaxed m-0" style={{ color: "var(--fg-3)" }}>
-                            Hi! I'm Tan Yi Jia — a Singapore-based software engineer who came up through UX design and
-                            filmmaking. I take delight in understanding how a product impacts its audience. It always
-                            brings me immense joy to make a difference through my work.
+                            Hi! I'm Tan Yi Jia - a Singapore-based software engineer who came up through UX design and
+                            filmmaking. I currently work on Great Eastern's mobile platform, leading progressive
+                            migration from Cordova and Vue to React Native with TypeScript. I care deeply about product
+                            clarity and engineering quality, and I enjoy building software that feels deliberate from
+                            architecture to interaction details.
                         </p>
                         <img src="/assets/me.jpg" alt="Tan Yi Jia" className="w-full rounded-lg block object-cover" />
                     </div>
