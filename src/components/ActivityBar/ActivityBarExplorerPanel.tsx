@@ -43,7 +43,7 @@ export function ActivityBarExplorerPanel({
                     >
                         <button
                             type="button"
-                            className="w-full flex items-center justify-between gap-2 px-3 py-2 border-b text-[11px] uppercase tracking-[0.14em] font-mono text-left"
+                            className="w-full flex items-center justify-between gap-2 px-3 py-2 border-b text-[11px] uppercase tracking-[0.14em] font-mono text-left cursor-pointer"
                             style={{ borderColor: "var(--border-sub)", color: "var(--fg-6)" }}
                             onClick={() => {
                                 setCollapsedFolders((current) => ({
@@ -53,10 +53,7 @@ export function ActivityBarExplorerPanel({
                             }}
                         >
                             <span className="flex items-center gap-2">
-                                <FontAwesomeIcon
-                                    icon={faFolder}
-                                    style={{ fontSize: 13 }}
-                                />
+                                <FontAwesomeIcon icon={faFolder} style={{ fontSize: 13 }} />
                                 {group.label}
                             </span>
                             <FontAwesomeIcon
@@ -70,8 +67,7 @@ export function ActivityBarExplorerPanel({
                                     const href = projectHref(project);
                                     const external = isProjectExternal(project);
                                     const active =
-                                        !external &&
-                                        (href === "/work" ? pathname === "/work" : pathname === href);
+                                        !external && (href === "/work" ? pathname === "/work" : pathname === href);
 
                                     const rowClass = [
                                         "flex items-center gap-2 px-3 py-1.5 text-[12px] font-mono no-underline transition-colors",

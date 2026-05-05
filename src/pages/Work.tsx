@@ -36,14 +36,11 @@ export function Work() {
                     </p>
                     <h1
                         className="font-light mb-6"
-                        style={{ fontSize: 'clamp(36px, 6vw, 72px)', letterSpacing: "-0.01em", color: "var(--fg-1)" }}
+                        style={{ fontSize: "clamp(36px, 6vw, 72px)", letterSpacing: "-0.01em", color: "var(--fg-1)" }}
                     >
                         Everything I've <strong>shipped</strong>.
                     </h1>
-                    <p
-                        className="font-light text-[20px] mb-14"
-                        style={{ color: "var(--fg-3)", maxWidth: "60ch" }}
-                    >
+                    <p className="font-light text-[20px] mb-14" style={{ color: "var(--fg-3)", maxWidth: "60ch" }}>
                         Projects across software engineering, design, and film. Filter by type or scroll the lot.
                     </p>
 
@@ -62,7 +59,7 @@ export function Work() {
                                 <button
                                     key={f.id}
                                     onClick={() => setActive(f.id)}
-                                    className="px-4 py-3.5 border-b-2 font-medium text-[12px] tracking-[0.2em] uppercase cursor-pointer bg-transparent border-x-0 border-t-0 transition-all flex-shrink-0 whitespace-nowrap"
+                                    className="px-4 py-3.5 border-b-2 font-medium text-[12px] tracking-[0.2em] uppercase cursor-pointer bg-transparent border-x-0 border-t-0 transition-all shrink-0 whitespace-nowrap"
                                     style={{
                                         color: isActive ? "#f2cb05" : "var(--fg-4)",
                                         borderBottomColor: isActive ? "#f2cb05" : "transparent",
@@ -71,10 +68,7 @@ export function Work() {
                                     }}
                                 >
                                     {f.label}
-                                    <span
-                                        className="ml-2 text-[11px]"
-                                        style={{ color: "var(--fg-7)" }}
-                                    >
+                                    <span className="ml-2 text-[11px]" style={{ color: "var(--fg-7)" }}>
                                         {count}
                                     </span>
                                 </button>
@@ -85,10 +79,7 @@ export function Work() {
                     {/* Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {filtered.map((p) => (
-                            <FileCard
-                                key={p.id}
-                                project={p}
-                            />
+                            <FileCard key={p.id} project={p} />
                         ))}
                     </div>
                 </div>

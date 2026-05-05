@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import { ActivityBar } from "./ActivityBar/ActivityBar";
+import { ActivityBar } from "./ActivityBar";
 import { Nav } from "./Nav";
 import { StatusBar } from "./StatusBar";
 import { useTheme } from "../contexts/ThemeContext";
@@ -31,15 +31,9 @@ export function Layout() {
     }, [toggle]);
 
     return (
-        <div
-            className="relative min-h-screen"
-            style={{ background: "var(--bg)" }}
-        >
+        <div className="relative min-h-screen" style={{ background: "var(--bg)" }}>
             <ScrollToTop />
-            <ActivityBar
-                activeTab={activeTab}
-                onTabChange={setActiveTab}
-            />
+            <ActivityBar activeTab={activeTab} onTabChange={setActiveTab} />
             <div
                 className={`pb-22 md:pb-7 transition-[padding-left] duration-200 ${activeTab ? "md:pl-89" : "md:pl-14"}`}
             >

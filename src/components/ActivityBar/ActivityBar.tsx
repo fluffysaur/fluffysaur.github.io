@@ -89,10 +89,7 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
                     onClick={() => handleDesktopTabClick("explorer")}
                     title="Explorer"
                 >
-                    <FontAwesomeIcon
-                        icon={faCopy}
-                        style={{ fontSize: 18 }}
-                    />
+                    <FontAwesomeIcon icon={faCopy} style={{ fontSize: 18 }} />
                 </button>
                 <button
                     type="button"
@@ -100,10 +97,7 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
                     onClick={() => handleDesktopTabClick("extensions")}
                     title="Extensions"
                 >
-                    <FontAwesomeIcon
-                        icon={faPuzzlePiece}
-                        style={{ fontSize: 18 }}
-                    />
+                    <FontAwesomeIcon icon={faPuzzlePiece} style={{ fontSize: 18 }} />
                 </button>
 
                 <div className="flex-1" />
@@ -114,11 +108,7 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
                     onClick={(event) => launchConfetti(event.currentTarget)}
                     title="Confetti"
                 >
-                    <span
-                        className="text-[18px] leading-none"
-                        role="img"
-                        aria-label="confetti"
-                    >
+                    <span className="text-[18px] leading-none" role="img" aria-label="confetti">
                         🎉
                     </span>
                 </button>
@@ -141,7 +131,7 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
                         </p>
                         <button
                             type="button"
-                            className="text-[10px] uppercase tracking-[0.12em] font-mono"
+                            className="text-[10px] uppercase tracking-[0.12em] font-mono cursor-pointer"
                             style={{ color: "var(--fg-6)" }}
                             onClick={() => onTabChange(null)}
                         >
@@ -163,11 +153,7 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
                         style={{ color: activeTab === "explorer" ? "#f2cb05" : "var(--fg-5)" }}
                         onClick={() => handleMobileTabClick("explorer")}
                     >
-                        <FontAwesomeIcon
-                            icon={faCopy}
-                            style={{ fontSize: 15 }}
-                        />{" "}
-                        Explorer
+                        <FontAwesomeIcon icon={faCopy} style={{ fontSize: 15 }} /> Explorer
                     </button>
                     <button
                         type="button"
@@ -175,11 +161,7 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
                         style={{ color: activeTab === "extensions" ? "#f2cb05" : "var(--fg-5)" }}
                         onClick={() => handleMobileTabClick("extensions")}
                     >
-                        <FontAwesomeIcon
-                            icon={faPuzzlePiece}
-                            style={{ fontSize: 15 }}
-                        />{" "}
-                        Ext
+                        <FontAwesomeIcon icon={faPuzzlePiece} style={{ fontSize: 15 }} /> Ext
                     </button>
                     <button
                         type="button"
@@ -187,11 +169,7 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
                         style={{ color: "var(--fg-5)" }}
                         onClick={(event) => launchConfetti(event.currentTarget)}
                     >
-                        <span
-                            className="text-[16px] leading-none"
-                            role="img"
-                            aria-label="confetti"
-                        >
+                        <span className="text-[16px] leading-none" role="img" aria-label="confetti">
                             🎉
                         </span>{" "}
                         Pop

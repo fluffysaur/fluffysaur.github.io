@@ -7,31 +7,19 @@ export function HomeFilesGrid() {
         <section className="pb-24">
             <div className="max-w-285 mx-auto px-5 md:px-16">
                 <div className="flex items-baseline gap-3 mb-2">
-                    <span
-                        className="font-mono text-sm"
-                        style={{ color: "var(--fg-7)" }}
-                    >
+                    <span className="font-mono text-sm" style={{ color: "var(--fg-7)" }}>
                         ~/portfolio/
                     </span>
                 </div>
-                <h2
-                    className="font-light mb-2"
-                    style={{ fontSize: 36, color: "var(--fg-1)" }}
-                >
+                <h2 className="font-light mb-2" style={{ fontSize: 36, color: "var(--fg-1)" }}>
                     Selected <strong>work</strong>
                 </h2>
-                <p
-                    className="font-mono text-sm mb-10"
-                    style={{ color: "var(--fg-5)" }}
-                >
+                <p className="font-mono text-sm mb-10" style={{ color: "var(--fg-5)" }}>
                     // {featured.length} files · work + personal. Click any to open the case study.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {featured.map((p) => (
-                        <FileCard
-                            key={p.id}
-                            project={p}
-                        />
+                        <FileCard key={p.id} project={p} />
                     ))}
                 </div>
                 <div className="mt-10">

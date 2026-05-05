@@ -1,10 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-import {
-    faArrowUpRightFromSquare,
-    faEnvelope,
-    faFileLines,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowUpRightFromSquare, faEnvelope, faFileLines } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedinIn, faVimeoV, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { EXTENSION_LINKS } from "../../data/social";
 
@@ -40,16 +36,10 @@ export function ActivityBarExtensionsPanel() {
                         }}
                     >
                         <div className="flex items-center gap-2">
-                            <FontAwesomeIcon
-                                icon={icon}
-                                style={{ fontSize: 14 }}
-                            />
+                            <FontAwesomeIcon icon={icon} style={{ fontSize: 14 }} />
                             <span className="font-mono">{item.label}</span>
                         </div>
-                        <span
-                            className="text-[10px] uppercase tracking-[0.12em]"
-                            style={{ color: "var(--fg-6)" }}
-                        >
+                        <span className="text-[10px] uppercase tracking-[0.12em]" style={{ color: "var(--fg-6)" }}>
                             {item.kind}
                         </span>
                     </a>

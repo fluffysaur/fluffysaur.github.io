@@ -18,10 +18,7 @@ export function CTABlock() {
                     >
                         Let's build <strong className="font-black">something</strong> that lasts.
                     </h2>
-                    <p
-                        className="text-lg mb-8 max-w-xl leading-relaxed"
-                        style={{ color: "rgba(38,38,38,0.7)" }}
-                    >
+                    <p className="text-lg mb-8 max-w-xl leading-relaxed" style={{ color: "rgba(38,38,38,0.7)" }}>
                         I'm currently taking on freelance frontend & UX engagements, plus a small number of full-time
                         conversations.
                     </p>

@@ -2,197 +2,294 @@
 
 /* ── GothamSSm ── */
 @font-face {
-  font-family: 'GothamSSm';
-  src: url('/assets/fonts/gotham/GothamSSm-XLight.woff2') format('woff2');
-  font-weight: 200; font-style: normal; font-display: swap;
+    font-family: "GothamSSm";
+    src: url("/assets/fonts/gotham/GothamSSm-XLight.woff2") format("woff2");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
 }
 @font-face {
-  font-family: 'GothamSSm';
-  src: url('/assets/fonts/gotham/GothamSSm-Light.woff2') format('woff2');
-  font-weight: 300; font-style: normal; font-display: swap;
+    font-family: "GothamSSm";
+    src: url("/assets/fonts/gotham/GothamSSm-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
 }
 @font-face {
-  font-family: 'GothamSSm';
-  src: url('/assets/fonts/gotham/GothamSSm-Book.woff2') format('woff2');
-  font-weight: 400; font-style: normal; font-display: swap;
+    font-family: "GothamSSm";
+    src: url("/assets/fonts/gotham/GothamSSm-Book.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
 @font-face {
-  font-family: 'GothamSSm';
-  src: url('/assets/fonts/gotham/GothamSSm-BookItalic.woff2') format('woff2');
-  font-weight: 400; font-style: italic; font-display: swap;
+    font-family: "GothamSSm";
+    src: url("/assets/fonts/gotham/GothamSSm-BookItalic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
 }
 @font-face {
-  font-family: 'GothamSSm';
-  src: url('/assets/fonts/gotham/GothamSSm-Medium.woff2') format('woff2');
-  font-weight: 500; font-style: normal; font-display: swap;
+    font-family: "GothamSSm";
+    src: url("/assets/fonts/gotham/GothamSSm-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
 }
 @font-face {
-  font-family: 'GothamSSm';
-  src: url('/assets/fonts/gotham/GothamSSm-Bold.woff2') format('woff2');
-  font-weight: 700; font-style: normal; font-display: swap;
+    font-family: "GothamSSm";
+    src: url("/assets/fonts/gotham/GothamSSm-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 }
 @font-face {
-  font-family: 'GothamSSm';
-  src: url('/assets/fonts/gotham/GothamSSm-Black.woff2') format('woff2');
-  font-weight: 900; font-style: normal; font-display: swap;
+    font-family: "GothamSSm";
+    src: url("/assets/fonts/gotham/GothamSSm-Black.woff2") format("woff2");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
 }
 
 @theme {
-  --color-coal:        #222222;
-  --color-slate-card:  #333333;
-  --color-graphite:    #262626;
-  --color-accent:      #f2cb05;
-  --color-accent-deep: #d9b604;
-  --color-mist:        #cccccc;
+    --color-coal: #222222;
+    --color-slate-card: #333333;
+    --color-graphite: #262626;
+    --color-accent: #f2cb05;
+    --color-accent-deep: #d9b604;
+    --color-mist: #cccccc;
 
-  --font-sans: 'GothamSSm', 'Nunito Sans', system-ui, -apple-system, sans-serif;
-  --font-mono: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+    --font-sans: "GothamSSm", "Nunito Sans", system-ui, -apple-system, sans-serif;
+    --font-mono: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
 /* ── theme tokens ── */
 :root {
-  /* dark (default) */
-  --bg:              #222222;
-  --bg-elevated:     #2e2e2e;
-  --bg-card:         rgba(255,255,255,0.03);
-  --bg-card-header:  rgba(0,0,0,0.25);
-  --fg-1:            #ffffff;
-  --fg-2:            rgba(255,255,255,0.85);
-  --fg-3:            rgba(255,255,255,0.75);
-  --fg-4:            rgba(255,255,255,0.6);
-  --fg-5:            rgba(255,255,255,0.5);
-  --fg-6:            rgba(255,255,255,0.45);
-  --fg-7:            rgba(255,255,255,0.3);
-  --border:          rgba(255,255,255,0.12);
-  --border-mid:      rgba(255,255,255,0.08);
-  --border-sub:      rgba(255,255,255,0.05);
-  --sidebar-bg:      rgba(0,0,0,0.25);
-  --pv-accent:       #f2cb05;
-  --pv-accent-deep:  #d9b604;
-  /* terminal window */
-  --term-bg:              rgba(30,30,30,0.95);
-  --term-titlebar-bg:     rgba(255,255,255,0.03);
-  --term-border:          rgba(255,255,255,0.1);
-  --term-titlebar-border: rgba(255,255,255,0.08);
-  --term-path:            rgba(255,255,255,0.4);
-  --term-cmd:             rgba(255,255,255,0.4);
-  --term-output:          #ffffff;
-  --term-muted:           rgba(255,255,255,0.7);
-  --term-shadow:          0 30px 80px -30px rgba(0,0,0,0.6);
+    /* dark (default) */
+    --bg: #222222;
+    --bg-elevated: #2e2e2e;
+    --bg-card: rgba(255, 255, 255, 0.03);
+    --bg-card-header: rgba(0, 0, 0, 0.25);
+    --fg-1: #ffffff;
+    --fg-2: rgba(255, 255, 255, 0.85);
+    --fg-3: rgba(255, 255, 255, 0.75);
+    --fg-4: rgba(255, 255, 255, 0.6);
+    --fg-5: rgba(255, 255, 255, 0.5);
+    --fg-6: rgba(255, 255, 255, 0.45);
+    --fg-7: rgba(255, 255, 255, 0.3);
+    --border: rgba(255, 255, 255, 0.12);
+    --border-mid: rgba(255, 255, 255, 0.08);
+    --border-sub: rgba(255, 255, 255, 0.05);
+    --sidebar-bg: rgba(0, 0, 0, 0.25);
+    --pv-accent: #f2cb05;
+    --pv-accent-deep: #d9b604;
+    /* terminal window */
+    --term-bg: rgba(30, 30, 30, 0.95);
+    --term-titlebar-bg: rgba(255, 255, 255, 0.03);
+    --term-border: rgba(255, 255, 255, 0.1);
+    --term-titlebar-border: rgba(255, 255, 255, 0.08);
+    --term-path: rgba(255, 255, 255, 0.4);
+    --term-cmd: rgba(255, 255, 255, 0.4);
+    --term-output: #ffffff;
+    --term-muted: rgba(255, 255, 255, 0.7);
+    --term-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.6);
 }
 
 [data-theme="light"] {
-  --bg:              #f5f5f3;
-  --bg-elevated:     #ebebea;
-  --bg-card:         rgba(0,0,0,0.04);
-  --bg-card-header:  rgba(0,0,0,0.06);
-  --fg-1:            #1a1a1a;
-  --fg-2:            rgba(0,0,0,0.85);
-  --fg-3:            rgba(0,0,0,0.72);
-  --fg-4:            rgba(0,0,0,0.6);
-  --fg-5:            rgba(0,0,0,0.5);
-  --fg-6:            rgba(0,0,0,0.45);
-  --fg-7:            rgba(0,0,0,0.3);
-  --border:          rgba(0,0,0,0.14);
-  --border-mid:      rgba(0,0,0,0.09);
-  --border-sub:      rgba(0,0,0,0.05);
-  --sidebar-bg:      rgba(240,240,238,0.95);
-  /* terminal window */
-  --term-bg:              #fafaf8;
-  --term-titlebar-bg:     #ededeb;
-  --term-border:          rgba(0,0,0,0.12);
-  --term-titlebar-border: rgba(0,0,0,0.1);
-  --term-path:            rgba(0,0,0,0.45);
-  --term-cmd:             rgba(0,0,0,0.4);
-  --term-output:          #1a1a1a;
-  --term-muted:           rgba(0,0,0,0.7);
-  --term-shadow:          0 30px 80px -30px rgba(0,0,0,0.12);
+    --bg: #f5f5f3;
+    --bg-elevated: #ebebea;
+    --bg-card: rgba(0, 0, 0, 0.04);
+    --bg-card-header: rgba(0, 0, 0, 0.06);
+    --fg-1: #1a1a1a;
+    --fg-2: rgba(0, 0, 0, 0.85);
+    --fg-3: rgba(0, 0, 0, 0.72);
+    --fg-4: rgba(0, 0, 0, 0.6);
+    --fg-5: rgba(0, 0, 0, 0.5);
+    --fg-6: rgba(0, 0, 0, 0.45);
+    --fg-7: rgba(0, 0, 0, 0.3);
+    --border: rgba(0, 0, 0, 0.14);
+    --border-mid: rgba(0, 0, 0, 0.09);
+    --border-sub: rgba(0, 0, 0, 0.05);
+    --sidebar-bg: rgba(240, 240, 238, 0.95);
+    /* terminal window */
+    --term-bg: #fafaf8;
+    --term-titlebar-bg: #ededeb;
+    --term-border: rgba(0, 0, 0, 0.12);
+    --term-titlebar-border: rgba(0, 0, 0, 0.1);
+    --term-path: rgba(0, 0, 0, 0.45);
+    --term-cmd: rgba(0, 0, 0, 0.4);
+    --term-output: #1a1a1a;
+    --term-muted: rgba(0, 0, 0, 0.7);
+    --term-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.12);
 }
 
 /* ── base ── */
-*, *::before, *::after { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg);
-  color: var(--fg-3);
-  font-family: 'GothamSSm', 'Nunito Sans', system-ui, -apple-system, sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin: 0;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
-::selection { background: #f2cb05; color: #262626; }
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--fg-3);
+    font-family:
+        "GothamSSm",
+        "Nunito Sans",
+        system-ui,
+        -apple-system,
+        sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+}
+
+::selection {
+    background: #f2cb05;
+    color: #262626;
+}
 
 @layer base {
-  h1, h2, h3, h4, h5 {
-    color: var(--fg-1);
-    font-weight: 200;
-    line-height: 1.1;
-    margin: 0;
-    letter-spacing: -0.01em;
-  }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        color: var(--fg-1);
+        font-weight: 200;
+        line-height: 1.1;
+        margin: 0;
+        letter-spacing: -0.01em;
+    }
 
-  h1 strong, h2 strong, h3 strong { font-weight: 900; }
+    h1 strong,
+    h2 strong,
+    h3 strong {
+        font-weight: 900;
+    }
 
-  a {
-    color: #f2cb05;
-    text-decoration: none;
-    transition: color 0.25s;
-  }
-  a:hover { color: #d9b604; }
+    a {
+        color: #f2cb05;
+        text-decoration: none;
+        transition: color 0.25s;
+    }
+    a:hover {
+        color: #d9b604;
+    }
 }
 
 /* ── helper classes (unlayered — beat Tailwind utilities) ── */
-.activity-btn { color: var(--fg-6); }
-.activity-btn:hover { color: var(--fg-1); }
+.activity-btn {
+    color: var(--fg-6);
+}
+.activity-btn:hover {
+    color: var(--fg-1);
+}
 
-.nav-link { color: var(--fg-4); }
-.nav-link:hover { color: var(--pv-accent); }
+.nav-link {
+    color: var(--fg-4);
+}
+.nav-link:hover {
+    color: var(--pv-accent);
+}
 
 /* ── light mode: override white-based Tailwind utility classes ── */
-[data-theme="light"] .text-white { color: var(--fg-1); }
-[data-theme="light"] .text-white\/85 { color: var(--fg-2); }
-[data-theme="light"] .text-white\/75 { color: var(--fg-3); }
-[data-theme="light"] .text-white\/70 { color: var(--fg-3); }
-[data-theme="light"] .text-white\/60 { color: var(--fg-4); }
-[data-theme="light"] .text-white\/55 { color: var(--fg-4); }
-[data-theme="light"] .text-white\/50 { color: var(--fg-5); }
-[data-theme="light"] .text-white\/45 { color: var(--fg-6); }
-[data-theme="light"] .text-white\/30 { color: var(--fg-7); }
-[data-theme="light"] .border-white\/18 { border-color: var(--border); }
-[data-theme="light"] .border-white\/8  { border-color: var(--border-mid); }
-[data-theme="light"] .border-white\/6  { border-color: var(--border-sub); }
-[data-theme="light"] .bg-coal { background: var(--bg); }
+[data-theme="light"] .text-white {
+    color: var(--fg-1);
+}
+[data-theme="light"] .text-white\/85 {
+    color: var(--fg-2);
+}
+[data-theme="light"] .text-white\/75 {
+    color: var(--fg-3);
+}
+[data-theme="light"] .text-white\/70 {
+    color: var(--fg-3);
+}
+[data-theme="light"] .text-white\/60 {
+    color: var(--fg-4);
+}
+[data-theme="light"] .text-white\/55 {
+    color: var(--fg-4);
+}
+[data-theme="light"] .text-white\/50 {
+    color: var(--fg-5);
+}
+[data-theme="light"] .text-white\/45 {
+    color: var(--fg-6);
+}
+[data-theme="light"] .text-white\/30 {
+    color: var(--fg-7);
+}
+[data-theme="light"] .border-white\/18 {
+    border-color: var(--border);
+}
+[data-theme="light"] .border-white\/8 {
+    border-color: var(--border-mid);
+}
+[data-theme="light"] .border-white\/6 {
+    border-color: var(--border-sub);
+}
+[data-theme="light"] .bg-coal {
+    background: var(--bg);
+}
 
 /* ── blinking cursor ── */
 @keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+    0%,
+    50% {
+        opacity: 1;
+    }
+    51%,
+    100% {
+        opacity: 0;
+    }
 }
-.cursor-blink { animation: blink 1s infinite; }
+.cursor-blink {
+    animation: blink 1s infinite;
+}
 
 /* ── marquee ── */
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
 }
 .marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee 24s linear infinite;
+    display: flex;
+    width: max-content;
+    animation: marquee 24s linear infinite;
 }
-.marquee-track:hover { animation-play-state: paused; }
+.marquee-track:hover {
+    animation-play-state: paused;
+}
 
 /* ── scrollbar ── */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+}
 
 /* ── scrollbar-hide ── */
-.scrollbar-hide { scrollbar-width: none; }
-.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide {
+    scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
