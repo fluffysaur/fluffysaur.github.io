@@ -6,6 +6,9 @@ import { faBriefcase, faHouse, faMagnifyingGlass, faMoon, faSun, faUser } from "
 import { useTheme } from "../contexts/ThemeContext";
 import { PROJECTS } from "../data/projects";
 
+const isMac = /Mac|iPhone|iPod|iPad/.test(navigator.platform);
+const KBD_SHORTCUT = isMac ? "⌘K" : "Ctrl K";
+
 // ── Search ─────────────────────────────────────────────────────────────────────
 
 type SearchItem = { label: string; sub: string; path: string };
@@ -269,7 +272,7 @@ export function Nav() {
                                 className="text-[10px] shrink-0 font-mono"
                                 style={{ color: "var(--fg-7)" }}
                             >
-                                ⌘K
+                                {KBD_SHORTCUT}
                             </span>
                         )}
                     </div>
