@@ -56,27 +56,13 @@ export function FileCard({ project: p, large }: FileCardProps) {
                     <div className="mt-4 text-[11px] tracking-[0.2em] uppercase text-accent">Read case study →</div>
                 )}
                 {p.youtubeUrl && (
-                    <div className="mt-4 text-[11px] tracking-[0.2em] uppercase text-accent">Watch on YouTube →</div>
+                    <div className="mt-4 text-[11px] tracking-[0.2em] uppercase text-accent">Watch film →</div>
                 )}
             </div>
         </div>
     );
 
-    if (p.youtubeUrl) {
-        return (
-            <a
-                href={p.youtubeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block no-underline text-inherit"
-                style={{ textDecoration: "none" }}
-            >
-                {inner}
-            </a>
-        );
-    }
-
-    if (p.hasCase) {
+    if (p.youtubeUrl || p.hasCase) {
         return (
             <Link to={`/work/${p.id}`} className="block no-underline text-inherit" style={{ textDecoration: "none" }}>
                 {inner}

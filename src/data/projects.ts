@@ -44,32 +44,6 @@ export const PROJECTS: Project[] = [
 
     // ── Personal Projects ───────────────────────────────────────────────────────
     {
-        id: "pennypal",
-        title: "PennyPal",
-        blurb: "Personal expense tracker built with Hermes, linked to a Notion database for flexible budgeting and spending insights.",
-        img: "/assets/thumbnails/huijia-thumb.jpg", // placeholder until screenshot provided
-        role: "Solo Developer",
-        year: "2024",
-        tags: ["React Native", "Hermes", "Notion API", "TypeScript"],
-        cat: "fullstack",
-        type: "personal",
-        live: false,
-        hasCase: false,
-    },
-    {
-        id: "tembusu-bot",
-        title: "Tembusu Bot",
-        blurb: "A Telegram bot that automated COVID-19 temperature logging compliance for NUS Tembusu College students — saving hundreds of daily manual submissions.",
-        img: "/assets/thumbnails/huijia-thumb.jpg", // placeholder until screenshot provided
-        role: "Solo Developer",
-        year: "2021",
-        tags: ["Python", "Telegram API", "Automation"],
-        cat: "fullstack",
-        type: "personal",
-        live: false,
-        hasCase: false,
-    },
-    {
         id: "launchpad",
         title: "Launchpad: New Beginnings",
         blurb: "Designed and built the Tembusu Welcome Week 2020 site for 300 incoming residents — virtual tours, dynamic content, and a multiplayer interactive canvas.",
@@ -87,11 +61,11 @@ export const PROJECTS: Project[] = [
     {
         id: "anp",
         title: "Andre & Priscilla",
-        blurb: "A wedding film. Lit, shot, edited, scored. The kind of work that reminds me why I started.",
+        blurb: "The wedding of Andre and Priscilla, 25th November 2023. Lit, shot, edited, scored.",
         img: "/assets/thumbnails/anp-thumb.jpg",
         role: "Director · Editor",
-        year: "2022",
-        tags: ["Premiere", "DaVinci", "Film"],
+        year: "2023",
+        tags: ["Premiere", "Film"],
         cat: "film",
         type: "film",
         live: false,
@@ -100,7 +74,7 @@ export const PROJECTS: Project[] = [
     {
         id: "prologue",
         title: "Prologue",
-        blurb: "2020 Demo Reel. A distillation of everything I had made up to that point.",
+        blurb: "A reel of my best works and memories since I began filmmaking. The end of a prologue — a prelude to bigger things to come.",
         img: "/assets/thumbnails/demoreel-thumb.jpg",
         role: "Director · Editor",
         year: "2020",
@@ -113,11 +87,11 @@ export const PROJECTS: Project[] = [
     {
         id: "home-of-possibilities",
         title: "Home of Possibilities",
-        blurb: "A promo film for a housing development — telling a story of community through architecture.",
+        blurb: "A promotional film produced for Tembusu College, NUS.",
         img: "/assets/thumbnails/hop-thumb.jpg",
         role: "Director · Editor",
         year: "2021",
-        tags: ["Premiere", "DaVinci", "Film"],
+        tags: ["Premiere", "Film"],
         cat: "film",
         type: "film",
         live: false,
@@ -126,7 +100,7 @@ export const PROJECTS: Project[] = [
     {
         id: "immerse-2022",
         title: "Immerse 2022",
-        blurb: "Event montage for Tembusu College's flagship orientation camp.",
+        blurb: "Highlight reel from Bartley Christian Church's 2022 Frontline Youth Camp, featuring speaker Pastor Joey Asher Tan.",
         img: "/assets/thumbnails/immerse-thumb.jpg",
         role: "Director · Editor",
         year: "2022",
@@ -139,11 +113,11 @@ export const PROJECTS: Project[] = [
     {
         id: "timo-steph",
         title: "Timo & Steph",
-        blurb: "A wedding film.",
+        blurb: "The beginning of a beautiful journey, featuring an original song performed by the newlyweds themselves. Same-day edit.",
         img: "/assets/thumbnails/tns-thumb.jpg",
         role: "Director · Editor",
         year: "2022",
-        tags: ["Premiere", "DaVinci", "Film"],
+        tags: ["Premiere", "Film"],
         cat: "film",
         type: "film",
         live: false,
