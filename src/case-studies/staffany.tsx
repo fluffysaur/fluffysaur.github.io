@@ -3,15 +3,24 @@ import { TagRow } from "../components/Tag";
 export const meta = {
     id: "staffany",
     title: "StaffAny Rewards",
-    subtitle: "A Rewards checklist that entices users to complete tasks and discover product value.",
+    subtitle: "A concise case study on improving first-week activation with a guided Rewards checklist.",
     repoLabel: "staffany-rewards",
     dates: "Jan 2022 – Aug 2022",
     role: "Product Designer",
     team: "Growth Pod",
     tags: ["Figma", "Jira", "Notion", "Design System", "Growth"],
-    toc: ["Overview", "The Problem", "Process", "Design", "Outcomes", "Reflection"],
-    prev: { id: "rn-migration", title: "React Native Migration" },
-    next: { id: "interseed", title: "Interseed Web App" },
+    toc: [
+        "Background",
+        "My Role",
+        "Research",
+        "Solution",
+        "Usability Testing",
+        "Internal Validation",
+        "Outcomes",
+        "Further Iterations",
+    ],
+    prev: { id: "interseed", title: "Interseed Web App" },
+    next: { id: "launchpad", title: "Launchpad: New Beginnings" },
 };
 
 const S = {
@@ -41,24 +50,24 @@ export function StaffanyContent() {
     return (
         <div style={{ fontSize: 17, lineHeight: 1.75, color: "var(--fg-3)" }}>
             <h2 style={S.heading}>
-                <span style={S.mono}>## </span>Overview
+                <span style={S.mono}>## </span>Background
             </h2>
             <p>
-                StaffAny is a workforce management platform used by 48,000+ shift workers across Southeast Asia. As part
-                of the Growth Pod, I owned the Rewards feature end-to-end — from concept to launch.
+                StaffAny serves thousands of shift workers across Southeast Asia. The Growth Pod identified a recurring
+                issue in onboarding: users signed up but dropped before discovering the features that created long-term
+                value.
             </p>
             <div style={S.callout}>
-                <strong style={{ color: "var(--fg-1)" }}>TL;DR</strong> — Designed a Rewards checklist that entices
-                users to complete onboarding tasks and discover product value. Shipped to 48,000+ users.
+                <strong style={{ color: "var(--fg-1)" }}>TL;DR</strong> — I designed a rewards-driven checklist that
+                guided new users through key setup tasks and surfaced core product value earlier in their journey.
             </div>
 
             <h2 style={S.heading}>
-                <span style={S.mono}>## </span>The Problem
+                <span style={S.mono}>## </span>My Role
             </h2>
             <p>
-                New users were signing up but not activating. The product had a lot of power, but first-time users
-                couldn't find it. Drop-off happened before the "aha moment" — and no one on the team had a clear view of
-                where or why.
+                I owned product design for the feature from framing to post-launch validation: defining the activation
+                flow with PMs, prototyping and testing with users, and partnering with engineers on rollout details.
             </p>
 
             <img
@@ -68,19 +77,27 @@ export function StaffanyContent() {
             />
 
             <h2 style={S.heading}>
-                <span style={S.mono}>## </span>Process
+                <span style={S.mono}>## </span>Research
             </h2>
-            <ul style={{ listStyle: "none", padding: 0, margin: "16px 0" }}>
+            <ul style={{ margin: "14px 0 0", paddingLeft: 18 }}>
+                <li>Analyzed onboarding drop-off with PMs to locate where users stalled.</li>
+                <li>Reviewed competitor and best-practice patterns for progress gamification.</li>
+                <li>Mapped first-week jobs-to-be-done into actionable task milestones.</li>
+            </ul>
+
+            <h2 style={S.heading}>
+                <span style={S.mono}>## </span>Solution
+            </h2>
+            <p>
+                The proposed Rewards experience used a clear task ladder: complete meaningful setup actions, earn
+                visible progress, and unlock next-step guidance. This kept onboarding focused on behavior change, not
+                just visual engagement.
+            </p>
+            <ul style={{ listStyle: "none", padding: 0, margin: "18px 0" }}>
                 {[
-                    ["Research", "Analysed drop-off data with the PM. Interviewed 8 new users in their first week."],
-                    [
-                        "Framing",
-                        'Defined the "aha moment" for each user segment. Built a journey map of first-week activation.',
-                    ],
-                    ["Concepts", "Sketched 5 directions. Narrowed to 2 for prototype validation."],
-                    ["Prototyping", "Built high-fidelity Figma flows. Two rounds of usability testing (6 users each)."],
-                    ["Design QA", "Worked with engineering on specs, edge cases, and accessibility review."],
-                    ["Launch", "Shipped to 48,000+ users with coordinated product marketing."],
+                    ["Card A", "Quick setup actions to get users moving immediately."],
+                    ["Card B", "Mid-funnel tasks tied to product depth and confidence."],
+                    ["Card C", "Higher-value tasks that reinforce retention behaviors."],
                 ].map(([t, d], i) => (
                     <li
                         key={i}
@@ -100,13 +117,30 @@ export function StaffanyContent() {
             </ul>
 
             <h2 style={S.heading}>
+                <span style={S.mono}>## </span>Usability Testing
+            </h2>
+            <p>
+                Two testing rounds were run with first-week users. Round 1 exposed unclear progress language and missing
+                context for reward value. Round 2 validated clearer labels, improved hierarchy, and better guidance for
+                what to do next.
+            </p>
+
+            <h2 style={S.heading}>
+                <span style={S.mono}>## </span>Internal Validation
+            </h2>
+            <p>
+                Before final rollout, the flow was reviewed with product, support, and engineering to confirm
+                feasibility, edge cases, and event tracking alignment. This reduced ambiguity during implementation.
+            </p>
+
+            <h2 style={S.heading}>
                 <span style={S.mono}>## </span>Outcomes
             </h2>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, margin: "24px 0" }}>
                 {[
                     ["48k+", "Users reached"],
                     ["2", "Rounds of user testing"],
-                    ["6+", "Features surfaced via Rewards"],
+                    ["3", "Core activation cards"],
                 ].map(([n, l], i) => (
                     <div
                         key={i}
@@ -124,12 +158,12 @@ export function StaffanyContent() {
             </div>
 
             <h2 style={S.heading}>
-                <span style={S.mono}>## </span>Reflection
+                <span style={S.mono}>## </span>Further Iterations
             </h2>
             <p>
-                The biggest lesson: activation is a product design problem, not a marketing one. The feature couldn't
-                entice users to do things they didn't already want — it had to meet them where they were and make the
-                next step obvious.
+                Next improvements were scoped around personalization and smarter sequencing by role. The key lesson from
+                this project: activation mechanics only work when each step represents real user value, not checklist
+                completion for its own sake.
             </p>
 
             <div style={{ marginTop: 40 }}>

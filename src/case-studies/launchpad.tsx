@@ -3,15 +3,15 @@ import { TagRow } from "../components/Tag";
 export const meta = {
     id: "launchpad",
     title: "Launchpad: New Beginnings",
-    subtitle: "Designing and building the Tembusu Welcome Week 2020 website for 300 incoming residents.",
+    subtitle: "A concise case study on designing and building an online orientation experience during COVID-19.",
     repoLabel: "launchpad-tww2020",
     dates: "May 2020 – Aug 2020",
     role: "UX Designer & Developer",
     team: "Publicity Committee",
     tags: ["HTML/CSS", "JavaScript", "Bootstrap", "Node", "MySQL", "Adobe XD"],
-    toc: ["Overview", "The Problem", "Process", "Technical Highlights", "Outcomes"],
-    prev: { id: "interseed", title: "Interseed Web App" },
-    next: null,
+    toc: ["Project Overview", "My Role", "Define", "Design", "Build", "Outcomes", "Reflection"],
+    prev: { id: "staffany", title: "StaffAny Rewards" },
+    next: { id: "rn-migration", title: "React Native Migration" },
 };
 
 const S = {
@@ -41,25 +41,24 @@ export function LaunchpadContent() {
     return (
         <div style={{ fontSize: 17, lineHeight: 1.75, color: "var(--fg-3)" }}>
             <h2 style={S.heading}>
-                <span style={S.mono}>## </span>Overview
+                <span style={S.mono}>## </span>Project Overview
             </h2>
             <p>
                 Tembusu Welcome Week is NUS Tembusu College's flagship orientation camp for ~300 incoming residents. In
-                2020, COVID-19 forced the entire event online — and we had six weeks to build a website that could
-                replace a physical campus experience.
+                2020, COVID-19 pushed the programme online. The team needed a website that could replace key parts of
+                the physical orientation experience in a short delivery window.
             </p>
             <div style={S.callout}>
-                <strong style={{ color: "var(--fg-1)" }}>TL;DR</strong> — Designed and built a multi-page website with
-                virtual tours, dynamic content, and a multiplayer interactive canvas for 300 residents.
+                <strong style={{ color: "var(--fg-1)" }}>TL;DR</strong> — I designed and built a multi-page orientation
+                website with virtual exploration, structured content, and interactive elements for incoming residents.
             </div>
 
             <h2 style={S.heading}>
-                <span style={S.mono}>## </span>The Problem
+                <span style={S.mono}>## </span>My Role
             </h2>
             <p>
-                New students couldn't visit campus. They had no way to explore the college, meet committee members, or
-                understand what life at Tembusu would look like. The orientation programme needed to live entirely on a
-                website.
+                I handled UX and frontend execution: framing content architecture with committee leads, producing design
+                directions, and implementing key pages and interactions with the engineering team.
             </p>
 
             <img
@@ -69,15 +68,29 @@ export function LaunchpadContent() {
             />
 
             <h2 style={S.heading}>
-                <span style={S.mono}>## </span>Process
+                <span style={S.mono}>## </span>Define
+            </h2>
+            <p>
+                The core challenge was preserving excitement and clarity without physical context. Incoming residents
+                needed to understand schedules, people, and college life through digital touchpoints alone.
+            </p>
+            <ul style={{ margin: "14px 0 0", paddingLeft: 18 }}>
+                <li>Audience: incoming students experiencing Tembusu remotely for the first time.</li>
+                <li>Constraints: short timeline, distributed committee workflows, and changing event details.</li>
+                <li>Goal: a coherent online journey that felt welcoming, navigable, and reliable.</li>
+            </ul>
+
+            <h2 style={S.heading}>
+                <span style={S.mono}>## </span>Design
             </h2>
             <ul style={{ listStyle: "none", padding: 0, margin: "16px 0" }}>
                 {[
-                    ["Design", "Wireframed in Adobe XD. Validated concepts with committee leads before building."],
-                    ["Virtual tour", "Built an interactive 360° tour using JavaScript and static panoramas."],
-                    ["Dynamic pages", "Multi-page site with Node backend for content management."],
-                    ["Canvas", "Collaborated with engineers to build a multiplayer interactive canvas in JS."],
-                    ["Content", "Coordinated with 6 sub-committees to populate the site."],
+                    ["Visual direction", "Warm, event-forward look to mirror orientation energy in a digital setting."],
+                    ["Information architecture", "Clear top-level routes for schedule, teams, stories, and resources."],
+                    [
+                        "Interaction planning",
+                        "Prototype-first iterations to stress-test navigation and page hierarchy.",
+                    ],
                 ].map(([t, d], i) => (
                     <li
                         key={i}
@@ -94,6 +107,19 @@ export function LaunchpadContent() {
                         <span>{d}</span>
                     </li>
                 ))}
+            </ul>
+
+            <h2 style={S.heading}>
+                <span style={S.mono}>## </span>Build
+            </h2>
+            <p>
+                Development focused on reliability and maintainability for a student committee handover context. The
+                site shipped as a responsive multi-page experience with modular sections that could be updated quickly.
+            </p>
+            <ul style={{ margin: "14px 0 0", paddingLeft: 18 }}>
+                <li>Implemented with HTML/CSS/JavaScript and Bootstrap for fast delivery.</li>
+                <li>Integrated dynamic content workflows through Node and MySQL.</li>
+                <li>Coordinated content intake across multiple sub-committees.</li>
             </ul>
 
             <h2 style={S.heading}>
@@ -119,6 +145,15 @@ export function LaunchpadContent() {
                     </div>
                 ))}
             </div>
+
+            <h2 style={S.heading}>
+                <span style={S.mono}>## </span>Reflection
+            </h2>
+            <p>
+                The most valuable takeaway was that strong information structure matters even more when users are fully
+                remote. When content and navigation are clear, a small team can still deliver an experience that feels
+                intentional and human.
+            </p>
 
             <div style={{ marginTop: 40 }}>
                 <TagRow tags={meta.tags} />

@@ -3,13 +3,13 @@ import { TagRow } from "../components/Tag";
 export const meta = {
     id: "interseed",
     title: "Interseed Web App",
-    subtitle: "A MERN-stack platform for connecting startups with sustainable goals.",
+    subtitle: "A concise case study on building a startup-matching platform for sustainability founders in SEA.",
     repoLabel: "interseed-web",
     dates: "Sep 2020 – Jun 2021",
     role: "UX Designer & Frontend Developer",
     team: "Team of 4",
     tags: ["React", "TypeScript", "Node", "MongoDB", "Express", "Adobe XD"],
-    toc: ["Overview", "The Problem", "Research", "Process", "Outcomes", "Reflection"],
+    toc: ["Project Overview", "Define", "Research Synthesis", "Solution", "Design", "Outcomes", "Reflection"],
     prev: null,
     next: { id: "staffany", title: "StaffAny Rewards" },
 };
@@ -38,29 +38,41 @@ const S = {
 };
 
 export function InterseedContent() {
+    const sprintPlan = [
+        ["Need this now", "Founder profiles, search/discovery, profile pages, intro/contact flow"],
+        ["Good to have", "Bookmarks, richer filtering, startup updates, mentor matching signals"],
+        ["Long term", "Community layer, events, recommendation engine, data-driven matching"],
+    ];
+
     return (
         <div style={{ fontSize: 17, lineHeight: 1.75, color: "var(--fg-3)" }}>
             <h2 style={S.heading}>
-                <span style={S.mono}>## </span>Overview
+                <span style={S.mono}>## </span>Project Overview
             </h2>
             <p>
-                Interseed (now part of YSI Southeast Asia) needed a platform to connect early-stage sustainability
-                startups with mentors, capital, and each other. I joined as a fresh grad frontend developer and ended up
-                wearing the UX designer's hat too.
+                Interseed set out to connect early-stage sustainability startups with the right partners, mentors, and
+                opportunities in one place. I worked across product design and frontend implementation to ship the first
+                usable version of the platform.
             </p>
             <div style={S.callout}>
-                <strong style={{ color: "var(--fg-1)" }}>TL;DR</strong> — Designed and built a full-stack web app from
-                scratch. Soft-launched to hundreds of users. Learnt React from zero in 8 weeks.
+                <strong style={{ color: "var(--fg-1)" }}>TL;DR</strong> — We translated fragmented offline matchmaking
+                into a focused web product, prioritized core flows for a 12-week build, and soft-launched to early
+                users.
             </div>
 
             <h2 style={S.heading}>
-                <span style={S.mono}>## </span>The Problem
+                <span style={S.mono}>## </span>Define
             </h2>
             <p>
-                Sustainability startups in SEA were fragmented. Talent and capital existed, but discovery was broken —
-                most matches happened over WhatsApp, none of it scaled, and YSI's existing spreadsheet workflow was
-                creaking under the load.
+                Discovery showed the core issue was not lack of opportunities, but lack of visibility and trust in how
+                opportunities were surfaced. Founders relied on scattered channels and had no consistent place to
+                present traction, needs, and stage.
             </p>
+            <ul style={{ margin: "14px 0 0", paddingLeft: 18 }}>
+                <li>Main problem: startup discovery and matching was inconsistent and manual.</li>
+                <li>Primary users: founders seeking support and collaborators evaluating fit.</li>
+                <li>Product goal: make first discovery and first contact happen faster and with better context.</li>
+            </ul>
 
             <img
                 src="/assets/thumbnails/interseed-thumb.jpg"
@@ -69,70 +81,53 @@ export function InterseedContent() {
             />
 
             <h2 style={S.heading}>
-                <span style={S.mono}>## </span>Research
+                <span style={S.mono}>## </span>Research Synthesis
             </h2>
             <p>
-                Conducted user interviews with 12 founders and 4 mentors. The core insight: founders didn't lack
-                ambition — they lacked a single trusted place to find the right people at the right stage.
+                From interviews and desk research, three patterns repeated: founders wanted credibility signals,
+                collaborators needed quick qualification criteria, and everyone needed lightweight communication instead
+                of long profile reviews.
             </p>
 
             <h2 style={S.heading}>
-                <span style={S.mono}>## </span>Process
+                <span style={S.mono}>## </span>Solution
             </h2>
-            <ul style={{ listStyle: "none", padding: 0, margin: "16px 0" }}>
-                {[
-                    ["Discovery", "Interviewed 12 founders & 4 mentors. Mapped the matchmaking gap."],
-                    ["Wireframes", "Adobe XD low-fi → mid-fi. Two weeks, three rounds with the team."],
-                    ["Frontend build", "React + TypeScript + Bootstrap. 30+ screens, ~14 reusable components."],
-                    ["Backend pairing", "Worked alongside two backend devs on the MERN stack."],
-                    ["Soft launch", "Sprint planning + bug bash. Shipped to ~300 users."],
-                ].map(([t, d], i) => (
+            <p>
+                We framed the roadmap using a must-have / good-to-have / long-term split so engineering and product
+                could commit to a realistic MVP while keeping clear expansion paths.
+            </p>
+            <ul style={{ listStyle: "none", padding: 0, margin: "18px 0" }}>
+                {sprintPlan.map(([title, details], i) => (
                     <li
                         key={i}
                         style={{
                             display: "grid",
-                            gridTemplateColumns: "auto 160px 1fr",
+                            gridTemplateColumns: "auto 180px 1fr",
                             gap: 16,
                             padding: "14px 0",
                             borderTop: "1px solid var(--border-sub)",
                         }}
                     >
                         <span style={{ color: "#f2cb05" }}>✓</span>
-                        <strong style={{ color: "var(--fg-1)", fontWeight: 500 }}>{t}</strong>
-                        <span>{d}</span>
+                        <strong style={{ color: "var(--fg-1)", fontWeight: 500 }}>{title}</strong>
+                        <span>{details}</span>
                     </li>
                 ))}
             </ul>
 
             <h2 style={S.heading}>
-                <span style={S.mono}>## </span>Code Snippet
+                <span style={S.mono}>## </span>Design
             </h2>
-            <p>The reusable card component that ended up everywhere:</p>
-            <pre
-                style={{
-                    background: "var(--bg-card-header)",
-                    borderRadius: 6,
-                    padding: 20,
-                    fontFamily: "var(--font-mono, monospace)",
-                    fontSize: 13,
-                    color: "var(--fg-2)",
-                    overflow: "auto",
-                    border: "1px solid var(--border-sub)",
-                    margin: "24px 0",
-                    lineHeight: 1.6,
-                }}
-            >
-                {`export const StartupCard = ({ s }: Props) => (
-  <Card hoverable onClick={() => navigate(\`/s/\${s.slug}\`)}>
-    <Card.Image src={s.cover} alt={s.name} />
-    <Card.Body>
-      <Pill tone={s.stage}>{s.stage}</Pill>
-      <h3>{s.name}</h3>
-      <p>{s.tagline}</p>
-    </Card.Body>
-  </Card>
-);`}
-            </pre>
+            <p>
+                The first prototype focused on clear, scan-friendly cards and staged profile information. Iterations
+                were guided by two checks: can users quickly decide relevance, and can they act on that decision without
+                extra friction.
+            </p>
+            <ul style={{ margin: "14px 0 0", paddingLeft: 18 }}>
+                <li>Reusable card patterns reduced UI inconsistency across key pages.</li>
+                <li>Profile hierarchy emphasized stage, focus area, and collaboration intent.</li>
+                <li>Interaction design prioritized short paths to first contact.</li>
+            </ul>
 
             <h2 style={S.heading}>
                 <span style={S.mono}>## </span>Outcomes
@@ -140,8 +135,8 @@ export function InterseedContent() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, margin: "24px 0" }}>
                 {[
                     ["~300", "Soft-launch users"],
+                    ["12 wks", "MVP scope delivered"],
                     ["30+", "Screens shipped"],
-                    ["8 wks", "React, learnt from zero"],
                 ].map(([n, l], i) => (
                     <div
                         key={i}
@@ -162,13 +157,13 @@ export function InterseedContent() {
                 <span style={S.mono}>## </span>Reflection
             </h2>
             <p>
-                Interseed taught me that the gap between Figma and shipped code is bigger than any spec doc can capture.
-                The work happens in the in-between — the <em>"wait, this isn't right"</em> moments at 2am.
+                This project reinforced the value of tight framing before visual polish. The MVP succeeded because the
+                team aligned early on decision criteria and shipped around a few high-confidence flows.
             </p>
             <p>
-                It also gave me the confidence to jump into unfamiliar tech stacks. React was completely new to me when
-                I started. Eight weeks later, I had shipped 30+ screens. That bias toward learning-by-doing has stuck
-                with me ever since.
+                Personally, it was also my first end-to-end build across design and frontend. Learning React while
+                shipping production screens gave me a stronger product-engineering perspective that still shapes my
+                work.
             </p>
 
             <div style={{ marginTop: 40 }}>

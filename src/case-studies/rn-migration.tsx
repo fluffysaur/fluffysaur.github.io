@@ -10,8 +10,8 @@ export const meta = {
     team: "Mobile Team",
     tags: ["React Native", "TypeScript", "iOS", "Android", "Hermes"],
     toc: ["Overview", "The Problem", "Approach", "Outcomes"],
-    prev: null,
-    next: { id: "staffany", title: "StaffAny Rewards" },
+    prev: { id: "launchpad", title: "Launchpad: New Beginnings" },
+    next: null,
 };
 
 const S = {
