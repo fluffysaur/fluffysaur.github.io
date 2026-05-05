@@ -5,7 +5,7 @@ export function StatusBar() {
             <span className="px-3 hidden sm:inline">↑1 ↓0</span>
             <span className="px-3 hidden sm:inline">typescript: 5.4</span>
             <span className="px-3 ml-auto">Singapore · UTC+8</span>
-            <span className="px-3 hidden sm:inline">spaces: 2</span>
+            <span className="px-3 hidden sm:inline">spaces: 4</span>
             <span className="px-3 hidden sm:inline">UTF-8</span>
         </div>
     );

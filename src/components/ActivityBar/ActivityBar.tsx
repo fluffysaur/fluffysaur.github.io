@@ -1,41 +1,20 @@
 import { useState } from "react";
 import confetti from "canvas-confetti";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link, useLocation } from "react-router-dom";
-import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-import {
-    faArrowUpRightFromSquare,
-    faEnvelope,
-    faFileLines,
-    faFolder,
-    faPuzzlePiece,
-    faCopy,
-} from "@fortawesome/free-solid-svg-icons";
-import { faGithub, faLinkedinIn, faVimeoV, faYoutube } from "@fortawesome/free-brands-svg-icons";
-import { PROJECTS } from "../data/projects";
-import { EXTENSION_LINKS } from "../data/social";
+import { useLocation } from "react-router-dom";
+import { faPuzzlePiece, faCopy } from "@fortawesome/free-solid-svg-icons";
+import { ActivityBarExplorerPanel } from "./ActivityBarExplorerPanel";
+import { ActivityBarExtensionsPanel } from "./ActivityBarExtensionsPanel";
 
-type TabId = "explorer" | "extensions";
+export type TabId = "explorer" | "extensions";
 
-const PROJECT_GROUPS = [
-    { id: "work", label: "work", items: PROJECTS.filter((project) => project.type === "work") },
-    { id: "personal", label: "personal", items: PROJECTS.filter((project) => project.type === "personal") },
-    { id: "film", label: "film", items: PROJECTS.filter((project) => project.type === "film") },
-];
-
-function projectHref(project: (typeof PROJECTS)[number]) {
-    if (project.youtubeUrl) return project.youtubeUrl;
-    if (project.hasCase) return `/work/${project.id}`;
-    return "/work";
+interface ActivityBarProps {
+    activeTab: TabId | null;
+    onTabChange: (tab: TabId | null) => void;
 }
 
-function isProjectExternal(project: (typeof PROJECTS)[number]) {
-    return Boolean(project.youtubeUrl);
-}
-
-export function ActivityBar() {
+export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
     const { pathname } = useLocation();
-    const [activeTab, setActiveTab] = useState<TabId | null>(null);
     const [mobilePanelOpen, setMobilePanelOpen] = useState(false);
     const [collapsedFolders, setCollapsedFolders] = useState<Record<string, boolean>>({
         work: false,
@@ -66,149 +45,29 @@ export function ActivityBar() {
             isActive ? "border-accent bg-accent/10 text-accent" : "border-transparent activity-btn",
         ].join(" ");
 
-    const renderExplorer = () => (
-        <div className="space-y-4">
-            {PROJECT_GROUPS.map((group) => {
-                const isCollapsed = collapsedFolders[group.id];
+    const panelContent =
+        activeTab === "explorer" ? (
+            <ActivityBarExplorerPanel
+                pathname={pathname}
+                collapsedFolders={collapsedFolders}
+                setCollapsedFolders={setCollapsedFolders}
+            />
+        ) : (
+            <ActivityBarExtensionsPanel />
+        );
 
-                return (
-                    <div
-                        key={group.id}
-                        className="border rounded"
-                        style={{ borderColor: "var(--border-sub)", background: "var(--bg-card)" }}
-                    >
-                        <button
-                            type="button"
-                            className="w-full flex items-center justify-between gap-2 px-3 py-2 border-b text-[11px] uppercase tracking-[0.14em] font-mono text-left"
-                            style={{ borderColor: "var(--border-sub)", color: "var(--fg-6)" }}
-                            onClick={() => {
-                                setCollapsedFolders((current) => ({
-                                    ...current,
-                                    [group.id]: !current[group.id],
-                                }));
-                            }}
-                        >
-                            <span className="flex items-center gap-2">
-                                <FontAwesomeIcon
-                                    icon={faFolder}
-                                    style={{ fontSize: 13 }}
-                                />
-                                {group.label}
-                            </span>
-                            <span style={{ color: "var(--fg-7)" }}>{isCollapsed ? "▸" : "▾"}</span>
-                        </button>
-                        {!isCollapsed && (
-                            <div className="py-1.5">
-                                {group.items.map((project) => {
-                                    const href = projectHref(project);
-                                    const external = isProjectExternal(project);
-                                    const active =
-                                        !external && (href === "/work" ? pathname === "/work" : pathname === href);
-
-                                    const rowClass = [
-                                        "flex items-center gap-2 px-3 py-1.5 text-[12px] font-mono no-underline transition-colors",
-                                        active ? "text-accent" : "",
-                                    ].join(" ");
-
-                                    if (external) {
-                                        return (
-                                            <a
-                                                key={project.id}
-                                                href={href}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className={rowClass}
-                                                style={{ color: active ? "#f2cb05" : "var(--fg-3)" }}
-                                            >
-                                                <span style={{ color: "var(--fg-7)" }}>└</span>
-                                                {project.id}.mp4
-                                            </a>
-                                        );
-                                    }
-
-                                    return (
-                                        <Link
-                                            key={project.id}
-                                            to={href}
-                                            className={rowClass}
-                                            style={{ color: active ? "#f2cb05" : "var(--fg-3)" }}
-                                        >
-                                            <span style={{ color: "var(--fg-7)" }}>└</span>
-                                            {project.id}.tsx
-                                        </Link>
-                                    );
-                                })}
-                            </div>
-                        )}
-                    </div>
-                );
-            })}
-        </div>
-    );
-
-    const renderExtensions = () => (
-        <div className="space-y-2">
-            {EXTENSION_LINKS.map((item) => {
-                const icon: IconDefinition =
-                    item.icon === "github"
-                        ? faGithub
-                        : item.icon === "linkedin"
-                          ? faLinkedinIn
-                          : item.icon === "vimeo"
-                            ? faVimeoV
-                            : item.icon === "youtube"
-                              ? faYoutube
-                              : item.icon === "email"
-                                ? faEnvelope
-                                : item.icon === "resume"
-                                  ? faFileLines
-                                  : faArrowUpRightFromSquare;
-
-                return (
-                    <a
-                        key={item.label}
-                        href={item.href}
-                        {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                        className="flex items-center justify-between gap-3 px-3 py-2.5 rounded border text-[12px] no-underline transition-colors hover:text-accent"
-                        style={{
-                            borderColor: "var(--border-sub)",
-                            background: "var(--bg-card)",
-                            color: "var(--fg-2)",
-                        }}
-                    >
-                        <div className="flex items-center gap-2">
-                            <FontAwesomeIcon
-                                icon={icon}
-                                style={{ fontSize: 14 }}
-                            />
-                            <span className="font-mono">{item.label}</span>
-                        </div>
-                        <span
-                            className="text-[10px] uppercase tracking-[0.12em]"
-                            style={{ color: "var(--fg-6)" }}
-                        >
-                            {item.kind}
-                        </span>
-                    </a>
-                );
-            })}
-        </div>
-    );
-
-    const panelContent = activeTab === "explorer" ? renderExplorer() : renderExtensions();
     const handleDesktopTabClick = (tab: TabId) => {
-        setActiveTab((current) => (current === tab ? null : tab));
+        onTabChange(activeTab === tab ? null : tab);
     };
 
     const handleMobileTabClick = (tab: TabId) => {
-        setActiveTab((current) => {
-            if (current === tab) {
-                setMobilePanelOpen(false);
-                return null;
-            }
+        if (activeTab === tab) {
+            setMobilePanelOpen(false);
+            onTabChange(null);
+        } else {
             setMobilePanelOpen(true);
-            return tab;
-        });
+            onTabChange(tab);
+        }
     };
 
     return (
@@ -246,9 +105,12 @@ export function ActivityBar() {
                         style={{ fontSize: 18 }}
                     />
                 </button>
+
+                <div className="flex-1" />
+
                 <button
                     type="button"
-                    className={desktopButtonClass(false)}
+                    className={`${desktopButtonClass(false)} mb-10`}
                     onClick={(event) => launchConfetti(event.currentTarget)}
                     title="Confetti"
                 >
@@ -281,7 +143,7 @@ export function ActivityBar() {
                             type="button"
                             className="text-[10px] uppercase tracking-[0.12em] font-mono"
                             style={{ color: "var(--fg-6)" }}
-                            onClick={() => setActiveTab(null)}
+                            onClick={() => onTabChange(null)}
                         >
                             hide
                         </button>
@@ -364,7 +226,7 @@ export function ActivityBar() {
                             style={{ color: "var(--fg-5)" }}
                             onClick={() => {
                                 setMobilePanelOpen(false);
-                                setActiveTab(null);
+                                onTabChange(null);
                             }}
                         >
                             close
