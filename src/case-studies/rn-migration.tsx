@@ -18,28 +18,28 @@ const S = {
     heading: {
         fontSize: 32,
         fontWeight: 200,
-        color: "#fff",
+        color: "var(--fg-1)",
         marginTop: 56,
         marginBottom: 20,
         paddingBottom: 12,
-        borderBottom: "1px solid rgba(255,255,255,0.08)",
+        borderBottom: "1px solid var(--border-mid)",
         letterSpacing: "-0.01em",
     } as React.CSSProperties,
     mono: { color: "#f2cb05", fontFamily: "var(--font-mono, monospace)", fontWeight: 400 } as React.CSSProperties,
     callout: {
-        background: "rgba(255,255,255,0.03)",
+        background: "var(--bg-card)",
         borderLeft: "3px solid #f2cb05",
         padding: "16px 20px",
         margin: "24px 0",
         fontSize: 15,
-        color: "rgba(255,255,255,0.75)",
+        color: "var(--fg-3)",
         lineHeight: 1.6,
     } as React.CSSProperties,
 };
 
 export function RnMigrationContent() {
     return (
-        <div style={{ fontSize: 17, lineHeight: 1.75, color: "rgba(255,255,255,0.8)" }}>
+        <div style={{ fontSize: 17, lineHeight: 1.75, color: "var(--fg-3)" }}>
             <h2 style={S.heading}>
                 <span style={S.mono}>## </span>Overview
             </h2>
@@ -48,8 +48,8 @@ export function RnMigrationContent() {
                 being drafted.
             </p>
             <div style={S.callout}>
-                <strong style={{ color: "#fff" }}>Status</strong> — Currently in progress. Check back soon for the full
-                case study.
+                <strong style={{ color: "var(--fg-1)" }}>Status</strong> — Currently in progress. Check back soon for
+                the full case study.
             </div>
 
             <h2 style={S.heading}>

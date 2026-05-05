@@ -1,39 +1,44 @@
-import { useEffect } from 'react'
-import { Outlet, useLocation } from 'react-router-dom'
-import { ActivityBar } from './ActivityBar'
-import { Nav } from './Nav'
-import { StatusBar } from './StatusBar'
-import { useTheme } from '../contexts/ThemeContext'
+import { useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom";
+import { ActivityBar } from "./ActivityBar";
+import { Nav } from "./Nav";
+import { StatusBar } from "./StatusBar";
+import { useTheme } from "../contexts/ThemeContext";
 
 function ScrollToTop() {
-  const { pathname } = useLocation()
-  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
-  return null
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+    return null;
 }
 
 export function Layout() {
-  const { toggle } = useTheme()
+    const { toggle } = useTheme();
 
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'l') {
-        e.preventDefault()
-        toggle()
-      }
-    }
-    window.addEventListener('keydown', handler)
-    return () => window.removeEventListener('keydown', handler)
-  }, [toggle])
+    useEffect(() => {
+        const handler = (e: KeyboardEvent) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === "l") {
+                e.preventDefault();
+                toggle();
+            }
+        };
+        window.addEventListener("keydown", handler);
+        return () => window.removeEventListener("keydown", handler);
+    }, [toggle]);
 
-  return (
-    <div className="relative min-h-screen" style={{ background: 'var(--bg)' }}>
-      <ScrollToTop />
-      <ActivityBar />
-      <div className="md:pl-14 pb-7">
-        <Nav />
-        <Outlet />
-      </div>
-      <StatusBar />
-    </div>
-  )
+    return (
+        <div
+            className="relative min-h-screen"
+            style={{ background: "var(--bg)" }}
+        >
+            <ScrollToTop />
+            <ActivityBar />
+            <div className="md:pl-14 pb-22 md:pb-7">
+                <Nav />
+                <Outlet />
+            </div>
+            <StatusBar />
+        </div>
+    );
 }

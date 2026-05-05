@@ -20,8 +20,13 @@
   },
   "homepage": "https://github.com/fluffysaur/fluffysaur.github.io#readme",
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^7.2.0",
+    "@fortawesome/free-solid-svg-icons": "^7.2.0",
+    "@fortawesome/react-fontawesome": "^3.3.1",
     "@tailwindcss/vite": "^4.2.4",
+    "@types/canvas-confetti": "^1.9.0",
     "@vitejs/plugin-react": "^6.0.1",
+    "canvas-confetti": "^1.9.4",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "react-router-dom": "^7.14.2",

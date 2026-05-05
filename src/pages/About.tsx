@@ -1,6 +1,7 @@
 import { Footer } from "../components/Footer";
 import { CTABlock } from "../components/CTABlock";
 import type { TimelineEntry } from "../types";
+import { SOCIAL_LINKS } from "../data/social";
 
 const TIMELINE: TimelineEntry[] = [
     {
@@ -22,14 +23,6 @@ const CURRENTLY = [
     { key: "Filming", value: "Wedding films and brand videos on the side" },
 ];
 
-const SOCIAL_LINKS = [
-    { label: "GitHub →", href: "https://github.com/fluffysaur", external: true },
-    { label: "LinkedIn →", href: "https://linkedin.com/in/tanyijiasg", external: true },
-    { label: "Vimeo →", href: "https://vimeo.com/tanyijia", external: true },
-    { label: "YouTube →", href: "https://www.youtube.com/tanyijia", external: true },
-    { label: "Email →", href: "mailto:tanyijia@gmail.com", external: false },
-];
-
 export function About() {
     return (
         <>
@@ -44,7 +37,7 @@ export function About() {
                     </p>
                     <h1
                         className="font-light pb-4"
-                        style={{ fontSize: 'clamp(36px, 6vw, 72px)', letterSpacing: "-0.01em", color: "var(--fg-1)" }}
+                        style={{ fontSize: "clamp(36px, 6vw, 72px)", letterSpacing: "-0.01em", color: "var(--fg-1)" }}
                     >
                         About <strong>me</strong>.
                     </h1>
@@ -70,23 +63,23 @@ export function About() {
                     <div className="mb-16">
                         <h2
                             className="mb-4"
-                            style={{ fontSize: 'clamp(24px, 3.5vw, 40px)', color: "var(--fg-1)" }}
+                            style={{ fontSize: "clamp(24px, 3.5vw, 40px)", color: "var(--fg-1)" }}
                         >
                             The <strong>journey</strong>
                         </h2>
                         {TIMELINE.map((r, i) => (
                             <div
                                 key={i}
-                                className={`grid gap-4 md:gap-8 py-6 items-baseline grid-cols-[70px_1fr] md:grid-cols-[120px_1fr_auto]${i > 0 ? " border-t" : ""}`}
+                                className={`grid gap-4 py-6 items-baseline grid-cols-[70px_1fr] md:flex md:items-baseline md:gap-8${i > 0 ? " border-t" : ""}`}
                                 style={{ borderColor: "var(--border-mid)" }}
                             >
                                 <span
-                                    className="font-mono text-sm"
+                                    className="font-mono text-sm md:w-30 md:shrink-0"
                                     style={{ color: "var(--fg-5)" }}
                                 >
                                     {r.year}
                                 </span>
-                                <div>
+                                <div className="md:flex-1 md:min-w-0">
                                     <h3
                                         className="font-light text-[22px] mb-1"
                                         style={{ color: "var(--fg-1)" }}
@@ -101,7 +94,7 @@ export function About() {
                                     </p>
                                 </div>
                                 {r.tag && (
-                                    <span className="hidden md:inline px-2.5 py-1 rounded text-[11px] font-medium font-mono bg-accent text-graphite">
+                                    <span className="hidden md:inline px-2.5 py-1 rounded text-[11px] font-medium font-mono bg-accent text-graphite whitespace-nowrap justify-self-end">
                                         {r.tag}
                                     </span>
                                 )}
@@ -113,7 +106,7 @@ export function About() {
                     <div className="mb-16">
                         <h2
                             className="mb-4"
-                            style={{ fontSize: 'clamp(24px, 3.5vw, 40px)', color: "var(--fg-1)" }}
+                            style={{ fontSize: "clamp(24px, 3.5vw, 40px)", color: "var(--fg-1)" }}
                         >
                             <strong>Currently</strong>
                         </h2>
@@ -145,7 +138,7 @@ export function About() {
                     <div>
                         <h2
                             className="font-light mb-4"
-                            style={{ fontSize: 'clamp(24px, 3.5vw, 40px)', color: "var(--fg-1)" }}
+                            style={{ fontSize: "clamp(24px, 3.5vw, 40px)", color: "var(--fg-1)" }}
                         >
                             Find me <strong>elsewhere</strong>
                         </h2>
@@ -158,7 +151,7 @@ export function About() {
                                     className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full border text-[12px] font-medium tracking-[0.2em] uppercase no-underline transition-all hover:border-accent hover:text-accent"
                                     style={{ borderColor: "var(--border)", color: "var(--fg-2)" }}
                                 >
-                                    {label}
+                                    {label} →
                                 </a>
                             ))}
                         </div>
