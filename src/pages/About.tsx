@@ -34,7 +34,7 @@ export function About() {
     return (
         <>
             <section className="py-20">
-                <div className="max-w-220 mx-auto px-8">
+                <div className="max-w-220 mx-auto px-5 md:px-8">
                     <p
                         className="flex items-center gap-2.5 text-[11px] tracking-[0.2em] uppercase font-medium mb-4"
                         style={{ color: "var(--fg-6)" }}
@@ -44,16 +44,13 @@ export function About() {
                     </p>
                     <h1
                         className="font-light pb-4"
-                        style={{ fontSize: 72, letterSpacing: "-0.01em", color: "var(--fg-1)" }}
+                        style={{ fontSize: 'clamp(36px, 6vw, 72px)', letterSpacing: "-0.01em", color: "var(--fg-1)" }}
                     >
                         About <strong>me</strong>.
                     </h1>
 
                     {/* Bio + photo */}
-                    <div
-                        className="grid gap-12 mb-16"
-                        style={{ gridTemplateColumns: "1fr 280px" }}
-                    >
+                    <div className="grid gap-12 mb-16 grid-cols-1 md:grid-cols-[1fr_280px]">
                         <p
                             className="font-light text-[20px] leading-relaxed m-0"
                             style={{ color: "var(--fg-3)" }}
@@ -73,18 +70,15 @@ export function About() {
                     <div className="mb-16">
                         <h2
                             className="mb-4"
-                            style={{ fontSize: 40, color: "var(--fg-1)" }}
+                            style={{ fontSize: 'clamp(24px, 3.5vw, 40px)', color: "var(--fg-1)" }}
                         >
                             The <strong>journey</strong>
                         </h2>
                         {TIMELINE.map((r, i) => (
                             <div
                                 key={i}
-                                className={`grid gap-8 py-6 items-baseline${i > 0 ? " border-t" : ""}`}
-                                style={{
-                                    gridTemplateColumns: "120px 1fr auto",
-                                    borderColor: "var(--border-mid)",
-                                }}
+                                className={`grid gap-4 md:gap-8 py-6 items-baseline grid-cols-[70px_1fr] md:grid-cols-[120px_1fr_auto]${i > 0 ? " border-t" : ""}`}
+                                style={{ borderColor: "var(--border-mid)" }}
                             >
                                 <span
                                     className="font-mono text-sm"
@@ -107,7 +101,7 @@ export function About() {
                                     </p>
                                 </div>
                                 {r.tag && (
-                                    <span className="px-2.5 py-1 rounded text-[11px] font-medium font-mono bg-accent text-graphite">
+                                    <span className="hidden md:inline px-2.5 py-1 rounded text-[11px] font-medium font-mono bg-accent text-graphite">
                                         {r.tag}
                                     </span>
                                 )}
@@ -119,11 +113,11 @@ export function About() {
                     <div className="mb-16">
                         <h2
                             className="mb-4"
-                            style={{ fontSize: 40, color: "var(--fg-1)" }}
+                            style={{ fontSize: 'clamp(24px, 3.5vw, 40px)', color: "var(--fg-1)" }}
                         >
                             <strong>Currently</strong>
                         </h2>
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {CURRENTLY.map(({ key, value }) => (
                                 <div
                                     key={key}
@@ -151,7 +145,7 @@ export function About() {
                     <div>
                         <h2
                             className="font-light mb-4"
-                            style={{ fontSize: 40, color: "var(--fg-1)" }}
+                            style={{ fontSize: 'clamp(24px, 3.5vw, 40px)', color: "var(--fg-1)" }}
                         >
                             Find me <strong>elsewhere</strong>
                         </h2>

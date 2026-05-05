@@ -3,7 +3,7 @@ export function CTABlock() {
         <section className="py-24">
             <div className="max-w-285 mx-auto px-8">
                 <div
-                    className="rounded-2xl px-14 pt-16 pb-20 relative overflow-hidden"
+                    className="rounded-2xl px-6 py-10 md:px-14 md:pt-16 md:pb-20 relative overflow-hidden"
                     style={{ background: "#f2cb05", color: "#262626" }}
                 >
                     <p
@@ -13,7 +13,7 @@ export function CTABlock() {
                         Get in touch
                     </p>
                     <h2
-                        className="text-[56px] font-light leading-tight mt-3 mb-4 max-w-2xl"
+                        className="text-[32px] md:text-[56px] font-light leading-tight mt-3 mb-4 max-w-2xl"
                         style={{ color: "#262626", letterSpacing: "-0.01em" }}
                     >
                         Let's build <strong className="font-black">something</strong> that lasts.
@@ -25,7 +25,7 @@ export function CTABlock() {
                         I'm currently taking on freelance frontend & UX engagements, plus a small number of full-time
                         conversations.
                     </p>
-                    <div className="flex gap-3">
+                    <div className="flex flex-wrap gap-3">
                         <a
                             href="mailto:tanyijia@gmail.com"
                             className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full text-[12px] font-medium tracking-[0.2em] uppercase no-underline transition-all"

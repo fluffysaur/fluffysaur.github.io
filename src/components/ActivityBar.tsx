@@ -13,7 +13,7 @@ export function ActivityBar() {
 
   return (
     <aside
-      className="fixed left-0 top-0 bottom-0 w-14 z-20 flex flex-col pt-4 border-r"
+      className="hidden md:flex fixed left-0 top-0 bottom-0 w-14 z-20 flex-col pt-4 border-r"
       style={{ background: 'var(--sidebar-bg)', borderColor: 'var(--border-mid)' }}
     >
       <div

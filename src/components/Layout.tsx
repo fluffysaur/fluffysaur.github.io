@@ -29,7 +29,7 @@ export function Layout() {
     <div className="relative min-h-screen" style={{ background: 'var(--bg)' }}>
       <ScrollToTop />
       <ActivityBar />
-      <div style={{ paddingLeft: 56, paddingBottom: 28 }}>
+      <div className="md:pl-14 pb-7">
         <Nav />
         <Outlet />
       </div>

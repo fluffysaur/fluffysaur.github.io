@@ -130,7 +130,7 @@ export function Nav() {
             style={{ background: 'var(--bg-elevated)', borderColor: 'var(--border-mid)' }}
         >
             {/* Tabs */}
-            <div className="flex items-stretch">
+            <div className="flex items-stretch overflow-x-auto scrollbar-hide">
                 {tabs.map(tab => {
                     const active = tab.closeable
                         ? true
@@ -143,7 +143,7 @@ export function Nav() {
                     const key = tab.closeable ? `case-${caseId}` : tab.to
 
                     const cls = [
-                        'flex items-center gap-1.5 px-4 py-2.5 text-[12px] font-mono border-b-2 whitespace-nowrap',
+                        'flex items-center gap-1.5 px-4 py-2.5 text-[12px] font-mono border-b-2 whitespace-nowrap flex-shrink-0',
                         active ? 'border-accent' : 'border-transparent',
                     ].join(' ')
 
@@ -190,7 +190,7 @@ export function Nav() {
             {/* Search */}
             <div
                 ref={containerRef}
-                className="relative flex items-center self-center px-3"
+                className="relative hidden md:flex items-center self-center px-3"
                 style={{
                     borderLeft:  '1px solid var(--border-sub)',
                     borderRight: '1px solid var(--border-sub)',
@@ -276,7 +276,7 @@ export function Nav() {
                 </button>
                 <a
                     href="mailto:tanyijia@gmail.com"
-                    className="px-3.5 py-1.5 rounded-full bg-accent text-[11px] font-medium tracking-[0.2em] uppercase no-underline transition-all hover:bg-accent-deep whitespace-nowrap"
+                    className="hidden md:inline-flex px-3.5 py-1.5 rounded-full bg-accent text-[11px] font-medium tracking-[0.2em] uppercase no-underline transition-all hover:bg-accent-deep whitespace-nowrap"
                     style={{ color: '#262626' }}
                 >
                     Get in touch

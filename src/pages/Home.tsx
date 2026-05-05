@@ -8,7 +8,7 @@ import { TESTIMONIALS } from "../data/testimonials";
 function TerminalHero() {
     return (
         <section className="pb-16 pt-12">
-            <div className="max-w-285 mx-auto" style={{ paddingLeft: 64, paddingRight: 64 }}>
+            <div className="max-w-285 mx-auto px-5 md:px-16">
             {/* macOS terminal window */}
             <div
                 className="rounded-xl overflow-hidden max-w-3xl"
@@ -66,13 +66,8 @@ function TerminalHero() {
 
                     <div style={{ color: "var(--term-cmd)" }}>$ ls --skills</div>
                     <div
-                        className="mb-3"
-                        style={{
-                            display: "grid",
-                            gridTemplateColumns: "repeat(5, max-content)",
-                            gap: "4px 24px",
-                            color: "var(--term-muted)",
-                        }}
+                        className="mb-3 flex flex-wrap gap-x-6 gap-y-1"
+                        style={{ color: "var(--term-muted)" }}
                     >
                         {STACK.map((s) => (
                             <span key={s}>{s.toLowerCase().replace(".js", "-js")}</span>
@@ -99,13 +94,13 @@ function TerminalHero() {
             <div className="mt-14 max-w-3xl">
                 <h1
                     className="font-light leading-tight"
-                    style={{ fontSize: 64, letterSpacing: "-0.01em", color: "var(--fg-1)" }}
+                    style={{ fontSize: 'clamp(32px, 5.5vw, 64px)', letterSpacing: "-0.01em", color: "var(--fg-1)" }}
                 >
                     Engineering <strong>delight</strong> into
                     <br />
                     every <strong>pixel</strong>.
                 </h1>
-                <div className="flex gap-3 mt-8">
+                <div className="flex flex-wrap gap-3 mt-8">
                     <a
                         href="/work"
                         className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-accent text-graphite text-[12px] font-medium tracking-[0.2em] uppercase no-underline transition-all hover:bg-accent-deep"
@@ -132,7 +127,7 @@ function FilesGrid() {
     const featured = PROJECTS.filter((p) => p.type !== "film").slice(0, 4);
     return (
         <section className="pb-24">
-            <div className="max-w-285 mx-auto" style={{ paddingLeft: 64, paddingRight: 64 }}>
+            <div className="max-w-285 mx-auto px-5 md:px-16">
                 <div className="flex items-baseline gap-3 mb-2">
                     <span
                         className="font-mono text-sm"
@@ -153,7 +148,7 @@ function FilesGrid() {
                 >
                     // {featured.length} files · work + personal. Click any to open the case study.
                 </p>
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {featured.map((p) => (
                         <FileCard
                             key={p.id}
@@ -178,7 +173,7 @@ function FilesGrid() {
 function TestimonialStrip() {
     return (
         <section className="py-24" style={{ background: "var(--bg-card)" }}>
-            <div className="max-w-285 mx-auto" style={{ paddingLeft: 64, paddingRight: 64 }}>
+            <div className="max-w-285 mx-auto px-5 md:px-16">
                 <p
                     className="flex items-center gap-2.5 text-[11px] tracking-[0.2em] uppercase font-medium mb-3"
                     style={{ color: "var(--fg-6)" }}
@@ -188,11 +183,11 @@ function TestimonialStrip() {
                 </p>
                 <h2
                     className="font-light mb-14"
-                    style={{ fontSize: 48, color: "var(--fg-1)" }}
+                    style={{ fontSize: 'clamp(28px, 4.5vw, 48px)', color: "var(--fg-1)" }}
                 >
                     From people I've <strong>worked with</strong>
                 </h2>
-                <div className="grid grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {TESTIMONIALS.map((t, i) => (
                         <figure
                             key={i}
@@ -237,8 +232,7 @@ function TestimonialStrip() {
 function StackStrip() {
     return (
         <div
-            className="max-w-285 mx-auto flex items-center gap-6 flex-wrap"
-            style={{ paddingLeft: 64, paddingRight: 64, paddingBottom: 48 }}
+            className="max-w-285 mx-auto flex items-center gap-6 flex-wrap px-5 md:px-16 pb-12"
         >
             <div
                 className="flex items-center gap-2.5 text-[11px] tracking-[0.2em] uppercase font-medium"

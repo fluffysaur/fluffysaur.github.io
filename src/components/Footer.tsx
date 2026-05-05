@@ -6,11 +6,8 @@ export function Footer() {
             className="pt-16 pb-12 mt-auto border-t"
             style={{ borderColor: "var(--border-mid)" }}
         >
-            <div className="max-w-285 mx-auto px-8">
-                <div
-                    className="grid gap-12 mb-12"
-                    style={{ gridTemplateColumns: "1.4fr 1fr 1fr 1fr" }}
-                >
+            <div className="max-w-285 mx-auto px-5 md:px-8">
+                <div className="grid gap-8 mb-12 grid-cols-2 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
                     {/* Brand col */}
                     <div>
                         <Link
@@ -154,7 +151,7 @@ export function Footer() {
                 </div>
 
                 <div
-                    className="flex justify-between items-center pt-6 border-t text-[13px]"
+                    className="flex flex-wrap justify-between items-center gap-y-1 pt-6 border-t text-[13px]"
                     style={{ borderColor: "var(--border-sub)", color: "var(--fg-6)" }}
                 >
                     <span>© {new Date().getFullYear()} Tan Yi Jia · Singapore 🇸🇬</span>
