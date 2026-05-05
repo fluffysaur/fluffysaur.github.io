@@ -1,0 +1,36 @@
+{
+  "name": "fluffysaur.github.io",
+  "version": "1.0.0",
+  "description": "Version 2 of my Portfolio Website",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fluffysaur/fluffysaur.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fluffysaur/fluffysaur.github.io/issues"
+  },
+  "homepage": "https://github.com/fluffysaur/fluffysaur.github.io#readme",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.2.4",
+    "@vitejs/plugin-react": "^6.0.1",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "react-router-dom": "^7.14.2",
+    "tailwindcss": "^4.2.4",
+    "vite": "^8.0.10"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^6.0.3"
+  }
+}

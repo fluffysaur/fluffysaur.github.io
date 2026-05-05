@@ -74,3 +74,23 @@ typings/
 
 # FuseBox cache
 .fusebox/
+
+# Vite
+dist/
+dist-ssr/
+*.local
+
+# TypeScript
+*.tsbuildinfo
+
+# macOS
+**/.DS_Store
+.DS_Store
+
+# Claude Code (local AI tooling — not project code)
+.claude/
+install.sh
+
+# Personal / local files not part of the portfolio
+assets/
+UXFolio/
