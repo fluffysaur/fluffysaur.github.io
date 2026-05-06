@@ -1,4 +1,4 @@
-import { TagRow } from "../../components/Tag";
+import { TagRow } from "../Tag";
 
 interface CaseTagRowProps {
     tags: string[];

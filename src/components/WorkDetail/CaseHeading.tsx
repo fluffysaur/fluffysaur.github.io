@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { caseStyles } from "../styles";
+import { caseStyles } from "../../case-studies/styles";
 
 interface CaseHeadingProps {
     children: ReactNode;

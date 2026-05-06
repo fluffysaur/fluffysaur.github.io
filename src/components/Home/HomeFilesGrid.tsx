@@ -1,4 +1,4 @@
-import { FileCard } from "../../components/FileCard";
+import { FileCard } from "../FileCard";
 import { PROJECTS } from "../../data/projects";
 
 export function HomeFilesGrid() {

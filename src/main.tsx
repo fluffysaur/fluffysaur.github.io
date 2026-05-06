@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { Layout } from "./components/Layout";
-import { Home } from "./pages/Home/Home";
+import { Home } from "./pages/Home";
 import { Work } from "./pages/Work";
 import { WorkDetail } from "./pages/WorkDetail";
 import { About } from "./pages/About";

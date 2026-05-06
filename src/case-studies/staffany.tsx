@@ -7,9 +7,26 @@ import {
     CaseImage,
     CaseStatsGrid,
     CaseTagRow,
-} from "./components";
-import { staffanyOutcomes, staffanyResearchBullets, staffanySolutionCards } from "./data/staffany.data";
-import type { CaseMeta } from "./types";
+} from "../components/WorkDetail";
+import type { CaseMeta, CaseChecklistItem, CaseStatItem } from "./types";
+
+const staffanyResearchBullets: string[] = [
+    "I audited onboarding drop-off points with PMs to identify where first-week users stalled.",
+    "I benchmarked gamified onboarding and checklist patterns from adjacent SaaS products.",
+    "I mapped onboarding jobs-to-be-done into concrete tasks users could complete in one session.",
+];
+
+const staffanySolutionCards: CaseChecklistItem[] = [
+    ["Concept A", "A mobile-first checklist that prioritized quick setup wins for new users."],
+    ["Concept B", "A milestone-based flow that made progress and reward logic explicit."],
+    ["Concept C", "A web dashboard variant for users who preferred desktop onboarding."],
+];
+
+const staffanyOutcomes: CaseStatItem[] = [
+    ["48k+", "Users reached"],
+    ["2", "Rounds of user testing"],
+    ["3", "Concept directions validated"],
+];
 
 export const meta: CaseMeta = {
     id: "staffany",
@@ -17,9 +34,9 @@ export const meta: CaseMeta = {
     subtitle: "Designing and validating a first-week activation flow that helped users discover product value earlier.",
     repoLabel: "staffany-learn-and-earn",
     dates: "Jan 2022 - Jun 2022",
-    role: "Product Designer (Growth Pod)",
-    team: "Growth Pod - PM, engineers, marketing",
-    tags: ["Figma", "UMUX-Lite", "Jira", "Notion", "Design System", "Growth"],
+    role: "Product Designer",
+    team: "Growth Squad",
+    tags: ["Figma", "Jira", "Slack", "Notion", "UMUX-Lite"],
     toc: [
         "Background",
         "My Role",
@@ -30,6 +47,7 @@ export const meta: CaseMeta = {
         "Outcomes",
         "Further Iterations",
     ],
+    mainImage: "/assets/thumbnails/learnandearn-thumb.jpg",
     prev: { id: "interseed", title: "Interseed Web App" },
     next: { id: "launchpad", title: "Launchpad: New Beginnings" },
 };

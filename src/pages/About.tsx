@@ -1,9 +1,9 @@
 import { Footer } from "../components/Footer";
 import { CTABlock } from "../components/CTABlock";
-import { ABOUT_CURRENTLY, ABOUT_TIMELINE } from "./About/about-data";
-import { AboutTimeline } from "./About/AboutTimeline";
-import { AboutCurrently } from "./About/AboutCurrently";
-import { AboutSocialLinks } from "./About/AboutSocialLinks";
+import { ABOUT_CURRENTLY, ABOUT_TIMELINE } from "../components/About/about-data";
+import { AboutTimeline } from "../components/About/AboutTimeline";
+import { AboutCurrently } from "../components/About/AboutCurrently";
+import { AboutSocialLinks } from "../components/About/AboutSocialLinks";
 
 export function About() {
     return (

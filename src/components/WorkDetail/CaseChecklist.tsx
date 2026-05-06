@@ -1,5 +1,5 @@
-import { caseStyles } from "../styles";
-import type { CaseChecklistItem } from "../types";
+import { caseStyles } from "../../case-studies/styles";
+import type { CaseChecklistItem } from "../../case-studies/types";
 
 interface CaseChecklistProps {
     items: CaseChecklistItem[];

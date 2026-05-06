@@ -7,9 +7,29 @@ import {
     CaseImage,
     CaseStatsGrid,
     CaseTagRow,
-} from "./components";
-import { rnMigrationApproach, rnMigrationHighlights, rnMigrationOutcomes } from "./data/rn-migration.data";
-import type { CaseMeta } from "./types";
+} from "../components/WorkDetail";
+import type { CaseMeta, CaseChecklistItem, CaseStatItem } from "./types";
+
+const rnMigrationHighlights: string[] = [
+    "I championed adoption of React Native across GE IT mobile applications to replace long-standing Cordova constraints.",
+    "I re-architected the SG app frontend into a single-repo modular model so entities can bundle and ship independently.",
+    "I designed a progressive migration path where legacy Vue modules can run alongside React Native modules.",
+    "I shaped the shared architecture so GE App MY could be onboarded with consistent UX patterns and code reuse.",
+    "I piloted Amazon Q and Kiro CLI workflows for AI-assisted development and shared practical findings with the team.",
+];
+
+const rnMigrationApproach: CaseChecklistItem[] = [
+    ["Phase 1", "Audit Cordova + Vue 2.7 modules, isolate coupling hotspots, and define migration boundaries."],
+    ["Phase 2", "Stand up React Native + TypeScript shell with Hermes and shared module contracts."],
+    ["Phase 3", "Run legacy Vue and React Native modules in tandem to migrate flows with minimal user disruption."],
+    ["Phase 4", "Generalize architecture and shared components so SG and MY apps can ship from one repository."],
+];
+
+const rnMigrationOutcomes: CaseStatItem[] = [
+    ["2", "Markets supported by shared architecture"],
+    ["4.8", "Mobile app store rating maintained"],
+    ["50%+", "Reduction in squad scope creep (scrum-master period)"],
+];
 
 export const meta: CaseMeta = {
     id: "rn-migration",
@@ -21,6 +41,7 @@ export const meta: CaseMeta = {
     team: "Great Eastern IT - Mobile Team",
     tags: ["React Native", "TypeScript", "Cordova", "Vue 2.7", "Hermes", "Amazon Q", "Kiro CLI"],
     toc: ["Overview", "Context", "Migration Strategy", "Architecture Decisions", "Outcomes", "What I Learned"],
+    mainImage: "/assets/thumbnails/interseed-thumb.jpg",
     prev: { id: "launchpad", title: "Launchpad: New Beginnings" },
     next: null,
 };

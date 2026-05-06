@@ -1,4 +1,4 @@
-import { Tag } from "../../components/Tag";
+import { Tag } from "../Tag";
 import { STACK } from "../../data/projects";
 
 export function HomeStackStrip() {

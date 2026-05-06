@@ -38,7 +38,7 @@ export const PROJECTS: Project[] = [
         tags: ["MERN", "React", "TypeScript", "Node.js", "MongoDB", "Express", "Figma", "Wix"],
         cat: "fullstack",
         type: "work",
-        live: true,
+        live: false,
         hasCase: true,
     },
 

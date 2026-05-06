@@ -1,5 +1,5 @@
-import { caseStyles } from "../styles";
-import type { CaseStatItem } from "../types";
+import { caseStyles } from "../../case-studies/styles";
+import type { CaseStatItem } from "../../case-studies/types";
 
 interface CaseStatsGridProps {
     items: CaseStatItem[];

@@ -1,5 +1,5 @@
-import { Footer } from "../../components/Footer";
-import { TagRow } from "../../components/Tag";
+import { Footer } from "../Footer";
+import { TagRow } from "../Tag";
 import type { Project } from "../../types";
 import { CaseBackLink } from "./CaseBackLink";
 
@@ -11,7 +11,7 @@ function extractYouTubeId(url: string): string | null {
     }
 }
 
-export function VideoDetailPage({ project: p }: { project: Project }) {
+export function Video({ project: p }: { project: Project }) {
     const videoId = p.youtubeUrl ? extractYouTubeId(p.youtubeUrl) : null;
 
     return (
@@ -54,10 +54,7 @@ export function VideoDetailPage({ project: p }: { project: Project }) {
                         </div>
                     )}
 
-                    <p
-                        className="text-[16px] leading-relaxed mb-6"
-                        style={{ color: "var(--fg-3)", maxWidth: "72ch" }}
-                    >
+                    <p className="text-[16px] leading-relaxed mb-6" style={{ color: "var(--fg-3)", maxWidth: "72ch" }}>
                         {p.blurb}
                     </p>
 

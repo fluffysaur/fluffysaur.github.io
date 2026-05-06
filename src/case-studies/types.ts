@@ -10,6 +10,7 @@ export interface CaseMeta {
     team: string;
     tags: string[];
     toc: string[];
+    mainImage?: string;
     prev: { id: string; title: string } | null;
     next: { id: string; title: string } | null;
 }

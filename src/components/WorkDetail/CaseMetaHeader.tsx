@@ -1,4 +1,4 @@
-import { Tag } from "../../components/Tag";
+import { Tag } from "../Tag";
 import type { CaseMeta } from "../../case-studies/types";
 
 interface CaseMetaHeaderProps {

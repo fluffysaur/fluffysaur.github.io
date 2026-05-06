@@ -2,25 +2,25 @@ import { useState } from "react";
 import { Footer } from "../components/Footer";
 import { FileCard } from "../components/FileCard";
 import { PROJECTS } from "../data/projects";
-import type { ProjectType, ProjectCat } from "../types";
+import type { ProjectCat } from "../types";
 
-type FilterId = "all" | ProjectType | ProjectCat;
+type FilterId = "development" | "design" | "film";
 
 const FILTERS: { id: FilterId; label: string }[] = [
-    { id: "all", label: "All" },
-    { id: "work", label: "Work Projects" },
-    { id: "personal", label: "Personal" },
-    { id: "film", label: "Film" },
-    { id: "design", label: "Design" },
+    { id: "development", label: "/Development" },
+    { id: "design", label: "/Design" },
+    { id: "film", label: "/Film" },
 ];
 
+const designCategories: ProjectCat[] = ["product", "design"];
+
 export function Work() {
-    const [active, setActive] = useState<FilterId>("all");
+    const [active, setActive] = useState<FilterId>("development");
 
     const filtered = PROJECTS.filter((p) => {
-        if (active === "all") return true;
-        if (active === "work" || active === "personal" || active === "film") return p.type === active;
-        return p.cat === active;
+        if (active === "development") return p.cat === "fullstack";
+        if (active === "design") return designCategories.includes(p.cat);
+        return p.cat === "film";
     });
 
     return (
@@ -41,7 +41,7 @@ export function Work() {
                         Everything I've <strong>shipped</strong>.
                     </h1>
                     <p className="font-light text-[20px] mb-14" style={{ color: "var(--fg-3)", maxWidth: "60ch" }}>
-                        Projects across software engineering, design, and film. Filter by type or scroll the lot.
+                        Projects across software engineering, design, and film. Browse by track.
                     </p>
 
                     {/* Filter tabs */}
@@ -50,10 +50,11 @@ export function Work() {
                         style={{ borderColor: "var(--border-mid)" }}
                     >
                         {FILTERS.map((f) => {
-                            const count =
-                                f.id === "all"
-                                    ? PROJECTS.length
-                                    : PROJECTS.filter((p) => p.type === f.id || p.cat === f.id).length;
+                            const count = PROJECTS.filter((p) => {
+                                if (f.id === "development") return p.cat === "fullstack";
+                                if (f.id === "design") return designCategories.includes(p.cat);
+                                return p.cat === "film";
+                            }).length;
                             const isActive = active === f.id;
                             return (
                                 <button

@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Footer } from "../../components/Footer";
+import { Footer } from "../Footer";
 import type { CaseContentComponent, CaseMeta } from "../../case-studies/types";
 import { CaseBackLink } from "./CaseBackLink";
 import { CaseMetaHeader } from "./CaseMetaHeader";
@@ -7,12 +7,12 @@ import { CaseToc } from "./CaseToc";
 import { CasePrevNextNav } from "./CasePrevNextNav";
 import { useActiveCaseSection } from "./useActiveCaseSection";
 
-interface WorkDetailPageProps {
+interface CaseProps {
     meta: CaseMeta;
     Content: CaseContentComponent;
 }
 
-export function WorkDetailPage({ meta, Content }: WorkDetailPageProps) {
+export function Case({ meta, Content }: CaseProps) {
     const contentRef = useRef<HTMLDivElement>(null);
     const { activeSection, setActiveSection } = useActiveCaseSection(contentRef, meta.toc);
 
@@ -22,6 +22,8 @@ export function WorkDetailPage({ meta, Content }: WorkDetailPageProps) {
                 <div className="mx-auto max-w-220 px-8">
                     <CaseBackLink />
                     <CaseMetaHeader meta={meta} />
+
+                    {meta.mainImage && <img src={meta.mainImage} alt={meta.title} className="mt-8 w-full rounded-lg" />}
 
                     <div className="mt-12 grid gap-8 lg:grid-cols-[minmax(0,1fr)_200px]">
                         <div ref={contentRef}>
