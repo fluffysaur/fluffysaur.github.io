@@ -1,6 +1,6 @@
 import { Footer } from "../components/Footer";
-import { TagRow } from "../components/Tag";
-import { EXPERIENCES, RESUME_URL, formatExperienceRange } from "../data/experience";
+import { ExperienceItem } from "../components/Experience/ExperienceItem";
+import { EXPERIENCES, RESUME_URL } from "../data/experience";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
@@ -37,38 +37,7 @@ export function Experience() {
 
                     <div className="mt-12 border-t mb-8" style={{ borderColor: "var(--border-mid)" }}>
                         {EXPERIENCES.map((experience) => (
-                            <article
-                                key={experience.id}
-                                className="grid gap-6 py-8 border-b md:grid-cols-[210px_minmax(0,1fr)]"
-                                style={{ borderColor: "var(--border-mid)" }}
-                            >
-                                <div>
-                                    <p
-                                        className="font-mono text-[11px] tracking-[0.12em] uppercase mb-2"
-                                        style={{ color: "var(--fg-6)" }}
-                                    >
-                                        {formatExperienceRange(experience)}
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <h2
-                                        className="font-light text-[28px] leading-tight"
-                                        style={{ color: "var(--fg-1)" }}
-                                    >
-                                        {experience.title}
-                                    </h2>
-                                    <p className="mt-2 text-[14px]" style={{ color: "var(--fg-4)" }}>
-                                        {experience.company} · {experience.role}
-                                    </p>
-                                    <p className="mt-4 text-[16px] leading-relaxed" style={{ color: "var(--fg-3)" }}>
-                                        {experience.description}
-                                    </p>
-                                    <div className="mt-5">
-                                        <TagRow tags={experience.stack} />
-                                    </div>
-                                </div>
-                            </article>
+                            <ExperienceItem key={experience.id} experience={experience} />
                         ))}
                     </div>
                     <a

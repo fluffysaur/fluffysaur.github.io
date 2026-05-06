@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { TagRow } from "../Tag";
-import { LATEST_HIGHLIGHTED_EXPERIENCE, formatExperienceRange } from "../../data/experience";
+import { ExperienceItem } from "../Experience/ExperienceItem";
+import { HIGHLIGHTED_EXPERIENCES } from "../../data/experience";
 
 export function HomeExperiencePreview() {
-    const experience = LATEST_HIGHLIGHTED_EXPERIENCE;
+    const experiences = HIGHLIGHTED_EXPERIENCES;
 
     return (
         <section className="pb-20">
@@ -19,29 +19,14 @@ export function HomeExperiencePreview() {
                 </h2>
 
                 <p className="font-mono text-sm mb-8" style={{ color: "var(--fg-5)" }}>
-                    // latest highlighted role
+                    // my latest roles
                 </p>
 
-                <article
-                    className="rounded-lg border p-6"
-                    style={{ borderColor: "var(--border-mid)", background: "var(--bg-card)" }}
-                >
-                    <p className="text-[11px] tracking-[0.2em] uppercase mb-2" style={{ color: "var(--fg-5)" }}>
-                        {formatExperienceRange(experience)}
-                    </p>
-                    <h3 className="font-light text-[28px] leading-tight" style={{ color: "var(--fg-1)" }}>
-                        {experience.title}
-                    </h3>
-                    <p className="mt-2 text-[14px]" style={{ color: "var(--fg-4)" }}>
-                        {experience.company} · {experience.role}
-                    </p>
-                    <p className="mt-4 text-[15px] leading-relaxed" style={{ color: "var(--fg-3)", maxWidth: "72ch" }}>
-                        {experience.description}
-                    </p>
-                    <div className="mt-5">
-                        <TagRow tags={experience.stack} />
-                    </div>
-                </article>
+                <div className="border-t" style={{ borderColor: "var(--border-mid)" }}>
+                    {experiences.map((experience) => (
+                        <ExperienceItem key={experience.id} experience={experience} />
+                    ))}
+                </div>
 
                 <div className="mt-10">
                     <Link

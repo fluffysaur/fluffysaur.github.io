@@ -41,7 +41,7 @@ const EXPERIENCE_ENTRIES: Experience[] = [
         id: "great-eastern-software-engineer",
         title: "Software Engineer",
         company: "Great Eastern",
-        role: "Mobile Platform",
+        role: "Mobile App Transformation",
         startDate: { month: 1, year: 2026 },
         endDate: "now",
         description:
@@ -59,19 +59,19 @@ const EXPERIENCE_ENTRIES: Experience[] = [
         description:
             "Shipped customer-facing insurance app features on Cordova + Vue, improved release quality, and supported high-satisfaction claims and service journeys.",
         stack: ["Cordova", "Vue", "TypeScript", "Mobile Delivery", "Analytics"],
-        highlight: false,
+        highlight: true,
     },
     {
         id: "staffany-product-designer",
         title: "Product Designer",
-        company: "StaffAny + NUS",
+        company: "StaffAny",
         role: "Growth and UX",
         startDate: { month: 1, year: 2022 },
         endDate: { month: 6, year: 2023 },
         description:
             "Owned product design for growth initiatives including Learn & Earn, driving research, prototyping, testing, and rollout artifacts for large cohorts.",
         stack: ["Figma", "Design Systems", "User Research", "Usability Testing", "Jira", "Notion"],
-        highlight: false,
+        highlight: true,
     },
     {
         id: "interseed-frontend-developer",
@@ -83,19 +83,19 @@ const EXPERIENCE_ENTRIES: Experience[] = [
         description:
             "Built and iterated on the Interseed MERN platform, helping the team deliver a soft launch and stabilize onboarding and core workflows.",
         stack: ["React", "TypeScript", "Node.js", "MongoDB", "Express", "MERN"],
-        highlight: false,
+        highlight: true,
     },
     {
         id: "earth-school-web-designer-developer",
         title: "Web Designer & Developer",
         company: "Earth School Singapore",
-        role: "Website Experience",
+        role: "Website",
         startDate: { month: 1, year: 2020 },
         endDate: { month: 5, year: 2020 },
         description:
             "Designed and developed marketing and information pages with a focus on clear storytelling and maintainable content updates.",
         stack: ["HTML", "CSS", "JavaScript", "Content Design"],
-        highlight: false,
+        highlight: true,
     },
     {
         id: "stardust-production-assistant",

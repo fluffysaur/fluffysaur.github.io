@@ -30,13 +30,14 @@ export function HomeTerminalHero() {
                     <div className="p-7 font-mono text-[14px] leading-[1.8]">
                         <div style={{ color: "var(--term-cmd)" }}>$ whoami</div>
                         <div className="mb-3" style={{ color: "var(--term-output)" }}>
-                            tan-yi-jia
+                            <span className="text-accent">Tan Yi Jia</span>
                         </div>
 
                         <div style={{ color: "var(--term-cmd)" }}>$ cat about.md</div>
                         <div className="mb-3" style={{ color: "var(--term-output)" }}>
-                            Hi! I'm <span className="text-accent">Tan Yi Jia</span>, a software engineer in Singapore.
-                            <br />I currently ship React Native + TypeScript at Great Eastern,
+                            I'm a <span className="text-accent">software engineer</span> in Singapore.
+                            <br />
+                            I currently ship stuff at Great Eastern,
                             <br />
                             after starting out in UX design and product storytelling.
                         </div>
@@ -49,7 +50,7 @@ export function HomeTerminalHero() {
                         </div>
 
                         <div style={{ color: "var(--term-cmd)" }}>$ status</div>
-                        <div style={{ color: "#6ee07a" }}>● available · taking new projects</div>
+                        <div style={{ color: "var(--color-green-400)" }}>● available · looking for work</div>
 
                         <div className="mt-3 flex items-center gap-0" style={{ color: "var(--term-cmd)" }}>
                             <span>$ </span>
@@ -67,9 +68,7 @@ export function HomeTerminalHero() {
                         className="font-light leading-tight"
                         style={{ fontSize: "clamp(32px, 5.5vw, 64px)", letterSpacing: "-0.01em", color: "var(--fg-1)" }}
                     >
-                        Engineering <strong>delight</strong> into
-                        <br />
-                        every <strong>pixel</strong>.
+                        Engineering <strong>delight</strong> into every <strong>pixel</strong>.
                     </h1>
                     <div className="flex flex-wrap gap-3 mt-8">
                         <a
