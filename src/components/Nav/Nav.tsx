@@ -22,7 +22,7 @@ export function Nav() {
     const containerRef = useRef<HTMLDivElement>(null);
     const mobileSearchRef = useRef<HTMLDivElement>(null);
 
-    const { tabs, caseId } = deriveTabs(pathname);
+    const { tabs, caseId, caseTrack } = deriveTabs(pathname);
     const results = filterSearchItems(query);
 
     const closeSearch = () => {
@@ -128,7 +128,12 @@ export function Nav() {
                     </div>
                 </div>
 
-                <NavTabs tabs={tabs} pathname={pathname} caseId={caseId} onCloseCaseTab={() => navigate("/work")} />
+                <NavTabs
+                    tabs={tabs}
+                    pathname={pathname}
+                    caseId={caseId}
+                    onCloseCaseTab={() => navigate(`/work?track=${caseTrack ?? "engineering"}`)}
+                />
 
                 <div className="flex-1" />
 

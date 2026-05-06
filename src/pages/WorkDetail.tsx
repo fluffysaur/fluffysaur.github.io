@@ -18,5 +18,5 @@ export function WorkDetail() {
         return <Video project={project} />;
     }
 
-    return <Navigate to="/work" replace />;
+    return <Navigate to="/work?track=engineering" replace />;
 }

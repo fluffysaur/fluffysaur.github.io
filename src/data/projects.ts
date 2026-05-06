@@ -1,7 +1,7 @@
 import type { Project } from "../types";
 
 export const PROJECTS: Project[] = [
-    // ── Work Projects ──────────────────────────────────────────────────────────
+    // Engineering
     {
         id: "rn-migration",
         title: "Great Eastern Mobile Platform Migration",
@@ -10,8 +10,8 @@ export const PROJECTS: Project[] = [
         role: "Software Engineer",
         year: "2026-now",
         tags: ["React Native", "TypeScript", "Cordova", "Vue 2.7", "Hermes", "Amazon Q", "Kiro CLI"],
-        cat: "fullstack",
-        type: "work",
+        cat: "engineering",
+        highlight: false,
         live: true,
         hasCase: true,
     },
@@ -23,8 +23,8 @@ export const PROJECTS: Project[] = [
         role: "Product Designer",
         year: "2022-23",
         tags: ["Figma", "UMUX-Lite", "Design System", "User Testing", "Jira", "Notion"],
-        cat: "product",
-        type: "work",
+        cat: "engineering",
+        highlight: true,
         live: true,
         hasCase: true,
     },
@@ -36,13 +36,11 @@ export const PROJECTS: Project[] = [
         role: "Frontend Developer",
         year: "2020-21",
         tags: ["MERN", "React", "TypeScript", "Node.js", "MongoDB", "Express", "Figma", "Wix"],
-        cat: "fullstack",
-        type: "work",
+        cat: "engineering",
+        highlight: true,
         live: false,
         hasCase: true,
     },
-
-    // ── Personal Projects ───────────────────────────────────────────────────────
     {
         id: "launchpad",
         title: "Launchpad: New Beginnings",
@@ -51,13 +49,13 @@ export const PROJECTS: Project[] = [
         role: "UX Designer & Developer",
         year: "2020",
         tags: ["Node", "HTML/CSS", "Bootstrap", "MySQL"],
-        cat: "fullstack",
-        type: "personal",
+        cat: "engineering",
+        highlight: true,
         live: false,
         hasCase: true,
     },
 
-    // ── Film ────────────────────────────────────────────────────────────────────
+    // Film
     {
         id: "anp",
         title: "Andre & Priscilla",
@@ -67,7 +65,7 @@ export const PROJECTS: Project[] = [
         year: "2023",
         tags: ["Premiere", "Film"],
         cat: "film",
-        type: "film",
+        highlight: false,
         live: false,
         youtubeUrl: "https://www.youtube.com/watch?v=4_dpSzk23WU",
     },
@@ -80,7 +78,7 @@ export const PROJECTS: Project[] = [
         year: "2020",
         tags: ["Premiere", "After Effects", "Film"],
         cat: "film",
-        type: "film",
+        highlight: false,
         live: false,
         youtubeUrl: "https://www.youtube.com/watch?v=ShCs3YmUu8k",
     },
@@ -93,7 +91,7 @@ export const PROJECTS: Project[] = [
         year: "2021",
         tags: ["Premiere", "Film"],
         cat: "film",
-        type: "film",
+        highlight: false,
         live: false,
         youtubeUrl: "https://www.youtube.com/watch?v=gP0Wxvdulhc",
     },
@@ -106,7 +104,7 @@ export const PROJECTS: Project[] = [
         year: "2022",
         tags: ["Premiere", "Film"],
         cat: "film",
-        type: "film",
+        highlight: false,
         live: false,
         youtubeUrl: "https://www.youtube.com/watch?v=Lk2o6oYRvhA",
     },
@@ -119,7 +117,7 @@ export const PROJECTS: Project[] = [
         year: "2022",
         tags: ["Premiere", "Film"],
         cat: "film",
-        type: "film",
+        highlight: false,
         live: false,
         youtubeUrl: "https://www.youtube.com/watch?v=MQ1b9YYK6s8",
     },
@@ -137,7 +135,6 @@ export const STACK = [
     "Vite",
 ];
 
-export const WORK_PROJECTS = PROJECTS.filter((p) => p.type === "work");
-export const PERSONAL_PROJECTS = PROJECTS.filter((p) => p.type === "personal");
-export const FILM_PROJECTS = PROJECTS.filter((p) => p.type === "film");
-export const FEATURED_PROJECTS = [...WORK_PROJECTS, ...PERSONAL_PROJECTS].slice(0, 4);
+export const ENGINEERING_PROJECTS = PROJECTS.filter((p) => p.cat === "engineering");
+export const FILM_PROJECTS = PROJECTS.filter((p) => p.cat === "film");
+export const FEATURED_PROJECTS = PROJECTS.filter((p) => p.highlight);

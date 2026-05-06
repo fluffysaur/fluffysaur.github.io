@@ -1,27 +1,30 @@
-import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Footer } from "../components/Footer";
 import { FileCard } from "../components/FileCard";
 import { PROJECTS } from "../data/projects";
-import type { ProjectCat } from "../types";
 
-type FilterId = "development" | "design" | "film";
+type FilterId = "engineering" | "film";
 
 const FILTERS: { id: FilterId; label: string }[] = [
-    { id: "development", label: "/Development" },
-    { id: "design", label: "/Design" },
+    { id: "engineering", label: "/Engineering" },
     { id: "film", label: "/Film" },
 ];
 
-const designCategories: ProjectCat[] = ["product", "design"];
+function normalizeTrack(track: string | null): FilterId {
+    return track === "film" ? "film" : "engineering";
+}
 
 export function Work() {
-    const [active, setActive] = useState<FilterId>("development");
+    const [searchParams, setSearchParams] = useSearchParams();
+    const active = normalizeTrack(searchParams.get("track"));
 
-    const filtered = PROJECTS.filter((p) => {
-        if (active === "development") return p.cat === "fullstack";
-        if (active === "design") return designCategories.includes(p.cat);
-        return p.cat === "film";
-    });
+    const setTrack = (track: FilterId) => {
+        const next = new URLSearchParams(searchParams);
+        next.set("track", track);
+        setSearchParams(next);
+    };
+
+    const filtered = PROJECTS.filter((project) => project.cat === active);
 
     return (
         <>
@@ -41,7 +44,7 @@ export function Work() {
                         Everything I've <strong>shipped</strong>.
                     </h1>
                     <p className="font-light text-[20px] mb-14" style={{ color: "var(--fg-3)", maxWidth: "60ch" }}>
-                        Projects across software engineering, design, and film. Browse by track.
+                        Projects across engineering and film. Browse by track.
                     </p>
 
                     {/* Filter tabs */}
@@ -50,16 +53,12 @@ export function Work() {
                         style={{ borderColor: "var(--border-mid)" }}
                     >
                         {FILTERS.map((f) => {
-                            const count = PROJECTS.filter((p) => {
-                                if (f.id === "development") return p.cat === "fullstack";
-                                if (f.id === "design") return designCategories.includes(p.cat);
-                                return p.cat === "film";
-                            }).length;
+                            const count = PROJECTS.filter((project) => project.cat === f.id).length;
                             const isActive = active === f.id;
                             return (
                                 <button
                                     key={f.id}
-                                    onClick={() => setActive(f.id)}
+                                    onClick={() => setTrack(f.id)}
                                     className="px-4 py-3.5 border-b-2 font-medium text-[12px] tracking-[0.2em] uppercase cursor-pointer bg-transparent border-x-0 border-t-0 transition-all shrink-0 whitespace-nowrap"
                                     style={{
                                         color: isActive ? "#f2cb05" : "var(--fg-4)",

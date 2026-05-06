@@ -1,7 +1,6 @@
 import { Footer } from "../components/Footer";
 import { CTABlock } from "../components/CTABlock";
-import { ABOUT_CURRENTLY, ABOUT_TIMELINE } from "../components/About/about-data";
-import { AboutTimeline } from "../components/About/AboutTimeline";
+import { ABOUT_CURRENTLY } from "../components/About/about-data";
 import { AboutCurrently } from "../components/About/AboutCurrently";
 import { AboutSocialLinks } from "../components/About/AboutSocialLinks";
 
@@ -36,7 +35,6 @@ export function About() {
                         <img src="/assets/me.jpg" alt="Tan Yi Jia" className="w-full rounded-lg block object-cover" />
                     </div>
 
-                    <AboutTimeline entries={ABOUT_TIMELINE} />
                     <AboutCurrently items={ABOUT_CURRENTLY} />
                     <AboutSocialLinks />
                 </div>

@@ -4,19 +4,14 @@ import { faChevronDown, faChevronRight, faFolder } from "@fortawesome/free-solid
 import { PROJECTS } from "../../data/projects";
 
 const PROJECT_GROUPS = [
-    { id: "work", label: "work", items: PROJECTS.filter((p) => p.type === "work") },
-    { id: "personal", label: "personal", items: PROJECTS.filter((p) => p.type === "personal") },
-    { id: "film", label: "film", items: PROJECTS.filter((p) => p.type === "film") },
+    { id: "engineering", label: "engineering", items: PROJECTS.filter((project) => project.cat === "engineering") },
+    { id: "film", label: "film", items: PROJECTS.filter((project) => project.cat === "film") },
 ];
 
 function projectHref(project: (typeof PROJECTS)[number]) {
-    if (project.youtubeUrl) return project.youtubeUrl;
+    if (project.cat === "film") return `/work/${project.id}`;
     if (project.hasCase) return `/work/${project.id}`;
-    return "/work";
-}
-
-function isProjectExternal(project: (typeof PROJECTS)[number]) {
-    return Boolean(project.youtubeUrl);
+    return `/work?track=${project.cat}`;
 }
 
 interface ActivityBarExplorerPanelProps {
@@ -65,30 +60,13 @@ export function ActivityBarExplorerPanel({
                             <div className="py-1.5">
                                 {group.items.map((project) => {
                                     const href = projectHref(project);
-                                    const external = isProjectExternal(project);
-                                    const active =
-                                        !external && (href === "/work" ? pathname === "/work" : pathname === href);
+                                    const active = href.startsWith("/work?") ? pathname === "/work" : pathname === href;
+                                    const extension = project.cat === "film" ? "mov" : "tsx";
 
                                     const rowClass = [
                                         "flex items-center gap-2 px-3 py-1.5 text-[12px] font-mono no-underline transition-colors",
                                         active ? "text-accent" : "",
                                     ].join(" ");
-
-                                    if (external) {
-                                        return (
-                                            <a
-                                                key={project.id}
-                                                href={href}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className={rowClass}
-                                                style={{ color: active ? "#f2cb05" : "var(--fg-3)" }}
-                                            >
-                                                <span style={{ color: "var(--fg-7)" }}>└</span>
-                                                {project.id}.mp4
-                                            </a>
-                                        );
-                                    }
 
                                     return (
                                         <Link
@@ -98,7 +76,7 @@ export function ActivityBarExplorerPanel({
                                             style={{ color: active ? "#f2cb05" : "var(--fg-3)" }}
                                         >
                                             <span style={{ color: "var(--fg-7)" }}>└</span>
-                                            {project.id}.tsx
+                                            {project.id}.{extension}
                                         </Link>
                                     );
                                 })}

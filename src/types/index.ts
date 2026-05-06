@@ -1,5 +1,4 @@
-export type ProjectType = "work" | "personal" | "film";
-export type ProjectCat = "fullstack" | "product" | "design" | "film";
+export type ProjectCat = "engineering" | "film";
 
 export interface Project {
     id: string;
@@ -10,12 +9,29 @@ export interface Project {
     year: string;
     tags: string[];
     cat: ProjectCat;
-    type: ProjectType;
+    highlight: boolean;
     live: boolean;
     hasCase?: boolean;
     repoUrl?: string;
     liveUrl?: string;
     youtubeUrl?: string;
+}
+
+export interface ExperienceDate {
+    month: number;
+    year: number;
+}
+
+export interface Experience {
+    id: string;
+    title: string;
+    company: string;
+    role: string;
+    startDate: ExperienceDate;
+    endDate: ExperienceDate | "now";
+    description: string;
+    stack: string[];
+    highlight: boolean;
 }
 
 export interface Testimonial {
@@ -24,11 +40,4 @@ export interface Testimonial {
     author: string;
     role: string;
     companyUrl?: string;
-}
-
-export interface TimelineEntry {
-    year: string;
-    title: string;
-    org: string;
-    tag?: string;
 }

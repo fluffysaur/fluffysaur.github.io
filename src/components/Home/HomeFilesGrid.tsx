@@ -1,8 +1,8 @@
 import { FileCard } from "../FileCard";
-import { PROJECTS } from "../../data/projects";
+import { FEATURED_PROJECTS } from "../../data/projects";
 
 export function HomeFilesGrid() {
-    const featured = PROJECTS.filter((p) => p.type !== "film").slice(0, 4);
+    const featured = FEATURED_PROJECTS;
     return (
         <section className="pb-24">
             <div className="max-w-285 mx-auto px-5 md:px-16">
@@ -15,7 +15,7 @@ export function HomeFilesGrid() {
                     Selected <strong>work</strong>
                 </h2>
                 <p className="font-mono text-sm mb-10" style={{ color: "var(--fg-5)" }}>
-                    // {featured.length} files · work + personal. Click any to open the case study.
+                    // {featured.length} highlighted files. Click any to open the project.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {featured.map((p) => (

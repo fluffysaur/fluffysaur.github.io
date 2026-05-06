@@ -90,7 +90,3 @@ dist-ssr/
 # Claude Code (local AI tooling — not project code)
 .claude/
 install.sh
-
-# Personal / local files not part of the portfolio
-assets/
-UXFolio/

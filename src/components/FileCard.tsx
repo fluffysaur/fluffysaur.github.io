@@ -8,6 +8,8 @@ interface FileCardProps {
 }
 
 export function FileCard({ project: p, large }: FileCardProps) {
+    const extension = p.cat === "film" ? "mov" : "tsx";
+
     const inner = (
         <div
             className="block text-inherit no-underline rounded-lg overflow-hidden border transition-all duration-250 group"
@@ -18,7 +20,9 @@ export function FileCard({ project: p, large }: FileCardProps) {
                 className="flex items-center justify-between px-3.5 py-2 border-b font-mono text-[11px]"
                 style={{ background: "var(--bg-card-header)", borderColor: "var(--border-sub)", color: "var(--fg-5)" }}
             >
-                <span>{p.id}.tsx</span>
+                <span>
+                    {p.id}.{extension}
+                </span>
                 <span style={{ color: p.live ? "#6ee07a" : "var(--fg-7)" }}>● {p.live ? "live" : "archived"}</span>
             </div>
 
