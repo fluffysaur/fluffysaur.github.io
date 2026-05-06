@@ -9,9 +9,9 @@ const PROJECT_GROUPS = [
 ];
 
 function projectHref(project: (typeof PROJECTS)[number]) {
-    if (project.cat === "film") return `/work/${project.id}`;
-    if (project.hasCase) return `/work/${project.id}`;
-    return `/work?track=${project.cat}`;
+    if (project.cat === "film") return `/projects/${project.id}`;
+    if (project.hasCase) return `/projects/${project.id}`;
+    return `/projects?track=${project.cat}`;
 }
 
 interface ActivityBarExplorerPanelProps {
@@ -60,7 +60,9 @@ export function ActivityBarExplorerPanel({
                             <div className="py-1.5">
                                 {group.items.map((project) => {
                                     const href = projectHref(project);
-                                    const active = href.startsWith("/work?") ? pathname === "/work" : pathname === href;
+                                    const active = href.startsWith("/projects?")
+                                        ? pathname === "/projects"
+                                        : pathname === href;
                                     const extension = project.cat === "film" ? "mov" : "tsx";
 
                                     const rowClass = [

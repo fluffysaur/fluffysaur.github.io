@@ -12,10 +12,10 @@ export function HomeFilesGrid() {
                     </span>
                 </div>
                 <h2 className="font-light mb-2" style={{ fontSize: 36, color: "var(--fg-1)" }}>
-                    Selected <strong>work</strong>
+                    Selected <strong>projects</strong>
                 </h2>
                 <p className="font-mono text-sm mb-10" style={{ color: "var(--fg-5)" }}>
-                    // {featured.length} highlighted files. Click any to open the project.
+                    // {featured.length} highlighted files. Click any to open the case study.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {featured.map((p) => (
@@ -24,7 +24,7 @@ export function HomeFilesGrid() {
                 </div>
                 <div className="mt-10">
                     <a
-                        href="/work"
+                        href="/projects"
                         className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full border text-[12px] font-medium tracking-[0.2em] uppercase no-underline transition-all hover:border-accent hover:text-accent"
                         style={{ borderColor: "var(--border)", color: "var(--fg-2)" }}
                     >

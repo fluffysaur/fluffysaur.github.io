@@ -68,7 +68,11 @@ export function FileCard({ project: p, large }: FileCardProps) {
 
     if (p.youtubeUrl || p.hasCase) {
         return (
-            <Link to={`/work/${p.id}`} className="block no-underline text-inherit" style={{ textDecoration: "none" }}>
+            <Link
+                to={`/projects/${p.id}`}
+                className="block no-underline text-inherit"
+                style={{ textDecoration: "none" }}
+            >
                 {inner}
             </Link>
         );

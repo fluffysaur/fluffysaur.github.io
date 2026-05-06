@@ -13,14 +13,14 @@ export const KBD_SHORTCUT = isMac ? "⌘K" : "Ctrl K";
 const PAGE_ITEMS: SearchItem[] = [
     { label: "Home", sub: "/", path: "/" },
     { label: "Experience", sub: "/experience", path: "/experience" },
-    { label: "Work", sub: "/work", path: "/work" },
+    { label: "Projects", sub: "/projects", path: "/projects" },
     { label: "About", sub: "/about", path: "/about" },
 ];
 
 const PROJECT_ITEMS: SearchItem[] = PROJECTS.map((project) => ({
     label: project.title,
-    sub: project.hasCase || project.cat === "film" ? `/work/${project.id}` : `/work?track=${project.cat}`,
-    path: project.hasCase || project.cat === "film" ? `/work/${project.id}` : `/work?track=${project.cat}`,
+    sub: project.hasCase || project.cat === "film" ? `/projects/${project.id}` : `/projects?track=${project.cat}`,
+    path: project.hasCase || project.cat === "film" ? `/projects/${project.id}` : `/projects?track=${project.cat}`,
 }));
 
 const ALL_ITEMS: SearchItem[] = [...PAGE_ITEMS, ...PROJECT_ITEMS];

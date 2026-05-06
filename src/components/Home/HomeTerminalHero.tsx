@@ -72,10 +72,10 @@ export function HomeTerminalHero() {
                     </h1>
                     <div className="flex flex-wrap gap-3 mt-8">
                         <a
-                            href="/work"
+                            href="/projects"
                             className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-accent text-graphite text-[12px] font-medium tracking-[0.2em] uppercase no-underline transition-all hover:bg-accent-deep"
                         >
-                            cd ./work →
+                            cd ./projects →
                         </a>
                         <a
                             href="https://github.com/fluffysaur"

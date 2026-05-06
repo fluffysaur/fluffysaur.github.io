@@ -19,8 +19,8 @@ function isTabActive(tab: TabDef, pathname: string): boolean {
         return pathname === "/";
     }
 
-    if (tab.to === "/work") {
-        return pathname === "/work";
+    if (tab.to === "/projects") {
+        return pathname === "/projects";
     }
 
     return pathname.startsWith(tab.to);

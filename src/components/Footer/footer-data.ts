@@ -8,7 +8,7 @@ export interface FooterLinkItem {
 export const FOOTER_SITEMAP: FooterLinkItem[] = [
     { label: "Home", to: "/" },
     { label: "Experience", to: "/experience" },
-    { label: "Work", to: "/work" },
+    { label: "Projects", to: "/projects" },
     { label: "About", to: "/about" },
 ];
 

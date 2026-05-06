@@ -14,7 +14,7 @@ function normalizeTrack(track: string | null): FilterId {
     return track === "film" ? "film" : "engineering";
 }
 
-export function Work() {
+export function Projects() {
     const [searchParams, setSearchParams] = useSearchParams();
     const active = normalizeTrack(searchParams.get("track"));
 
@@ -35,7 +35,7 @@ export function Work() {
                         style={{ color: "var(--fg-6)" }}
                     >
                         <span className="inline-block w-6 h-px bg-accent" />
-                        /work
+                        /projects
                     </p>
                     <h1
                         className="font-light mb-6"

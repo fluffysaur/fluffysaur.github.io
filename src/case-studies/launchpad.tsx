@@ -7,7 +7,7 @@ import {
     CaseImage,
     CaseStatsGrid,
     CaseTagRow,
-} from "../components/WorkDetail";
+} from "../components/ProjectDetail";
 import type { CaseMeta, CaseChecklistItem, CaseStatItem } from "./types";
 
 const launchpadDefineBullets: string[] = [

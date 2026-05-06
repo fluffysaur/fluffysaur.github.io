@@ -38,15 +38,16 @@ npm run format
 
 - `src/components/Layout.tsx` wraps all routes
 - `src/components/ActivityBar/ActivityBar.tsx` handles sidebar tabs and mobile drawer
-- `src/components/Nav.tsx` handles tab chrome, search, and theme toggle
+- `src/components/Nav/Nav.tsx` handles tab chrome, search (desktop + mobile), and theme toggle
 - `src/components/StatusBar.tsx` renders the fixed bottom status bar
 
 ### Routing
 
-- `/` -> Home
-- `/work` -> Work listing
-- `/work/:id` -> Work detail case study
-- `/about` -> About
+- `/` → Home
+- `/experience` → Experience (full career history)
+- `/projects` → Projects listing
+- `/projects/:id` → ProjectDetail case study
+- `/about` → About
 
 ### Theming
 
@@ -54,26 +55,25 @@ npm run format
 - Design tokens and utility overrides live in `src/index.css`
 - Theme is applied via `data-theme` on `html`
 
-### Project data
+### Data sources
 
-- `src/data/projects.ts` is the source of truth for portfolio cards
-- `hasCase: true` controls whether a work item opens a case study page
+- `src/data/projects.ts` — source of truth for portfolio cards; `hasCase: true` enables a case study page
+- `src/data/experience.ts` — work history rendered on the Experience page
+- `src/data/social.ts` — social links for footer and About
+- `src/data/testimonials.ts` — testimonials for the home page strip
 
-## Case Study Authoring (Important)
-
-Case studies were refactored for easier manual editing.
+## Case Study Authoring
 
 ### Where to edit content
 
-- Edit repeated content arrays in `src/case-studies/data/*.data.ts`
-- Edit narrative paragraphs and section order in `src/case-studies/*.tsx`
+- Narrative paragraphs and section order: `src/case-studies/*.tsx`
+- Shared styles/tokens: `src/case-studies/styles.ts`
+- Shared types: `src/case-studies/types.ts`
+- Case registry: `src/case-studies/registry.ts`
 
 ### Reusable case-study building blocks
 
-- Shared components: `src/case-studies/components/`
-- Shared tokens/styles: `src/case-studies/styles.ts`
-- Shared types: `src/case-studies/types.ts`
-- Case registry: `src/case-studies/registry.ts`
+All shared UI components (headings, callouts, stats grids, TOC, prev/next nav, etc.) live in `src/components/ProjectDetail/`.
 
 ### Existing case files
 
@@ -84,11 +84,10 @@ Case studies were refactored for easier manual editing.
 
 ## How To Add A New Case Study
 
-1. Add the case content file in `src/case-studies/your-case.tsx`
-2. Add optional repeatable content data in `src/case-studies/data/your-case.data.ts`
-3. Export `meta` and `YourCaseContent` from the case file
-4. Register it in `src/case-studies/registry.ts`
-5. Add `hasCase: true` and matching `id` in `src/data/projects.ts`
+1. Add the case content file at `src/case-studies/your-case.tsx`
+2. Export `meta` (a `CaseMeta` object) and `YourCaseContent` from it
+3. Register it in `src/case-studies/registry.ts`
+4. Add `hasCase: true` and matching `id` in `src/data/projects.ts`
 
 ## Validation Checklist
 

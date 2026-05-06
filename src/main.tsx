@@ -5,8 +5,8 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import { Layout } from "./components/Layout";
 import { Home } from "./pages/Home";
 import { Experience } from "./pages/Experience";
-import { Work } from "./pages/Work";
-import { WorkDetail } from "./pages/WorkDetail";
+import { Projects } from "./pages/Projects";
+import { ProjectDetail } from "./pages/ProjectDetail";
 import { About } from "./pages/About";
 import "./index.css";
 
@@ -18,8 +18,8 @@ createRoot(document.getElementById("root")!).render(
                     <Route element={<Layout />}>
                         <Route path="/" element={<Home />} />
                         <Route path="/experience" element={<Experience />} />
-                        <Route path="/work" element={<Work />} />
-                        <Route path="/work/:id" element={<WorkDetail />} />
+                        <Route path="/projects" element={<Projects />} />
+                        <Route path="/projects/:id" element={<ProjectDetail />} />
                         <Route path="/about" element={<About />} />
                     </Route>
                     <Route path="*" element={<Navigate to="/" replace />} />

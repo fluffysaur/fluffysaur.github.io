@@ -32,11 +32,12 @@ The UI deliberately mimics a VS Code / IDE shell. The chrome components are:
 ### Routing (`src/main.tsx`)
 
 ```bash
-/           → Home
-/work       → Work (project grid)
-/work/:id   → WorkDetail (case study)
-/about      → About
-*           → redirect to /
+/               → Home
+/experience     → Experience (career history)
+/projects       → Projects (project grid)
+/projects/:id   → ProjectDetail (case study)
+/about          → About
+*               → redirect to /
 ```
 
 All routes are children of `<Layout>`.
@@ -47,15 +48,12 @@ Theme is `dark` (default) or `light`, stored in `localStorage` and applied as a 
 
 Light mode overrides for white-based Tailwind utility classes (e.g. `text-white/85`) are handled with explicit `[data-theme="light"]` selectors in `index.css` — add any new white utilities there if needed.
 
-### Projects data (`src/data/projects.ts`)
+### Data sources
 
-Single source of truth for portfolio items. Each `Project` entry (typed in `src/types/index.ts`) has:
-
-- `type`: `'work' | 'personal' | 'film'`
-- `cat`: `'fullstack' | 'product' | 'design' | 'film'`
-- `hasCase`: whether a case study page exists for it
-
-Pre-filtered exports (`WORK_PROJECTS`, `PERSONAL_PROJECTS`, `FILM_PROJECTS`, `FEATURED_PROJECTS`) are consumed by pages.
+- **`src/data/projects.ts`** — source of truth for portfolio items. Each `Project` entry (typed in `src/types/index.ts`) has `cat: 'engineering' | 'film'`, `highlight`, `live`, and optional `hasCase`. Pre-filtered exports: `ENGINEERING_PROJECTS`, `FILM_PROJECTS`, `FEATURED_PROJECTS`, `STACK`.
+- **`src/data/experience.ts`** — work history entries rendered on the Experience page.
+- **`src/data/social.ts`** — social links consumed by footer and About page.
+- **`src/data/testimonials.ts`** — testimonial entries for the home page strip.
 
 ### Case studies (`src/case-studies/`)
 
@@ -64,7 +62,9 @@ Each case study is a `.tsx` file that exports:
 1. `meta` — a `CaseMeta` object (id, title, subtitle, dates, role, team, tags, toc, prev/next links)
 2. A named content component (e.g. `InterseedContent`) that renders the article body as JSX
 
-`WorkDetail.tsx` imports all cases into a `CASES` record and renders them. To add a new case study: create the file, add it to the `CASES` record in `WorkDetail.tsx`, and set `hasCase: true` on the project in `projects.ts`.
+The registry at `src/case-studies/registry.ts` maps all case IDs to their `{ meta, Content }` pairs and is imported by `ProjectDetail.tsx`. To add a new case study: create the file, add it to `registry.ts`, and set `hasCase: true` on the project in `projects.ts`.
+
+Shared case-study building blocks live in `src/components/ProjectDetail/` (not inside `src/case-studies/`).
 
 ### Fonts
 

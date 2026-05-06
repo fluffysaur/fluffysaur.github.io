@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ExperienceItem } from "../Experience/ExperienceItem";
+import { ExperienceItem } from "../Experience";
 import { HIGHLIGHTED_EXPERIENCES } from "../../data/experience";
 
 export function HomeExperiencePreview() {

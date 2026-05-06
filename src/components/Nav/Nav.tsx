@@ -132,7 +132,7 @@ export function Nav() {
                     tabs={tabs}
                     pathname={pathname}
                     caseId={caseId}
-                    onCloseCaseTab={() => navigate(`/work?track=${caseTrack ?? "engineering"}`)}
+                    onCloseCaseTab={() => navigate(`/projects?track=${caseTrack ?? "engineering"}`)}
                 />
 
                 <div className="flex-1" />

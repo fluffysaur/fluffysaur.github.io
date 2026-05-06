@@ -1,5 +1,5 @@
 import { Footer } from "../components/Footer";
-import { ExperienceItem } from "../components/Experience/ExperienceItem";
+import { ExperienceItem } from "../components/Experience";
 import { EXPERIENCES, RESUME_URL } from "../data/experience";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
@@ -30,7 +30,7 @@ export function Experience() {
                                 Career <strong>experience</strong>.
                             </h1>
                             <p className="font-light text-[20px]" style={{ color: "var(--fg-3)", maxWidth: "60ch" }}>
-                                Full work history in descending date order across engineering, product, and film.
+                                Full work history across engineering, product, and film.
                             </p>
                         </div>
                     </div>

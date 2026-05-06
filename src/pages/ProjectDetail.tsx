@@ -1,10 +1,10 @@
 import { Navigate, useParams } from "react-router-dom";
 import { CASES } from "../case-studies/registry";
 import { PROJECTS } from "../data/projects";
-import { Case } from "../components/WorkDetail/Case";
-import { Video } from "../components/WorkDetail/Video";
+import { Case } from "../components/ProjectDetail/Case";
+import { Video } from "../components/ProjectDetail/Video";
 
-export function WorkDetail() {
+export function ProjectDetail() {
     const { id } = useParams<{ id: string }>();
 
     const entry = id ? CASES[id] : undefined;
@@ -18,5 +18,5 @@ export function WorkDetail() {
         return <Video project={project} />;
     }
 
-    return <Navigate to="/work?track=engineering" replace />;
+    return <Navigate to="/projects?track=engineering" replace />;
 }

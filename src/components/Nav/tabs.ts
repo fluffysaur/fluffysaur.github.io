@@ -13,7 +13,7 @@ export interface TabDef {
 const BASE_TABS: TabDef[] = [
     { label: "Home.tsx", icon: faHouse, to: "/" },
     { label: "Experience.tsx", icon: faBriefcase, to: "/experience" },
-    { label: "Work.tsx", icon: faBriefcase, to: "/work" },
+    { label: "Projects.tsx", icon: faBriefcase, to: "/projects" },
     { label: "About.tsx", icon: faUser, to: "/about" },
 ];
 
@@ -22,7 +22,7 @@ export function deriveTabs(pathname: string): {
     caseId: string | undefined;
     caseTrack: ProjectCat | undefined;
 } {
-    const caseMatch = pathname.match(/^\/work\/(.+)$/);
+    const caseMatch = pathname.match(/^\/projects\/(.+)$/);
     const caseId = caseMatch?.[1];
     const caseProject = caseId ? PROJECTS.find((project) => project.id === caseId) : undefined;
 
@@ -38,7 +38,7 @@ export function deriveTabs(pathname: string): {
         tabs: [
             BASE_TABS[0],
             BASE_TABS[1],
-            { ...BASE_TABS[2], to: `/work?track=${caseProject.cat}` },
+            { ...BASE_TABS[2], to: `/projects?track=${caseProject.cat}` },
             { label: `${caseId}.${extension}`, icon: faBriefcase, to: pathname, closeable: true },
             BASE_TABS[3],
         ],
