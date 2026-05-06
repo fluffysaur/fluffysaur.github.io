@@ -41,7 +41,7 @@ export const meta: CaseMeta = {
     team: "Great Eastern IT - Mobile Team",
     tags: ["React Native", "TypeScript", "Cordova", "Vue 2.7", "Hermes", "Amazon Q", "Kiro CLI"],
     toc: ["Overview", "Context", "Migration Strategy", "Architecture Decisions", "Outcomes", "What I Learned"],
-    mainImage: "/assets/thumbnails/interseed-thumb.jpg",
+    mainImage: "/assets/thumbnails/geapp-thumb.png",
     prev: { id: "launchpad", title: "Launchpad: New Beginnings" },
     next: null,
 };

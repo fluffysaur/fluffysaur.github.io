@@ -6,7 +6,7 @@ export const PROJECTS: Project[] = [
         id: "rn-migration",
         title: "Great Eastern Mobile Platform Migration",
         blurb: "Leading a progressive migration from Cordova + Vue 2.7 to React Native + TypeScript, including a single-repo modular architecture now shared across SG and MY app initiatives.",
-        img: "/assets/thumbnails/interseed-thumb.jpg", // placeholder until real screenshot provided
+        img: "/assets/thumbnails/geapp-thumb.png", // placeholder until real screenshot provided
         role: "Software Engineer",
         year: "2026-now",
         tags: ["React Native", "TypeScript", "Cordova", "Vue 2.7", "Hermes", "Amazon Q", "Kiro CLI"],
