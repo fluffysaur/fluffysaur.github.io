@@ -6,7 +6,7 @@ import { FOOTER_CONTACT, FOOTER_ELSEWHERE, FOOTER_SITEMAP } from "./footer-data"
 export function Footer() {
     return (
         <footer className="pt-16 pb-12 mt-auto border-t" style={{ borderColor: "var(--border-mid)" }}>
-            <div className="max-w-285 mx-auto px-5 md:px-8">
+            <div className="page-wrap">
                 <div className="grid gap-8 mb-12 grid-cols-2 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
                     <FooterBrand />
                     <FooterLinkColumn title="Sitemap" items={FOOTER_SITEMAP} />

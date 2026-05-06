@@ -3,7 +3,7 @@ import { TESTIMONIALS } from "../../data/testimonials";
 export function HomeTestimonialStrip() {
     return (
         <section className="py-24" style={{ background: "var(--bg-card)" }}>
-            <div className="max-w-285 mx-auto px-5 md:px-16">
+            <div className="page-wrap">
                 <p
                     className="flex items-center gap-2.5 text-[11px] tracking-[0.2em] uppercase font-medium mb-3"
                     style={{ color: "var(--fg-6)" }}

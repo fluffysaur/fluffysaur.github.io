@@ -7,8 +7,8 @@ import { AboutSocialLinks } from "../components/About/AboutSocialLinks";
 export function About() {
     return (
         <>
-            <section className="py-20">
-                <div className="max-w-220 mx-auto px-5 md:px-8">
+            <section className="py-14">
+                <div className="page-wrap">
                     <p
                         className="flex items-center gap-2.5 text-[11px] tracking-[0.2em] uppercase font-medium mb-4"
                         style={{ color: "var(--fg-6)" }}

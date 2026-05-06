@@ -3,7 +3,7 @@ import { STACK } from "../../data/projects";
 
 export function HomeStackStrip() {
     return (
-        <div className="max-w-285 mx-auto flex items-center gap-6 flex-wrap px-5 md:px-16 pb-12">
+        <div className="page-wrap flex items-center gap-6 flex-wrap pb-12">
             <div
                 className="flex items-center gap-2.5 text-[11px] tracking-[0.2em] uppercase font-medium"
                 style={{ color: "var(--fg-6)" }}

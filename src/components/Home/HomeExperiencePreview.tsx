@@ -7,7 +7,7 @@ export function HomeExperiencePreview() {
 
     return (
         <section className="pb-20">
-            <div className="max-w-285 mx-auto px-5 md:px-16">
+            <div className="page-wrap">
                 <div className="flex items-baseline gap-3 mb-2">
                     <span className="font-mono text-sm" style={{ color: "var(--fg-7)" }}>
                         ~/career/

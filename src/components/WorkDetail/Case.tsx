@@ -19,7 +19,7 @@ export function Case({ meta, Content }: CaseProps) {
     return (
         <>
             <article className="py-14 pb-24">
-                <div className="mx-auto max-w-220 px-8">
+                <div className="page-wrap">
                     <CaseBackLink />
                     <CaseMetaHeader meta={meta} />
 

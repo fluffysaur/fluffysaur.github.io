@@ -16,7 +16,7 @@ export function CaseBackLink() {
             style={{ color: "var(--fg-5)" }}
         >
             <FontAwesomeIcon icon={faArrowLeftLong} />
-            /work
+            back to work
         </Link>
     );
 }

@@ -3,7 +3,7 @@ import { STACK } from "../../data/projects";
 export function HomeTerminalHero() {
     return (
         <section className="pb-16 pt-12">
-            <div className="max-w-285 mx-auto px-5 md:px-16">
+            <div className="page-wrap">
                 {/* macOS terminal window */}
                 <div
                     className="rounded-xl overflow-hidden max-w-3xl"

@@ -1,7 +1,7 @@
 export function CTABlock() {
     return (
         <section className="py-24">
-            <div className="max-w-285 mx-auto px-8">
+            <div className="page-wrap">
                 <div
                     className="rounded-2xl px-6 py-10 md:px-14 md:pt-16 md:pb-20 relative overflow-hidden"
                     style={{ background: "#f2cb05", color: "#262626" }}

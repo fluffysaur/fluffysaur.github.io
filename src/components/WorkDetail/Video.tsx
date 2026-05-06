@@ -17,7 +17,7 @@ export function Video({ project: p }: { project: Project }) {
     return (
         <>
             <article className="py-14 pb-24">
-                <div className="mx-auto max-w-220 px-8">
+                <div className="page-wrap">
                     <CaseBackLink />
 
                     <div className="mt-10 mb-8">

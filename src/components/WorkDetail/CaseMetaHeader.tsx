@@ -23,7 +23,7 @@ export function CaseMetaHeader({ meta }: CaseMetaHeaderProps) {
     return (
         <div className="mt-7 border-b pb-7" style={{ borderColor: "var(--border-mid)" }}>
             <div className="mb-4 flex items-baseline gap-3 font-mono text-sm" style={{ color: "var(--fg-5)" }}>
-                <span>fluffysaur</span>
+                <span>work</span>
                 <span>/</span>
                 <span className="font-bold text-accent">{meta.repoLabel}</span>
                 <Tag ghost>Public</Tag>
