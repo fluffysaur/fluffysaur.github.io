@@ -1,4 +1,5 @@
 import { SOCIAL_LINKS } from "../../data/social";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export function AboutSocialLinks() {
     return (
@@ -7,7 +8,7 @@ export function AboutSocialLinks() {
                 Find me <strong>elsewhere</strong>
             </h2>
             <div className="flex flex-wrap gap-3">
-                {SOCIAL_LINKS.map(({ label, href, external }) => (
+                {SOCIAL_LINKS.map(({ label, href, external, icon }) => (
                     <a
                         key={label}
                         href={href}
@@ -15,7 +16,8 @@ export function AboutSocialLinks() {
                         className="inline-flex items-center gap-2.5 rounded-full border px-6 py-3.5 text-[12px] font-medium uppercase tracking-[0.2em] no-underline transition-all hover:border-accent hover:text-accent"
                         style={{ borderColor: "var(--border)", color: "var(--fg-2)" }}
                     >
-                        {label} {"->"}
+                        <FontAwesomeIcon icon={icon} className="mr-2" />
+                        {label} {"→"}
                     </a>
                 ))}
             </div>
