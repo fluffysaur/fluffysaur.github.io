@@ -37,7 +37,7 @@ export function HomeTerminalHero() {
                         <div className="mb-3" style={{ color: "var(--term-output)" }}>
                             I'm a <span className="text-accent">software engineer</span> in Singapore.
                             <br />
-                            I currently ship stuff at Great Eastern,
+                            I currently ship stuff in the Frontend space,
                             <br />
                             after starting out in UX design and product storytelling.
                         </div>
