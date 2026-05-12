@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { TagRow } from "./Tag";
+import { FileCardHeader } from "./FileCardHeader";
 import type { Project } from "../types";
 
 interface FileCardProps {
@@ -11,22 +12,12 @@ export function FileCard({ project: p, large }: FileCardProps) {
     const extension = p.cat === "film" ? "mov" : "tsx";
 
     const inner = (
-        <div
-            className="block text-inherit no-underline rounded-lg overflow-hidden border transition-all duration-250 group"
-            style={{ background: "var(--bg-card)", borderColor: "var(--border-mid)" }}
-        >
-            {/* File header bar */}
-            <div
-                className="flex items-center justify-between px-3.5 py-2 border-b font-mono text-[11px]"
-                style={{ background: "var(--bg-card-header)", borderColor: "var(--border-sub)", color: "var(--fg-5)" }}
-            >
-                <span>
-                    {p.id}.{extension}
-                </span>
-                <span style={{ color: p.live ? "#6ee07a" : "var(--fg-7)" }}>● {p.live ? "live" : "archived"}</span>
-            </div>
+        <div className="file-card block text-inherit no-underline rounded-lg overflow-hidden border group">
+            <FileCardHeader
+                filename={`${p.id}.${extension}`}
+                status={p.live ? "live" : "archived"}
+            />
 
-            {/* Thumbnail */}
             <div className={`overflow-hidden bg-slate-card ${large ? "aspect-video" : "aspect-16/10"}`}>
                 <img
                     src={p.img}
@@ -35,7 +26,6 @@ export function FileCard({ project: p, large }: FileCardProps) {
                 />
             </div>
 
-            {/* Body */}
             <div className="p-5">
                 <div className="font-mono text-[11px] mb-1.5" style={{ color: "var(--fg-6)" }}>
                     const project = {"{"}

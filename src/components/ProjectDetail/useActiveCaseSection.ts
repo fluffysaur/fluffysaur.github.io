@@ -7,23 +7,20 @@ export const toAnchorId = (value: string) =>
         .replace(/[^a-z0-9\s-]/g, "")
         .replace(/\s+/g, "-");
 
-export function useActiveCaseSection(contentRef: RefObject<HTMLDivElement | null>, toc: string[]) {
+export function useActiveCaseSection(contentRef: RefObject<HTMLDivElement | null>, headings: string[]) {
     const [activeSection, setActiveSection] = useState("");
 
     useEffect(() => {
         if (!contentRef.current) return;
 
-        const headings = Array.from(contentRef.current.querySelectorAll<HTMLHeadingElement>("h2"));
-        headings.forEach((heading, index) => {
-            const tocEntry = toc[index];
-            const fallback = heading.textContent ?? "";
-            heading.id = toAnchorId(tocEntry ?? fallback);
-        });
+        const ids = headings.map(toAnchorId);
+        const nodes = ids
+            .map((id) => contentRef.current?.querySelector<HTMLHeadingElement>(`#${id}`))
+            .filter((node): node is HTMLHeadingElement => Boolean(node));
 
-        const headingIds = headings.map((heading) => heading.id).filter(Boolean);
         const hashId = window.location.hash.replace("#", "");
-        const initialSection = headingIds.includes(hashId) ? hashId : headingIds[0];
-        if (initialSection) setActiveSection(initialSection);
+        const initial = ids.includes(hashId) ? hashId : ids[0];
+        if (initial) setActiveSection(initial);
 
         const observer = new IntersectionObserver(
             (entries) => {
@@ -35,27 +32,22 @@ export function useActiveCaseSection(contentRef: RefObject<HTMLDivElement | null
                     setActiveSection((visible[0].target as HTMLHeadingElement).id);
                 }
             },
-            {
-                root: null,
-                rootMargin: "-20% 0px -65% 0px",
-                threshold: [0.2, 0.5, 0.8],
-            },
+            { root: null, rootMargin: "-20% 0px -65% 0px", threshold: [0.2, 0.5, 0.8] },
         );
 
-        headings.forEach((heading) => observer.observe(heading));
+        nodes.forEach((node) => observer.observe(node));
 
         const onHashChange = () => {
-            const nextHashId = window.location.hash.replace("#", "");
-            if (headingIds.includes(nextHashId)) setActiveSection(nextHashId);
+            const next = window.location.hash.replace("#", "");
+            if (ids.includes(next)) setActiveSection(next);
         };
-
         window.addEventListener("hashchange", onHashChange);
 
         return () => {
             observer.disconnect();
             window.removeEventListener("hashchange", onHashChange);
         };
-    }, [contentRef, toc]);
+    }, [contentRef, headings]);
 
     return { activeSection, setActiveSection };
 }

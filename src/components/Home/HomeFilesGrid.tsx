@@ -1,4 +1,5 @@
 import { FileCard } from "../FileCard";
+import { CTAButton } from "../CTAButton";
 import { FEATURED_PROJECTS } from "../../data/projects";
 
 export function HomeFilesGrid() {
@@ -23,13 +24,7 @@ export function HomeFilesGrid() {
                     ))}
                 </div>
                 <div className="mt-10">
-                    <a
-                        href="/projects"
-                        className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full border text-[12px] font-medium tracking-[0.2em] uppercase no-underline transition-all hover:border-accent hover:text-accent"
-                        style={{ borderColor: "var(--border)", color: "var(--fg-2)" }}
-                    >
-                        View all projects →
-                    </a>
+                    <CTAButton href="/projects">View all projects →</CTAButton>
                 </div>
             </div>
         </section>

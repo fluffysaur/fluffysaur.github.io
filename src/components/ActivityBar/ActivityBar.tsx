@@ -40,7 +40,7 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
 
     const desktopButtonClass = (isActive: boolean) =>
         [
-            "w-10 h-10 mx-auto my-1 border-l-2 rounded flex items-center justify-center cursor-pointer transition-all",
+            "w-10 h-10 mx-auto my-1 border-l-2 rounded flex items-center justify-center cursor-pointer transition-all hover:scale-105",
             isActive ? "border-accent bg-accent/10 text-accent" : "border-transparent activity-btn",
         ].join(" ");
 
