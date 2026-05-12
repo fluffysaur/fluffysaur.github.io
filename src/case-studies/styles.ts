@@ -9,11 +9,11 @@ export const caseStyles = {
         borderColor: "var(--border-mid)",
     } satisfies CSSProperties,
     headingPrefix: {
-        color: "var(--pv-accent)",
+        color: "var(--color-accent)",
     } satisfies CSSProperties,
     callout: {
         background: "var(--bg-card)",
-        borderLeftColor: "var(--pv-accent)",
+        borderLeftColor: "var(--color-accent)",
         color: "var(--fg-3)",
     } satisfies CSSProperties,
     calloutTitle: {
@@ -30,7 +30,7 @@ export const caseStyles = {
         borderColor: "var(--border-mid)",
     } satisfies CSSProperties,
     statValue: {
-        color: "var(--pv-accent)",
+        color: "var(--color-accent)",
     } satisfies CSSProperties,
     statLabel: {
         color: "var(--fg-4)",

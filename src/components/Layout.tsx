@@ -17,6 +17,7 @@ function ScrollToTop() {
 
 export function Layout() {
     const { toggle } = useTheme();
+    const { pathname } = useLocation();
     const [activeTab, setActiveTab] = useState<TabId | null>(null);
 
     useEffect(() => {
@@ -38,7 +39,9 @@ export function Layout() {
                 className={`pb-22 md:pb-7 transition-[padding-left] duration-200 ${activeTab ? "md:pl-89" : "md:pl-14"}`}
             >
                 <Nav />
-                <Outlet />
+                <div key={pathname} className="page-in">
+                    <Outlet />
+                </div>
             </div>
             <StatusBar />
         </div>

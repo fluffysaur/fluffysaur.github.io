@@ -9,7 +9,7 @@ interface ExperienceItemProps {
 export function ExperienceItem({ experience }: ExperienceItemProps) {
     return (
         <article
-            className="grid gap-6 py-8 border-b md:grid-cols-[210px_minmax(0,1fr)]"
+            className="experience-item grid gap-6 py-8 px-3 border-b md:grid-cols-[210px_minmax(0,1fr)]"
             style={{ borderColor: "var(--border-mid)" }}
         >
             <div>

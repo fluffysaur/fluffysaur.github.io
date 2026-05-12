@@ -125,6 +125,4 @@ export const PROJECTS: Project[] = [
 
 export const STACK = ["TypeScript", "React", "React Native", "Tailwind", "Vue", "Vite", "HTML", "CSS", "Figma"];
 
-export const ENGINEERING_PROJECTS = PROJECTS.filter((p) => p.cat === "engineering");
-export const FILM_PROJECTS = PROJECTS.filter((p) => p.cat === "film");
 export const FEATURED_PROJECTS = PROJECTS.filter((p) => p.highlight);

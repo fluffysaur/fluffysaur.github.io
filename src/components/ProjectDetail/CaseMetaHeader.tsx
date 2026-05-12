@@ -10,7 +10,6 @@ function splitCaseTitle(title: string) {
     if (colonIndex === -1) {
         return { leadingTitle: title, trailingTitle: "" };
     }
-
     return {
         leadingTitle: title.slice(0, colonIndex),
         trailingTitle: title.slice(colonIndex),
@@ -25,7 +24,7 @@ export function CaseMetaHeader({ meta }: CaseMetaHeaderProps) {
             <div className="mb-4 flex items-baseline gap-3 font-mono text-sm" style={{ color: "var(--fg-5)" }}>
                 <span>projects</span>
                 <span>/</span>
-                <span className="font-bold text-accent">{meta.repoLabel}</span>
+                <span className="font-bold text-accent">{meta.id}</span>
                 <Tag ghost>Public</Tag>
             </div>
 

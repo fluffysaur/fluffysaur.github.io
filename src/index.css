@@ -52,12 +52,10 @@
 }
 
 @theme {
-    --color-coal: #222222;
     --color-slate-card: #333333;
     --color-graphite: #262626;
     --color-accent: #f2cb05;
     --color-accent-deep: #d9b604;
-    --color-mist: #cccccc;
 
     --font-sans: "GothamSSm", "Nunito Sans", system-ui, -apple-system, sans-serif;
     --font-mono: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
@@ -81,8 +79,6 @@
     --border-mid: rgba(255, 255, 255, 0.08);
     --border-sub: rgba(255, 255, 255, 0.05);
     --sidebar-bg: rgba(0, 0, 0, 0.25);
-    --pv-accent: #f2cb05;
-    --pv-accent-deep: #d9b604;
     /* terminal window */
     --term-bg: rgba(30, 30, 30, 0.95);
     --term-titlebar-bg: rgba(255, 255, 255, 0.03);
@@ -197,7 +193,7 @@ body {
     color: var(--fg-4);
 }
 .nav-link:hover {
-    color: var(--pv-accent);
+    color: var(--color-accent);
 }
 
 /* ── light mode: override white-based Tailwind utility classes ── */
@@ -236,9 +232,6 @@ body {
 }
 [data-theme="light"] .border-white\/6 {
     border-color: var(--border-sub);
-}
-[data-theme="light"] .bg-coal {
-    background: var(--bg);
 }
 
 /* ── blinking cursor ── */
@@ -306,4 +299,101 @@ body {
 }
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
+}
+
+/* ── focus rings (global) ── */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* ── terminal scanline overlay ── */
+.terminal-window::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 2px,
+        rgba(255, 255, 255, 0.03) 2px,
+        rgba(255, 255, 255, 0.03) 3px
+    );
+}
+[data-theme="light"] .terminal-window::after {
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 2px,
+        rgba(0, 0, 0, 0.025) 2px,
+        rgba(0, 0, 0, 0.025) 3px
+    );
+}
+
+/* ── file card hover ── */
+.file-card {
+    background: var(--bg-card);
+    border-color: var(--border-mid);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+}
+.file-card:hover {
+    border-color: var(--color-accent);
+}
+
+/* ── experience item hover bar ── */
+.experience-item {
+    transition: box-shadow 0.25s ease;
+    box-shadow: inset 2px 0 0 transparent;
+}
+.experience-item:hover {
+    box-shadow: inset 2px 0 0 var(--color-accent);
+}
+
+/* ── tag hover ── */
+.tag-base {
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+/* ── motion (respects reduced motion) ── */
+@media (prefers-reduced-motion: no-preference) {
+    @keyframes terminal-line-in {
+        from {
+            opacity: 0;
+            transform: translateY(6px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .terminal-line {
+        animation: terminal-line-in 0.45s ease-out both;
+    }
+
+    @keyframes page-in {
+        from {
+            opacity: 0;
+            transform: translateY(4px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .page-in {
+        animation: page-in 0.22s ease-out both;
+    }
+
+    .file-card:hover {
+        transform: translateY(-2px);
+    }
 }
