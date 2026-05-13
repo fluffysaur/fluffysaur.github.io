@@ -12,8 +12,7 @@ export function CaseBackLink() {
     return (
         <Link
             to={`/projects?track=${track}`}
-            className="font-mono text-[13px] no-underline transition-colors hover:text-accent flex items-center gap-2"
-            style={{ color: "var(--fg-5)" }}
+            className="flex items-center gap-2 font-mono text-[13px] text-(--on-surface-muted) no-underline transition-colors hover:text-primary"
         >
             <FontAwesomeIcon icon={faArrowLeftLong} />
             back to projects

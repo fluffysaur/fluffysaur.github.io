@@ -8,26 +8,19 @@ interface ExperienceItemProps {
 
 export function ExperienceItem({ experience }: ExperienceItemProps) {
     return (
-        <article
-            className="experience-item grid gap-6 py-8 px-3 border-b md:grid-cols-[210px_minmax(0,1fr)]"
-            style={{ borderColor: "var(--border-mid)" }}
-        >
+        <article className="experience-item grid gap-6 border-b border-(--outline-variant) px-3 py-8 md:grid-cols-[210px_minmax(0,1fr)]">
             <div>
-                <p className="font-mono text-[11px] tracking-[0.12em] uppercase mb-2" style={{ color: "var(--fg-6)" }}>
+                <p className="font-mono text-[11px] tracking-[0.12em] uppercase mb-2 text-(--on-surface-subtle)">
                     {formatExperienceRange(experience)}
                 </p>
             </div>
 
             <div>
-                <h2 className="font-light text-[20px] leading-tight" style={{ color: "var(--fg-1)" }}>
-                    {experience.title}
-                </h2>
-                <p className="mt-2 text-[14px]" style={{ color: "var(--fg-4)" }}>
+                <h2 className="font-light text-[20px] leading-tight text-(--on-surface)">{experience.title}</h2>
+                <p className="mt-2 text-[14px] text-(--on-surface-variant)">
                     {experience.company} · {experience.role}
                 </p>
-                <p className="mt-4 text-[16px] leading-relaxed" style={{ color: "var(--fg-3)" }}>
-                    {experience.description}
-                </p>
+                <p className="mt-4 text-[16px] leading-relaxed text-(--on-surface-medium)">{experience.description}</p>
                 <div className="mt-5">
                     <TagRow tags={experience.stack} />
                 </div>

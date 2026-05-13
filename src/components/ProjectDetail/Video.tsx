@@ -21,18 +21,14 @@ export function Video({ project: p }: { project: Project }) {
                     <CaseBackLink />
 
                     <div className="mt-10 mb-8">
-                        <p
-                            className="text-[11px] tracking-[0.2em] uppercase font-medium mb-2"
-                            style={{ color: "var(--fg-5)" }}
-                        >
+                        <p className="mb-2 text-[11px] font-medium uppercase tracking-[0.2em] text-(--on-surface-muted)">
                             {p.role} · {p.year}
                         </p>
                         <h1
-                            className="font-light"
+                            className="font-light text-(--on-surface)"
                             style={{
                                 fontSize: "clamp(28px, 5vw, 52px)",
                                 letterSpacing: "-0.01em",
-                                color: "var(--fg-1)",
                             }}
                         >
                             {p.title}
@@ -40,10 +36,7 @@ export function Video({ project: p }: { project: Project }) {
                     </div>
 
                     {videoId && (
-                        <div
-                            className="w-full aspect-video rounded-lg overflow-hidden mb-8 border"
-                            style={{ borderColor: "var(--border-mid)" }}
-                        >
+                        <div className="mb-8 aspect-video w-full overflow-hidden rounded-lg border border-(--outline-variant)">
                             <iframe
                                 src={`https://www.youtube.com/embed/${videoId}`}
                                 title={p.title}
@@ -54,7 +47,7 @@ export function Video({ project: p }: { project: Project }) {
                         </div>
                     )}
 
-                    <p className="text-[16px] leading-relaxed mb-6" style={{ color: "var(--fg-3)", maxWidth: "72ch" }}>
+                    <p className="mb-6 max-w-[72ch] text-[16px] leading-relaxed text-(--on-surface-medium)">
                         {p.blurb}
                     </p>
 

@@ -115,15 +115,9 @@ export function Nav() {
 
     return (
         <>
-            <nav
-                className="sticky top-0 z-30 flex items-stretch border-b"
-                style={{ background: "var(--bg-elevated)", borderColor: "var(--border-mid)" }}
-            >
-                <div className="flex items-center border-r px-3 md:hidden" style={{ borderColor: "var(--border-sub)" }}>
-                    <div
-                        className="grid h-7 w-7 place-items-center rounded-md bg-accent text-[12px] font-black text-graphite"
-                        style={{ letterSpacing: "-0.04em" }}
-                    >
+            <nav className="sticky top-0 z-30 flex items-stretch border-b border-(--outline-variant) bg-(--surface-container)">
+                <div className="flex items-center border-r px-3 md:hidden border-(--outline-subtle)">
+                    <div className="grid h-7 w-7 place-items-center rounded-md bg-primary text-[12px] font-black tracking-[-0.04em] text-tertiary">
                         YJ
                     </div>
                 </div>

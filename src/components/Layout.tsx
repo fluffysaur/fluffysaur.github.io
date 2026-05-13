@@ -32,7 +32,7 @@ export function Layout() {
     }, [toggle]);
 
     return (
-        <div className="relative min-h-screen" style={{ background: "var(--bg)" }}>
+        <div className="relative min-h-screen bg-(--surface)">
             <ScrollToTop />
             <ActivityBar activeTab={activeTab} onTabChange={setActiveTab} />
             <div

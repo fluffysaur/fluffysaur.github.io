@@ -52,10 +52,12 @@
 }
 
 @theme {
-    --color-slate-card: #333333;
-    --color-graphite: #262626;
-    --color-accent: #f2cb05;
-    --color-accent-deep: #d9b604;
+    --color-primary: #f2cb05;
+    --color-primary-deep: #d9b604;
+    --color-secondary: #333333;
+    --color-secondary-deep: #292929;
+    --color-tertiary: #262626;
+    --color-tertiary-deep: #1f1f1f;
 
     --font-sans: "GothamSSm", "Nunito Sans", system-ui, -apple-system, sans-serif;
     --font-mono: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
@@ -63,22 +65,26 @@
 
 /* ── theme tokens ── */
 :root {
+    --color-primary-rgb: 242, 203, 5;
+    --color-secondary-rgb: 51, 51, 51;
+    --color-tertiary-rgb: 38, 38, 38;
+
     /* dark (default) */
-    --bg: #222222;
-    --bg-elevated: #2e2e2e;
-    --bg-card: rgba(255, 255, 255, 0.03);
-    --bg-card-header: rgba(0, 0, 0, 0.25);
-    --fg-1: #ffffff;
-    --fg-2: rgba(255, 255, 255, 0.85);
-    --fg-3: rgba(255, 255, 255, 0.75);
-    --fg-4: rgba(255, 255, 255, 0.6);
-    --fg-5: rgba(255, 255, 255, 0.5);
-    --fg-6: rgba(255, 255, 255, 0.45);
-    --fg-7: rgba(255, 255, 255, 0.3);
-    --border: rgba(255, 255, 255, 0.12);
-    --border-mid: rgba(255, 255, 255, 0.08);
-    --border-sub: rgba(255, 255, 255, 0.05);
-    --sidebar-bg: rgba(0, 0, 0, 0.25);
+    --surface: #222222;
+    --surface-container: #2e2e2e;
+    --surface-container-low: rgba(255, 255, 255, 0.03);
+    --surface-container-high: rgba(0, 0, 0, 0.25);
+    --on-surface: #ffffff;
+    --on-surface-high: rgba(255, 255, 255, 0.85);
+    --on-surface-medium: rgba(255, 255, 255, 0.75);
+    --on-surface-variant: rgba(255, 255, 255, 0.6);
+    --on-surface-muted: rgba(255, 255, 255, 0.5);
+    --on-surface-subtle: rgba(255, 255, 255, 0.45);
+    --on-surface-faint: rgba(255, 255, 255, 0.3);
+    --outline: rgba(255, 255, 255, 0.12);
+    --outline-variant: rgba(255, 255, 255, 0.08);
+    --outline-subtle: rgba(255, 255, 255, 0.05);
+    --surface-container-lowest: rgba(0, 0, 0, 0.25);
     /* terminal window */
     --term-bg: rgba(30, 30, 30, 0.95);
     --term-titlebar-bg: rgba(255, 255, 255, 0.03);
@@ -92,21 +98,25 @@
 }
 
 [data-theme="light"] {
-    --bg: #f5f5f3;
-    --bg-elevated: #ebebea;
-    --bg-card: rgba(0, 0, 0, 0.04);
-    --bg-card-header: rgba(0, 0, 0, 0.06);
-    --fg-1: #1a1a1a;
-    --fg-2: rgba(0, 0, 0, 0.85);
-    --fg-3: rgba(0, 0, 0, 0.72);
-    --fg-4: rgba(0, 0, 0, 0.6);
-    --fg-5: rgba(0, 0, 0, 0.5);
-    --fg-6: rgba(0, 0, 0, 0.45);
-    --fg-7: rgba(0, 0, 0, 0.3);
-    --border: rgba(0, 0, 0, 0.14);
-    --border-mid: rgba(0, 0, 0, 0.09);
-    --border-sub: rgba(0, 0, 0, 0.05);
-    --sidebar-bg: rgba(240, 240, 238, 0.95);
+    --color-primary-rgb: 242, 203, 5;
+    --color-secondary-rgb: 51, 51, 51;
+    --color-tertiary-rgb: 38, 38, 38;
+
+    --surface: #f5f5f3;
+    --surface-container: #ebebea;
+    --surface-container-low: rgba(0, 0, 0, 0.04);
+    --surface-container-high: rgba(0, 0, 0, 0.06);
+    --on-surface: #1a1a1a;
+    --on-surface-high: rgba(0, 0, 0, 0.85);
+    --on-surface-medium: rgba(0, 0, 0, 0.72);
+    --on-surface-variant: rgba(0, 0, 0, 0.6);
+    --on-surface-muted: rgba(0, 0, 0, 0.5);
+    --on-surface-subtle: rgba(0, 0, 0, 0.45);
+    --on-surface-faint: rgba(0, 0, 0, 0.3);
+    --outline: rgba(0, 0, 0, 0.14);
+    --outline-variant: rgba(0, 0, 0, 0.09);
+    --outline-subtle: rgba(0, 0, 0, 0.05);
+    --surface-container-lowest: rgba(240, 240, 238, 0.95);
     /* terminal window */
     --term-bg: #fafaf8;
     --term-titlebar-bg: #ededeb;
@@ -131,8 +141,8 @@ html {
 }
 
 body {
-    background: var(--bg);
-    color: var(--fg-3);
+    background: var(--surface);
+    color: var(--on-surface-medium);
     font-family:
         "GothamSSm",
         "Nunito Sans",
@@ -148,8 +158,8 @@ body {
 }
 
 ::selection {
-    background: #f2cb05;
-    color: #262626;
+    background: var(--color-primary);
+    color: var(--color-tertiary);
 }
 
 @layer base {
@@ -158,7 +168,7 @@ body {
     h3,
     h4,
     h5 {
-        color: var(--fg-1);
+        color: var(--on-surface);
         font-weight: 200;
         line-height: 1.1;
         margin: 0;
@@ -172,66 +182,76 @@ body {
     }
 
     a {
-        color: #f2cb05;
+        color: var(--color-primary);
         text-decoration: none;
         transition: color 0.25s;
     }
     a:hover {
-        color: #d9b604;
+        color: var(--color-primary-deep);
     }
 }
 
 /* ── helper classes (unlayered — beat Tailwind utilities) ── */
 .activity-btn {
-    color: var(--fg-6);
+    color: var(--on-surface-subtle);
 }
 .activity-btn:hover {
-    color: var(--fg-1);
+    color: var(--on-surface);
 }
 
 .nav-link {
-    color: var(--fg-4);
+    color: var(--on-surface-variant);
 }
 .nav-link:hover {
-    color: var(--color-accent);
+    color: var(--color-primary);
 }
 
 /* ── light mode: override white-based Tailwind utility classes ── */
 [data-theme="light"] .text-white {
-    color: var(--fg-1);
+    color: var(--on-surface);
+}
+[data-theme="light"] .text-primary,
+[data-theme="light"] .text-primary-yellow,
+[data-theme="light"] .text-accent-yellow {
+    color: var(--on-surface) !important;
+}
+[data-theme="light"] .bg-primary,
+[data-theme="light"] .bg-primary-yellow,
+[data-theme="light"] .bg-accent-yellow {
+    background-color: var(--color-primary) !important;
 }
 [data-theme="light"] .text-white\/85 {
-    color: var(--fg-2);
+    color: var(--on-surface-high);
 }
 [data-theme="light"] .text-white\/75 {
-    color: var(--fg-3);
+    color: var(--on-surface-medium);
 }
 [data-theme="light"] .text-white\/70 {
-    color: var(--fg-3);
+    color: var(--on-surface-medium);
 }
 [data-theme="light"] .text-white\/60 {
-    color: var(--fg-4);
+    color: var(--on-surface-variant);
 }
 [data-theme="light"] .text-white\/55 {
-    color: var(--fg-4);
+    color: var(--on-surface-variant);
 }
 [data-theme="light"] .text-white\/50 {
-    color: var(--fg-5);
+    color: var(--on-surface-muted);
 }
 [data-theme="light"] .text-white\/45 {
-    color: var(--fg-6);
+    color: var(--on-surface-subtle);
 }
 [data-theme="light"] .text-white\/30 {
-    color: var(--fg-7);
+    color: var(--on-surface-faint);
 }
 [data-theme="light"] .border-white\/18 {
-    border-color: var(--border);
+    border-color: var(--outline);
 }
 [data-theme="light"] .border-white\/8 {
-    border-color: var(--border-mid);
+    border-color: var(--outline-variant);
 }
 [data-theme="light"] .border-white\/6 {
-    border-color: var(--border-sub);
+    border-color: var(--outline-subtle);
 }
 
 /* ── blinking cursor ── */
@@ -286,10 +306,10 @@ body {
     width: 6px;
 }
 ::-webkit-scrollbar-track {
-    background: var(--bg);
+    background: var(--surface);
 }
 ::-webkit-scrollbar-thumb {
-    background: var(--border);
+    background: var(--outline);
     border-radius: 3px;
 }
 
@@ -305,7 +325,7 @@ body {
 a:focus-visible,
 button:focus-visible,
 [tabindex]:focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--color-primary);
     outline-offset: 2px;
     border-radius: 2px;
 }
@@ -320,8 +340,8 @@ button:focus-visible,
         to bottom,
         transparent 0,
         transparent 2px,
-        rgba(255, 255, 255, 0.03) 2px,
-        rgba(255, 255, 255, 0.03) 3px
+        var(--outline) 2px,
+        var(--outline) 3px
     );
 }
 [data-theme="light"] .terminal-window::after {
@@ -329,21 +349,21 @@ button:focus-visible,
         to bottom,
         transparent 0,
         transparent 2px,
-        rgba(0, 0, 0, 0.025) 2px,
-        rgba(0, 0, 0, 0.025) 3px
+        var(--outline-subtle) 2px,
+        var(--outline-subtle) 3px
     );
 }
 
 /* ── file card hover ── */
 .file-card {
-    background: var(--bg-card);
-    border-color: var(--border-mid);
+    background: var(--surface-container-low);
+    border-color: var(--outline-variant);
     transition:
         transform 0.25s ease,
         border-color 0.25s ease;
 }
 .file-card:hover {
-    border-color: var(--color-accent);
+    border-color: var(--color-primary);
 }
 
 /* ── experience item hover bar ── */
@@ -352,7 +372,7 @@ button:focus-visible,
     box-shadow: inset 2px 0 0 transparent;
 }
 .experience-item:hover {
-    box-shadow: inset 2px 0 0 var(--color-accent);
+    box-shadow: inset 2px 0 0 var(--color-primary);
 }
 
 /* ── tag hover ── */

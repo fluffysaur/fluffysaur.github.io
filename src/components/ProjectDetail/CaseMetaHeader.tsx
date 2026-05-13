@@ -20,24 +20,24 @@ export function CaseMetaHeader({ meta }: CaseMetaHeaderProps) {
     const { leadingTitle, trailingTitle } = splitCaseTitle(meta.title);
 
     return (
-        <div className="mt-7 border-b pb-7" style={{ borderColor: "var(--border-mid)" }}>
-            <div className="mb-4 flex items-baseline gap-3 font-mono text-sm" style={{ color: "var(--fg-5)" }}>
+        <div className="mt-7 border-b pb-7 border-(--outline-variant)">
+            <div className="mb-4 flex items-baseline gap-3 font-mono text-sm text-(--on-surface-muted)">
                 <span>projects</span>
                 <span>/</span>
-                <span className="font-bold text-accent">{meta.id}</span>
+                <span className="font-bold text-primary">{meta.id}</span>
                 <Tag ghost>Public</Tag>
             </div>
 
-            <h1 className="mb-4 text-[56px] font-light tracking-[-0.01em]" style={{ color: "var(--fg-1)" }}>
+            <h1 className="mb-4 text-[56px] font-light tracking-[-0.01em] text-(--on-surface)">
                 <strong>{leadingTitle}</strong>
                 {trailingTitle}
             </h1>
 
-            <p className="mb-6 text-[20px] font-light leading-relaxed" style={{ color: "var(--fg-3)" }}>
+            <p className="mb-6 text-[20px] font-light leading-relaxed text-(--on-surface-medium)">
                 {meta.subtitle}
             </p>
 
-            <div className="mb-5 flex gap-4 text-sm" style={{ color: "var(--fg-5)" }}>
+            <div className="mb-5 flex gap-4 text-sm text-(--on-surface-muted)">
                 <span>Date: {meta.dates}</span>
                 <span>|</span>
                 <span>Role: {meta.role}</span>

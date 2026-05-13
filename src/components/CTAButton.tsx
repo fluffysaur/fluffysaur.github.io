@@ -11,10 +11,9 @@ const BASE =
 export function CTAButton({ variant = "secondary", children, className = "", style, ...rest }: CTAButtonProps) {
     const variantClass =
         variant === "primary"
-            ? "bg-accent text-graphite hover:bg-accent-deep"
-            : "border hover:border-accent hover:text-accent";
-    const variantStyle =
-        variant === "secondary" ? { borderColor: "var(--border)", color: "var(--fg-2)" } : undefined;
+            ? "bg-primary text-tertiary hover:bg-primary-deep"
+            : "border hover:border-primary hover:bg-tertiary hover:text-primary";
+    const variantStyle = variant === "secondary" ? { borderColor: "var(--outline)", color: "var(--on-surface-high)" } : undefined;
     return (
         <a className={`${BASE} ${variantClass} ${className}`} style={{ ...variantStyle, ...style }} {...rest}>
             {children}

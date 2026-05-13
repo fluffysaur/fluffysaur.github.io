@@ -37,32 +37,22 @@ export function NavMobileSearch({
     return (
         <div
             ref={mobileSearchRef}
-            className="fixed inset-x-0 top-12 z-40 border-b md:hidden"
-            style={{ background: "var(--bg-elevated)", borderColor: "var(--border-mid)" }}
+            className="fixed inset-x-0 top-12 z-40 border-b border-(--outline-variant) bg-(--surface-container) md:hidden"
         >
-            <div className="border-b p-3" style={{ borderColor: "var(--border-sub)" }}>
-                <div
-                    className="flex items-center gap-2 rounded px-2.5 py-2"
-                    style={{
-                        background: "var(--bg-card)",
-                        border: "1px solid var(--border)",
-                        color: "var(--fg-6)",
-                    }}
-                >
-                    <FontAwesomeIcon icon={faMagnifyingGlass} style={{ fontSize: 12 }} />
+            <div className="border-b border-(--outline-subtle) p-3">
+                <div className="flex items-center gap-2 rounded border border-(--outline) bg-(--surface-container-low) px-2.5 py-2 text-(--on-surface-subtle)">
+                    <FontAwesomeIcon icon={faMagnifyingGlass} className="text-[12px]" />
                     <input
                         ref={mobileInputRef}
                         value={query}
                         placeholder="Search pages & projects..."
                         onChange={(event) => onQueryChange(event.target.value)}
                         onKeyDown={onKeyDown}
-                        className="min-w-0 flex-1 border-0 bg-transparent text-[13px] font-mono outline-none"
-                        style={{ color: "var(--fg-2)", caretColor: "#f2cb05" }}
+                        className="min-w-0 flex-1 border-0 bg-transparent text-[13px] font-mono text-(--on-surface-high) outline-none caret-primary"
                     />
                     <button
                         type="button"
-                        className="font-mono text-[11px]"
-                        style={{ color: "var(--fg-6)" }}
+                        className="font-mono text-[11px] text-(--on-surface-subtle)"
                         onClick={onClose}
                     >
                         close
@@ -72,9 +62,7 @@ export function NavMobileSearch({
 
             <div className="max-h-[55vh] overflow-y-auto">
                 {results.length === 0 ? (
-                    <div className="px-3 py-3 text-[12px]" style={{ color: "var(--fg-6)" }}>
-                        No results
-                    </div>
+                    <div className="px-3 py-3 text-[12px] text-(--on-surface-subtle)">No results</div>
                 ) : (
                     results.map((item, index) => (
                         <button
@@ -82,16 +70,18 @@ export function NavMobileSearch({
                             key={`${item.path}-${item.label}`}
                             onClick={() => onResultClick(item.path)}
                             onMouseEnter={() => onResultHover(index)}
-                            className="flex w-full items-center justify-between px-3 py-2.5 text-left"
-                            style={{ background: index === selectedIdx ? "rgba(242,203,5,0.08)" : undefined }}
+                            className={`flex w-full items-center justify-between px-3 py-2.5 text-left ${
+                                index === selectedIdx ? "bg-primary/8" : ""
+                            }`}
                         >
                             <span
-                                className="truncate text-[13px] font-medium"
-                                style={{ color: index === selectedIdx ? "#f2cb05" : "var(--fg-2)" }}
+                                className={`truncate text-[13px] font-medium ${
+                                    index === selectedIdx ? "text-primary" : "text-(--on-surface-high)"
+                                }`}
                             >
                                 {item.label}
                             </span>
-                            <span className="ml-4 shrink-0 font-mono text-[11px]" style={{ color: "var(--fg-6)" }}>
+                            <span className="ml-4 shrink-0 font-mono text-[11px] text-(--on-surface-subtle)">
                                 {item.sub}
                             </span>
                         </button>

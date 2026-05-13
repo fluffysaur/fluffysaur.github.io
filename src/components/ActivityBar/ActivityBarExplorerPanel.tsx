@@ -33,13 +33,11 @@ export function ActivityBarExplorerPanel({
                 return (
                     <div
                         key={group.id}
-                        className="border rounded"
-                        style={{ borderColor: "var(--border-sub)", background: "var(--bg-card)" }}
+                        className="rounded border border-(--outline-subtle) bg-(--surface-container-low)"
                     >
                         <button
                             type="button"
-                            className="w-full flex items-center justify-between gap-2 px-3 py-2 border-b text-[11px] uppercase tracking-[0.14em] font-mono text-left cursor-pointer"
-                            style={{ borderColor: "var(--border-sub)", color: "var(--fg-6)" }}
+                            className="w-full cursor-pointer border-b border-(--outline-subtle) px-3 py-2 text-left font-mono text-[11px] uppercase tracking-[0.14em] text-(--on-surface-subtle)"
                             onClick={() => {
                                 setCollapsedFolders((current) => ({
                                     ...current,
@@ -48,12 +46,12 @@ export function ActivityBarExplorerPanel({
                             }}
                         >
                             <span className="flex items-center gap-2">
-                                <FontAwesomeIcon icon={faFolder} style={{ fontSize: 13 }} />
+                                <FontAwesomeIcon icon={faFolder} className="text-[13px]" />
                                 {group.label}
                             </span>
                             <FontAwesomeIcon
                                 icon={isCollapsed ? faChevronRight : faChevronDown}
-                                style={{ fontSize: 10, color: "var(--fg-7)" }}
+                                className="text-[10px] text-(--on-surface-faint)"
                             />
                         </button>
                         {!isCollapsed && (
@@ -67,17 +65,12 @@ export function ActivityBarExplorerPanel({
 
                                     const rowClass = [
                                         "flex items-center gap-2 px-3 py-1.5 text-[12px] font-mono no-underline transition-colors",
-                                        active ? "text-accent" : "",
+                                        active ? "text-primary" : "text-(--on-surface-medium)",
                                     ].join(" ");
 
                                     return (
-                                        <Link
-                                            key={project.id}
-                                            to={href}
-                                            className={rowClass}
-                                            style={{ color: active ? "#f2cb05" : "var(--fg-3)" }}
-                                        >
-                                            <span style={{ color: "var(--fg-7)" }}>└</span>
+                                        <Link key={project.id} to={href} className={rowClass}>
+                                            <span className="text-(--on-surface-faint)">└</span>
                                             {project.id}.{extension}
                                         </Link>
                                     );

@@ -13,31 +13,28 @@ export function NavActions({ theme, onOpenMobileSearch, onToggleTheme }: NavActi
             <button
                 type="button"
                 onClick={onOpenMobileSearch}
-                className="flex h-7 w-7 cursor-pointer items-center justify-center rounded border bg-transparent transition-colors hover:border-accent hover:text-accent md:hidden"
-                style={{ borderColor: "var(--border)", color: "var(--fg-5)" }}
+                className="flex h-7 w-7 cursor-pointer items-center justify-center rounded border border-(--outline) bg-transparent text-(--on-surface-muted) transition-colors hover:border-primary hover:text-primary md:hidden"
                 title="Search"
             >
-                <FontAwesomeIcon icon={faMagnifyingGlass} style={{ fontSize: 13 }} />
+                <FontAwesomeIcon icon={faMagnifyingGlass} className="text-[13px]" />
             </button>
 
             <button
                 type="button"
                 onClick={onToggleTheme}
-                className="flex h-7 w-7 cursor-pointer items-center justify-center rounded border bg-transparent transition-colors hover:border-accent hover:text-accent"
-                style={{ borderColor: "var(--border)", color: "var(--fg-5)" }}
+                className="flex h-7 w-7 cursor-pointer items-center justify-center rounded border border-(--outline) bg-transparent text-(--on-surface-muted) transition-colors hover:border-primary hover:text-primary"
                 title="Toggle light/dark mode (⌘L)"
             >
                 {theme === "dark" ? (
-                    <FontAwesomeIcon icon={faSun} style={{ fontSize: 13 }} />
+                    <FontAwesomeIcon icon={faSun} className="text-[13px]" />
                 ) : (
-                    <FontAwesomeIcon icon={faMoon} style={{ fontSize: 13 }} />
+                    <FontAwesomeIcon icon={faMoon} className="text-[13px]" />
                 )}
             </button>
 
             <a
                 href="mailto:tanyijia@gmail.com"
-                className="hidden whitespace-nowrap rounded-full bg-accent px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.2em] no-underline transition-all hover:bg-accent-deep md:inline-flex"
-                style={{ color: "#262626" }}
+                className="hidden whitespace-nowrap rounded-full bg-primary px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.2em] text-tertiary no-underline transition-all hover:bg-primary-deep md:inline-flex"
             >
                 Get in touch
             </a>

@@ -2,37 +2,37 @@ import type { CSSProperties } from "react";
 
 export const caseStyles = {
     content: {
-        color: "var(--fg-3)",
+        color: "var(--on-surface-medium)",
     } satisfies CSSProperties,
     heading: {
-        color: "var(--fg-1)",
-        borderColor: "var(--border-mid)",
+        color: "var(--on-surface)",
+        borderColor: "var(--outline-variant)",
     } satisfies CSSProperties,
     headingPrefix: {
-        color: "var(--color-accent)",
+        color: "var(--color-primary)",
     } satisfies CSSProperties,
     callout: {
-        background: "var(--bg-card)",
-        borderLeftColor: "var(--color-accent)",
-        color: "var(--fg-3)",
+        background: "var(--surface-container-low)",
+        borderLeftColor: "var(--color-primary)",
+        color: "var(--on-surface-medium)",
     } satisfies CSSProperties,
     calloutTitle: {
-        color: "var(--fg-1)",
+        color: "var(--on-surface)",
     } satisfies CSSProperties,
     listBorder: {
-        borderColor: "var(--border-sub)",
+        borderColor: "var(--outline-subtle)",
     } satisfies CSSProperties,
     strong: {
-        color: "var(--fg-1)",
+        color: "var(--on-surface)",
     } satisfies CSSProperties,
     statCard: {
-        background: "var(--bg-card)",
-        borderColor: "var(--border-mid)",
+        background: "var(--surface-container-low)",
+        borderColor: "var(--outline-variant)",
     } satisfies CSSProperties,
     statValue: {
-        color: "var(--color-accent)",
+        color: "var(--color-primary)",
     } satisfies CSSProperties,
     statLabel: {
-        color: "var(--fg-4)",
+        color: "var(--on-surface-variant)",
     } satisfies CSSProperties,
 };

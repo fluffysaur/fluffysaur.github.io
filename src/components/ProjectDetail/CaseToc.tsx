@@ -8,11 +8,8 @@ interface CaseTocProps {
 
 export function CaseToc({ headings, activeSection, onSectionSelect }: CaseTocProps) {
     return (
-        <aside
-            className="self-start rounded-md p-4 text-sm lg:sticky lg:top-24"
-            style={{ background: "var(--bg-card)", border: "1px solid var(--border-mid)" }}
-        >
-            <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.22em]" style={{ color: "var(--fg-6)" }}>
+        <aside className="self-start rounded-md border border-(--outline-variant) bg-(--surface-container-low) p-4 text-sm lg:sticky lg:top-24">
+            <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.22em] text-(--on-surface-subtle)">
                 On this page
             </p>
             {headings.map((heading) => {
@@ -22,8 +19,9 @@ export function CaseToc({ headings, activeSection, onSectionSelect }: CaseTocPro
                         key={sectionId}
                         href={`#${sectionId}`}
                         onClick={() => onSectionSelect(sectionId)}
-                        className="block py-1.5 text-sm no-underline transition-colors hover:text-accent"
-                        style={{ color: activeSection === sectionId ? "#f2cb05" : "var(--fg-4)" }}
+                        className={`block py-1.5 text-sm no-underline transition-colors hover:text-primary ${
+                            activeSection === sectionId ? "text-primary" : "text-(--on-surface-variant)"
+                        }`}
                     >
                         {heading}
                     </a>

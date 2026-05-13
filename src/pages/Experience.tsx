@@ -21,7 +21,7 @@ export function Experience() {
                         subtitle="Full work history across engineering, product, and film."
                     />
 
-                    <div className="mt-12 border-t mb-8" style={{ borderColor: "var(--border-mid)" }}>
+                    <div className="mt-12 border-t mb-8 border-(--outline-variant)">
                         {EXPERIENCES.map((experience) => (
                             <ExperienceItem key={experience.id} experience={experience} />
                         ))}

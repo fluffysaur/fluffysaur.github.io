@@ -10,59 +10,54 @@ export function HomeTerminalHero() {
         <section className="pb-16 pt-12">
             <div className="page-wrap">
                 <TerminalWindow className="max-w-3xl">
-                    <div className="terminal-line" style={{ ...lineDelay(0), color: "var(--term-cmd)" }}>
+                    <div className="terminal-line text-(--term-cmd)" style={lineDelay(0)}>
                         $ whoami
                     </div>
-                    <div className="terminal-line mb-3" style={{ ...lineDelay(1), color: "var(--term-output)" }}>
+                    <div className="terminal-line mb-3 text-(--term-output)" style={lineDelay(1)}>
                         tan-yi-jia
                     </div>
 
-                    <div className="terminal-line" style={{ ...lineDelay(2), color: "var(--term-cmd)" }}>
+                    <div className="terminal-line text-(--term-cmd)" style={lineDelay(2)}>
                         $ cat about.md
                     </div>
-                    <div className="terminal-line mb-3" style={{ ...lineDelay(3), color: "var(--term-output)" }}>
-                        I'm a <span className="text-accent">frontend software engineer</span> in Singapore.
-                        <br />I love shipping stuff with <span className="text-accent">intention</span> and{" "}
-                        <span className="text-accent">detail</span>,
+                    <div className="terminal-line mb-3 text-(--term-output)" style={lineDelay(3)}>
+                        I'm a <span className="text-primary">frontend software engineer</span> in Singapore.
+                        <br />I love shipping stuff with <span className="text-primary">intention</span> and{" "}
+                        <span className="text-primary">detail</span>,
                         <br />
-                        telling a <span className="text-accent">story</span> through each interaction.
+                        telling a <span className="text-primary">story</span> through each interaction.
                     </div>
 
-                    <div className="terminal-line" style={{ ...lineDelay(4), color: "var(--term-cmd)" }}>
+                    <div className="terminal-line text-(--term-cmd)" style={lineDelay(4)}>
                         $ ls --skills
                     </div>
                     <div
-                        className="terminal-line mb-3 flex flex-wrap gap-x-6 gap-y-1"
-                        style={{ ...lineDelay(5), color: "var(--term-muted)" }}
+                        className="terminal-line mb-3 flex flex-wrap gap-x-6 gap-y-1 text-(--term-muted)"
+                        style={lineDelay(5)}
                     >
                         {STACK.map((s) => (
                             <span key={s}>{s.toLowerCase().replace(".js", "-js")}</span>
                         ))}
                     </div>
 
-                    <div className="terminal-line" style={{ ...lineDelay(6), color: "var(--term-cmd)" }}>
+                    <div className="terminal-line text-(--term-cmd)" style={lineDelay(6)}>
                         $ status
                     </div>
-                    <div className="terminal-line" style={{ ...lineDelay(7), color: "var(--color-green-400)" }}>
+                    <div className="terminal-line text-green-400" style={lineDelay(7)}>
                         ● available · looking for work
                     </div>
 
-                    <div
-                        className="terminal-line mt-3 flex items-center gap-0"
-                        style={{ ...lineDelay(8), color: "var(--term-cmd)" }}
-                    >
+                    <div className="terminal-line mt-3 flex items-center gap-0 text-(--term-cmd)" style={lineDelay(8)}>
                         <span>$ </span>
-                        <span className="ml-1 inline-block w-2 h-4 cursor-blink" style={{ background: "#f2cb05" }} />
+                        <span className="ml-1 inline-block w-2 h-4 cursor-blink bg-primary" />
                     </div>
                 </TerminalWindow>
 
                 <div className="mt-14 max-w-3xl">
                     <h1
-                        className="font-light leading-tight"
+                        className="font-light leading-tight tracking-[-0.01em] text-(--on-surface)"
                         style={{
                             fontSize: "clamp(32px, 5.5vw, 64px)",
-                            letterSpacing: "-0.01em",
-                            color: "var(--fg-1)",
                         }}
                     >
                         Crafting <strong>delight</strong> into every <strong>pixel</strong>.

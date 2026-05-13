@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import type { CSSProperties } from "react";
 import type { TabDef } from "./tabs";
 
 interface NavTabsProps {
@@ -35,25 +34,20 @@ export function NavTabs({ tabs, pathname, caseId, onCloseCaseTab }: NavTabsProps
 
                 const className = [
                     "flex items-center gap-1.5 px-4 py-2.5 text-[12px] font-mono border-b-2 whitespace-nowrap shrink-0",
-                    active ? "border-accent" : "border-transparent",
+                    active
+                        ? "border-primary bg-(--surface) text-primary"
+                        : "border-transparent border-r border-(--outline-subtle) text-(--on-surface-variant)",
                 ].join(" ");
-
-                const style: CSSProperties = {
-                    background: active ? "var(--bg)" : undefined,
-                    color: active ? "#f2cb05" : "var(--fg-4)",
-                    borderRight: "1px solid var(--border-sub)",
-                };
 
                 if (tab.closeable) {
                     return (
-                        <div key={key} className={className} style={style}>
-                            <FontAwesomeIcon icon={tab.icon} style={{ fontSize: 12 }} />
+                        <div key={key} className={className}>
+                            <FontAwesomeIcon icon={tab.icon} className="text-[12px]" />
                             <span>{tab.label}</span>
                             <button
                                 type="button"
                                 onClick={onCloseCaseTab}
-                                className="ml-1.5 cursor-pointer border-0 bg-transparent p-0 leading-none opacity-50 transition-opacity hover:opacity-100"
-                                style={{ color: "inherit", fontSize: 15 }}
+                                className="ml-1.5 cursor-pointer border-0 bg-transparent p-0 text-[15px] leading-none text-inherit opacity-50 transition-opacity hover:opacity-100"
                                 title="Close"
                             >
                                 ×
@@ -63,8 +57,8 @@ export function NavTabs({ tabs, pathname, caseId, onCloseCaseTab }: NavTabsProps
                 }
 
                 return (
-                    <Link key={key} to={tab.to} className={`${className} no-underline transition-colors`} style={style}>
-                        <FontAwesomeIcon icon={tab.icon} style={{ fontSize: 12 }} />
+                    <Link key={key} to={tab.to} className={`${className} no-underline transition-colors`}>
+                        <FontAwesomeIcon icon={tab.icon} className="text-[12px]" />
                         {tab.label}
                     </Link>
                 );

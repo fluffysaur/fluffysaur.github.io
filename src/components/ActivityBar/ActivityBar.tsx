@@ -41,7 +41,7 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
     const desktopButtonClass = (isActive: boolean) =>
         [
             "w-10 h-10 mx-auto my-1 border-l-2 rounded flex items-center justify-center cursor-pointer transition-all hover:scale-105",
-            isActive ? "border-accent bg-accent/10 text-accent" : "border-transparent activity-btn",
+            isActive ? "border-primary bg-primary/10 text-primary" : "border-transparent activity-btn",
         ].join(" ");
 
     const panelContent =
@@ -71,14 +71,8 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
 
     return (
         <>
-            <aside
-                className="hidden md:flex fixed left-0 top-0 bottom-0 w-14 z-20 flex-col pt-4 border-r"
-                style={{ background: "var(--sidebar-bg)", borderColor: "var(--border-mid)" }}
-            >
-                <div
-                    className="w-8 h-8 mx-auto mb-4 rounded-md bg-accent text-graphite grid place-items-center font-black text-[13px]"
-                    style={{ letterSpacing: "-0.04em" }}
-                >
+            <aside className="fixed left-0 top-0 bottom-0 z-20 hidden w-14 flex-col border-r border-(--outline-variant) bg-(--surface-container-lowest) pt-4 md:flex">
+                <div className="mx-auto mb-4 grid h-8 w-8 place-items-center rounded-md bg-primary text-[13px] font-black tracking-[-0.04em] text-tertiary">
                     YJ
                 </div>
 
@@ -88,7 +82,7 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
                     onClick={() => handleDesktopTabClick("explorer")}
                     title="Explorer"
                 >
-                    <FontAwesomeIcon icon={faCopy} style={{ fontSize: 18 }} />
+                    <FontAwesomeIcon icon={faCopy} className="text-[18px]" />
                 </button>
                 <button
                     type="button"
@@ -96,7 +90,7 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
                     onClick={() => handleDesktopTabClick("extensions")}
                     title="Extensions"
                 >
-                    <FontAwesomeIcon icon={faPuzzlePiece} style={{ fontSize: 18 }} />
+                    <FontAwesomeIcon icon={faPuzzlePiece} className="text-[18px]" />
                 </button>
 
                 <div className="flex-1" />
@@ -114,24 +108,14 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
             </aside>
 
             {activeTab && (
-                <section
-                    className="hidden md:block fixed left-14 top-0 bottom-0 w-75 z-10 border-r overflow-y-auto"
-                    style={{ background: "var(--bg-elevated)", borderColor: "var(--border-mid)" }}
-                >
-                    <div
-                        className="px-4 py-3 border-b flex items-center justify-between"
-                        style={{ borderColor: "var(--border-sub)" }}
-                    >
-                        <p
-                            className="text-[10px] uppercase tracking-[0.16em] font-mono"
-                            style={{ color: "var(--fg-6)" }}
-                        >
+                <section className="hidden md:block fixed left-14 top-0 bottom-0 w-75 z-10 border-r border-(--outline-variant) bg-(--surface-container) overflow-y-auto">
+                    <div className="px-4 py-3 border-b border-(--outline-subtle) flex items-center justify-between">
+                        <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-(--on-surface-subtle)">
                             {activeTab}
                         </p>
                         <button
                             type="button"
-                            className="text-[10px] uppercase tracking-[0.12em] font-mono cursor-pointer"
-                            style={{ color: "var(--fg-6)" }}
+                            className="cursor-pointer font-mono text-[10px] uppercase tracking-[0.12em] text-(--on-surface-subtle)"
                             onClick={() => onTabChange(null)}
                         >
                             hide
@@ -141,31 +125,29 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
                 </section>
             )}
 
-            <div
-                className="md:hidden fixed left-0 right-0 bottom-7 z-30 border-t"
-                style={{ background: "var(--bg-elevated)", borderColor: "var(--border-mid)" }}
-            >
+            <div className="fixed left-0 right-0 bottom-7 z-30 border-t border-(--outline-variant) bg-(--surface-container) md:hidden">
                 <div className="grid grid-cols-3">
                     <button
                         type="button"
-                        className="flex items-center justify-center gap-2 py-3 text-[11px] font-mono uppercase tracking-[0.12em]"
-                        style={{ color: activeTab === "explorer" ? "#f2cb05" : "var(--fg-5)" }}
+                        className={`flex items-center justify-center gap-2 py-3 text-[11px] font-mono uppercase tracking-[0.12em] ${
+                            activeTab === "explorer" ? "text-primary" : "text-(--on-surface-muted)"
+                        }`}
                         onClick={() => handleMobileTabClick("explorer")}
                     >
-                        <FontAwesomeIcon icon={faCopy} style={{ fontSize: 15 }} /> Explorer
+                        <FontAwesomeIcon icon={faCopy} className="text-[15px]" /> Explorer
                     </button>
                     <button
                         type="button"
-                        className="flex items-center justify-center gap-2 py-3 text-[11px] font-mono uppercase tracking-[0.12em]"
-                        style={{ color: activeTab === "extensions" ? "#f2cb05" : "var(--fg-5)" }}
+                        className={`flex items-center justify-center gap-2 py-3 text-[11px] font-mono uppercase tracking-[0.12em] ${
+                            activeTab === "extensions" ? "text-primary" : "text-(--on-surface-muted)"
+                        }`}
                         onClick={() => handleMobileTabClick("extensions")}
                     >
-                        <FontAwesomeIcon icon={faPuzzlePiece} style={{ fontSize: 15 }} /> Ext
+                        <FontAwesomeIcon icon={faPuzzlePiece} className="text-[15px]" /> Ext
                     </button>
                     <button
                         type="button"
-                        className="flex items-center justify-center gap-2 py-3 text-[11px] font-mono uppercase tracking-[0.12em]"
-                        style={{ color: "var(--fg-5)" }}
+                        className="flex items-center justify-center gap-2 py-3 font-mono text-[11px] uppercase tracking-[0.12em] text-(--on-surface-muted)"
                         onClick={(event) => launchConfetti(event.currentTarget)}
                     >
                         <span className="text-[16px] leading-none" role="img" aria-label="confetti">
@@ -178,29 +160,20 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
 
             {mobilePanelOpen && activeTab && (
                 <section
-                    className="md:hidden fixed inset-x-3 z-30 rounded-lg border overflow-y-auto"
+                    className="fixed inset-x-3 z-30 overflow-y-auto rounded-lg border border-(--outline-variant) bg-(--surface-container) md:hidden"
                     style={{
                         bottom: 84,
                         maxHeight: "52vh",
-                        background: "var(--bg-elevated)",
-                        borderColor: "var(--border-mid)",
                         boxShadow: "0 16px 50px rgba(0,0,0,0.25)",
                     }}
                 >
-                    <div
-                        className="flex items-center justify-between px-4 py-2.5 border-b"
-                        style={{ borderColor: "var(--border-sub)" }}
-                    >
-                        <p
-                            className="text-[10px] uppercase tracking-[0.16em] font-mono"
-                            style={{ color: "var(--fg-6)" }}
-                        >
+                    <div className="flex items-center justify-between px-4 py-2.5 border-b border-(--outline-subtle)">
+                        <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-(--on-surface-subtle)">
                             {activeTab}
                         </p>
                         <button
                             type="button"
-                            className="text-sm font-mono"
-                            style={{ color: "var(--fg-5)" }}
+                            className="font-mono text-sm text-(--on-surface-muted)"
                             onClick={() => {
                                 setMobilePanelOpen(false);
                                 onTabChange(null);

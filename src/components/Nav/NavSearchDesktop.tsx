@@ -35,24 +35,10 @@ export function NavSearchDesktop({
     return (
         <div
             ref={containerRef}
-            className="relative hidden self-center px-3 md:flex md:items-center"
-            style={{
-                borderLeft: "1px solid var(--border-sub)",
-                borderRight: "1px solid var(--border-sub)",
-                paddingTop: 6,
-                paddingBottom: 6,
-            }}
+            className="relative hidden self-center border-x border-(--outline-subtle) px-3 py-1.5 md:flex md:items-center"
         >
-            <div
-                className="flex items-center gap-2 rounded px-2.5 py-1.5"
-                style={{
-                    width: 248,
-                    background: "var(--bg-card)",
-                    border: "1px solid var(--border)",
-                    color: "var(--fg-6)",
-                }}
-            >
-                <FontAwesomeIcon icon={faMagnifyingGlass} style={{ fontSize: 12 }} />
+            <div className="flex w-62 items-center gap-2 rounded border border-(--outline) bg-(--surface-container-low) px-2.5 py-1.5 text-(--on-surface-subtle)">
+                <FontAwesomeIcon icon={faMagnifyingGlass} className="text-[12px]" />
                 <input
                     ref={inputRef}
                     value={query}
@@ -60,47 +46,41 @@ export function NavSearchDesktop({
                     onChange={(event) => onQueryChange(event.target.value)}
                     onFocus={onOpen}
                     onKeyDown={onKeyDown}
-                    className="min-w-0 flex-1 border-0 bg-transparent text-[12px] font-mono outline-none"
-                    style={{ color: "var(--fg-3)", caretColor: "#f2cb05" }}
+                    className="min-w-0 flex-1 border-0 bg-transparent text-[12px] font-mono text-(--on-surface-medium) outline-none caret-primary"
                 />
                 {!open && (
-                    <span className="shrink-0 font-mono text-[10px]" style={{ color: "var(--fg-7)" }}>
-                        {KBD_SHORTCUT}
-                    </span>
+                    <span className="shrink-0 font-mono text-[10px] text-(--on-surface-faint)">{KBD_SHORTCUT}</span>
                 )}
             </div>
 
             {open && (
                 <div
-                    className="absolute left-3 right-3 z-50 overflow-y-auto rounded"
+                    className="absolute left-3 right-3 z-50 max-h-72 overflow-y-auto rounded border border-(--outline) bg-(--surface-container)"
                     style={{
                         top: "calc(100% - 6px)",
-                        maxHeight: 288,
-                        background: "var(--bg-elevated)",
-                        border: "1px solid var(--border)",
                         boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
                     }}
                 >
                     {results.length === 0 ? (
-                        <div className="px-3 py-3 text-[12px]" style={{ color: "var(--fg-6)" }}>
-                            No results
-                        </div>
+                        <div className="px-3 py-3 text-[12px] text-(--on-surface-subtle)">No results</div>
                     ) : (
                         results.map((item, index) => (
                             <div
                                 key={`${item.path}-${item.label}`}
                                 onMouseDown={() => onResultClick(item.path)}
                                 onMouseEnter={() => onResultHover(index)}
-                                className="flex cursor-pointer items-center justify-between px-3 py-2"
-                                style={{ background: index === selectedIdx ? "rgba(242,203,5,0.08)" : undefined }}
+                                className={`flex cursor-pointer items-center justify-between px-3 py-2 ${
+                                    index === selectedIdx ? "bg-primary/8" : ""
+                                }`}
                             >
                                 <span
-                                    className="truncate text-[13px] font-medium"
-                                    style={{ color: index === selectedIdx ? "#f2cb05" : "var(--fg-2)" }}
+                                    className={`truncate text-[13px] font-medium ${
+                                        index === selectedIdx ? "text-primary" : "text-(--on-surface-high)"
+                                    }`}
                                 >
                                     {item.label}
                                 </span>
-                                <span className="ml-4 shrink-0 font-mono text-[11px]" style={{ color: "var(--fg-6)" }}>
+                                <span className="ml-4 shrink-0 font-mono text-[11px] text-(--on-surface-subtle)">
                                     {item.sub}
                                 </span>
                             </div>

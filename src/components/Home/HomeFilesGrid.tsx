@@ -8,14 +8,12 @@ export function HomeFilesGrid() {
         <section className="pb-24">
             <div className="page-wrap">
                 <div className="flex items-baseline gap-3 mb-2">
-                    <span className="font-mono text-sm" style={{ color: "var(--fg-7)" }}>
-                        ~/portfolio/
-                    </span>
+                    <span className="font-mono text-sm text-(--on-surface-faint)">~/portfolio/</span>
                 </div>
-                <h2 className="font-light mb-2" style={{ fontSize: 36, color: "var(--fg-1)" }}>
+                <h2 className="mb-2 font-light text-(--on-surface)" style={{ fontSize: 36 }}>
                     Selected <strong>projects</strong>
                 </h2>
-                <p className="font-mono text-sm mb-10" style={{ color: "var(--fg-5)" }}>
+                <p className="font-mono text-sm mb-10 text-(--on-surface-muted)">
                     // {featured.length} highlighted files. Click any to open the case study.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
