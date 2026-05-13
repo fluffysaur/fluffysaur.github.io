@@ -14,18 +14,18 @@ export function HomeTerminalHero() {
                         $ whoami
                     </div>
                     <div className="terminal-line mb-3" style={{ ...lineDelay(1), color: "var(--term-output)" }}>
-                        <span className="text-accent">Tan Yi Jia</span>
+                        tan-yi-jia
                     </div>
 
                     <div className="terminal-line" style={{ ...lineDelay(2), color: "var(--term-cmd)" }}>
                         $ cat about.md
                     </div>
                     <div className="terminal-line mb-3" style={{ ...lineDelay(3), color: "var(--term-output)" }}>
-                        I'm a <span className="text-accent">software engineer</span> in Singapore.
+                        I'm a <span className="text-accent">frontend software engineer</span> in Singapore.
+                        <br />I love shipping stuff with <span className="text-accent">intention</span> and{" "}
+                        <span className="text-accent">detail</span>,
                         <br />
-                        I currently ship stuff in the Frontend space,
-                        <br />
-                        after starting out in UX design and product storytelling.
+                        telling a <span className="text-accent">story</span> through each interaction.
                     </div>
 
                     <div className="terminal-line" style={{ ...lineDelay(4), color: "var(--term-cmd)" }}>
@@ -65,7 +65,7 @@ export function HomeTerminalHero() {
                             color: "var(--fg-1)",
                         }}
                     >
-                        Engineering <strong>delight</strong> into every <strong>pixel</strong>.
+                        Crafting <strong>delight</strong> into every <strong>pixel</strong>.
                     </h1>
                     <div className="flex flex-wrap gap-3 mt-8">
                         <CTAButton href="/projects" variant="primary">
