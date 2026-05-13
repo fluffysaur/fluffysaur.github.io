@@ -1,4 +1,4 @@
-import { CTAButton } from "./CTAButton";
+import { Button } from "./Button";
 
 export function CTABlock() {
     return (
@@ -16,10 +16,10 @@ export function CTABlock() {
                         conversations.
                     </p>
                     <div className="flex flex-wrap gap-3">
-                        <CTAButton href="mailto:tanyijia@gmail.com" target="_blank" rel="noopener">
+                        <Button href="mailto:tanyijia@gmail.com" target="_blank" rel="noopener">
                             Email me
-                        </CTAButton>
-                        <CTAButton
+                        </Button>
+                        <Button
                             href="https://linkedin.com/in/tanyijiasg"
                             target="_blank"
                             rel="noopener"
@@ -30,7 +30,7 @@ export function CTABlock() {
                             }}
                         >
                             LinkedIn
-                        </CTAButton>
+                        </Button>
                     </div>
                 </div>
             </div>

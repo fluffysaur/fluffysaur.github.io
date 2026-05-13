@@ -1,4 +1,5 @@
 import { toAnchorId } from "./useActiveCaseSection";
+import { Button } from "../Button";
 
 interface CaseTocProps {
     headings: string[];
@@ -15,16 +16,18 @@ export function CaseToc({ headings, activeSection, onSectionSelect }: CaseTocPro
             {headings.map((heading) => {
                 const sectionId = toAnchorId(heading);
                 return (
-                    <a
+                    <Button
                         key={sectionId}
                         href={`#${sectionId}`}
+                        variant="text"
+                        size="sm"
                         onClick={() => onSectionSelect(sectionId)}
-                        className={`block py-1.5 text-sm no-underline transition-colors hover:text-primary ${
+                        className={`block py-1.5 ${
                             activeSection === sectionId ? "text-primary" : "text-(--on-surface-variant)"
                         }`}
                     >
                         {heading}
-                    </a>
+                    </Button>
                 );
             })}
         </aside>

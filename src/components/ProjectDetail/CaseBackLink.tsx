@@ -1,7 +1,8 @@
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { PROJECTS } from "../../data/projects";
+import { Button } from "../Button";
 
 export function CaseBackLink() {
     const { pathname } = useLocation();
@@ -10,12 +11,14 @@ export function CaseBackLink() {
     const track = project?.cat === "film" ? "film" : "engineering";
 
     return (
-        <Link
+        <Button
             to={`/projects?track=${track}`}
-            className="flex items-center gap-2 font-mono text-[13px] text-(--on-surface-muted) no-underline transition-colors hover:text-primary"
+            variant="text"
+            size="sm"
+            className="flex items-center gap-2 font-mono text-[13px] text-(--on-surface-muted)"
         >
             <FontAwesomeIcon icon={faArrowLeftLong} />
             back to projects
-        </Link>
+        </Button>
     );
 }

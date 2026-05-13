@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { Button } from "../Button";
 
 interface NavActionsProps {
     theme: "dark" | "light";
@@ -10,34 +11,39 @@ interface NavActionsProps {
 export function NavActions({ theme, onOpenMobileSearch, onToggleTheme }: NavActionsProps) {
     return (
         <div className="flex items-center gap-2 px-3">
-            <button
-                type="button"
+            <Button
                 onClick={onOpenMobileSearch}
-                className="flex h-7 w-7 cursor-pointer items-center justify-center rounded border border-(--outline) bg-transparent text-(--on-surface-muted) transition-colors hover:border-primary hover:text-primary md:hidden"
+                variant="icon"
+                size="sm"
+                className="md:hidden"
                 title="Search"
+                aria-label="Open search"
             >
                 <FontAwesomeIcon icon={faMagnifyingGlass} className="text-[13px]" />
-            </button>
+            </Button>
 
-            <button
-                type="button"
+            <Button
                 onClick={onToggleTheme}
-                className="flex h-7 w-7 cursor-pointer items-center justify-center rounded border border-(--outline) bg-transparent text-(--on-surface-muted) transition-colors hover:border-primary hover:text-primary"
+                variant="icon"
+                size="sm"
                 title="Toggle light/dark mode (⌘L)"
+                aria-label="Toggle light or dark mode"
             >
                 {theme === "dark" ? (
                     <FontAwesomeIcon icon={faSun} className="text-[13px]" />
                 ) : (
                     <FontAwesomeIcon icon={faMoon} className="text-[13px]" />
                 )}
-            </button>
+            </Button>
 
-            <a
+            <Button
                 href="mailto:tanyijia@gmail.com"
-                className="hidden whitespace-nowrap rounded-full bg-primary px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.2em] text-tertiary no-underline transition-all hover:bg-primary-deep md:inline-flex"
+                variant="primary"
+                size="sm"
+                className="hidden whitespace-nowrap md:inline-flex"
             >
                 Get in touch
-            </a>
+            </Button>
         </div>
     );
 }

@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
-import { Footer } from "../components/Footer";
 import { FileCard } from "../components/FileCard";
 import { PageHeader } from "../components/PageHeader";
+import { PageShell } from "../components/PageShell";
 import { FilterTabs } from "../components/FilterTabs";
 import { PROJECTS } from "../data/projects";
 
@@ -34,31 +34,26 @@ export function Projects() {
     const filtered = PROJECTS.filter((project) => project.cat === active);
 
     return (
-        <>
-            <section className="py-14">
-                <div className="page-wrap">
-                    <PageHeader
-                        slug="projects"
-                        title={
-                            <>
-                                Everything I've <strong>shipped</strong>.
-                            </>
-                        }
-                        subtitle="Projects across engineering and film. Browse by track."
-                    />
+        <PageShell>
+            <PageHeader
+                slug="projects"
+                title={
+                    <>
+                        Everything I've <strong>shipped</strong>.
+                    </>
+                }
+                subtitle="Projects across engineering and film. Browse by track."
+            />
 
-                    <div className="mt-14">
-                        <FilterTabs filters={FILTERS} active={active} counts={counts} onSelect={setTrack} />
+            <div className="mt-14">
+                <FilterTabs filters={FILTERS} active={active} counts={counts} onSelect={setTrack} />
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {filtered.map((p) => (
-                                <FileCard key={p.id} project={p} />
-                            ))}
-                        </div>
-                    </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {filtered.map((p) => (
+                        <FileCard key={p.id} project={p} />
+                    ))}
                 </div>
-            </section>
-            <Footer />
-        </>
+            </div>
+        </PageShell>
     );
 }

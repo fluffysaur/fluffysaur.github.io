@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { TabDef } from "./tabs";
+import { Tab } from "../Tab";
 
 interface NavTabsProps {
     tabs: TabDef[];
@@ -32,16 +32,11 @@ export function NavTabs({ tabs, pathname, caseId, onCloseCaseTab }: NavTabsProps
                 const active = isTabActive(tab, pathname);
                 const key = tab.closeable ? `case-${caseId ?? "current"}` : tab.to;
 
-                const className = [
-                    "flex items-center gap-1.5 px-4 py-2.5 text-[12px] font-mono border-b-2 whitespace-nowrap shrink-0",
-                    active
-                        ? "border-primary bg-(--surface) text-primary"
-                        : "border-transparent border-r border-(--outline-subtle) text-(--on-surface-variant)",
-                ].join(" ");
+                const className = "flex items-center";
 
                 if (tab.closeable) {
                     return (
-                        <div key={key} className={className}>
+                        <Tab key={key} as="div" variant="nav" active={active} className={className}>
                             <FontAwesomeIcon icon={tab.icon} className="text-[12px]" />
                             <span>{tab.label}</span>
                             <button
@@ -49,18 +44,19 @@ export function NavTabs({ tabs, pathname, caseId, onCloseCaseTab }: NavTabsProps
                                 onClick={onCloseCaseTab}
                                 className="ml-1.5 cursor-pointer border-0 bg-transparent p-0 text-[15px] leading-none text-inherit opacity-50 transition-opacity hover:opacity-100"
                                 title="Close"
+                                aria-label="Close case tab"
                             >
                                 ×
                             </button>
-                        </div>
+                        </Tab>
                     );
                 }
 
                 return (
-                    <Link key={key} to={tab.to} className={`${className} no-underline transition-colors`}>
+                    <Tab key={key} to={tab.to} variant="nav" active={active} className={className}>
                         <FontAwesomeIcon icon={tab.icon} className="text-[12px]" />
                         {tab.label}
-                    </Link>
+                    </Tab>
                 );
             })}
         </div>

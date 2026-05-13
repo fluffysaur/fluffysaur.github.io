@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import type { FooterLinkItem } from "./footer-data";
+import { Button } from "../Button";
 
 interface FooterLinkColumnProps {
     title: string;
@@ -16,21 +16,19 @@ export function FooterLinkColumn({ title, items }: FooterLinkColumnProps) {
                 {items.map((item) => (
                     <li key={item.label}>
                         {item.to ? (
-                            <Link
-                                to={item.to}
-                                className="text-sm text-(--on-surface-medium) no-underline transition-colors hover:text-primary"
-                            >
+                            <Button to={item.to} variant="text" className="text-sm text-(--on-surface-medium)">
                                 {item.label}
-                            </Link>
-                        ) : (
-                            <a
+                            </Button>
+                        ) : item.href ? (
+                            <Button
                                 href={item.href}
                                 {...(item.external ? { target: "_blank", rel: "noopener" } : {})}
-                                className="text-sm text-(--on-surface-medium) no-underline transition-colors hover:text-primary"
+                                variant="text"
+                                className="text-sm text-(--on-surface-medium)"
                             >
                                 {item.label}
-                            </a>
-                        )}
+                            </Button>
+                        ) : null}
                     </li>
                 ))}
             </ul>

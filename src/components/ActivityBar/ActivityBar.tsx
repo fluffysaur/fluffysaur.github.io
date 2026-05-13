@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import { faPuzzlePiece, faCopy } from "@fortawesome/free-solid-svg-icons";
 import { ActivityBarExplorerPanel } from "./ActivityBarExplorerPanel";
 import { ActivityBarExtensionsPanel } from "./ActivityBarExtensionsPanel";
+import { Button } from "../Button";
 
 export type TabId = "explorer" | "extensions";
 
@@ -76,35 +77,41 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
                     YJ
                 </div>
 
-                <button
-                    type="button"
+                <Button
+                    variant="text"
+                    size="sm"
                     className={desktopButtonClass(activeTab === "explorer")}
                     onClick={() => handleDesktopTabClick("explorer")}
                     title="Explorer"
+                    aria-label="Open explorer panel"
                 >
                     <FontAwesomeIcon icon={faCopy} className="text-[18px]" />
-                </button>
-                <button
-                    type="button"
+                </Button>
+                <Button
+                    variant="text"
+                    size="sm"
                     className={desktopButtonClass(activeTab === "extensions")}
                     onClick={() => handleDesktopTabClick("extensions")}
                     title="Extensions"
+                    aria-label="Open extensions panel"
                 >
                     <FontAwesomeIcon icon={faPuzzlePiece} className="text-[18px]" />
-                </button>
+                </Button>
 
                 <div className="flex-1" />
 
-                <button
-                    type="button"
+                <Button
+                    variant="text"
+                    size="sm"
                     className={`${desktopButtonClass(false)} mb-10`}
                     onClick={(event) => launchConfetti(event.currentTarget)}
                     title="Confetti"
+                    aria-label="Launch confetti"
                 >
                     <span className="text-[18px] leading-none" role="img" aria-label="confetti">
                         🎉
                     </span>
-                </button>
+                </Button>
             </aside>
 
             {activeTab && (
@@ -113,13 +120,14 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
                         <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-(--on-surface-subtle)">
                             {activeTab}
                         </p>
-                        <button
-                            type="button"
+                        <Button
+                            variant="text"
+                            size="sm"
                             className="cursor-pointer font-mono text-[10px] uppercase tracking-[0.12em] text-(--on-surface-subtle)"
                             onClick={() => onTabChange(null)}
                         >
                             hide
-                        </button>
+                        </Button>
                     </div>
                     <div className="p-4">{panelContent}</div>
                 </section>
@@ -127,26 +135,29 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
 
             <div className="fixed left-0 right-0 bottom-7 z-30 border-t border-(--outline-variant) bg-(--surface-container) md:hidden">
                 <div className="grid grid-cols-3">
-                    <button
-                        type="button"
+                    <Button
+                        variant="text"
+                        size="sm"
                         className={`flex items-center justify-center gap-2 py-3 text-[11px] font-mono uppercase tracking-[0.12em] ${
                             activeTab === "explorer" ? "text-primary" : "text-(--on-surface-muted)"
                         }`}
                         onClick={() => handleMobileTabClick("explorer")}
                     >
                         <FontAwesomeIcon icon={faCopy} className="text-[15px]" /> Explorer
-                    </button>
-                    <button
-                        type="button"
+                    </Button>
+                    <Button
+                        variant="text"
+                        size="sm"
                         className={`flex items-center justify-center gap-2 py-3 text-[11px] font-mono uppercase tracking-[0.12em] ${
                             activeTab === "extensions" ? "text-primary" : "text-(--on-surface-muted)"
                         }`}
                         onClick={() => handleMobileTabClick("extensions")}
                     >
                         <FontAwesomeIcon icon={faPuzzlePiece} className="text-[15px]" /> Ext
-                    </button>
-                    <button
-                        type="button"
+                    </Button>
+                    <Button
+                        variant="text"
+                        size="sm"
                         className="flex items-center justify-center gap-2 py-3 font-mono text-[11px] uppercase tracking-[0.12em] text-(--on-surface-muted)"
                         onClick={(event) => launchConfetti(event.currentTarget)}
                     >
@@ -154,7 +165,7 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
                             🎉
                         </span>{" "}
                         Pop
-                    </button>
+                    </Button>
                 </div>
             </div>
 
@@ -171,8 +182,9 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
                         <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-(--on-surface-subtle)">
                             {activeTab}
                         </p>
-                        <button
-                            type="button"
+                        <Button
+                            variant="text"
+                            size="sm"
                             className="font-mono text-sm text-(--on-surface-muted)"
                             onClick={() => {
                                 setMobilePanelOpen(false);
@@ -180,7 +192,7 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
                             }}
                         >
                             close
-                        </button>
+                        </Button>
                     </div>
                     <div className="p-4">{panelContent}</div>
                 </section>

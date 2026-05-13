@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
 import { faChevronDown, faChevronRight, faFolder } from "@fortawesome/free-solid-svg-icons";
 import { PROJECTS } from "../../data/projects";
+import { Button } from "../Button";
 
 const PROJECT_GROUPS = [
     { id: "engineering", label: "engineering", items: PROJECTS.filter((project) => project.cat === "engineering") },
@@ -35,9 +35,10 @@ export function ActivityBarExplorerPanel({
                         key={group.id}
                         className="rounded border border-(--outline-subtle) bg-(--surface-container-low)"
                     >
-                        <button
-                            type="button"
-                            className="w-full cursor-pointer border-b border-(--outline-subtle) px-3 py-2 text-left font-mono text-[11px] uppercase tracking-[0.14em] text-(--on-surface-subtle)"
+                        <Button
+                            variant="text"
+                            size="sm"
+                            className="flex w-full items-center justify-between border-b border-(--outline-subtle) px-3 py-2 text-left font-mono text-[11px] uppercase tracking-[0.14em] text-(--on-surface-subtle)"
                             onClick={() => {
                                 setCollapsedFolders((current) => ({
                                     ...current,
@@ -53,7 +54,7 @@ export function ActivityBarExplorerPanel({
                                 icon={isCollapsed ? faChevronRight : faChevronDown}
                                 className="text-[10px] text-(--on-surface-faint)"
                             />
-                        </button>
+                        </Button>
                         {!isCollapsed && (
                             <div className="py-1.5">
                                 {group.items.map((project) => {
@@ -64,15 +65,21 @@ export function ActivityBarExplorerPanel({
                                     const extension = project.cat === "film" ? "mov" : "tsx";
 
                                     const rowClass = [
-                                        "flex items-center gap-2 px-3 py-1.5 text-[12px] font-mono no-underline transition-colors",
+                                        "flex items-center gap-2 px-3 py-1.5 font-mono",
                                         active ? "text-primary" : "text-(--on-surface-medium)",
                                     ].join(" ");
 
                                     return (
-                                        <Link key={project.id} to={href} className={rowClass}>
+                                        <Button
+                                            key={project.id}
+                                            to={href}
+                                            variant="text"
+                                            size="sm"
+                                            className={rowClass}
+                                        >
                                             <span className="text-(--on-surface-faint)">└</span>
                                             {project.id}.{extension}
-                                        </Link>
+                                        </Button>
                                     );
                                 })}
                             </div>

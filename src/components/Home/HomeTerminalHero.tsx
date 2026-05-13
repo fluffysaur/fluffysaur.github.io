@@ -1,6 +1,6 @@
 import { STACK } from "../../data/projects";
 import { TerminalWindow } from "../TerminalWindow";
-import { CTAButton } from "../CTAButton";
+import { Button } from "../Button";
 
 const LINE_STEP_MS = 250;
 const lineDelay = (i: number) => ({ animationDelay: `${i * LINE_STEP_MS}ms` });
@@ -63,12 +63,12 @@ export function HomeTerminalHero() {
                         Crafting <strong>delight</strong> into every <strong>pixel</strong>.
                     </h1>
                     <div className="flex flex-wrap gap-3 mt-8">
-                        <CTAButton href="/projects" variant="primary">
+                        <Button to="/projects" variant="primary">
                             cd ./projects →
-                        </CTAButton>
-                        <CTAButton href="https://github.com/fluffysaur" target="_blank" rel="noopener">
+                        </Button>
+                        <Button href="https://github.com/fluffysaur" target="_blank" rel="noopener">
                             ↗ github.com/fluffysaur
-                        </CTAButton>
+                        </Button>
                     </div>
                 </div>
             </div>
