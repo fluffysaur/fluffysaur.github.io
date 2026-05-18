@@ -18,7 +18,7 @@ export function HomeFilesGrid() {
                     subtitle={`// ${featured.length} highlighted files. Click any to open the case study.`}
                     subtitleClassName="mb-10 font-mono text-sm text-(--on-surface-muted)"
                 />
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     {featured.map((p) => (
                         <FileCard key={p.id} project={p} />
                     ))}

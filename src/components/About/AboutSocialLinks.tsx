@@ -16,7 +16,7 @@ export function AboutSocialLinks() {
                         {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     >
                         <FontAwesomeIcon icon={icon} className="mr-2" />
-                        {label} {"→"}
+                        {label}
                     </Button>
                 ))}
             </div>

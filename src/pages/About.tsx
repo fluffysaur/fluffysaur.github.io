@@ -1,4 +1,3 @@
-import { CTABlock } from "../components/CTABlock";
 import { PageHeader } from "../components/PageHeader";
 import { PageShell } from "../components/PageShell";
 import { ABOUT_CURRENTLY } from "../components/About/about-data";
@@ -7,7 +6,7 @@ import { AboutSocialLinks } from "../components/About/AboutSocialLinks";
 
 export function About() {
     return (
-        <PageShell afterSection={<CTABlock />}>
+        <PageShell>
             <PageHeader
                 slug="about"
                 title={
