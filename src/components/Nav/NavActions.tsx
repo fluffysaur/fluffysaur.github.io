@@ -24,6 +24,7 @@ export function NavActions({ theme, onOpenMobileSearch, onToggleTheme }: NavActi
 
             <Button
                 onClick={onToggleTheme}
+                className="cursor-pointer"
                 variant="icon"
                 size="sm"
                 title="Toggle light/dark mode (⌘L)"
