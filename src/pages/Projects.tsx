@@ -1,8 +1,8 @@
 import { useSearchParams } from "react-router-dom";
-import { FileCard } from "../components/FileCard";
 import { PageHeader } from "../components/PageHeader";
 import { PageShell } from "../components/PageShell";
 import { FilterTabs } from "../components/FilterTabs";
+import { ProjectsGrid } from "../components/ProjectsGrid";
 import { PROJECTS } from "../data/projects";
 
 type FilterId = "engineering" | "film";
@@ -48,11 +48,7 @@ export function Projects() {
             <div className="mt-14">
                 <FilterTabs filters={FILTERS} active={active} counts={counts} onSelect={setTrack} />
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {filtered.map((p) => (
-                        <FileCard key={p.id} project={p} />
-                    ))}
-                </div>
+                <ProjectsGrid projects={filtered} />
             </div>
         </PageShell>
     );
