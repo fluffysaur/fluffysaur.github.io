@@ -80,7 +80,7 @@ export function NavSearchDesktop({
                                 >
                                     {item.label}
                                 </span>
-                                <span className="ml-4 shrink-0 font-mono text-[11px] text-(--on-surface-subtle)">
+                                <span className="ml-4 truncate font-mono text-[11px] text-(--on-surface-subtle)">
                                     {item.sub}
                                 </span>
                             </div>
