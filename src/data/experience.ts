@@ -65,7 +65,7 @@ const EXPERIENCE_ENTRIES: Experience[] = [
         id: "staffany-product-designer",
         title: "Product Designer",
         company: "StaffAny",
-        role: "Growth and UX",
+        role: "Growth and Design System",
         startDate: { month: 1, year: 2022 },
         endDate: { month: 6, year: 2023 },
         description:
@@ -95,7 +95,7 @@ const EXPERIENCE_ENTRIES: Experience[] = [
         description:
             "Designed and developed marketing and information pages with a focus on clear storytelling and maintainable content updates.",
         stack: ["HTML", "CSS", "JavaScript", "Content Design"],
-        highlight: true,
+        highlight: false,
     },
     {
         id: "stardust-production-assistant",
