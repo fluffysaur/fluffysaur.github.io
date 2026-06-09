@@ -383,6 +383,26 @@ button:focus-visible,
         background-color 0.2s ease;
 }
 
+.home-reveal {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+}
+.home-reveal.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.terminal-reveal {
+    opacity: 0;
+    transform: translateY(8px);
+}
+.terminal-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* ── motion (respects reduced motion) ── */
 @media (prefers-reduced-motion: no-preference) {
     @keyframes terminal-line-in {
@@ -413,7 +433,28 @@ button:focus-visible,
         animation: page-in 0.22s ease-out both;
     }
 
+    .home-reveal {
+        transition:
+            opacity 0.45s ease-out,
+            transform 0.45s ease-out;
+    }
+
+    .terminal-reveal {
+        transition:
+            opacity 0.45s ease-out,
+            transform 0.45s ease-out;
+    }
+
     .file-card:hover {
         transform: translateY(-2px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .terminal-reveal,
+    .home-reveal {
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
     }
 }
