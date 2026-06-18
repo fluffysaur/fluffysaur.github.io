@@ -10,7 +10,7 @@ export function Footer() {
                 <div className="grid gap-8 mb-12 grid-cols-2 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
                     <FooterBrand />
                     <FooterLinkColumn title="Sitemap" items={FOOTER_SITEMAP} />
-                    <FooterLinkColumn title="Elsewhere" items={FOOTER_ELSEWHERE} />
+                    <FooterLinkColumn title="Socials" items={FOOTER_ELSEWHERE} />
                     <FooterLinkColumn title="Get in touch" items={FOOTER_CONTACT} />
                 </div>
                 <FooterMeta />
