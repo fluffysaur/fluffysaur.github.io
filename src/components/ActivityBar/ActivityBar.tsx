@@ -6,6 +6,7 @@ import { faPuzzlePiece, faCopy } from "@fortawesome/free-solid-svg-icons";
 import { ActivityBarExplorerPanel } from "./ActivityBarExplorerPanel";
 import { ActivityBarExtensionsPanel } from "./ActivityBarExtensionsPanel";
 import { Button } from "../Button";
+import { LogoMark } from "../LogoMark";
 
 export type TabId = "explorer" | "extensions";
 
@@ -73,9 +74,7 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
     return (
         <>
             <aside className="fixed left-0 top-0 bottom-0 z-20 hidden w-14 flex-col border-r border-(--outline-variant) bg-(--surface-container-lowest) pt-4 md:flex">
-                <div className="mx-auto mb-4 grid h-8 w-8 place-items-center rounded-md bg-primary text-[13px] font-black tracking-[-0.04em] text-tertiary">
-                    YJ
-                </div>
+                <LogoMark className="mx-auto mb-4" />
 
                 <Button
                     variant="text"

@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { TagRow } from "./Tag";
 import { FileCardHeader } from "./FileCardHeader";
 import type { Project } from "../types";
+import { scrollToPageTop, shouldScrollForLinkClick } from "../utils/navigation";
 
 interface FileCardProps {
     project: Project;
@@ -9,6 +10,7 @@ interface FileCardProps {
 }
 
 export function FileCard({ project: p, large }: FileCardProps) {
+    const location = useLocation();
     const extension = p.cat === "film" ? "mov" : "tsx";
     const isInternalLink = p.link?.startsWith("/");
     const isCaseStudyLink = p.link?.startsWith("/projects/");
@@ -54,7 +56,15 @@ export function FileCard({ project: p, large }: FileCardProps) {
 
     if (p.link && isInternalLink) {
         return (
-            <Link to={p.link} className="block no-underline text-inherit">
+            <Link
+                to={p.link}
+                className="block no-underline text-inherit"
+                onClick={(event) => {
+                    if (shouldScrollForLinkClick(event, p.link!, location)) {
+                        scrollToPageTop();
+                    }
+                }}
+            >
                 {inner}
             </Link>
         );
@@ -70,7 +80,15 @@ export function FileCard({ project: p, large }: FileCardProps) {
 
     if (p.youtubeUrl) {
         return (
-            <Link to={`/projects/${p.id}`} className="block no-underline text-inherit">
+            <Link
+                to={`/projects/${p.id}`}
+                className="block no-underline text-inherit"
+                onClick={(event) => {
+                    if (shouldScrollForLinkClick(event, `/projects/${p.id}`, location)) {
+                        scrollToPageTop();
+                    }
+                }}
+            >
                 {inner}
             </Link>
         );

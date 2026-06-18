@@ -9,7 +9,7 @@ const COMMAND_SETTLE_MS = 260;
 const OUTPUT_SETTLE_MS = 700;
 const TERMINAL_FADE_MS = 450;
 
-let hasPlayedHomeTerminalIntro = false;
+type IntroPhase = "typing" | "complete" | "idle";
 
 interface TerminalStep {
     command: string;
@@ -18,7 +18,7 @@ interface TerminalStep {
 }
 
 interface HomeTerminalHeroProps {
-    introComplete: boolean;
+    shouldPlayIntro: boolean;
     onIntroComplete: () => void;
 }
 
@@ -56,30 +56,79 @@ const TERMINAL_STEPS: TerminalStep[] = [
 
 const FINAL_COMMANDS = TERMINAL_STEPS.map((step) => step.command);
 const FINAL_OUTPUT_VISIBILITY = TERMINAL_STEPS.map(() => true);
+const SCROLLBAR_PADDING = "var(--scrollbar-size)";
 
 const wait = (ms: number) => new Promise<void>((resolve) => window.setTimeout(resolve, ms));
 
-export function HomeTerminalHero({ introComplete, onIntroComplete }: HomeTerminalHeroProps) {
+export function HomeTerminalHero({ shouldPlayIntro, onIntroComplete }: HomeTerminalHeroProps) {
     const [typedCommands, setTypedCommands] = useState<string[]>(() => TERMINAL_STEPS.map(() => ""));
     const [visibleOutputs, setVisibleOutputs] = useState<boolean[]>(() => TERMINAL_STEPS.map(() => false));
     const [activeStep, setActiveStep] = useState<number | null>(null);
     const [showFinalPrompt, setShowFinalPrompt] = useState(false);
     const [terminalVisible, setTerminalVisible] = useState(false);
+    const [phase, setPhase] = useState<IntroPhase>(() => (shouldPlayIntro ? "typing" : "idle"));
+
+    useEffect(() => {
+        setPhase(shouldPlayIntro ? "typing" : "idle");
+    }, [shouldPlayIntro]);
+
+    useEffect(() => {
+        const isPlaying = phase === "typing";
+        const pageScroller = document.getElementById("page-scroll-container");
+        const previousHtmlOverflow = document.documentElement.style.overflow;
+        const previousBodyOverflow = document.body.style.overflow;
+        const previousBodyPaddingRight = document.body.style.paddingRight;
+        const previousScrollerOverflow = pageScroller?.style.overflowY;
+        const previousScrollerPaddingRight = pageScroller?.style.paddingRight;
+        const hasDocumentScrollbar = window.innerWidth > document.documentElement.clientWidth;
+        const hasPageScrollbar = pageScroller ? pageScroller.scrollHeight > pageScroller.clientHeight : false;
+
+        document.documentElement.classList.toggle("home-intro-playing", isPlaying);
+        window.dispatchEvent(new CustomEvent("home-intro-playing-change", { detail: isPlaying }));
+
+        if (isPlaying) {
+            document.documentElement.style.overflow = "hidden";
+            document.body.style.overflow = "hidden";
+            if (pageScroller) {
+                pageScroller.style.overflowY = "hidden";
+                if (hasPageScrollbar) {
+                    pageScroller.style.paddingRight = SCROLLBAR_PADDING;
+                }
+            } else if (hasDocumentScrollbar) {
+                document.body.style.paddingRight = SCROLLBAR_PADDING;
+            }
+        }
+
+        return () => {
+            if (isPlaying) {
+                document.documentElement.style.overflow = previousHtmlOverflow;
+                document.body.style.overflow = previousBodyOverflow;
+                document.body.style.paddingRight = previousBodyPaddingRight;
+                if (pageScroller) {
+                    pageScroller.style.overflowY = previousScrollerOverflow ?? "";
+                    pageScroller.style.paddingRight = previousScrollerPaddingRight ?? "";
+                }
+                document.documentElement.classList.remove("home-intro-playing");
+                window.dispatchEvent(new CustomEvent("home-intro-playing-change", { detail: false }));
+            }
+        };
+    }, [phase]);
 
     useEffect(() => {
         let cancelled = false;
 
         const runIntro = async () => {
-            const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
             setTerminalVisible(true);
 
-            if (hasPlayedHomeTerminalIntro || reducedMotion) {
+            if (!shouldPlayIntro) {
                 setTypedCommands(FINAL_COMMANDS);
                 setVisibleOutputs(FINAL_OUTPUT_VISIBILITY);
                 setShowFinalPrompt(true);
                 onIntroComplete();
                 return;
             }
+
+            window.sessionStorage.setItem("homeTerminalIntroPlayed", "true");
 
             await wait(TERMINAL_FADE_MS);
             if (cancelled) return;
@@ -113,7 +162,9 @@ export function HomeTerminalHero({ introComplete, onIntroComplete }: HomeTermina
 
             setActiveStep(null);
             setShowFinalPrompt(true);
-            hasPlayedHomeTerminalIntro = true;
+
+            await wait(OUTPUT_SETTLE_MS);
+            setPhase("complete");
             onIntroComplete();
         };
 
@@ -122,7 +173,9 @@ export function HomeTerminalHero({ introComplete, onIntroComplete }: HomeTermina
         return () => {
             cancelled = true;
         };
-    }, [onIntroComplete]);
+    }, [onIntroComplete, shouldPlayIntro]);
+
+    const heroContentVisible = phase === "complete" || phase === "idle";
 
     return (
         <section className="pb-16 pt-12">
@@ -168,7 +221,7 @@ export function HomeTerminalHero({ introComplete, onIntroComplete }: HomeTermina
                     </div>
                 </TerminalWindow>
 
-                <div className={`home-reveal mt-14 max-w-3xl ${introComplete ? "is-visible" : ""}`}>
+                <div className={`home-reveal mt-14 max-w-3xl ${heroContentVisible ? "is-visible" : ""}`}>
                     <h1
                         className="font-light leading-tight tracking-[-0.01em] text-(--on-surface)"
                         style={{

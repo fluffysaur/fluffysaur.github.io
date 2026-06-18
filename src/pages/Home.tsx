@@ -1,4 +1,5 @@
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Footer } from "../components/Footer";
 import { CTABlock } from "../components/CTABlock";
 import { HomeTerminalHero } from "../components/Home/HomeTerminalHero";
@@ -7,15 +8,27 @@ import { HomeFilesGrid } from "../components/Home/HomeFilesGrid";
 import { HomeTestimonialStrip } from "../components/Home/HomeTestimonialStrip";
 
 export function Home() {
-    const [introComplete, setIntroComplete] = useState(false);
+    const { pathname } = useLocation();
+    const [pageContentVisible, setPageContentVisible] = useState(false);
+
+    const shouldPlayIntro = useMemo(() => {
+        if (typeof window === "undefined") return false;
+
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reducedMotion) return false;
+        const hasPlayed = window.sessionStorage.getItem("homeTerminalIntroPlayed") === "true";
+
+        return pathname === "/" && !hasPlayed;
+    }, [pathname]);
+
     const handleIntroComplete = useCallback(() => {
-        setIntroComplete(true);
+        setPageContentVisible(true);
     }, []);
 
     return (
         <>
-            <HomeTerminalHero introComplete={introComplete} onIntroComplete={handleIntroComplete} />
-            <div className={`home-reveal ${introComplete ? "is-visible" : ""}`}>
+            <HomeTerminalHero shouldPlayIntro={shouldPlayIntro} onIntroComplete={handleIntroComplete} />
+            <div className={`home-reveal ${pageContentVisible ? "is-visible" : ""}`}>
                 <HomeExperiencePreview />
                 <HomeFilesGrid />
                 <HomeTestimonialStrip />

@@ -1,5 +1,6 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, CSSProperties, MouseEvent, ReactNode } from "react";
-import { Link, type LinkProps } from "react-router-dom";
+import { Link, useLocation, type LinkProps } from "react-router-dom";
+import { scrollToPageTop, shouldScrollForLinkClick } from "../utils/navigation";
 
 export type ButtonVariant = "primary" | "secondary" | "icon" | "tab" | "text";
 export type ButtonSize = "sm" | "md";
@@ -88,6 +89,7 @@ function variantClass(variant: ButtonVariant, active: boolean) {
 
 export function Button(props: ButtonProps) {
     const { children, variant = "secondary", size = "md", active = false, className, style, disabled = false } = props;
+    const location = useLocation();
 
     const classes = joinClasses(
         "transition-all",
@@ -123,6 +125,9 @@ export function Button(props: ButtonProps) {
                 return;
             }
             onClick?.(event);
+            if (shouldScrollForLinkClick(event, to, location)) {
+                scrollToPageTop();
+            }
         };
 
         return (

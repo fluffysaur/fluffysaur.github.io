@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { TabDef } from "./tabs";
 import { Tab } from "../Tab";
+import { scrollToPageTop } from "../../utils/navigation";
 
 interface NavTabsProps {
     tabs: TabDef[];
@@ -36,12 +37,30 @@ export function NavTabs({ tabs, pathname, caseId, onCloseCaseTab }: NavTabsProps
 
                 if (tab.closeable) {
                     return (
-                        <Tab key={key} as="div" variant="nav" active={active} className={className}>
+                        <Tab
+                            key={key}
+                            as="div"
+                            variant="nav"
+                            active={active}
+                            className={`${className} cursor-pointer`}
+                            onClick={scrollToPageTop}
+                            role="button"
+                            tabIndex={0}
+                            onKeyDown={(event) => {
+                                if (event.key === "Enter" || event.key === " ") {
+                                    event.preventDefault();
+                                    scrollToPageTop();
+                                }
+                            }}
+                        >
                             <FontAwesomeIcon icon={tab.icon} className="text-[12px]" />
                             <span>{tab.label}</span>
                             <button
                                 type="button"
-                                onClick={onCloseCaseTab}
+                                onClick={(event) => {
+                                    event.stopPropagation();
+                                    onCloseCaseTab();
+                                }}
                                 className="ml-1.5 cursor-pointer border-0 bg-transparent p-0 text-[15px] leading-none text-inherit opacity-50 transition-opacity hover:opacity-100"
                                 title="Close"
                                 aria-label="Close case tab"

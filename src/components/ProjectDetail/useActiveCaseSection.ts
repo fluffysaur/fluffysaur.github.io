@@ -52,6 +52,8 @@ export function useActiveCaseSection(contentRef: RefObject<HTMLDivElement | null
         };
 
         getActiveFromScroll();
+        const pageScroller = document.getElementById("page-scroll-container");
+        pageScroller?.addEventListener("scroll", onScroll, { passive: true });
         window.addEventListener("scroll", onScroll, { passive: true });
         window.addEventListener("resize", onScroll);
 
@@ -62,6 +64,7 @@ export function useActiveCaseSection(contentRef: RefObject<HTMLDivElement | null
         window.addEventListener("hashchange", onHashChange);
 
         return () => {
+            pageScroller?.removeEventListener("scroll", onScroll);
             window.removeEventListener("scroll", onScroll);
             window.removeEventListener("resize", onScroll);
             window.removeEventListener("hashchange", onHashChange);

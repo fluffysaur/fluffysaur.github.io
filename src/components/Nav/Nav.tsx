@@ -7,9 +7,12 @@ import { NavTabs } from "./NavTabs";
 import { NavSearchDesktop } from "./NavSearchDesktop";
 import { NavActions } from "./NavActions";
 import { NavMobileSearch } from "./NavMobileSearch";
+import { LogoMark } from "../LogoMark";
+import { isSamePath, scrollToPageTop } from "../../utils/navigation";
 
 export function Nav() {
-    const { pathname } = useLocation();
+    const location = useLocation();
+    const { pathname } = location;
     const navigate = useNavigate();
     const { theme, toggle } = useTheme();
 
@@ -34,6 +37,9 @@ export function Nav() {
     };
 
     const handleResultClick = (path: string) => {
+        if (isSamePath(path, location)) {
+            scrollToPageTop();
+        }
         navigate(path);
         closeSearch();
     };
@@ -117,9 +123,7 @@ export function Nav() {
         <>
             <nav className="sticky top-0 z-30 flex items-stretch border-b border-(--outline-variant) bg-(--surface-container)">
                 <div className="flex items-center border-r px-3 md:hidden border-(--outline-subtle)">
-                    <div className="grid h-7 w-7 place-items-center rounded-md bg-primary text-[12px] font-black tracking-[-0.04em] text-tertiary">
-                        YJ
-                    </div>
+                    <LogoMark size="sm" />
                 </div>
 
                 <NavTabs

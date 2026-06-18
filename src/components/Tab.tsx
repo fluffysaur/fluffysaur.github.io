@@ -1,5 +1,6 @@
-import type { ButtonHTMLAttributes, HTMLAttributes, ReactNode } from "react";
-import { Link, type LinkProps } from "react-router-dom";
+import type { ButtonHTMLAttributes, HTMLAttributes, MouseEvent, ReactNode } from "react";
+import { Link, useLocation, type LinkProps } from "react-router-dom";
+import { scrollToPageTop, shouldScrollForLinkClick } from "../utils/navigation";
 
 type TabVariant = "filter" | "nav";
 
@@ -54,6 +55,7 @@ function variantClasses(variant: TabVariant, active: boolean) {
 
 export function Tab(props: TabProps) {
     const { children, active = false, variant = "filter", className } = props;
+    const location = useLocation();
     const classes = joinClasses(variantClasses(variant, active), className);
 
     if ("as" in props && props.as === "div") {
@@ -73,9 +75,24 @@ export function Tab(props: TabProps) {
     }
 
     if ("to" in props && props.to !== undefined) {
-        const { to, children: _children, active: _active, variant: _variant, className: _className, ...rest } = props;
+        const {
+            to,
+            onClick,
+            children: _children,
+            active: _active,
+            variant: _variant,
+            className: _className,
+            ...rest
+        } = props;
+        const handleLinkClick = (event: MouseEvent<HTMLAnchorElement>) => {
+            onClick?.(event);
+            if (shouldScrollForLinkClick(event, to, location)) {
+                scrollToPageTop();
+            }
+        };
+
         return (
-            <Link to={to} className={classes} {...rest}>
+            <Link to={to} className={classes} onClick={handleLinkClick} {...rest}>
                 {children}
             </Link>
         );
