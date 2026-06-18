@@ -13,7 +13,7 @@ export const PROJECTS: Project[] = [
         cat: "dev",
         highlight: false,
         live: true,
-        hasCase: true,
+        hasCase: false,
     },
     {
         id: "staffany",
