@@ -16,13 +16,20 @@ export function About() {
                 }
             />
 
-            <div className="grid gap-12 mt-12 mb-16 grid-cols-1 md:grid-cols-[1fr_280px]">
+            <div className="flex flex-col gap-4 mt-6 mb-16">
                 <p className="font-light text-[20px] leading-relaxed m-0 text-(--on-surface-medium)">
-                    I'm a Singapore-based software engineer and I've always loved to hack things out, from Flash games
-                    way back in primary school. Funny enough, I tried to run from the software dev life, but I couldn't
-                    resist it in the end. Now, I embrace it.
+                    I started with a filmmaking dream, pivoted into a user experience design specialisation, before
+                    finally settling back into software development — where I can combine my love for problem-solving
+                    with creativity and design thinking to make a tangible impact.
                 </p>
-                <img src="/assets/me.jpg" alt="Tan Yi Jia" className="w-full rounded-lg block object-cover" />
+                <p className="font-light text-[20px] leading-relaxed m-0 text-(--on-surface-medium)">
+                    My favourite games involve automating things like Rimworld, Prison Architect, and those old Roblox
+                    factory games (I developed my first game with Lua in Roblox too).
+                </p>
+                <p className="font-light text-[20px] leading-relaxed m-0 text-(--on-surface-medium)">
+                    Otherwise, you'll find me hosting events as an Emcee, leading worship in church, or spending time
+                    with my beautiful wife-to-be.
+                </p>
             </div>
 
             <AboutCurrently items={ABOUT_CURRENTLY} />

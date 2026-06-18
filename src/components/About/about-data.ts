@@ -6,7 +6,7 @@ export interface CurrentItem {
 export const ABOUT_CURRENTLY: CurrentItem[] = [
     {
         key: "Building",
-        value: "Fun projects to make life easier. Just set up my own Hermes agent to help manage my life.",
+        value: "Fun projects to automate things. Just set up my own Hermes agent for stock updates and financial management!",
     },
     {
         key: "Learning",
