@@ -22,20 +22,38 @@ export function useActiveCaseSection(contentRef: RefObject<HTMLDivElement | null
         const initial = ids.includes(hashId) ? hashId : ids[0];
         if (initial) setActiveSection(initial);
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const visible = entries
-                    .filter((entry) => entry.isIntersecting)
-                    .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        const getActiveFromScroll = () => {
+            if (!nodes.length) return;
 
-                if (visible[0]) {
-                    setActiveSection((visible[0].target as HTMLHeadingElement).id);
+            // Keep in sync with sticky nav/header spacing so highlight updates at the right moment.
+            const offset = 140;
+            let nextActive = nodes[0].id;
+
+            for (const node of nodes) {
+                const top = node.getBoundingClientRect().top;
+                if (top - offset <= 0) {
+                    nextActive = node.id;
+                } else {
+                    break;
                 }
-            },
-            { root: null, rootMargin: "-20% 0px -65% 0px", threshold: [0.2, 0.5, 0.8] },
-        );
+            }
 
-        nodes.forEach((node) => observer.observe(node));
+            setActiveSection((prev) => (prev === nextActive ? prev : nextActive));
+        };
+
+        let ticking = false;
+        const onScroll = () => {
+            if (ticking) return;
+            ticking = true;
+            window.requestAnimationFrame(() => {
+                getActiveFromScroll();
+                ticking = false;
+            });
+        };
+
+        getActiveFromScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", onScroll);
 
         const onHashChange = () => {
             const next = window.location.hash.replace("#", "");
@@ -44,7 +62,8 @@ export function useActiveCaseSection(contentRef: RefObject<HTMLDivElement | null
         window.addEventListener("hashchange", onHashChange);
 
         return () => {
-            observer.disconnect();
+            window.removeEventListener("scroll", onScroll);
+            window.removeEventListener("resize", onScroll);
             window.removeEventListener("hashchange", onHashChange);
         };
     }, [contentRef, headings]);
