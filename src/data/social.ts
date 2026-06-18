@@ -36,7 +36,7 @@ export const SOCIAL_LINKS: SocialEntry[] = [
 
 export const UTILITY_LINKS: SocialEntry[] = [
     { label: "Email", href: "mailto:tanyijia@gmail.com", external: false, kind: "utility", icon: faEnvelope },
-    { label: "Resume", href: "/assets/TanYiJia-Resume.pdf", external: true, kind: "utility", icon: faFileLines },
+    { label: "Resume", href: "/assets/documents/TanYiJia-Resume.pdf", external: true, kind: "utility", icon: faFileLines },
     {
         label: "Portfolio Repo",
         href: "https://github.com/fluffysaur/fluffysaur.github.io",

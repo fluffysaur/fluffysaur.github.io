@@ -1,6 +1,4 @@
 import { Link, useLocation } from "react-router-dom";
-import logo from "../../assets/images/logo.png";
-import logoDark from "../../assets/images/logo-dark.png";
 import { scrollToPageTop, shouldScrollForLinkClick } from "../utils/navigation";
 
 type LogoMarkSize = "sm" | "md";
@@ -14,6 +12,9 @@ const sizeClass: Record<LogoMarkSize, string> = {
     sm: "h-7 w-7",
     md: "h-8 w-8",
 };
+
+const logo = "/assets/logos/logo.png";
+const logoDark = "/assets/logos/logo-dark.png";
 
 export function LogoMark({ size = "md", className = "" }: LogoMarkProps) {
     const location = useLocation();
