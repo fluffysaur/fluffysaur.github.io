@@ -4,22 +4,23 @@ import { defineCase } from "./defineCase";
 export default defineCase({
     id: "staffany",
     title: "StaffAny Learn & Earn",
-    subtitle: "Designing and validating a first-week activation flow that helped users discover product value earlier.",
-    dates: "Jan 2022 - Jun 2022",
+    subtitle: "A rewards checklist that entices new free-plan users to complete tasks and discover product value.",
+    dates: "Jan 2022 - Jun 2023",
     role: "Product Designer",
     team: "Growth Squad",
-    tags: ["Figma", "Jira", "Slack", "Notion", "UMUX-Lite"],
+    tags: ["Figma", "Jira", "Slack", "Google Docs", "Google Sheets", "Notion", "UMUX-Lite"],
     cover: "/assets/thumbnails/learnandearn-thumb.jpg",
     sections: [
         {
             heading: "Background",
-            tldr: "I designed Learn & Earn, a rewards-driven onboarding checklist that guided first-week users through high-value setup actions and was supported by rollout assets that reached 48k+ users.",
+            tldr: "I designed Learn & Earn to help new StaffAny Free Plan users complete product-value tasks and drive bottom-up demand generation.",
             content: (
-                <p>
-                    StaffAny serves thousands of shift workers across Southeast Asia. In Growth Pod, I worked on a
-                    common onboarding problem: users signed up but dropped off before they experienced the actions
-                    that drove long-term retention.
-                </p>
+                <>
+                    <p>
+                        Learn & Earn was aimed at enticing new Free Plan users on StaffAny's scheduling application to
+                        complete checklist tasks, discover the product's value, and create bottom-up demand.
+                    </p>
+                </>
             ),
         },
         {
@@ -27,13 +28,20 @@ export default defineCase({
             content: (
                 <>
                     <p>
-                        I owned product design end-to-end: framing activation goals with PMs, producing and iterating
-                        Figma prototypes, running usability testing, and partnering with engineers and marketing for
-                        launch execution.
+                        The Sales team and my Product Manager had already conceived the tasks and rewards. As the
+                        product designer, I liaised with engineering, product, and marketing to shape the best solution
+                        and prepare designs for StaffAny's mobile and web applications.
                     </p>
-                    <Figure
-                        src="/assets/thumbnails/learnandearn-thumb.jpg"
-                        alt="Placeholder: StaffAny Learn and Earn hero UI"
+                    <p>
+                        My key contributions included competitor research, solution exploration, usability testing,
+                        prototyping, design critique, and engineering collaboration.
+                    </p>
+                    <Checklist
+                        items={[
+                            ["Software", "Figma, Jira, Slack, Google Docs, Google Sheets, Notion"],
+                            ["Methods", "Competitor research, prototyping, usability testing, design critique"],
+                            ["Duration", "2 weeks for the first iteration, with continued iterations after launch"],
+                        ]}
                     />
                 </>
             ),
@@ -42,55 +50,116 @@ export default defineCase({
             heading: "Research",
             content: (
                 <>
+                    <p>
+                        Before conceptualisation, I looked for similar onboarding and rewards patterns from other
+                        products and online literature. The closest pattern was the onboarding checklist: users complete
+                        tasks to get started with the application.
+                    </p>
                     <Bullets
                         items={[
-                            "I audited onboarding drop-off points with PMs to identify where first-week users stalled.",
-                            "I benchmarked gamified onboarding and checklist patterns from adjacent SaaS products.",
-                            "I mapped onboarding jobs-to-be-done into concrete tasks users could complete in one session.",
+                            "Keep the checklist simple.",
+                            "Give users a head start.",
+                            "Show progress clearly.",
+                            "Provide further support when users get stuck.",
                         ]}
                     />
                     <Figure
-                        src="/assets/thumbnails/learnandearn-thumb.jpg"
-                        alt="Placeholder: StaffAny onboarding research board"
+                        src="/assets/case-studies/staffany/staffany-01.png"
+                        alt="StaffAny Learn and Earn competitor research"
                     />
                 </>
             ),
         },
         {
-            heading: "Solution",
+            heading: "Solution Concepts",
             content: (
                 <>
                     <p>
-                        I explored three concept directions and converged on a task ladder that made progress visible
-                        while keeping each step tied to real product value. The design intentionally balanced
-                        motivation cues with clarity, so users knew what to do next and why it mattered.
+                        From the research, I conceived three solution concepts. I emphasised mobile because usage data
+                        indicated that most users discovered StaffAny from there.
+                    </p>
+                    <p>
+                        These concepts were refined into prototypes for usability testing so we could assess discovery,
+                        comprehension, and perceived usefulness before committing engineering effort.
+                    </p>
+                    <Figure
+                        src="/assets/case-studies/staffany/staffany-02.png"
+                        alt="StaffAny Learn and Earn solution concepts"
+                    />
+                </>
+            ),
+        },
+        {
+            heading: "Usability Test Round 1",
+            content: (
+                <>
+                    <p>
+                        I went to Junction 8 in Bishan and approached retail managers in several outlets for impromptu
+                        usability testing, known internally as "bashing." Because time was tight, I focused on mobile,
+                        which was the priority surface.
+                    </p>
+                    <Bullets
+                        items={[
+                            "Assess discoverability of the rewards tasks on mobile.",
+                            "Assess understandability of the rewards concept on mobile.",
+                            "Assess whether the feature felt useful to retail managers.",
+                        ]}
+                    />
+                    <p>
+                        The first round exposed discoverability and comprehension issues. The positive signal was that
+                        users still found the feature useful for learning about the application.
+                    </p>
+                    <Figure
+                        src="/assets/case-studies/staffany/staffany-03.png"
+                        alt="StaffAny Learn and Earn round one usability testing findings"
+                    />
+                </>
+            ),
+        },
+        {
+            heading: "Refined Prototypes",
+            content: (
+                <>
+                    <p>
+                        After the first round, I ran more competitor research and created a second iteration. Three
+                        variants were prepared to test whether different layouts improved discoverability and
+                        understandability.
+                    </p>
+                    <Figure
+                        src="/assets/case-studies/staffany/staffany-04.png"
+                        alt="StaffAny Learn and Earn refined prototypes for round two"
+                    />
+                </>
+            ),
+        },
+        {
+            heading: "Usability Test Round 2",
+            content: (
+                <>
+                    <p>
+                        For the second round, I went to a shopping mall in Clementi to approach retail managers. This
+                        round tested discoverability, understandability, and participant preference across the variants.
                     </p>
                     <Checklist
+                        middleWidth={150}
                         items={[
-                            ["Concept A", "A mobile-first checklist that prioritized quick setup wins for new users."],
-                            ["Concept B", "A milestone-based flow that made progress and reward logic explicit."],
-                            ["Concept C", "A web dashboard variant for users who preferred desktop onboarding."],
+                            [
+                                "Relation",
+                                "Participants did not think that Get Started and Rewards tasks were linked, so I separated them.",
+                            ],
+                            [
+                                "More tab",
+                                "Participants tended to look for the checklist under More, so I moved the checklist there.",
+                            ],
+                            [
+                                "Skewed findings",
+                                "Variant C may have been affected by order effects because A and B were tested first.",
+                            ],
                         ]}
                     />
                     <Figure
-                        src="/assets/thumbnails/learnandearn-thumb.jpg"
-                        alt="Placeholder: StaffAny concept comparison and selected direction"
-                    />
-                </>
-            ),
-        },
-        {
-            heading: "Usability Testing",
-            content: (
-                <>
-                    <p>
-                        I ran two testing rounds. Round 1 highlighted unclear reward language and weak hierarchy. I
-                        refined copy, information grouping, and progression states before Round 2, which showed
-                        stronger comprehension and improved confidence in next actions.
-                    </p>
-                    <Figure
-                        src="/assets/thumbnails/learnandearn-thumb.jpg"
-                        alt="Placeholder: StaffAny usability findings and round 2 refinements"
+                        src="/assets/case-studies/staffany/staffany-05.png"
+                        alt="StaffAny Learn and Earn round two usability testing findings"
                     />
                 </>
             ),
@@ -100,14 +169,47 @@ export default defineCase({
             content: (
                 <>
                     <p>
-                        Before rollout, I ran internal critique sessions with product, support, and engineering to
-                        validate implementation feasibility, analytics event mapping, and edge-case handling. This
-                        reduced ambiguity during handoff and implementation.
+                        After usability testing, I prepared another prototype and ran a design critique with the design
+                        team. I also discussed feasibility with engineering, including concerns about rewards logic and
+                        backend structure.
+                    </p>
+                    <p>
+                        Because Variants A and B failed UMUX-Lite testing and Variant C had potential order-effect bias,
+                        we chose not to implement those options in that sprint. Instead, the checklist remained
+                        discoverable under More so engineering points could go to higher-priority work.
+                    </p>
+                </>
+            ),
+        },
+        {
+            heading: "First Version",
+            content: (
+                <>
+                    <p>
+                        The first version shipped on 22 March 2022. Programmatic logging was added so the team could
+                        track whether users completed the tasks and whether task completion contributed to paid-plan
+                        conversion.
                     </p>
                     <Figure
-                        src="/assets/thumbnails/learnandearn-thumb.jpg"
-                        alt="Placeholder: StaffAny internal validation and design critique artifacts"
+                        src="/assets/case-studies/staffany/staffany-06.png"
+                        alt="StaffAny Learn and Earn first released version"
                     />
+                </>
+            ),
+        },
+        {
+            heading: "Further Iterations",
+            content: (
+                <>
+                    <p>
+                        In the initial version, most rewards were manually activated so we could assess demand and
+                        effectiveness. Once a sizeable number of Free Plan users completed the checklist, the feature
+                        was deemed viable and we moved toward automating the rewards system.
+                    </p>
+                    <p>
+                        I continued working on the project through multiple iterations until my internship ended in June
+                        2023, after which I focused on overhauling StaffAny's design system under a part-time contract.
+                    </p>
                 </>
             ),
         },
@@ -116,21 +218,32 @@ export default defineCase({
             content: (
                 <Stats
                     items={[
-                        ["48k+", "Users reached"],
-                        ["2", "Rounds of user testing"],
-                        ["3", "Concept directions validated"],
+                        ["22 Mar", "First version released"],
+                        ["48k+", "Users reached within 6 months"],
                     ]}
                 />
             ),
         },
         {
-            heading: "Further Iterations",
+            heading: "Reflections",
             content: (
-                <p>
-                    Next iterations focused on personalization by user role and tighter sequencing with product
-                    analytics. The key lesson I took forward: activation mechanics only work when each step
-                    represents real user value, not checklist completion for its own sake.
-                </p>
+                <>
+                    <p>
+                        Cross-department collaboration made the first launch possible. Because product, engineering,
+                        marketing, sales, and design communicated quickly, we could consider different concepts, resolve
+                        issues, and launch the first version in two weeks.
+                    </p>
+                    <p>
+                        I would improve the research method next time. The impromptu tests were useful, but I should
+                        have counterbalanced variants to reduce order effects and considered tools such as Maze to reach
+                        a wider target audience.
+                    </p>
+                    <p>
+                        This project also taught me to voice product concerns earlier. I had reservations about making
+                        referrals one of the learning tasks because new users were unlikely to refer a friend so early,
+                        and an impossible-feeling task could leave the checklist perpetually incomplete.
+                    </p>
+                </>
             ),
         },
     ],

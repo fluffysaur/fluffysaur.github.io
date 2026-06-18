@@ -4,22 +4,46 @@ import { defineCase } from "./defineCase";
 export default defineCase({
     id: "interseed",
     title: "Interseed Web App",
-    subtitle: "Building a sustainability startup platform from scratch with MERN during a fast internship timeline.",
+    subtitle: "Designing and developing a MERN web app for sustainability impact founders in Southeast Asia.",
     dates: "Sep 2020 - Jun 2021",
-    role: "Frontend Developer (UX + Frontend)",
-    team: "Team of 4",
-    tags: ["MERN", "React", "TypeScript", "Node.js", "MongoDB", "Express", "Figma", "Wix"],
+    role: "UX Designer & Sole Frontend Developer",
+    team: "CEO + 4 interns",
+    tags: ["MERN", "React", "TypeScript", "Node.js", "MongoDB", "Express", "Adobe XD", "Jira"],
     cover: "/assets/thumbnails/interseed-thumb.jpg",
     sections: [
         {
             heading: "Project Overview",
-            tldr: "I translated fragmented manual matchmaking into a productized flow, prioritized features for a 12-week build window, and supported a soft launch that reached 300+ users.",
+            tldr: "I helped design and build Interseed, a platform for sustainability impact founders to connect with talent, funding opportunities, and knowledge resources.",
             content: (
-                <p>
-                    Interseed set out to connect early-stage sustainability startups with the right partners, mentors,
-                    and opportunities in one place. As a frontend intern, I worked across UX and implementation to help
-                    the team ship a usable MVP on a compressed timeline.
-                </p>
+                <>
+                    <p>
+                        During my internship with YSI Southeast Asia, I worked on Interseed: a web application for
+                        impact founders, talent, and investors in Southeast Asia. It was my first MERN stack product,
+                        with a heavy focus on the frontend.
+                    </p>
+                    <p>
+                        I learned React and TypeScript over two weeks, then used them to translate the product direction
+                        into working application screens for a soft launch.
+                    </p>
+                </>
+            ),
+        },
+        {
+            heading: "Role & Setup",
+            content: (
+                <>
+                    <p>
+                        I was the UX designer and sole frontend developer. I worked with two backend interns, one DevOps
+                        intern, and our CEO Surya, who directed the project and conducted most of the user research.
+                    </p>
+                    <Checklist
+                        items={[
+                            ["Tech stack", "MongoDB, Express, React, Node.js, TypeScript, React-Bootstrap"],
+                            ["Design tools", "Adobe XD, Jira, user journeys, wireframes, prototypes, UI design"],
+                            ["Duration", "6 months, including two weeks of React and TypeScript ramp-up"],
+                        ]}
+                    />
+                </>
             ),
         },
         {
@@ -27,86 +51,153 @@ export default defineCase({
             content: (
                 <>
                     <p>
-                        Discovery showed the issue was not a lack of opportunities, but a lack of visibility and trust
-                        in how opportunities were surfaced. Founders were managing discovery through scattered chats and
-                        spreadsheets, which made matching slow and inconsistent.
+                        The product direction came from 21 interviews with impact founders across Southeast Asia. The
+                        findings were translated into a founder persona and a set of needs around funding access, market
+                        knowledge, mentorship, and credibility.
                     </p>
                     <Bullets
                         items={[
-                            "Matching and startup discovery were still handled manually across chats and spreadsheets.",
-                            "I scoped the MVP around two primary users: founders seeking support and ecosystem partners assessing fit.",
-                            "The main constraint was a 12-week build window with no existing product codebase to extend.",
+                            "Founders found it difficult to discuss and convey ideas to investors.",
+                            "They struggled to meet like-minded founders and potential partners.",
+                            "They needed stronger context for product-market fit and regional expansion.",
+                            "They wanted a consolidated centre of niche knowledge, networking, and credible affirmation.",
                         ]}
                     />
                     <Figure
-                        src="/assets/thumbnails/interseed-thumb.jpg"
-                        alt="Placeholder: Interseed user flow and problem framing"
+                        src="/assets/case-studies/interseed/interseed-01.png"
+                        alt="Interseed persona and problem framing"
                     />
                 </>
             ),
         },
         {
-            heading: "Research Synthesis",
+            heading: "User Stories",
             content: (
                 <>
                     <p>
-                        From interviews and desk research, three patterns repeated: founders needed clearer credibility
-                        signals, collaborators needed quick qualification criteria, and both sides needed faster ways to
-                        make first contact.
+                        Each team member drafted persona statements, then voted on the ones most relevant to Interseed.
+                        I explored the founder's relationship with investors, mentors, talent, and like-minded founders
+                        to understand why each connection might matter.
+                    </p>
+                    <p>
+                        The consolidated framing became: as a concerned impact founder, I want to enter a thriving SEA
+                        network so I can find people who can help me access funding.
                     </p>
                     <Figure
-                        src="/assets/thumbnails/interseed-thumb.jpg"
-                        alt="Placeholder: Interseed flowchart and information architecture"
+                        src="/assets/case-studies/interseed/interseed-02.png"
+                        alt="Interseed consolidated user story"
                     />
                 </>
             ),
         },
         {
-            heading: "Solution",
+            heading: "User Journey",
             content: (
                 <>
                     <p>
-                        I framed the roadmap into must-have, good-to-have, and long-term layers so product and
-                        engineering could commit to a realistic release without losing future direction.
+                        We split user narratives into overarching, high-priority, and low-priority flows. I mapped both
+                        the current state and proposed state so the team could see how Interseed might change a
+                        founder's behaviour.
+                    </p>
+                    <Figure
+                        src="/assets/case-studies/interseed/interseed-03.png"
+                        alt="Interseed user journey narratives"
+                    />
+                </>
+            ),
+        },
+        {
+            heading: "Competitor Research",
+            content: (
+                <>
+                    <p>
+                        To understand the market, each team member studied similar products. I assessed seven products
+                        for purpose, strengths, weaknesses, user relevance, and possible feature inspiration.
+                    </p>
+                    <Bullets
+                        items={[
+                            "Social login to reduce sign-up friction.",
+                            "Onboarding guides to support early activation.",
+                            "Events maps and calendars for sustainability-related events.",
+                            "News, blogs, forums, and posts for ongoing knowledge and discussion.",
+                            "Direct messaging and simple profile setup for easier connection.",
+                        ]}
+                    />
+                </>
+            ),
+        },
+        {
+            heading: "App Structure",
+            content: (
+                <>
+                    <p>
+                        Based on the user narratives and competitor research, we drafted an initial web app flowchart.
+                        This became the starting point for the core feature table and design scope, even though we
+                        expected it to change during the build.
+                    </p>
+                    <Figure src="/assets/case-studies/interseed/interseed-04.png" alt="Interseed web app flowchart" />
+                    <Figure src="/assets/case-studies/interseed/interseed-05.png" alt="Interseed core features table" />
+                </>
+            ),
+        },
+        {
+            heading: "First Prototype",
+            content: (
+                <>
+                    <p>
+                        I designed the first working prototype in Adobe XD, taking inspiration from Facebook's
+                        component-style interface. It included login, sign-up, mock onboarding, a homepage placeholder,
+                        opportunities, resources, and events.
+                    </p>
+                    <p>
+                        I used the prototype for internal concept testing. The main recommendations were to split the
+                        community page, soften the blue palette, rethink the homepage, and remove the contact page.
                     </p>
                     <Checklist
-                        middleWidth={180}
                         items={[
-                            [
-                                "Need this now",
-                                "Founder profiles, startup listings, search and filter, and a direct first-contact flow",
-                            ],
-                            [
-                                "Good to have",
-                                "Bookmarks, richer matching filters, startup updates, and collaboration signals",
-                            ],
-                            ["Long term", "Mentor matching, community features, events, and recommendation workflows"],
+                            ["Community", "Separate organisations and users instead of combining them in one list."],
+                            ["Visuals", "Use a lighter blue because the first palette felt too harsh."],
+                            ["Homepage", "Clarify the purpose before locking the first logged-in screen."],
+                            ["Navigation", "Remove the contact page from the application navbar."],
                         ]}
                     />
-                    <Figure src="/assets/thumbnails/interseed-thumb.jpg" alt="Placeholder: Interseed MVP scope board" />
                 </>
             ),
         },
         {
-            heading: "Design",
+            heading: "Notable Designs",
             content: (
                 <>
                     <p>
-                        I moved from low-fidelity mapping to higher-fidelity Figma prototypes, then translated those
-                        screens into React components. The design principle was simple: users should quickly assess
-                        relevance and take action without needing to dig through dense profiles.
+                        The homepage took several rounds of discussion. We eventually shaped it around mood check-ins,
+                        motivational quotes, announcements, signed-up events, and featured articles so the first screen
+                        felt supportive and useful.
+                    </p>
+                    <Figure src="/assets/case-studies/interseed/interseed-06.png" alt="Interseed homepage design" />
+                    <p>
+                        The final mid-fidelity prototype applied the first round of feedback, updated existing layouts,
+                        added missing pages, and became the main design reference for development.
+                    </p>
+                </>
+            ),
+        },
+        {
+            heading: "Develop",
+            content: (
+                <>
+                    <p>
+                        The development phase surfaced design gaps. Some pages were designed and built outside the
+                        prototype because of timeline pressure, including login, sign-up, edit profile, market research,
+                        job cards, and organisation-related pages.
                     </p>
                     <Bullets
                         items={[
-                            "I designed low-fidelity to high-fidelity flows in Figma, then translated them into React-ready implementation plans.",
-                            "Reusable card and list patterns reduced UI drift and helped the team ship faster in sprints.",
-                            "Profile hierarchy emphasized startup stage, sustainability focus, and collaboration intent for quicker decision-making.",
+                            "The Market Research page was built from product inspiration instead of a full Adobe XD prototype.",
+                            "Internal testing revealed missing loading and empty states in list-heavy pages.",
+                            "The lack of prototypes made some filter layouts feel rushed and less intentional.",
                         ]}
                     />
-                    <Figure
-                        src="/assets/thumbnails/interseed-thumb.jpg"
-                        alt="Placeholder: Interseed prototype to implementation screens"
-                    />
+                    <Figure src="/assets/case-studies/interseed/interseed-07.png" alt="Interseed empty state design" />
                 </>
             ),
         },
@@ -115,25 +206,27 @@ export default defineCase({
             content: (
                 <Stats
                     items={[
+                        ["21", "Founder interviews informed the problem space"],
+                        ["7", "Comparable products researched by me"],
+                        ["2 wks", "React and TypeScript ramp-up"],
                         ["300+", "Users reached at soft launch"],
-                        ["12 wks", "MVP scope delivered"],
-                        ["2 wks", "Ramp-up to React + TypeScript"],
                     ]}
                 />
             ),
         },
         {
-            heading: "Reflection",
+            heading: "Reflections",
             content: (
                 <>
                     <p>
-                        This project reinforced the value of tight framing before visual polish. The MVP succeeded
-                        because we aligned early on decision criteria and shipped around a few high-confidence flows.
+                        This was a project of many firsts: my first React build, first professional-facing product, and
+                        first large-scale web application. The biggest lesson was to design high-fidelity prototypes
+                        before development whenever possible, especially when I am also the person building the UI.
                     </p>
                     <p>
-                        Personally, this was my first end-to-end product build. Learning React + TypeScript in two weeks
-                        while shipping production UI gave me a product-engineering perspective that still shapes how I
-                        work today.
+                        I also learned to clarify earlier. Instead of waiting for meetings to reveal unresolved design
+                        decisions, I should have arranged quicker concept check-ins so ambiguous pages like the homepage
+                        could be validated sooner.
                     </p>
                 </>
             ),
