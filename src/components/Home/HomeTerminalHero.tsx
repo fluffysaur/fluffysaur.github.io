@@ -6,7 +6,7 @@ import { Button } from "../Button";
 
 const TYPE_SPEED_MS = 45;
 const COMMAND_SETTLE_MS = 260;
-const OUTPUT_SETTLE_MS = 600;
+const OUTPUT_SETTLE_MS = 700;
 const TERMINAL_FADE_MS = 450;
 
 let hasPlayedHomeTerminalIntro = false;
