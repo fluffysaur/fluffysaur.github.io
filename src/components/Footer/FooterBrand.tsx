@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
+import { LogoMark } from "../LogoMark";
 
 export function FooterBrand() {
     return (
         <div>
             <Link to="/" className="mb-4 flex items-center gap-3 no-underline text-(--on-surface)">
-                <span className="grid h-9 w-9 place-items-center rounded-lg bg-primary text-base font-black tracking-[-0.04em] text-tertiary">
-                    YJ
-                </span>
+                <LogoMark size="md" linked={false} className="h-9 w-9 rounded-lg" />
                 <span className="text-[15px] font-medium tracking-wider">
                     tanyijia<span className="text-primary">.</span>me
                 </span>

@@ -28,7 +28,18 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
         const originX = (rect.left + rect.width / 2) / window.innerWidth;
         const originY = (rect.top + rect.height / 2) / window.innerHeight;
         const randomVelocity = 44 + Math.random() * 12;
-        const randomAngle = 52 + Math.random() * 14;
+        const isMobile = window.matchMedia("(max-width: 767px)").matches;
+        const randomAngle = isMobile
+            ? (() => {
+                  const sourceX = rect.left + rect.width / 2;
+                  const sourceY = rect.top + rect.height / 2;
+                  const targetX = window.innerWidth / 2;
+                  const targetY = window.innerHeight / 2;
+                  const centerAngle = (Math.atan2(sourceY - targetY, targetX - sourceX) * 180) / Math.PI;
+
+                  return centerAngle + (Math.random() * 24 - 12);
+              })()
+            : 52 + Math.random() * 14;
 
         confetti({
             particleCount: 90,
@@ -142,7 +153,7 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
                         }`}
                         onClick={() => handleMobileTabClick("explorer")}
                     >
-                        <FontAwesomeIcon icon={faCopy} className="text-[15px]" /> Explorer
+                        <FontAwesomeIcon icon={faCopy} className="text-[15px]" />
                     </Button>
                     <Button
                         variant="text"
@@ -152,18 +163,19 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
                         }`}
                         onClick={() => handleMobileTabClick("extensions")}
                     >
-                        <FontAwesomeIcon icon={faPuzzlePiece} className="text-[15px]" /> Ext
+                        <FontAwesomeIcon icon={faPuzzlePiece} className="text-[15px]" />
                     </Button>
                     <Button
                         variant="text"
                         size="sm"
-                        className="flex items-center justify-center gap-2 py-3 font-mono text-[11px] uppercase tracking-[0.12em] text-(--on-surface-muted)"
+                        className="flex items-center justify-center py-3 text-(--on-surface-muted)"
                         onClick={(event) => launchConfetti(event.currentTarget)}
+                        title="Confetti"
+                        aria-label="Launch confetti"
                     >
                         <span className="text-[16px] leading-none" role="img" aria-label="confetti">
                             🎉
-                        </span>{" "}
-                        Pop
+                        </span>
                     </Button>
                 </div>
             </div>

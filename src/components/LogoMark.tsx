@@ -6,6 +6,7 @@ type LogoMarkSize = "sm" | "md";
 interface LogoMarkProps {
     size?: LogoMarkSize;
     className?: string;
+    linked?: boolean;
 }
 
 const sizeClass: Record<LogoMarkSize, string> = {
@@ -16,13 +17,24 @@ const sizeClass: Record<LogoMarkSize, string> = {
 const logo = "/assets/logos/logo.png";
 const logoDark = "/assets/logos/logo-dark.png";
 
-export function LogoMark({ size = "md", className = "" }: LogoMarkProps) {
+export function LogoMark({ size = "md", className = "", linked = true }: LogoMarkProps) {
     const location = useLocation();
+    const classes = `logo-mark grid shrink-0 place-items-center rounded-md no-underline ${sizeClass[size]} ${className}`;
+    const images = (
+        <>
+            <img className="logo-mark__image logo-mark__image--light" src={logo} alt="" aria-hidden="true" />
+            <img className="logo-mark__image logo-mark__image--dark" src={logoDark} alt="" aria-hidden="true" />
+        </>
+    );
+
+    if (!linked) {
+        return <span className={classes}>{images}</span>;
+    }
 
     return (
         <Link
             to="/"
-            className={`logo-mark grid shrink-0 place-items-center rounded-md no-underline ${sizeClass[size]} ${className}`}
+            className={classes}
             aria-label="Go to home"
             onClick={(event) => {
                 if (shouldScrollForLinkClick(event, "/", location)) {
@@ -30,8 +42,7 @@ export function LogoMark({ size = "md", className = "" }: LogoMarkProps) {
                 }
             }}
         >
-            <img className="logo-mark__image logo-mark__image--light" src={logo} alt="" aria-hidden="true" />
-            <img className="logo-mark__image logo-mark__image--dark" src={logoDark} alt="" aria-hidden="true" />
+            {images}
         </Link>
     );
 }

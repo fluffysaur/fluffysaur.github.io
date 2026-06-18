@@ -36,15 +36,6 @@ export function NavActions({ theme, onOpenMobileSearch, onToggleTheme }: NavActi
                     <FontAwesomeIcon icon={faMoon} className="text-[13px]" />
                 )}
             </Button>
-
-            <Button
-                href="mailto:tanyijia@gmail.com"
-                variant="primary"
-                size="sm"
-                className="hidden whitespace-nowrap md:inline-flex"
-            >
-                Get in touch
-            </Button>
         </div>
     );
 }
