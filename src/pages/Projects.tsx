@@ -5,15 +5,15 @@ import { FilterTabs } from "../components/FilterTabs";
 import { ProjectsGrid } from "../components/ProjectsGrid";
 import { PROJECTS } from "../data/projects";
 
-type FilterId = "engineering" | "film";
+type FilterId = "dev" | "film";
 
 const FILTERS = [
-    { id: "engineering" as const, label: "/Engineering" },
+    { id: "dev" as const, label: "/Dev" },
     { id: "film" as const, label: "/Film" },
 ];
 
 function normalizeTrack(track: string | null): FilterId {
-    return track === "film" ? "film" : "engineering";
+    return track === "film" ? "film" : "dev";
 }
 
 export function Projects() {
@@ -27,7 +27,7 @@ export function Projects() {
     };
 
     const counts: Record<FilterId, number> = {
-        engineering: PROJECTS.filter((p) => p.cat === "engineering").length,
+        dev: PROJECTS.filter((p) => p.cat === "dev").length,
         film: PROJECTS.filter((p) => p.cat === "film").length,
     };
 
@@ -42,7 +42,7 @@ export function Projects() {
                         Everything I've <strong>shipped</strong>.
                     </>
                 }
-                subtitle="Projects across engineering and film. Browse by track."
+                subtitle="Projects I've worked on."
             />
 
             <div className="mt-14">

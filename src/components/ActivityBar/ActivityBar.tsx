@@ -18,7 +18,7 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
     const { pathname } = useLocation();
     const [mobilePanelOpen, setMobilePanelOpen] = useState(false);
     const [collapsedFolders, setCollapsedFolders] = useState<Record<string, boolean>>({
-        engineering: false,
+        dev: false,
         film: false,
     });
 

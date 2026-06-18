@@ -16,7 +16,7 @@ export function Experience() {
                         Career <strong>experience</strong>.
                     </>
                 }
-                subtitle="Full work history across engineering, product, and film."
+                subtitle="Full work history across dev, product, and film."
             />
 
             <div className="mt-12 border-t mb-8 border-(--outline-variant)">

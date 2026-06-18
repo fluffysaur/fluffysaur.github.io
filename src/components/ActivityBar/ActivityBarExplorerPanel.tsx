@@ -4,7 +4,7 @@ import { PROJECTS } from "../../data/projects";
 import { Button } from "../Button";
 
 const PROJECT_GROUPS = [
-    { id: "engineering", label: "engineering", items: PROJECTS.filter((project) => project.cat === "engineering") },
+    { id: "dev", label: "dev", items: PROJECTS.filter((project) => project.cat === "dev") },
     { id: "film", label: "film", items: PROJECTS.filter((project) => project.cat === "film") },
 ];
 

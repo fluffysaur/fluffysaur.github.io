@@ -28,8 +28,8 @@ export default defineCase({
                 <>
                     <p>
                         Discovery showed the issue was not a lack of opportunities, but a lack of visibility and trust
-                        in how opportunities were surfaced. Founders were managing discovery through scattered chats
-                        and spreadsheets, which made matching slow and inconsistent.
+                        in how opportunities were surfaced. Founders were managing discovery through scattered chats and
+                        spreadsheets, which made matching slow and inconsistent.
                     </p>
                     <Bullets
                         items={[
@@ -51,8 +51,8 @@ export default defineCase({
                 <>
                     <p>
                         From interviews and desk research, three patterns repeated: founders needed clearer credibility
-                        signals, collaborators needed quick qualification criteria, and both sides needed faster ways
-                        to make first contact.
+                        signals, collaborators needed quick qualification criteria, and both sides needed faster ways to
+                        make first contact.
                     </p>
                     <Figure
                         src="/assets/thumbnails/interseed-thumb.jpg"
@@ -80,16 +80,10 @@ export default defineCase({
                                 "Good to have",
                                 "Bookmarks, richer matching filters, startup updates, and collaboration signals",
                             ],
-                            [
-                                "Long term",
-                                "Mentor matching, community features, events, and recommendation workflows",
-                            ],
+                            ["Long term", "Mentor matching, community features, events, and recommendation workflows"],
                         ]}
                     />
-                    <Figure
-                        src="/assets/thumbnails/interseed-thumb.jpg"
-                        alt="Placeholder: Interseed MVP scope board"
-                    />
+                    <Figure src="/assets/thumbnails/interseed-thumb.jpg" alt="Placeholder: Interseed MVP scope board" />
                 </>
             ),
         },
@@ -137,9 +131,9 @@ export default defineCase({
                         because we aligned early on decision criteria and shipped around a few high-confidence flows.
                     </p>
                     <p>
-                        Personally, this was my first end-to-end product build. Learning React + TypeScript in two
-                        weeks while shipping production UI gave me a product-engineering perspective that still shapes
-                        how I work today.
+                        Personally, this was my first end-to-end product build. Learning React + TypeScript in two weeks
+                        while shipping production UI gave me a product-engineering perspective that still shapes how I
+                        work today.
                     </p>
                 </>
             ),

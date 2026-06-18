@@ -1,4 +1,4 @@
-export type ProjectCat = "engineering" | "film";
+export type ProjectCat = "dev" | "film";
 
 export interface Project {
     id: string;
