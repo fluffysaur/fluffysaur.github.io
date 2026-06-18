@@ -10,7 +10,7 @@ export function CaseHeading({ children, id }: CaseHeadingProps) {
     return (
         <h2
             id={id}
-            className="mt-14 mb-5 border-b pb-3 text-[32px] font-light tracking-[-0.01em] scroll-mt-24"
+            className="mt-14 mb-5 border-b pb-3 text-[32px] font-light tracking-[-0.01em]"
             style={caseStyles.heading}
         >
             <span className="font-mono font-normal" style={caseStyles.headingPrefix}>

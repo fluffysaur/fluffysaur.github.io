@@ -4,11 +4,11 @@ import type { Location, To } from "react-router-dom";
 export function scrollToPageTop() {
     const pageScroller = document.getElementById("page-scroll-container");
     if (pageScroller) {
-        pageScroller.scrollTo({ top: 0, left: 0, behavior: "auto" });
+        pageScroller.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         return;
     }
 
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
 }
 
 export function isSamePath(to: To, location: Location) {

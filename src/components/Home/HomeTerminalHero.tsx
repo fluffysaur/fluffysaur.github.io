@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import { STACK } from "../../data/projects";
 import { TerminalWindow } from "../TerminalWindow";
-import { Button } from "../Button";
+import { HomeSocialLinks } from "./HomeSocialLinks";
 
 const TYPE_SPEED_MS = 45;
 const COMMAND_SETTLE_MS = 260;
@@ -230,14 +230,7 @@ export function HomeTerminalHero({ shouldPlayIntro, onIntroComplete }: HomeTermi
                     >
                         Crafting <strong>delight</strong> into every <strong>pixel</strong>.
                     </h1>
-                    <div className="flex flex-wrap gap-3 mt-8">
-                        <Button to="/projects" variant="primary">
-                            cd ./projects →
-                        </Button>
-                        <Button href="https://github.com/fluffysaur" target="_blank" rel="noopener">
-                            ↗ github.com/fluffysaur
-                        </Button>
-                    </div>
+                    <HomeSocialLinks />
                 </div>
             </div>
         </section>

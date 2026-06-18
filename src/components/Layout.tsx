@@ -46,7 +46,7 @@ export function Layout() {
                 <div
                     id="page-scroll-container"
                     key={pathname}
-                    className="page-in min-h-0 flex-1 overflow-y-auto pb-22 md:pb-7"
+                    className="page-in min-h-0 flex-1 overflow-y-auto pb-7"
                 >
                     <Outlet />
                 </div>

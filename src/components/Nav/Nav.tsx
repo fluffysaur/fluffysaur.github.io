@@ -7,6 +7,7 @@ import { NavTabs } from "./NavTabs";
 import { NavSearchDesktop } from "./NavSearchDesktop";
 import { NavActions } from "./NavActions";
 import { NavMobileSearch } from "./NavMobileSearch";
+import { NavMobileMenu } from "./NavMobileMenu";
 import { LogoMark } from "../LogoMark";
 import { isSamePath, scrollToPageTop } from "../../utils/navigation";
 
@@ -19,11 +20,13 @@ export function Nav() {
     const [query, setQuery] = useState("");
     const [open, setOpen] = useState(false);
     const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [selectedIdx, setSelectedIdx] = useState(0);
     const inputRef = useRef<HTMLInputElement>(null);
     const mobileInputRef = useRef<HTMLInputElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const mobileSearchRef = useRef<HTMLDivElement>(null);
+    const mobileMenuRef = useRef<HTMLDivElement>(null);
 
     const { tabs, caseId, caseTrack } = deriveTabs(pathname);
     const results = filterSearchItems(query);
@@ -41,19 +44,32 @@ export function Nav() {
             scrollToPageTop();
         }
         navigate(path);
+        setMobileMenuOpen(false);
         closeSearch();
     };
 
-    const handleOpenMobileSearch = () => {
+    const handleMobileSearchOpen = () => {
         setMobileSearchOpen(true);
+        setMobileMenuOpen(false);
         setOpen(false);
-        setTimeout(() => mobileInputRef.current?.focus(), 0);
     };
 
-    const handleCloseMobileSearch = () => {
-        setMobileSearchOpen(false);
-        setQuery("");
-        mobileInputRef.current?.blur();
+    const handleMobileMenuToggle = () => {
+        setMobileMenuOpen((current) => !current);
+        closeSearch();
+    };
+
+    const handleMobileMenuNavigate = (path: string) => {
+        if (isSamePath(path, location)) {
+            scrollToPageTop();
+        }
+        navigate(path);
+        setMobileMenuOpen(false);
+    };
+
+    const handleCloseCaseTab = () => {
+        navigate(`/projects?track=${caseTrack ?? "dev"}`);
+        setMobileMenuOpen(false);
     };
 
     useEffect(() => {
@@ -62,6 +78,7 @@ export function Nav() {
                 event.preventDefault();
                 if (window.innerWidth < 768) {
                     setMobileSearchOpen(true);
+                    setMobileMenuOpen(false);
                     setTimeout(() => mobileInputRef.current?.focus(), 0);
                     return;
                 }
@@ -74,18 +91,23 @@ export function Nav() {
     }, []);
 
     useEffect(() => {
-        if (!open && !mobileSearchOpen) return;
+        if (!open && !mobileSearchOpen && !mobileMenuOpen) return;
 
         const onDown = (event: MouseEvent) => {
             const target = event.target as Node;
-            if (!containerRef.current?.contains(target) && !mobileSearchRef.current?.contains(target)) {
+            if (
+                !containerRef.current?.contains(target) &&
+                !mobileSearchRef.current?.contains(target) &&
+                !mobileMenuRef.current?.contains(target)
+            ) {
                 closeSearch();
+                setMobileMenuOpen(false);
             }
         };
 
         document.addEventListener("mousedown", onDown);
         return () => document.removeEventListener("mousedown", onDown);
-    }, [open, mobileSearchOpen]);
+    }, [open, mobileSearchOpen, mobileMenuOpen]);
 
     useEffect(() => {
         setSelectedIdx(0);
@@ -130,10 +152,24 @@ export function Nav() {
                     tabs={tabs}
                     pathname={pathname}
                     caseId={caseId}
-                    onCloseCaseTab={() => navigate(`/projects?track=${caseTrack ?? "dev"}`)}
+                    onCloseCaseTab={handleCloseCaseTab}
                 />
 
-                <div className="flex-1" />
+                <NavMobileSearch
+                    isOpen={mobileSearchOpen}
+                    mobileSearchRef={mobileSearchRef}
+                    mobileInputRef={mobileInputRef}
+                    query={query}
+                    results={results}
+                    selectedIdx={selectedIdx}
+                    onQueryChange={setQuery}
+                    onKeyDown={handleKeyDown}
+                    onResultHover={setSelectedIdx}
+                    onResultClick={handleResultClick}
+                    onOpen={handleMobileSearchOpen}
+                />
+
+                <div className="hidden flex-1 md:block" />
 
                 <NavSearchDesktop
                     containerRef={containerRef}
@@ -150,22 +186,21 @@ export function Nav() {
                     onResultClick={handleResultClick}
                 />
 
-                <NavActions theme={theme} onOpenMobileSearch={handleOpenMobileSearch} onToggleTheme={toggle} />
-            </nav>
+                <NavActions theme={theme} onToggleTheme={toggle} />
 
-            <NavMobileSearch
-                isOpen={mobileSearchOpen}
-                mobileSearchRef={mobileSearchRef}
-                mobileInputRef={mobileInputRef}
-                query={query}
-                results={results}
-                selectedIdx={selectedIdx}
-                onQueryChange={setQuery}
-                onKeyDown={handleKeyDown}
-                onResultHover={setSelectedIdx}
-                onResultClick={handleResultClick}
-                onClose={handleCloseMobileSearch}
-            />
+                <NavMobileMenu
+                    tabs={tabs}
+                    pathname={pathname}
+                    caseId={caseId}
+                    theme={theme}
+                    isOpen={mobileMenuOpen}
+                    menuRef={mobileMenuRef}
+                    onToggle={handleMobileMenuToggle}
+                    onNavigate={handleMobileMenuNavigate}
+                    onCloseCaseTab={handleCloseCaseTab}
+                    onToggleTheme={toggle}
+                />
+            </nav>
         </>
     );
 }

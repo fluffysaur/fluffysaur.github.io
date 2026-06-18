@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { TabDef } from "./tabs";
 import { Tab } from "../Tab";
@@ -10,7 +11,7 @@ interface NavTabsProps {
     onCloseCaseTab: () => void;
 }
 
-function isTabActive(tab: TabDef, pathname: string): boolean {
+export function isTabActive(tab: TabDef, pathname: string): boolean {
     if (tab.closeable) {
         return true;
     }
@@ -27,8 +28,15 @@ function isTabActive(tab: TabDef, pathname: string): boolean {
 }
 
 export function NavTabs({ tabs, pathname, caseId, onCloseCaseTab }: NavTabsProps) {
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const activeTab = containerRef.current?.querySelector<HTMLElement>('[aria-current="page"]');
+        activeTab?.scrollIntoView({ block: "nearest", inline: "center" });
+    }, [pathname]);
+
     return (
-        <div className="flex items-stretch overflow-x-auto scrollbar-hide">
+        <div ref={containerRef} className="hidden items-stretch overflow-x-auto scrollbar-hide md:flex">
             {tabs.map((tab) => {
                 const active = isTabActive(tab, pathname);
                 const key = tab.closeable ? `case-${caseId ?? "current"}` : tab.to;
@@ -46,6 +54,7 @@ export function NavTabs({ tabs, pathname, caseId, onCloseCaseTab }: NavTabsProps
                             onClick={scrollToPageTop}
                             role="button"
                             tabIndex={0}
+                            aria-current={active ? "page" : undefined}
                             onKeyDown={(event) => {
                                 if (event.key === "Enter" || event.key === " ") {
                                     event.preventDefault();
@@ -72,7 +81,14 @@ export function NavTabs({ tabs, pathname, caseId, onCloseCaseTab }: NavTabsProps
                 }
 
                 return (
-                    <Tab key={key} to={tab.to} variant="nav" active={active} className={className}>
+                    <Tab
+                        key={key}
+                        to={tab.to}
+                        variant="nav"
+                        active={active}
+                        className={className}
+                        aria-current={active ? "page" : undefined}
+                    >
                         <FontAwesomeIcon icon={tab.icon} className="text-[12px]" />
                         {tab.label}
                     </Tab>

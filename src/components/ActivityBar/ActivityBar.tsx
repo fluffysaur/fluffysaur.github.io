@@ -17,7 +17,6 @@ interface ActivityBarProps {
 
 export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
     const { pathname } = useLocation();
-    const [mobilePanelOpen, setMobilePanelOpen] = useState(false);
     const [collapsedFolders, setCollapsedFolders] = useState<Record<string, boolean>>({
         dev: false,
         film: false,
@@ -70,16 +69,6 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
 
     const handleDesktopTabClick = (tab: TabId) => {
         onTabChange(activeTab === tab ? null : tab);
-    };
-
-    const handleMobileTabClick = (tab: TabId) => {
-        if (activeTab === tab) {
-            setMobilePanelOpen(false);
-            onTabChange(null);
-        } else {
-            setMobilePanelOpen(true);
-            onTabChange(tab);
-        }
     };
 
     return (
@@ -143,71 +132,6 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
                 </section>
             )}
 
-            <div className="fixed left-0 right-0 bottom-7 z-30 border-t border-(--outline-variant) bg-(--surface-container) md:hidden">
-                <div className="grid grid-cols-3">
-                    <Button
-                        variant="text"
-                        size="sm"
-                        className={`flex items-center justify-center gap-2 py-3 text-[11px] font-mono uppercase tracking-[0.12em] ${
-                            activeTab === "explorer" ? "text-primary" : "text-(--on-surface-muted)"
-                        }`}
-                        onClick={() => handleMobileTabClick("explorer")}
-                    >
-                        <FontAwesomeIcon icon={faCopy} className="text-[15px]" />
-                    </Button>
-                    <Button
-                        variant="text"
-                        size="sm"
-                        className={`flex items-center justify-center gap-2 py-3 text-[11px] font-mono uppercase tracking-[0.12em] ${
-                            activeTab === "extensions" ? "text-primary" : "text-(--on-surface-muted)"
-                        }`}
-                        onClick={() => handleMobileTabClick("extensions")}
-                    >
-                        <FontAwesomeIcon icon={faPuzzlePiece} className="text-[15px]" />
-                    </Button>
-                    <Button
-                        variant="text"
-                        size="sm"
-                        className="flex items-center justify-center py-3 text-(--on-surface-muted)"
-                        onClick={(event) => launchConfetti(event.currentTarget)}
-                        title="Confetti"
-                        aria-label="Launch confetti"
-                    >
-                        <span className="text-[16px] leading-none" role="img" aria-label="confetti">
-                            🎉
-                        </span>
-                    </Button>
-                </div>
-            </div>
-
-            {mobilePanelOpen && activeTab && (
-                <section
-                    className="fixed inset-x-3 z-30 overflow-y-auto rounded-lg border border-(--outline-variant) bg-(--surface-container) md:hidden"
-                    style={{
-                        bottom: 84,
-                        maxHeight: "52vh",
-                        boxShadow: "0 16px 50px rgba(0,0,0,0.25)",
-                    }}
-                >
-                    <div className="flex items-center justify-between px-4 py-2.5 border-b border-(--outline-subtle)">
-                        <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-(--on-surface-subtle)">
-                            {activeTab}
-                        </p>
-                        <Button
-                            variant="text"
-                            size="sm"
-                            className="font-mono text-sm text-(--on-surface-muted)"
-                            onClick={() => {
-                                setMobilePanelOpen(false);
-                                onTabChange(null);
-                            }}
-                        >
-                            close
-                        </Button>
-                    </div>
-                    <div className="p-4">{panelContent}</div>
-                </section>
-            )}
         </>
     );
 }
