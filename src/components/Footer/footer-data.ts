@@ -15,7 +15,6 @@ export const FOOTER_SITEMAP: FooterLinkItem[] = [
 export const FOOTER_ELSEWHERE: FooterLinkItem[] = [
     { label: "GitHub", href: "https://github.com/fluffysaur", external: true },
     { label: "LinkedIn", href: "https://linkedin.com/in/tanyijiasg", external: true },
-    { label: "Vimeo", href: "https://vimeo.com/tanyijia", external: true },
     { label: "YouTube", href: "https://www.youtube.com/tanyijia", external: true },
 ];
 

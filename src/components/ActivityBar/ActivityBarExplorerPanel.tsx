@@ -10,7 +10,7 @@ const PROJECT_GROUPS = [
 
 function projectHref(project: (typeof PROJECTS)[number]) {
     if (project.cat === "film") return `/projects/${project.id}`;
-    if (project.hasCase) return `/projects/${project.id}`;
+    if (project.link?.startsWith("/")) return project.link;
     return `/projects?track=${project.cat}`;
 }
 

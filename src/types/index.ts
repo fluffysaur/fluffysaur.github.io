@@ -11,7 +11,7 @@ export interface Project {
     cat: ProjectCat;
     highlight: boolean;
     live: boolean;
-    hasCase?: boolean;
+    link?: string;
     repoUrl?: string;
     liveUrl?: string;
     youtubeUrl?: string;

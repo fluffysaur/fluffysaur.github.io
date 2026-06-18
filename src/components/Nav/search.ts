@@ -17,11 +17,19 @@ const PAGE_ITEMS: SearchItem[] = [
     { label: "About", sub: "/about", path: "/about" },
 ];
 
-const PROJECT_ITEMS: SearchItem[] = PROJECTS.map((project) => ({
-    label: project.title,
-    sub: project.hasCase || project.cat === "film" ? `/projects/${project.id}` : `/projects?track=${project.cat}`,
-    path: project.hasCase || project.cat === "film" ? `/projects/${project.id}` : `/projects?track=${project.cat}`,
-}));
+const PROJECT_ITEMS: SearchItem[] = PROJECTS.flatMap((project) => {
+    const path = project.cat === "film" ? `/projects/${project.id}` : project.link?.startsWith("/") ? project.link : null;
+
+    return path
+        ? [
+              {
+                  label: project.title,
+                  sub: path,
+                  path,
+              },
+          ]
+        : [];
+});
 
 const ALL_ITEMS: SearchItem[] = [...PAGE_ITEMS, ...PROJECT_ITEMS];
 

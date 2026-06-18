@@ -46,7 +46,7 @@ npm run format
 - `/` → Home
 - `/experience` → Experience (full career history)
 - `/projects` → Projects listing
-- `/projects/:id` → ProjectDetail case study
+- `/projects/:id` → ProjectDetail case study or film detail
 - `/about` → About
 
 ### Theming
@@ -57,7 +57,7 @@ npm run format
 
 ### Data sources
 
-- `src/data/projects.ts` — source of truth for portfolio cards; `hasCase: true` enables a case study page
+- `src/data/projects.ts` — source of truth for portfolio cards; `link` controls optional card/navigation destinations
 - `src/data/experience.ts` — work history rendered on the Experience page
 - `src/data/social.ts` — social links for footer and About
 - `src/data/testimonials.ts` — testimonials for the home page strip
@@ -87,7 +87,7 @@ All shared UI components (headings, callouts, stats grids, TOC, prev/next nav, e
 1. Add the case content file at `src/case-studies/your-case.tsx`
 2. Export `meta` (a `CaseMeta` object) and `YourCaseContent` from it
 3. Register it in `src/case-studies/registry.ts`
-4. Add `hasCase: true` and matching `id` in `src/data/projects.ts`
+4. Add `link: "/projects/your-case"` and matching `id` in `src/data/projects.ts`
 
 ## Validation Checklist
 

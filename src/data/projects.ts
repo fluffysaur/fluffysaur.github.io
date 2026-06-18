@@ -13,7 +13,7 @@ export const PROJECTS: Project[] = [
         cat: "dev",
         highlight: false,
         live: true,
-        hasCase: false,
+        link: "https://www.greateasternlife.com/sg/en/customer-services/digital-services/ge-app.html",
     },
     {
         id: "staffany",
@@ -26,7 +26,7 @@ export const PROJECTS: Project[] = [
         cat: "dev",
         highlight: true,
         live: true,
-        hasCase: true,
+        link: "/projects/staffany",
     },
     {
         id: "interseed",
@@ -39,7 +39,7 @@ export const PROJECTS: Project[] = [
         cat: "dev",
         highlight: true,
         live: false,
-        hasCase: true,
+        link: "/projects/interseed",
     },
     {
         id: "launchpad",
@@ -52,7 +52,7 @@ export const PROJECTS: Project[] = [
         cat: "dev",
         highlight: true,
         live: false,
-        hasCase: true,
+        link: "/projects/launchpad",
     },
 
     // Film

@@ -10,6 +10,8 @@ interface FileCardProps {
 
 export function FileCard({ project: p, large }: FileCardProps) {
     const extension = p.cat === "film" ? "mov" : "tsx";
+    const isInternalLink = p.link?.startsWith("/");
+    const isCaseStudyLink = p.link?.startsWith("/projects/");
 
     const inner = (
         <div className="file-card block text-inherit no-underline rounded-lg overflow-hidden border group">
@@ -37,8 +39,11 @@ export function FileCard({ project: p, large }: FileCardProps) {
                 </div>
                 <div className="font-mono text-[11px] mt-2 text-(--on-surface-subtle)">{"}"}</div>
 
-                {p.hasCase && (
+                {isCaseStudyLink && (
                     <div className="mt-4 text-[11px] tracking-[0.2em] uppercase text-primary">Read case study →</div>
+                )}
+                {p.link && !isCaseStudyLink && (
+                    <div className="mt-4 text-[11px] tracking-[0.2em] uppercase text-primary">View project →</div>
                 )}
                 {p.youtubeUrl && (
                     <div className="mt-4 text-[11px] tracking-[0.2em] uppercase text-primary">Watch film →</div>
@@ -47,7 +52,23 @@ export function FileCard({ project: p, large }: FileCardProps) {
         </div>
     );
 
-    if (p.youtubeUrl || p.hasCase) {
+    if (p.link && isInternalLink) {
+        return (
+            <Link to={p.link} className="block no-underline text-inherit">
+                {inner}
+            </Link>
+        );
+    }
+
+    if (p.link) {
+        return (
+            <a href={p.link} target="_blank" rel="noopener noreferrer" className="block no-underline text-inherit">
+                {inner}
+            </a>
+        );
+    }
+
+    if (p.youtubeUrl) {
         return (
             <Link to={`/projects/${p.id}`} className="block no-underline text-inherit">
                 {inner}
