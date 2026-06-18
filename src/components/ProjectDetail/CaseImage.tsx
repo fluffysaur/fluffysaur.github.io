@@ -4,5 +4,5 @@ interface CaseImageProps {
 }
 
 export function CaseImage({ src, alt }: CaseImageProps) {
-    return <img src={src} alt={alt} className="my-8 block w-full rounded-md" />;
+    return <img src={src} alt={alt} className="my-8 block w-full rounded-md bg-white" />;
 }
