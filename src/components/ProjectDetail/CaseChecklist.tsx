@@ -8,7 +8,7 @@ interface CaseChecklistProps {
 
 export function CaseChecklist({ items, middleWidth = 160 }: CaseChecklistProps) {
     return (
-        <ul className="my-4.5 list-none p-0">
+        <ul className="m-0 list-none p-0">
             {items.map(([title, details]) => (
                 <li
                     key={`${title}-${details}`}

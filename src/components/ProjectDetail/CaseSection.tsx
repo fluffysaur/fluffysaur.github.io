@@ -14,7 +14,7 @@ export function CaseSection({ heading, tldr, children }: CaseSectionProps) {
         <section>
             <CaseHeading id={toAnchorId(heading)}>{heading}</CaseHeading>
             {tldr && <CaseCallout label="TL;DR">{tldr}</CaseCallout>}
-            {children}
+            <div className="flex flex-col gap-3">{children}</div>
         </section>
     );
 }
