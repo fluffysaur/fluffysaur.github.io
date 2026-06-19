@@ -35,7 +35,7 @@ export function NavSearchDesktop({
     return (
         <div
             ref={containerRef}
-            className="relative hidden self-center border-x border-(--outline-subtle) px-3 py-1.5 md:flex md:items-center"
+            className="relative hidden self-center border-x border-(--outline-subtle) px-3 py-2 md:flex md:items-center"
         >
             <div className="flex w-62 items-center gap-2 rounded border border-(--outline) bg-(--surface-container-low) px-2.5 py-1.5 text-(--on-surface-subtle)">
                 <FontAwesomeIcon icon={faMagnifyingGlass} className="text-[12px]" />

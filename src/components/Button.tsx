@@ -93,6 +93,7 @@ export function Button(props: ButtonProps) {
 
     const classes = joinClasses(
         "transition-all",
+        "cursor-pointer",
         variant !== "text" && "no-underline",
         (variant === "primary" || variant === "secondary") && "active:translate-y-px",
         disabled && "pointer-events-none opacity-55",

@@ -143,7 +143,7 @@ export function Nav() {
 
     return (
         <>
-            <nav className="intro-chrome sticky top-0 z-30 flex items-stretch border-b border-(--outline-variant) bg-(--surface-container)">
+            <nav className="intro-chrome sticky top-0 z-30 flex items-stretch border-b border-(--outline-variant) bg-(--surface-container) py-2 md:py-0">
                 <div className="flex items-center border-r px-3 md:hidden border-(--outline-subtle)">
                     <LogoMark size="sm" />
                 </div>
