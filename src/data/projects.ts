@@ -59,7 +59,7 @@ export const PROJECTS: Project[] = [
     {
         id: "anp",
         title: "Andre & Priscilla",
-        blurb: "The wedding of Andre and Priscilla, 25th November 2023. Lit, shot, edited, scored.",
+        blurb: "The wedding of Andre and Priscilla, 25th November 2023.",
         img: "/assets/thumbnails/anp-thumb.jpg",
         role: "Director",
         year: "2023",
@@ -72,7 +72,7 @@ export const PROJECTS: Project[] = [
     {
         id: "prologue",
         title: "Prologue",
-        blurb: "A reel of my best works and memories since I began filmmaking. The end of a prologue — a prelude to bigger things to come.",
+        blurb: "A reel of my best works and memories since I began filmmaking.",
         img: "/assets/thumbnails/demoreel-thumb.jpg",
         role: "Director",
         year: "2020",
@@ -98,7 +98,7 @@ export const PROJECTS: Project[] = [
     {
         id: "immerse",
         title: "Immerse",
-        blurb: "Highlight reel from Bartley Christian Church's Frontline Youth Camp, featuring speaker Pastor Joey Asher Tan.",
+        blurb: "Highlight reel from Bartley Christian Church's Frontline Youth Camp in 2022.",
         img: "/assets/thumbnails/immerse-thumb.jpg",
         role: "Director",
         year: "2022",
@@ -111,7 +111,7 @@ export const PROJECTS: Project[] = [
     {
         id: "timo-steph",
         title: "Timo & Steph",
-        blurb: "The beginning of a beautiful journey, featuring an original song performed by the newlyweds themselves. Same-day edit.",
+        blurb: "The wedding of Timo and Steph, featuring an original song by the newlyweds. Same-day edit.",
         img: "/assets/thumbnails/tns-thumb.jpg",
         role: "Director",
         year: "2022",

@@ -39,10 +39,10 @@ export function Projects() {
                 slug="projects"
                 title={
                     <>
-                        Everything I've <strong>shipped</strong>.
+                        Stuff I've <strong>shipped</strong>.
                     </>
                 }
-                subtitle="Projects I've worked on."
+                subtitle="Some projects I've worked on, from software to film."
             />
 
             <div className="mt-14">
