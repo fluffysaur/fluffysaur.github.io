@@ -34,7 +34,7 @@ export function CaseToc({ headings, activeSection, onSectionSelect }: CaseTocPro
     };
 
     return (
-        <aside className="hidden self-start rounded-md border border-(--outline-variant) bg-(--surface-container-low) p-4 text-sm lg:sticky lg:top-14 lg:block">
+        <aside className="hidden self-start rounded-md border border-(--outline-variant) bg-(--surface-container-low) p-4 text-sm lg:sticky lg:top-5 lg:block">
             <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.22em] text-(--on-surface-subtle)">
                 On this page
             </p>
