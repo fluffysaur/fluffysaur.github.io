@@ -4,7 +4,7 @@ interface CaseBulletsProps {
 
 export function CaseBullets({ items }: CaseBulletsProps) {
     return (
-        <ul className="mt-3.5 pl-4.5">
+        <ul className="my-3 list-disc pl-5 marker:text-primary">
             {items.map((item) => (
                 <li key={item}>{item}</li>
             ))}
