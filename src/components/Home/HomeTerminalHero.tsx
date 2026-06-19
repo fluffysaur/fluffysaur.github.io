@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import type { ReactNode } from "react";
 import { STACK } from "../../data/projects";
 import { TerminalWindow } from "../TerminalWindow";
@@ -78,7 +78,7 @@ export function HomeTerminalHero({ shouldPlayIntro, onIntroComplete }: HomeTermi
         setPhase(shouldPlayIntro ? "typing" : "idle");
     }, [shouldPlayIntro]);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const isPlaying = phase === "typing";
         const pageScroller = document.getElementById("page-scroll-container");
         const previousHtmlOverflow = document.documentElement.style.overflow;
@@ -183,11 +183,16 @@ export function HomeTerminalHero({ shouldPlayIntro, onIntroComplete }: HomeTermi
     }, [onIntroComplete, shouldPlayIntro]);
 
     const heroContentVisible = phase === "complete" || phase === "idle";
+    const terminalConstrained = phase === "complete" || phase === "idle";
 
     return (
         <section className="pb-16 pt-12">
             <div className="page-wrap">
-                <TerminalWindow className={`terminal-reveal max-w-3xl ${terminalVisible ? "is-visible" : ""}`}>
+                <TerminalWindow
+                    className={`terminal-reveal ${terminalConstrained ? "is-constrained" : ""} ${
+                        terminalVisible ? "is-visible" : ""
+                    }`}
+                >
                     <div className="relative">
                         <div className="invisible pointer-events-none select-none" aria-hidden="true">
                             {TERMINAL_STEPS.map((step) => (

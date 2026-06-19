@@ -73,7 +73,7 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
 
     return (
         <>
-            <aside className="fixed left-0 top-0 bottom-0 z-20 hidden w-14 flex-col border-r border-(--outline-variant) bg-(--surface-container-lowest) pt-4 md:flex">
+            <aside className="intro-chrome fixed left-0 top-0 bottom-0 z-20 hidden w-14 flex-col border-r border-(--outline-variant) bg-(--surface-container-lowest) pt-4 md:flex">
                 <LogoMark className="mx-auto mb-4" />
 
                 <Button
@@ -114,7 +114,7 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
             </aside>
 
             {activeTab && (
-                <section className="hidden md:block fixed left-14 top-0 bottom-0 w-75 z-10 border-r border-(--outline-variant) bg-(--surface-container) overflow-y-auto">
+                <section className="intro-chrome hidden md:block fixed left-14 top-0 bottom-0 w-75 z-10 border-r border-(--outline-variant) bg-(--surface-container) overflow-y-auto">
                     <div className="px-4 py-3 border-b border-(--outline-subtle) flex items-center justify-between">
                         <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-(--on-surface-subtle)">
                             {activeTab}
@@ -131,7 +131,6 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
                     <div className="p-4">{panelContent}</div>
                 </section>
             )}
-
         </>
     );
 }

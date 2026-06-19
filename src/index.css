@@ -459,9 +459,24 @@ button:focus-visible,
     transform: translateY(0);
 }
 
+.intro-chrome {
+    opacity: 1;
+}
+
+.home-intro-chrome-hidden .intro-chrome,
+.home-intro-playing .intro-chrome {
+    opacity: 0;
+    pointer-events: none;
+}
+
 .terminal-reveal {
+    width: 100%;
+    max-width: 100%;
     opacity: 0;
     transform: translateY(8px);
+}
+.terminal-reveal.is-constrained {
+    max-width: 48rem;
 }
 .terminal-reveal.is-visible {
     opacity: 1;
@@ -508,8 +523,13 @@ button:focus-visible,
             transform 0.45s ease-out;
     }
 
+    .intro-chrome {
+        transition: opacity 0.45s ease-out;
+    }
+
     .terminal-reveal {
         transition:
+            max-width 0.9s ease,
             opacity 0.45s ease-out,
             transform 0.45s ease-out;
     }

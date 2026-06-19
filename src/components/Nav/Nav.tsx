@@ -143,17 +143,12 @@ export function Nav() {
 
     return (
         <>
-            <nav className="sticky top-0 z-30 flex items-stretch border-b border-(--outline-variant) bg-(--surface-container)">
+            <nav className="intro-chrome sticky top-0 z-30 flex items-stretch border-b border-(--outline-variant) bg-(--surface-container)">
                 <div className="flex items-center border-r px-3 md:hidden border-(--outline-subtle)">
                     <LogoMark size="sm" />
                 </div>
 
-                <NavTabs
-                    tabs={tabs}
-                    pathname={pathname}
-                    caseId={caseId}
-                    onCloseCaseTab={handleCloseCaseTab}
-                />
+                <NavTabs tabs={tabs} pathname={pathname} caseId={caseId} onCloseCaseTab={handleCloseCaseTab} />
 
                 <NavMobileSearch
                     isOpen={mobileSearchOpen}
