@@ -39,7 +39,7 @@ export function formatExperienceRange(experience: Experience): string {
 const EXPERIENCE_ENTRIES: Experience[] = [
     {
         id: "great-eastern-software-engineer",
-        title: "FrontendSoftware Engineer",
+        title: "Frontend Software Engineer",
         company: "Great Eastern",
         role: "Mobile App Transformation",
         startDate: { month: 3, year: 2026 },
