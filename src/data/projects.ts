@@ -66,7 +66,7 @@ export const PROJECTS: Project[] = [
         tags: ["Premiere Pro"],
         cat: "film",
         highlight: false,
-        live: false,
+        live: true,
         youtubeUrl: "https://www.youtube.com/watch?v=4_dpSzk23WU",
     },
     {
@@ -79,7 +79,7 @@ export const PROJECTS: Project[] = [
         tags: ["Premiere Pro", "After Effects"],
         cat: "film",
         highlight: false,
-        live: false,
+        live: true,
         youtubeUrl: "https://www.youtube.com/watch?v=ShCs3YmUu8k",
     },
     {
@@ -92,7 +92,7 @@ export const PROJECTS: Project[] = [
         tags: ["Premiere Pro", "After Effects"],
         cat: "film",
         highlight: false,
-        live: false,
+        live: true,
         youtubeUrl: "https://www.youtube.com/watch?v=gP0Wxvdulhc",
     },
     {
@@ -105,7 +105,7 @@ export const PROJECTS: Project[] = [
         tags: ["Premiere Pro"],
         cat: "film",
         highlight: false,
-        live: false,
+        live: true,
         youtubeUrl: "https://www.youtube.com/watch?v=Lk2o6oYRvhA",
     },
     {
@@ -118,7 +118,7 @@ export const PROJECTS: Project[] = [
         tags: ["Premiere Pro"],
         cat: "film",
         highlight: false,
-        live: false,
+        live: true,
         youtubeUrl: "https://www.youtube.com/watch?v=MQ1b9YYK6s8",
     },
 ];
