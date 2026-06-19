@@ -56,9 +56,15 @@ const TERMINAL_STEPS: TerminalStep[] = [
 
 const FINAL_COMMANDS = TERMINAL_STEPS.map((step) => step.command);
 const FINAL_OUTPUT_VISIBILITY = TERMINAL_STEPS.map(() => true);
-const SCROLLBAR_PADDING = "var(--scrollbar-size)";
 
 const wait = (ms: number) => new Promise<void>((resolve) => window.setTimeout(resolve, ms));
+
+const getVerticalScrollbarWidth = (element: HTMLElement) => element.offsetWidth - element.clientWidth;
+
+const addScrollbarCompensation = (element: HTMLElement, scrollbarWidth: number) => {
+    const currentPaddingRight = Number.parseFloat(window.getComputedStyle(element).paddingRight) || 0;
+    element.style.paddingRight = `${currentPaddingRight + scrollbarWidth}px`;
+};
 
 export function HomeTerminalHero({ shouldPlayIntro, onIntroComplete }: HomeTerminalHeroProps) {
     const [typedCommands, setTypedCommands] = useState<string[]>(() => TERMINAL_STEPS.map(() => ""));
@@ -90,12 +96,13 @@ export function HomeTerminalHero({ shouldPlayIntro, onIntroComplete }: HomeTermi
             document.documentElement.style.overflow = "hidden";
             document.body.style.overflow = "hidden";
             if (pageScroller) {
+                const scrollbarWidth = getVerticalScrollbarWidth(pageScroller);
                 pageScroller.style.overflowY = "hidden";
-                if (hasPageScrollbar) {
-                    pageScroller.style.paddingRight = SCROLLBAR_PADDING;
+                if (hasPageScrollbar && scrollbarWidth > 0) {
+                    addScrollbarCompensation(pageScroller, scrollbarWidth);
                 }
             } else if (hasDocumentScrollbar) {
-                document.body.style.paddingRight = SCROLLBAR_PADDING;
+                addScrollbarCompensation(document.body, window.innerWidth - document.documentElement.clientWidth);
             }
         }
 
