@@ -39,26 +39,26 @@ export function formatExperienceRange(experience: Experience): string {
 const EXPERIENCE_ENTRIES: Experience[] = [
     {
         id: "great-eastern-software-engineer",
-        title: "Software Engineer",
+        title: "FrontendSoftware Engineer",
         company: "Great Eastern",
         role: "Mobile App Transformation",
-        startDate: { month: 1, year: 2026 },
+        startDate: { month: 3, year: 2026 },
         endDate: "now",
         description:
-            "Leading the progressive migration from Cordova + Vue to React Native + TypeScript, while shaping modular architecture boundaries shared across SG and MY app initiatives.",
-        stack: ["React Native", "TypeScript", "Cordova", "Vue 2.7", "Hermes", "Mobile Architecture"],
+            "Leading the progressive migration from Cordova + Vue to React Native. Revamped microfrontend architecture to support multiple countries.",
+        stack: ["React Native", "TypeScript", "Cordova", "Vue"],
         highlight: true,
     },
     {
         id: "great-eastern-associate-software-engineer",
-        title: "Associate Software Engineer",
+        title: "Associate Frontend Software Engineer",
         company: "Great Eastern",
         role: "Mobile App Delivery",
-        startDate: { month: 7, year: 2023 },
-        endDate: { month: 12, year: 2025 },
+        startDate: { month: 8, year: 2023 },
+        endDate: { month: 3, year: 2026 },
         description:
             "Shipped customer-facing insurance app features on Cordova + Vue, improved release quality, and supported high-satisfaction claims and service journeys.",
-        stack: ["Cordova", "Vue", "TypeScript", "Mobile Delivery", "Analytics"],
+        stack: ["Cordova", "Vue", "JavaScript"],
         highlight: true,
     },
     {
@@ -69,8 +69,8 @@ const EXPERIENCE_ENTRIES: Experience[] = [
         startDate: { month: 1, year: 2022 },
         endDate: { month: 6, year: 2023 },
         description:
-            "Owned product design for growth initiatives including Learn & Earn, driving research, prototyping, testing, and rollout artifacts for large cohorts.",
-        stack: ["Figma", "Design Systems", "User Research", "Usability Testing", "Jira", "Notion"],
+            "Owned product design for growth initiatives across research, prototyping, testing, and release. Revamped the design system for the design team for consistency and reusability.",
+        stack: ["Figma", "Design Systems", "User Research"],
         highlight: true,
     },
     {
@@ -82,7 +82,7 @@ const EXPERIENCE_ENTRIES: Experience[] = [
         endDate: { month: 3, year: 2021 },
         description:
             "Built and iterated on the Interseed MERN platform, helping the team deliver a soft launch and stabilize onboarding and core workflows.",
-        stack: ["React", "TypeScript", "Node.js", "MongoDB", "Express", "MERN"],
+        stack: ["React", "Node.js", "Figma"],
         highlight: true,
     },
     {
@@ -94,7 +94,7 @@ const EXPERIENCE_ENTRIES: Experience[] = [
         endDate: { month: 5, year: 2020 },
         description:
             "Designed and developed marketing and information pages with a focus on clear storytelling and maintainable content updates.",
-        stack: ["HTML", "CSS", "JavaScript", "Content Design"],
+        stack: ["HTML", "CSS", "Node.js"],
         highlight: false,
     },
     {
@@ -106,7 +106,7 @@ const EXPERIENCE_ENTRIES: Experience[] = [
         endDate: { month: 12, year: 2019 },
         description:
             "Supported production operations on Mixed Signals, coordinating set logistics and execution details across shooting days.",
-        stack: ["Film Production", "Set Operations", "Coordination"],
+        stack: ["Film Production", "Logistics"],
         highlight: false,
     },
 ];
