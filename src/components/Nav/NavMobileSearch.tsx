@@ -32,7 +32,7 @@ export function NavMobileSearch({
 }: NavMobileSearchProps) {
     return (
         <div ref={mobileSearchRef} className="relative min-w-0 flex-1 self-center md:hidden">
-            <div className="flex items-center gap-2 rounded border border-(--outline) bg-(--surface-container-low) px-2 py-1.5 text-(--on-surface-subtle)">
+            <div className="flex h-8 items-center gap-2 rounded border border-(--outline) bg-(--surface-container-low) px-2 text-(--on-surface-subtle)">
                 <FontAwesomeIcon icon={faMagnifyingGlass} className="shrink-0 text-[12px]" />
                 <input
                     ref={mobileInputRef}
@@ -41,7 +41,7 @@ export function NavMobileSearch({
                     onChange={(event) => onQueryChange(event.target.value)}
                     onFocus={onOpen}
                     onKeyDown={onKeyDown}
-                    className="min-w-0 flex-1 border-0 bg-transparent text-[12px] font-mono text-(--on-surface-high) outline-none caret-primary"
+                    className="h-full min-w-0 flex-1 border-0 bg-transparent p-0 text-[12px] leading-4 font-mono text-(--on-surface-high) outline-none caret-primary"
                 />
             </div>
 
@@ -59,7 +59,7 @@ export function NavMobileSearch({
                                 type="button"
                                 onClick={() => onResultClick(item.path)}
                                 onMouseEnter={() => onResultHover(index)}
-                                className={`flex w-full cursor-pointer items-center justify-between border-0 bg-transparent px-3 py-2.5 text-left ${
+                                className={`flex w-full cursor-pointer items-center justify-between border-0 bg-transparent px-3 py-2 text-left ${
                                     index === selectedIdx ? "bg-primary/8" : ""
                                 }`}
                             >

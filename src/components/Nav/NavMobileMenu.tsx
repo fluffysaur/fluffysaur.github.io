@@ -31,12 +31,12 @@ export function NavMobileMenu({
     onToggleTheme,
 }: NavMobileMenuProps) {
     return (
-        <div ref={menuRef} className="relative flex items-stretch px-2 md:hidden">
+        <div ref={menuRef} className="relative flex shrink-0 items-center px-2 md:hidden">
             <Button
                 onClick={onToggle}
                 variant="icon"
                 size="sm"
-                className="aspect-square h-auto w-auto self-stretch"
+                className="h-8 w-8 shrink-0"
                 title={isOpen ? "Close navigation menu" : "Open navigation menu"}
                 aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
                 aria-expanded={isOpen}

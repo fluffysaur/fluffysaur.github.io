@@ -38,7 +38,7 @@ function joinClasses(...classes: Array<string | false | null | undefined>) {
 function variantClasses(variant: TabVariant, active: boolean) {
     if (variant === "nav") {
         return joinClasses(
-            "flex items-center gap-1.5 border-b-2 px-4 py-2.5 text-[12px] font-mono whitespace-nowrap shrink-0 no-underline transition-colors",
+            "flex h-12 items-center gap-2 border-b-2 px-4 text-[12px] font-mono whitespace-nowrap shrink-0 no-underline transition-colors",
             active
                 ? "border-primary bg-(--surface) text-primary"
                 : "border-transparent text-(--on-surface-variant) hover:bg-(--surface-container-low)",

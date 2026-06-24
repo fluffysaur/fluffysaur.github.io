@@ -35,9 +35,9 @@ export function NavSearchDesktop({
     return (
         <div
             ref={containerRef}
-            className="relative hidden self-center border-x border-(--outline-subtle) px-3 py-2 md:flex md:items-center"
+            className="relative hidden h-full border-x border-(--outline-subtle) px-3 md:flex md:items-center"
         >
-            <div className="flex w-62 items-center gap-2 rounded border border-(--outline) bg-(--surface-container-low) px-2.5 py-1.5 text-(--on-surface-subtle)">
+            <div className="flex h-8 w-62 items-center gap-2 rounded border border-(--outline) bg-(--surface-container-low) px-2 text-(--on-surface-subtle)">
                 <FontAwesomeIcon icon={faMagnifyingGlass} className="text-[12px]" />
                 <input
                     ref={inputRef}
@@ -46,7 +46,7 @@ export function NavSearchDesktop({
                     onChange={(event) => onQueryChange(event.target.value)}
                     onFocus={onOpen}
                     onKeyDown={onKeyDown}
-                    className="min-w-0 flex-1 border-0 bg-transparent text-[12px] font-mono text-(--on-surface-medium) outline-none caret-primary"
+                    className="h-full min-w-0 flex-1 border-0 bg-transparent p-0 text-[12px] leading-4 font-mono text-(--on-surface-medium) outline-none caret-primary"
                 />
                 {!open && (
                     <span className="shrink-0 font-mono text-[10px] text-(--on-surface-faint)">{KBD_SHORTCUT}</span>
@@ -57,7 +57,7 @@ export function NavSearchDesktop({
                 <div
                     className="absolute left-3 right-3 z-50 max-h-72 overflow-y-auto rounded border border-(--outline) bg-(--surface-container)"
                     style={{
-                        top: "calc(100% - 6px)",
+                        top: "calc(100% - 8px)",
                         boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
                     }}
                 >

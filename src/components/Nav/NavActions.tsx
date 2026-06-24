@@ -9,10 +9,10 @@ interface NavActionsProps {
 
 export function NavActions({ theme, onToggleTheme }: NavActionsProps) {
     return (
-        <div className="hidden items-stretch gap-2 px-3 py-2 md:flex">
+        <div className="hidden h-full items-center gap-2 px-3 md:flex">
             <Button
                 onClick={onToggleTheme}
-                className="cursor-pointer aspect-square h-auto w-auto self-stretch"
+                className="h-8 w-8 cursor-pointer"
                 variant="icon"
                 size="sm"
                 title="Toggle light/dark mode (⌘L)"
