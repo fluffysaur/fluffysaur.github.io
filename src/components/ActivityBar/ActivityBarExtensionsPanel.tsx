@@ -12,7 +12,7 @@ export function ActivityBarExtensionsPanel() {
                         href={item.href}
                         variant="text"
                         {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                        className="group flex items-center justify-between gap-3 rounded border px-3 py-2.5 text-[12px] text-(--on-surface-high) no-underline transition-colors hover:text-primary"
+                        className="group flex items-center justify-between gap-3 rounded border px-3 py-2 text-[12px] text-(--on-surface-high) no-underline transition-colors hover:text-primary"
                         style={{
                             borderColor: "var(--outline-subtle)",
                             background: "var(--surface-container-low)",

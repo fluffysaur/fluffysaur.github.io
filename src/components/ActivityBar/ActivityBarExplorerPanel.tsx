@@ -56,7 +56,7 @@ export function ActivityBarExplorerPanel({
                             />
                         </Button>
                         {!isCollapsed && (
-                            <div className="py-1.5">
+                            <div className="py-2">
                                 {group.items.map((project) => {
                                     const href = projectHref(project);
                                     const active = href.startsWith("/projects?")
@@ -65,7 +65,7 @@ export function ActivityBarExplorerPanel({
                                     const extension = project.cat === "film" ? "mov" : "tsx";
 
                                     const rowClass = [
-                                        "flex items-center gap-2 px-3 py-1.5 font-mono",
+                                        "flex items-center gap-2 px-3 py-2 font-mono",
                                         active ? "text-primary" : "text-(--on-surface-medium)",
                                     ].join(" ");
 
