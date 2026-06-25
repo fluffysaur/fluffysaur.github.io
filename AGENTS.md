@@ -29,6 +29,10 @@ The UI deliberately mimics a VS Code / IDE shell. The chrome components are:
 
 `Layout` also registers a global `Cmd/Ctrl+L` shortcut that toggles light/dark theme.
 
+### Spacing grid
+
+Keep UI spacing, component dimensions, offsets, and layout chrome on a 4 px grid. Use Tailwind spacing values that resolve to multiples of 4 px for padding, margin, gaps, width, height, and positioned offsets. A 2 px value is acceptable for fine details such as borders, underlines, focus rings, or deliberate optical corrections. Avoid 6 px / 10 px spacing classes such as `p-1.5`, `gap-1.5`, `py-2.5`, or ad hoc `calc(... - 6px)` offsets unless there is a documented visual reason.
+
 ### Routing (`src/main.tsx`)
 
 ```bash
