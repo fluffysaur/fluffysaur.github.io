@@ -100,9 +100,9 @@ export const RESUME = {
         detail: "GPA: 4.97 / 5.00",
     },
     awards: [
-        { title: "NTUC Income Prize, Best Student in NUS Communications and New Media" },
-        { title: "Dean's Scholars List, top 1% in NUS Faculty of Arts and Social Sciences, 4 semesters" },
-        { title: "Shell Bronze Medal, 3rd Place in NUS Faculty of Arts and Social Sciences, 1 semester" },
+        { title: "NTUC Income Prize, Best Student in NUS Comms & New Media" },
+        { title: "NUS Dean's Scholars List, top 1% in FASS cohort, 4 semesters" },
+        { title: "NUS Shell Bronze Medal, 3rd Place in FASS cohort, 1 semester" },
     ] satisfies ResumeDatedItem[],
     certificates: [
         { title: "edX Verified Certificate for HTML5 Coding Essentials and Best Practices", date: "Nov 2022" },
