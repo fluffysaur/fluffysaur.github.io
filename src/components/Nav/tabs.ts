@@ -30,7 +30,7 @@ export function deriveTabs(pathname: string): {
             tabs: [
                 BASE_TABS[0],
                 BASE_TABS[1],
-                { label: "Resume.tsx", icon: faFileLines, to: pathname, closeable: true, closeTo: "/experience" },
+                { label: "resume.pdf", icon: faFileLines, to: pathname, closeable: true, closeTo: "/experience" },
                 BASE_TABS[2],
                 BASE_TABS[3],
             ],
@@ -45,7 +45,7 @@ export function deriveTabs(pathname: string): {
         return { tabs: BASE_TABS, caseId: undefined, caseTrack: undefined };
     }
 
-    const extension = caseProject.cat === "film" ? "mov" : "tsx";
+    const extension = caseProject.cat === "film" ? "mov" : "proj";
 
     return {
         caseId,

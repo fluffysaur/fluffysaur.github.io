@@ -1,7 +1,7 @@
-import interseed from "./interseed";
-import staffany from "./staffany";
-import launchpad from "./launchpad";
-import rnMigration from "./rn-migration";
+import interseed from "./Interseed";
+import staffany from "./StaffAnyLearnAndEarn";
+import launchpad from "./Launchpad";
+import rnMigration from "./GeRnMigration";
 import type { CaseEntry, CaseNeighbour } from "./types";
 
 export const CASES: CaseEntry[] = [interseed, staffany, launchpad, rnMigration];

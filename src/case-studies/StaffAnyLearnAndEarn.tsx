@@ -2,7 +2,7 @@ import { Bullets, Checklist, Figure, Stats } from "../components/ProjectDetail";
 import { defineCase } from "./defineCase";
 
 export default defineCase({
-    id: "staffany",
+    id: "staffany-learn-and-earn",
     title: "StaffAny Learn & Earn",
     subtitle: "A rewards checklist that entices new free-plan users to complete tasks and discover product value.",
     dates: "Jan 2022 - Jun 2023",

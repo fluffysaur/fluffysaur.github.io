@@ -11,7 +11,7 @@ interface FileCardProps {
 
 export function FileCard({ project: p, large }: FileCardProps) {
     const location = useLocation();
-    const extension = p.cat === "film" ? "mov" : "tsx";
+    const extension = p.cat === "film" ? "mov" : "proj";
     const isInternalLink = p.link?.startsWith("/");
     const isCaseStudyLink = p.link?.startsWith("/projects/");
     const ctaLabel = isCaseStudyLink ? "Read case study" : p.link ? "View project" : p.youtubeUrl ? "Watch film" : null;

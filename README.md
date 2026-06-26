@@ -77,14 +77,14 @@ All shared UI components (headings, callouts, stats grids, TOC, prev/next nav, e
 
 ### Existing case files
 
-- `src/case-studies/interseed.tsx`
-- `src/case-studies/staffany.tsx`
-- `src/case-studies/launchpad.tsx`
-- `src/case-studies/rn-migration.tsx`
+- `src/case-studies/Interseed.tsx`
+- `src/case-studies/StaffAnyLearnAndEarn.tsx`
+- `src/case-studies/Launchpad.tsx`
+- `src/case-studies/GeRnMigration.tsx`
 
 ## How To Add A New Case Study
 
-1. Add the case content file at `src/case-studies/your-case.tsx`
+1. Add the case content file at `src/case-studies/YourCase.tsx`
 2. Export `meta` (a `CaseMeta` object) and `YourCaseContent` from it
 3. Register it in `src/case-studies/registry.ts`
 4. Add `link: "/projects/your-case"` and matching `id` in `src/data/projects.ts`

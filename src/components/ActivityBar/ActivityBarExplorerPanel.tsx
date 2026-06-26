@@ -11,6 +11,7 @@ const PROJECT_GROUPS = [
 function projectHref(project: (typeof PROJECTS)[number]) {
     if (project.cat === "film") return `/projects/${project.id}`;
     if (project.link?.startsWith("/")) return project.link;
+    if (project.cat === "dev") return `/projects/${project.id}`;
     return `/projects?track=${project.cat}`;
 }
 
@@ -62,7 +63,7 @@ export function ActivityBarExplorerPanel({
                                     const active = href.startsWith("/projects?")
                                         ? pathname === "/projects"
                                         : pathname === href;
-                                    const extension = project.cat === "film" ? "mov" : "tsx";
+                                    const extension = project.cat === "film" ? "mov" : "proj";
 
                                     const rowClass = [
                                         "flex items-center gap-2 px-3 py-2 font-mono",

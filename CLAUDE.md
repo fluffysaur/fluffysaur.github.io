@@ -57,7 +57,7 @@ Light mode overrides for white-based Tailwind utility classes (e.g. `text-white/
 
 ### Case studies (`src/case-studies/`)
 
-Each case study is a `.tsx` file that exports:
+Each case study is a PascalCase `.tsx` file that exports:
 
 1. `meta` — a `CaseMeta` object (id, title, subtitle, dates, role, team, tags, toc, prev/next links)
 2. A named content component (e.g. `InterseedContent`) that renders the article body as JSX

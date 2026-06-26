@@ -2,7 +2,7 @@ import { Bullets, Checklist, Figure, Stats } from "../components/ProjectDetail";
 import { defineCase } from "./defineCase";
 
 export default defineCase({
-    id: "rn-migration",
+    id: "ge-rn-migration",
     title: "Great Eastern Mobile Platform Migration",
     subtitle: "Progressively migrating Cordova + Vue apps to React Native + TypeScript across SG and MY initiatives.",
     dates: "Aug 2023 - Present",

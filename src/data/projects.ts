@@ -3,7 +3,7 @@ import type { Project } from "../types";
 export const PROJECTS: Project[] = [
     // Dev
     {
-        id: "rn-migration",
+        id: "ge-rn-migration",
         title: "Great Eastern App React Native Migration",
         blurb: "Led the progressive migration from Cordova + Vue to React Native. Revamped microfrontend architecture to support multiple countries.",
         img: "/assets/thumbnails/geapp-thumb.png",
@@ -16,7 +16,7 @@ export const PROJECTS: Project[] = [
         link: "https://www.greateasternlife.com/sg/en/customer-services/digital-services/ge-app.html",
     },
     {
-        id: "staffany",
+        id: "staffany-learn-and-earn",
         title: "StaffAny Learn & Earn",
         blurb: "Owned product design for the Learn & Earn onboarding feature, from research to usability testing to rollout assets that reached 48,000+ users.",
         img: "/assets/thumbnails/learnandearn-thumb.jpg",
@@ -26,7 +26,7 @@ export const PROJECTS: Project[] = [
         cat: "dev",
         highlight: true,
         live: true,
-        link: "/projects/staffany",
+        link: "/projects/staffany-learn-and-earn",
     },
     {
         id: "interseed",
