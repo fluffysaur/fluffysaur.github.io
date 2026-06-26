@@ -1,0 +1,206 @@
+@page {
+    size: A4;
+    margin: 0;
+}
+
+[data-resume-pdf="true"] .intro-chrome {
+    display: none !important;
+}
+
+[data-resume-pdf="true"],
+[data-resume-pdf="true"] body,
+[data-resume-pdf="true"] #root {
+    width: 1120px;
+    min-width: 1120px;
+    height: 1584px;
+    min-height: 1584px;
+    overflow: hidden !important;
+    background: #ffffff !important;
+}
+
+[data-resume-pdf="true"] #root > div,
+[data-resume-pdf="true"] #root > div > div,
+[data-resume-pdf="true"] #page-scroll-container {
+    width: 1120px !important;
+    min-width: 1120px !important;
+    height: 1584px !important;
+    min-height: 1584px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    animation: none !important;
+}
+
+.resume-page--pdf {
+    width: 1120px;
+    min-height: 1584px;
+    padding: 0 !important;
+    background: #ffffff;
+}
+
+.resume-page--pdf .page-wrap {
+    max-width: none;
+    width: 1120px;
+    padding: 0;
+}
+
+.resume-page--pdf .resume-sheet {
+    width: 1120px;
+    height: 1584px;
+    aspect-ratio: 1 / 1.414;
+    overflow: hidden;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+@media print {
+    html,
+    body,
+    #root {
+        height: auto !important;
+        overflow: visible !important;
+        background: #ffffff !important;
+    }
+
+    body {
+        color: #171717 !important;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .intro-chrome,
+    .resume-action-bar {
+        display: none !important;
+    }
+
+    #root > div,
+    #root > div > div,
+    #page-scroll-container {
+        height: auto !important;
+        min-height: 0 !important;
+        overflow: visible !important;
+        padding: 0 !important;
+        background: #ffffff !important;
+        animation: none !important;
+    }
+
+    .resume-page {
+        padding: 0 !important;
+        background: #ffffff !important;
+    }
+
+    .resume-page .page-wrap {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .resume-sheet {
+        width: 210mm;
+        height: 297mm;
+        aspect-ratio: 1 / 1.414;
+        margin: 0;
+        padding: 9mm;
+        overflow: visible;
+        border: 0;
+        border-radius: 0;
+        background: #fbfbf8;
+        box-shadow: none;
+        color: #171717;
+        font-size: 8pt;
+        line-height: 1.22;
+    }
+
+    .resume-header {
+        padding-bottom: 7px;
+        border-bottom: 1.5pt solid #111111;
+    }
+
+    .resume-header h1 {
+        font-size: 20pt;
+    }
+
+    .resume-contact {
+        max-width: 250px;
+        gap: 2px 8px;
+        font-size: 7.5pt;
+    }
+
+    .resume-kicker,
+    .resume-section h2,
+    .resume-role-header span,
+    .resume-education span,
+    .resume-dated-item span,
+    .resume-footer {
+        color: inherit;
+    }
+
+    .resume-section {
+        margin-top: 7px;
+    }
+
+    .resume-section h2 {
+        margin-bottom: 3px;
+        font-size: 7.2pt;
+    }
+
+    .resume-section h2::before {
+        height: 1.5pt;
+        background: var(--color-primary);
+    }
+
+    .resume-summary-grid {
+        grid-template-columns: minmax(0, 1fr) 142px;
+        gap: 10px;
+    }
+
+    .resume-highlight-panel {
+        gap: 2px;
+        margin-top: 7px;
+        padding: 5px;
+        border-color: rgba(23, 23, 23, 0.12);
+        background: rgba(var(--color-primary-rgb), 0.12);
+    }
+
+    .resume-experience-list {
+        gap: 5px;
+    }
+
+    .resume-role-header h3,
+    .resume-project h3,
+    .resume-education h3 {
+        font-size: 9.2pt;
+    }
+
+    .resume-role ul {
+        margin-top: 2px;
+        padding-left: 14px;
+    }
+
+    .resume-role li {
+        margin: 0;
+    }
+
+    .resume-project-list {
+        gap: 9px;
+    }
+
+    .resume-skills {
+        gap: 3px;
+    }
+
+    .resume-skills span {
+        padding: 0 4px;
+        border-color: #d4d4d4;
+    }
+
+    .resume-bottom-grid {
+        gap: 12px;
+    }
+
+    .resume-footer {
+        margin-top: 7px;
+        padding-top: 4px;
+    }
+}

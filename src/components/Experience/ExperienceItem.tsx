@@ -8,7 +8,7 @@ interface ExperienceItemProps {
 
 export function ExperienceItem({ experience }: ExperienceItemProps) {
     return (
-        <article className="experience-item grid gap-6 border-b border-(--outline-variant) px-3 py-8 md:grid-cols-[210px_minmax(0,1fr)]">
+        <article className="grid gap-6 border-b border-(--outline-variant) px-3 py-8 shadow-[inset_2px_0_0_transparent] transition-shadow duration-[250ms] ease-in-out hover:shadow-[inset_2px_0_0_var(--color-primary)] md:grid-cols-[210px_minmax(0,1fr)]">
             <div>
                 <p className="font-mono text-[11px] tracking-[0.12em] uppercase mb-2 text-(--on-surface-subtle)">
                     {formatExperienceRange(experience)}

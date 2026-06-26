@@ -1,0 +1,54 @@
+/* Light mode overrides for white/accent Tailwind utilities. */
+[data-theme="light"] .text-white {
+    color: var(--on-surface);
+}
+
+[data-theme="light"] .text-primary,
+[data-theme="light"] .text-primary-yellow,
+[data-theme="light"] .text-accent-yellow {
+    color: var(--on-surface) !important;
+}
+
+[data-theme="light"] .bg-primary,
+[data-theme="light"] .bg-primary-yellow,
+[data-theme="light"] .bg-accent-yellow {
+    background-color: var(--color-primary) !important;
+}
+
+[data-theme="light"] .text-white\/85 {
+    color: var(--on-surface-high);
+}
+
+[data-theme="light"] .text-white\/75,
+[data-theme="light"] .text-white\/70 {
+    color: var(--on-surface-medium);
+}
+
+[data-theme="light"] .text-white\/60,
+[data-theme="light"] .text-white\/55 {
+    color: var(--on-surface-variant);
+}
+
+[data-theme="light"] .text-white\/50 {
+    color: var(--on-surface-muted);
+}
+
+[data-theme="light"] .text-white\/45 {
+    color: var(--on-surface-subtle);
+}
+
+[data-theme="light"] .text-white\/30 {
+    color: var(--on-surface-faint);
+}
+
+[data-theme="light"] .border-white\/18 {
+    border-color: var(--outline);
+}
+
+[data-theme="light"] .border-white\/8 {
+    border-color: var(--outline-variant);
+}
+
+[data-theme="light"] .border-white\/6 {
+    border-color: var(--outline-subtle);
+}

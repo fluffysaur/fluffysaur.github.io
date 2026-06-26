@@ -1,0 +1,119 @@
+@keyframes blink {
+    0%,
+    50% {
+        opacity: 1;
+    }
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.cursor-blink {
+    animation: blink 1s infinite;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 24s linear infinite;
+}
+
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+.home-reveal {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+}
+
+.home-reveal.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.terminal-reveal {
+    width: 100%;
+    max-width: 100%;
+    opacity: 0;
+    transform: translateY(8px);
+}
+
+.terminal-reveal.is-constrained {
+    max-width: 48rem;
+}
+
+.terminal-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    @keyframes terminal-line-in {
+        from {
+            opacity: 0;
+            transform: translateY(6px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .terminal-line {
+        animation: terminal-line-in 0.45s ease-out both;
+    }
+
+    @keyframes page-in {
+        from {
+            opacity: 0;
+            transform: translateY(4px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .page-in {
+        animation: page-in 0.22s ease-out both;
+    }
+
+    .home-reveal {
+        transition:
+            opacity 0.45s ease-out,
+            transform 0.45s ease-out;
+    }
+
+    .intro-chrome {
+        transition: opacity 0.45s ease-out;
+    }
+
+    .terminal-reveal {
+        transition:
+            max-width 0.9s ease,
+            opacity 0.45s ease-out,
+            transform 0.45s ease-out;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .terminal-reveal,
+    .home-reveal {
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+    }
+}

@@ -5,7 +5,8 @@ interface TagProps {
 }
 
 export function Tag({ children, primary, ghost }: TagProps) {
-    const base = "tag-base inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-[11px] tracking-wide";
+    const base =
+        "inline-flex items-center gap-1.5 rounded px-2.5 py-1 text-[11px] tracking-wide transition-colors duration-200";
     if (primary) return <span className={`${base} bg-primary text-tertiary font-medium font-mono`}>{children}</span>;
     if (ghost)
         return (

@@ -1,0 +1,23 @@
+.terminal-window::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 2px,
+        var(--outline) 2px,
+        var(--outline) 3px
+    );
+}
+
+[data-theme="light"] .terminal-window::after {
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 2px,
+        var(--outline-subtle) 2px,
+        var(--outline-subtle) 3px
+    );
+}

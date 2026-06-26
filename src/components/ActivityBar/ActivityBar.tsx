@@ -53,7 +53,9 @@ export function ActivityBar({ activeTab, onTabChange }: ActivityBarProps) {
     const desktopButtonClass = (isActive: boolean) =>
         [
             "w-10 h-10 mx-auto my-1 border-l-2 rounded flex items-center justify-center cursor-pointer transition-all hover:scale-105",
-            isActive ? "border-primary bg-primary/10 text-primary" : "border-transparent activity-btn",
+            isActive
+                ? "border-primary bg-primary/10 text-primary"
+                : "border-transparent text-(--on-surface-subtle) hover:text-(--on-surface-faint)",
         ].join(" ");
 
     const panelContent =

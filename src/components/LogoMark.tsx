@@ -19,11 +19,21 @@ const logoDark = "/assets/logos/logo-dark.png";
 
 export function LogoMark({ size = "md", className = "", linked = true }: LogoMarkProps) {
     const location = useLocation();
-    const classes = `logo-mark grid shrink-0 place-items-center rounded-md no-underline ${sizeClass[size]} ${className}`;
+    const classes = `grid shrink-0 place-items-center overflow-hidden rounded-md no-underline ${sizeClass[size]} ${className}`;
     const images = (
         <>
-            <img className="logo-mark__image logo-mark__image--light" src={logo} alt="" aria-hidden="true" />
-            <img className="logo-mark__image logo-mark__image--dark" src={logoDark} alt="" aria-hidden="true" />
+            <img
+                className="hidden h-full w-full object-contain [html[data-theme=light]_&]:block"
+                src={logo}
+                alt=""
+                aria-hidden="true"
+            />
+            <img
+                className="block h-full w-full object-contain [html[data-theme=light]_&]:hidden"
+                src={logoDark}
+                alt=""
+                aria-hidden="true"
+            />
         </>
     );
 

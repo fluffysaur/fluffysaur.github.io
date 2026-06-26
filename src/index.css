@@ -3,5 +3,10 @@
 @import "./styles/fonts.css";
 @import "./styles/theme.css";
 @import "./styles/base.css";
-@import "./styles/app.css";
-@import "./styles/resume.css";
+@import "./styles/theme-overrides.css";
+@import "./styles/layout.css";
+@import "./styles/scrollbar.css";
+@import "./styles/focus.css";
+@import "./styles/terminal-window.css";
+@import "./styles/motion.css";
+@import "./styles/resume-print.css";

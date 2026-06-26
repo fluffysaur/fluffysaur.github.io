@@ -27,7 +27,7 @@ export function TerminalPath({ parts }: TerminalPathProps) {
     const path = `~/${normalizedParts.join("/")}/`;
 
     return (
-        <div className="terminal-path" style={{ color: "var(--on-surface-faint)" }}>
+        <div className="mb-2 flex items-baseline gap-3 font-mono text-[14px] leading-[1.4] text-(--on-surface-faint) lowercase">
             {path}
         </div>
     );
@@ -39,7 +39,12 @@ export function TerminalBackLink({ to, children, className }: TerminalBackLinkPr
             to={to}
             variant="text"
             size="sm"
-            className={["terminal-back-link", className].filter(Boolean).join(" ")}
+            className={[
+                "flex items-center gap-2 font-mono text-[13px] text-(--on-surface-muted) lowercase",
+                className,
+            ]
+                .filter(Boolean)
+                .join(" ")}
         >
             <FontAwesomeIcon icon={faArrowLeftLong} />
             {children}
@@ -48,5 +53,9 @@ export function TerminalBackLink({ to, children, className }: TerminalBackLinkPr
 }
 
 export function TerminalComment({ children, className }: TerminalCommentProps) {
-    return <p className={["terminal-comment", className].filter(Boolean).join(" ")}>// {children}</p>;
+    return (
+        <p className={["font-mono text-[14px] text-(--on-surface-muted)", className].filter(Boolean).join(" ")}>
+            // {children}
+        </p>
+    );
 }

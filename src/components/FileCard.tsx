@@ -17,7 +17,7 @@ export function FileCard({ project: p, large }: FileCardProps) {
     const ctaLabel = isCaseStudyLink ? "Read case study" : p.link ? "View project" : p.youtubeUrl ? "Watch film" : null;
 
     const inner = (
-        <div className="file-card block text-inherit no-underline rounded-lg overflow-hidden border group">
+        <div className="group block overflow-hidden rounded-lg border border-(--outline-variant) bg-(--surface-container-low) text-inherit no-underline transition-[transform,border-color] duration-[250ms] ease-in-out hover:border-primary motion-safe:hover:-translate-y-0.5">
             <FileCardHeader filename={`${p.id}.${extension}`} status={p.live ? "live" : "archived"} />
 
             <div className={`overflow-hidden bg-secondary ${large ? "aspect-video" : "aspect-16/10"}`}>
