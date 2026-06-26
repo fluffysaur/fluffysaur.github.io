@@ -1,0 +1,61 @@
+/* ── base ── */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--surface);
+    color: var(--on-surface-medium);
+    font-family:
+        "GothamSSm",
+        "Nunito Sans",
+        system-ui,
+        -apple-system,
+        sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+}
+
+::selection {
+    background: var(--color-primary);
+    color: var(--color-tertiary);
+}
+
+@layer base {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        color: var(--on-surface);
+        font-weight: 200;
+        line-height: 1.1;
+        margin: 0;
+        letter-spacing: -0.01em;
+    }
+
+    h1 strong,
+    h2 strong,
+    h3 strong {
+        font-weight: 900;
+    }
+
+    a {
+        color: var(--color-primary);
+        text-decoration: none;
+        transition: color 0.25s;
+    }
+    a:hover {
+        color: var(--color-primary-deep);
+    }
+}

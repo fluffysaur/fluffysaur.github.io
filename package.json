@@ -6,6 +6,7 @@
     "scripts": {
         "dev": "vite",
         "build": "tsc -b && vite build && cp dist/index.html dist/404.html",
+        "export:resume": "node scripts/export-resume-pdf.mjs",
         "preview": "vite preview",
         "format": "prettier --write .",
         "format:check": "prettier --check ."
@@ -38,6 +39,7 @@
     "devDependencies": {
         "@types/react": "^19.2.14",
         "@types/react-dom": "^19.2.3",
+        "playwright": "^1.61.1",
         "prettier": "^3.6.2",
         "typescript": "^6.0.3"
     }

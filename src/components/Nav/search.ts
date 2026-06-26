@@ -13,6 +13,7 @@ export const KBD_SHORTCUT = isMac ? "⌘K" : "Ctrl K";
 const PAGE_ITEMS: SearchItem[] = [
     { label: "Home", sub: "/", path: "/" },
     { label: "Experience", sub: "/experience", path: "/experience" },
+    { label: "Resume", sub: "/experience/resume", path: "/experience/resume" },
     { label: "Projects", sub: "/projects", path: "/projects" },
     { label: "About", sub: "/about", path: "/about" },
 ];

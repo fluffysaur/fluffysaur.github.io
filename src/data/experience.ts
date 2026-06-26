@@ -1,6 +1,6 @@
 import type { Experience, ExperienceDate } from "../types";
 
-export const RESUME_URL = "/assets/documents/TanYiJia-Resume.pdf";
+export const RESUME_URL = "/experience/resume";
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 

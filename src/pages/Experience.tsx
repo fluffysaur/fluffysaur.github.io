@@ -3,8 +3,6 @@ import { PageHeader } from "../components/PageHeader";
 import { Button } from "../components/Button";
 import { PageShell } from "../components/PageShell";
 import { EXPERIENCES, RESUME_URL } from "../data/experience";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 export function Experience() {
     return (
@@ -24,9 +22,7 @@ export function Experience() {
                     <ExperienceItem key={experience.id} experience={experience} />
                 ))}
             </div>
-            <Button href={RESUME_URL} target="_blank" rel="noopener noreferrer">
-                View full resume <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-            </Button>
+            <Button to={RESUME_URL}>View full resume →</Button>
         </PageShell>
     );
 }

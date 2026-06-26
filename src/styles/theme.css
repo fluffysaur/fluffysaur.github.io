@@ -1,0 +1,86 @@
+@theme {
+    --color-primary: #f2cb05;
+    --color-primary-deep: #d9b604;
+    --color-secondary: #333333;
+    --color-secondary-deep: #292929;
+    --color-tertiary: #262626;
+    --color-tertiary-deep: #1f1f1f;
+
+    --font-sans: "GothamSSm", "Nunito Sans", system-ui, -apple-system, sans-serif;
+    --font-mono: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+/* ── theme tokens ── */
+:root {
+    --color-primary-rgb: 242, 203, 5;
+    --color-secondary-rgb: 51, 51, 51;
+    --color-tertiary-rgb: 38, 38, 38;
+
+    /* dark (default) */
+    --surface: #222222;
+    --surface-container: #2e2e2e;
+    --surface-container-low: rgba(255, 255, 255, 0.03);
+    --surface-container-high: rgba(0, 0, 0, 0.25);
+    --on-surface: #ffffff;
+    --on-surface-high: rgba(255, 255, 255, 0.85);
+    --on-surface-medium: rgba(255, 255, 255, 0.75);
+    --on-surface-variant: rgba(255, 255, 255, 0.6);
+    --on-surface-muted: rgba(255, 255, 255, 0.5);
+    --on-surface-subtle: rgba(255, 255, 255, 0.45);
+    --on-surface-faint: rgba(255, 255, 255, 0.3);
+    --outline: rgba(255, 255, 255, 0.12);
+    --outline-variant: rgba(255, 255, 255, 0.08);
+    --outline-subtle: rgba(255, 255, 255, 0.05);
+    --surface-container-lowest: rgba(0, 0, 0, 0.25);
+    --scrollbar-size: 16px;
+    --scrollbar-track: transparent;
+    --scrollbar-thumb: rgba(121, 121, 121, 0.4);
+    --scrollbar-thumb-hover: rgba(100, 100, 100, 0.7);
+    --scrollbar-thumb-active: rgba(191, 191, 191, 0.4);
+    /* terminal window */
+    --term-bg: rgba(30, 30, 30, 0.95);
+    --term-titlebar-bg: rgba(255, 255, 255, 0.03);
+    --term-border: rgba(255, 255, 255, 0.1);
+    --term-titlebar-border: rgba(255, 255, 255, 0.08);
+    --term-path: rgba(255, 255, 255, 0.4);
+    --term-cmd: rgba(255, 255, 255, 0.4);
+    --term-output: #ffffff;
+    --term-muted: rgba(255, 255, 255, 0.7);
+    --term-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="light"] {
+    --color-primary-rgb: 242, 203, 5;
+    --color-secondary-rgb: 51, 51, 51;
+    --color-tertiary-rgb: 38, 38, 38;
+
+    --surface: #f5f5f3;
+    --surface-container: #ebebea;
+    --surface-container-low: rgba(0, 0, 0, 0.04);
+    --surface-container-high: rgba(0, 0, 0, 0.06);
+    --on-surface: #1a1a1a;
+    --on-surface-high: rgba(0, 0, 0, 0.85);
+    --on-surface-medium: rgba(0, 0, 0, 0.72);
+    --on-surface-variant: rgba(0, 0, 0, 0.6);
+    --on-surface-muted: rgba(0, 0, 0, 0.5);
+    --on-surface-subtle: rgba(0, 0, 0, 0.45);
+    --on-surface-faint: rgba(0, 0, 0, 0.3);
+    --outline: rgba(0, 0, 0, 0.14);
+    --outline-variant: rgba(0, 0, 0, 0.09);
+    --outline-subtle: rgba(0, 0, 0, 0.05);
+    --surface-container-lowest: rgba(240, 240, 238, 0.95);
+    --scrollbar-track: transparent;
+    --scrollbar-thumb: rgba(100, 100, 100, 0.32);
+    --scrollbar-thumb-hover: rgba(100, 100, 100, 0.52);
+    --scrollbar-thumb-active: rgba(0, 0, 0, 0.5);
+    /* terminal window */
+    --term-bg: #fafaf8;
+    --term-titlebar-bg: #ededeb;
+    --term-border: rgba(0, 0, 0, 0.12);
+    --term-titlebar-border: rgba(0, 0, 0, 0.1);
+    --term-path: rgba(0, 0, 0, 0.45);
+    --term-cmd: rgba(0, 0, 0, 0.4);
+    --term-output: #1a1a1a;
+    --term-muted: rgba(0, 0, 0, 0.7);
+    --term-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.12);
+}
