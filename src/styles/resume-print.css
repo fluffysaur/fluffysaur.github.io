@@ -51,7 +51,45 @@
     overflow: hidden;
     border: 0;
     border-radius: 0;
+    background: #fbfbf8;
+    color: #171717;
+    font-size: 14.5px;
+    line-height: 1.44;
+    padding: 52px;
     box-shadow: none;
+}
+
+.resume-page--pdf .resume-sheet a,
+.resume-page--pdf .resume-sheet h1,
+.resume-page--pdf .resume-sheet h2,
+.resume-page--pdf .resume-sheet h3 {
+    color: #171717;
+}
+
+.resume-page--pdf .resume-header {
+    border-bottom-color: #171717;
+}
+
+.resume-page--pdf .resume-role-header span,
+.resume-page--pdf .resume-education span,
+.resume-page--pdf .resume-dated-item span,
+.resume-page--pdf .resume-footer {
+    color: #4b4b4b;
+}
+
+.resume-page--pdf .resume-highlight-panel {
+    border-color: rgba(23, 23, 23, 0.12);
+    background: rgba(var(--color-primary-rgb), 0.12);
+}
+
+.resume-page--pdf .resume-skills span {
+    border-color: rgba(23, 23, 23, 0.12);
+    background: rgba(23, 23, 23, 0.04);
+    color: #171717;
+}
+
+.resume-page--pdf .resume-footer {
+    border-top-color: rgba(23, 23, 23, 0.12);
 }
 
 @media print {

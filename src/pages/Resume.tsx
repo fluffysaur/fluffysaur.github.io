@@ -11,16 +11,15 @@ function joinClasses(...classes: Array<string | false | null | undefined>) {
 }
 
 const resumeHeadingClass =
-    "mb-2 flex items-center gap-[10px] font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-[#171717] before:block before:h-0.5 before:w-6 before:bg-primary before:content-['']";
-const resumeTitleClass = "m-0 text-[15px] font-extrabold tracking-normal text-[#171717]";
-const resumeDateClass = "shrink-0 font-mono text-[11px] font-semibold text-[#4b4b4b] md:text-right";
-const resumePillClass =
-    "inline-flex w-fit items-center rounded font-mono text-[10px] font-semibold tracking-[0.04em]";
+    "mb-2 flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.14em] text-(--on-surface) before:block before:h-0.5 before:w-6 before:bg-primary before:content-['']";
+const resumeTitleClass = "m-0 text-base font-extrabold tracking-normal text-(--on-surface)";
+const resumeDateClass = "shrink-0 font-mono text-xs font-semibold text-(--on-surface-muted) md:text-right";
+const resumePillClass = "inline-flex w-fit items-center rounded font-mono text-[10px] font-semibold tracking-[0.04em]";
 const resumeMetaRowClass = "flex flex-col justify-between gap-1 md:flex-row md:gap-4";
 
 function ResumeSection({ title, children }: { title: string; children: ReactNode }) {
     return (
-        <section className="resume-section mt-[18px] break-inside-avoid">
+        <section className="resume-section mt-4 break-inside-avoid">
             <h2 className={resumeHeadingClass}>{title}</h2>
             {children}
         </section>
@@ -67,7 +66,7 @@ export function Resume() {
                             to="/experience"
                             variant="text"
                             size="sm"
-                            className="mb-6 flex items-center gap-2 font-mono text-[13px] text-(--on-surface-muted)"
+                            className="mb-6 flex items-center gap-2 font-mono text-sm text-(--on-surface-muted)"
                         >
                             <FontAwesomeIcon icon={faArrowLeftLong} />
                             back to experience
@@ -95,18 +94,18 @@ export function Resume() {
                     </div>
                 )}
 
-                <article className="resume-sheet mx-auto aspect-[1/1.414] w-full overflow-auto rounded-lg border border-(--outline) bg-[#fbfbf8] p-6 text-[13px] leading-[1.45] text-[#171717] shadow-(--term-shadow) md:p-10 [&_a]:text-[#171717] [&_a]:underline [&_a]:decoration-[rgba(var(--color-primary-rgb),0.75)] [&_a]:[text-underline-offset:3px]">
-                    <header className="resume-header flex flex-col items-start justify-between gap-1 border-b-2 border-[#171717] pb-[18px] md:flex-row md:gap-6">
+                <article className="resume-sheet mx-auto aspect-[1/1.414] w-full overflow-auto rounded-lg border border-(--outline) bg-(--surface-container) p-6 text-sm leading-normal text-(--on-surface-high) shadow-(--term-shadow) md:p-10 [&_a]:text-(--on-surface) [&_a]:underline [&_a]:decoration-primary/75 [&_a]:underline-offset-4">
+                    <header className="resume-header flex flex-col items-start justify-between gap-1 border-b-2 border-(--on-surface) pb-4 md:flex-row md:gap-6">
                         <div>
-                            <p className="resume-kicker m-0 mb-2 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-primary-deep">
+                            <p className="resume-kicker m-0 mb-2 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary">
                                 {RESUME.role}
                             </p>
-                            <h1 className="m-0 text-[34px] font-black tracking-normal text-[#171717]">
+                            <h1 className="m-0 text-3xl font-black tracking-normal text-(--on-surface) md:text-4xl">
                                 {RESUME.name}
                             </h1>
                         </div>
                         <div
-                            className="resume-contact flex max-w-none flex-wrap justify-start gap-x-3 gap-y-1 text-left text-[12px] md:max-w-[280px] md:justify-end md:text-right"
+                            className="resume-contact flex max-w-none flex-wrap justify-start gap-x-3 gap-y-1 text-left text-xs md:max-w-70 md:justify-end md:text-right"
                             aria-label="Contact details"
                         >
                             <span className="whitespace-nowrap">{RESUME.location}</span>
@@ -119,15 +118,32 @@ export function Resume() {
                     </header>
 
                     <div className="resume-summary-grid grid grid-cols-1 gap-0 md:grid-cols-[minmax(0,1fr)_180px] md:gap-6">
-                        <ResumeSection title="Summary">
-                            <p className="resume-summary m-0">{RESUME.summary}</p>
-                        </ResumeSection>
+                        <div>
+                            <ResumeSection title="Summary">
+                                <p className="resume-summary m-0">{RESUME.summary}</p>
+                            </ResumeSection>
+                            <ResumeSection title="Skills">
+                                <div className="resume-skills flex flex-wrap gap-2">
+                                    {RESUME.skills.map((skill) => (
+                                        <span
+                                            key={skill}
+                                            className={joinClasses(
+                                                resumePillClass,
+                                                "border border-(--outline) bg-(--surface-container-high) px-2 py-1",
+                                            )}
+                                        >
+                                            {skill}
+                                        </span>
+                                    ))}
+                                </div>
+                            </ResumeSection>
+                        </div>
                         <div
-                            className="resume-highlight-panel mt-[18px] grid content-start gap-2 break-inside-avoid rounded-md border border-[rgba(23,23,23,0.12)] bg-[rgba(var(--color-primary-rgb),0.12)] p-3"
+                            className="resume-highlight-panel mt-4 grid content-start gap-2 break-inside-avoid rounded-md border border-primary/25 bg-primary/10 p-3"
                             aria-label="Resume highlights"
                         >
                             {RESUME.highlights.map((highlight) => (
-                                <span key={highlight} className={joinClasses(resumePillClass, "text-tertiary")}>
+                                <span key={highlight} className={joinClasses(resumePillClass, "text-(--on-surface)")}>
                                     {highlight}
                                 </span>
                             ))}
@@ -135,7 +151,7 @@ export function Resume() {
                     </div>
 
                     <ResumeSection title="Work Experience">
-                        <div className="resume-experience-list grid gap-[14px]">
+                        <div className="resume-experience-list grid gap-4">
                             {RESUME.experience.map((experience) => (
                                 <article
                                     key={`${experience.company}-${experience.title}`}
@@ -148,7 +164,7 @@ export function Resume() {
                                         </div>
                                         <span className={resumeDateClass}>{experience.dates}</span>
                                     </div>
-                                    <ul className="mt-1.5 mb-0 list-outside list-disc pl-[18px]">
+                                    <ul className="mt-2 mb-0 list-outside list-disc pl-4">
                                         {experience.bullets.map((bullet) => (
                                             <li key={bullet} className="my-0.5">
                                                 {bullet}
@@ -161,28 +177,12 @@ export function Resume() {
                     </ResumeSection>
 
                     <ResumeSection title="Projects">
-                        <div className="resume-project-list grid grid-cols-1 gap-0 md:grid-cols-2 md:gap-4">
+                        <div className="resume-project-list grid grid-cols-1 gap-4">
                             {RESUME.projects.map((project) => (
                                 <article key={project.title} className="resume-project break-inside-avoid">
                                     <h3 className={resumeTitleClass}>{project.title}</h3>
                                     <p className="mt-0.5 mb-0">{project.description}</p>
                                 </article>
-                            ))}
-                        </div>
-                    </ResumeSection>
-
-                    <ResumeSection title="Skills">
-                        <div className="resume-skills flex flex-wrap gap-2">
-                            {RESUME.skills.map((skill) => (
-                                <span
-                                    key={skill}
-                                    className={joinClasses(
-                                        resumePillClass,
-                                        "border border-[rgba(23,23,23,0.12)] bg-[rgba(23,23,23,0.04)] px-2 py-1",
-                                    )}
-                                >
-                                    {skill}
-                                </span>
                             ))}
                         </div>
                     </ResumeSection>
@@ -208,7 +208,7 @@ export function Resume() {
                         </ResumeSection>
                     </div>
 
-                    <footer className="resume-footer mt-[18px] flex justify-between gap-4 border-t border-[rgba(23,23,23,0.12)] pt-3 font-mono text-[10px] uppercase">
+                    <footer className="resume-footer mt-4 flex justify-between gap-4 border-t border-(--outline) pt-3 font-mono text-[10px] uppercase text-(--on-surface-muted)">
                         <span>portfolio</span>
                         <a href="https://tanyijia.me/" target="_blank" rel="noopener noreferrer">
                             tanyijia.me <FontAwesomeIcon icon={faArrowUpRightFromSquare} />

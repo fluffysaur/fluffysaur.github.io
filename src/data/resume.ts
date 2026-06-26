@@ -86,20 +86,7 @@ export const RESUME = {
                 "Designed and developed an orientation website with Adobe XD, JavaScript, Bootstrap, and MySQL for over 300 incoming residents.",
         },
     ] satisfies ResumeProject[],
-    skills: [
-        "React Native",
-        "React",
-        "Vue",
-        "Cordova",
-        "TypeScript",
-        "JavaScript",
-        "Tailwind",
-        "Node.js",
-        "SQL",
-        "Git",
-        "Figma",
-        "User testing",
-    ],
+    skills: ["React Native", "React", "Vue", "Cordova", "TypeScript", "Figma"],
     education: {
         school: "National University of Singapore",
         dates: "Aug 2019 - May 2023",
@@ -114,6 +101,5 @@ export const RESUME = {
     certificates: [
         { title: "edX Verified Certificate for HTML5 Coding Essentials and Best Practices", date: "Nov 2022" },
         { title: "edX Verified Certificate for Creative Coding", date: "Aug 2022" },
-        { title: "Social and Behavioural Research (Basic/Refresher), CITI Program", date: "Oct 2021 - Oct 2026" },
     ] satisfies ResumeDatedItem[],
 };
