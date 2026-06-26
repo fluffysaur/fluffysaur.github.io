@@ -94,10 +94,10 @@ export function Resume() {
                     </div>
                 )}
 
-                <article className="resume-sheet mx-auto aspect-[1/1.414] w-full overflow-auto rounded-lg border border-(--outline) bg-(--surface-container) p-6 text-sm leading-normal text-(--on-surface-high) shadow-(--term-shadow) md:p-10 [&_a]:text-(--on-surface) [&_a]:underline [&_a]:decoration-primary/75 [&_a]:underline-offset-4">
+                <article className="resume-sheet mx-auto w-full overflow-auto rounded-lg border border-(--outline) bg-(--surface-container) p-6 text-sm leading-normal text-(--on-surface-high) shadow-(--term-shadow) md:p-10 [&_a]:text-(--on-surface) [&_a]:underline [&_a]:decoration-primary/75 [&_a]:underline-offset-4">
                     <header className="resume-header flex flex-col items-start justify-between gap-1 border-b-2 border-(--on-surface) pb-4 md:flex-row md:gap-6">
                         <div>
-                            <p className="resume-kicker m-0 mb-2 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary">
+                            <p className="resume-kicker m-0 mb-2 font-mono text-xs font-semibold uppercase tracking-[0.14em]">
                                 {RESUME.role}
                             </p>
                             <h1 className="m-0 text-3xl font-black tracking-normal text-(--on-surface) md:text-4xl">
@@ -143,7 +143,7 @@ export function Resume() {
                             aria-label="Resume highlights"
                         >
                             {RESUME.highlights.map((highlight) => (
-                                <span key={highlight} className={joinClasses(resumePillClass, "text-(--on-surface)")}>
+                                <span key={highlight} className={resumePillClass}>
                                     {highlight}
                                 </span>
                             ))}

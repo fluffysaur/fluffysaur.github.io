@@ -45,6 +45,15 @@
 }
 
 .resume-page--pdf .resume-sheet {
+    --surface: #ffffff;
+    --surface-container: #fbfbf8;
+    --surface-container-high: rgba(23, 23, 23, 0.04);
+    --on-surface: #171717;
+    --on-surface-high: rgba(23, 23, 23, 0.86);
+    --on-surface-medium: rgba(23, 23, 23, 0.76);
+    --on-surface-muted: #4b4b4b;
+    --outline: rgba(23, 23, 23, 0.12);
+    --term-shadow: none;
     width: 1120px;
     height: 1584px;
     aspect-ratio: 1 / 1.414;
@@ -59,37 +68,8 @@
     box-shadow: none;
 }
 
-.resume-page--pdf .resume-sheet a,
-.resume-page--pdf .resume-sheet h1,
-.resume-page--pdf .resume-sheet h2,
-.resume-page--pdf .resume-sheet h3 {
-    color: #171717;
-}
-
-.resume-page--pdf .resume-header {
-    border-bottom-color: #171717;
-}
-
-.resume-page--pdf .resume-role-header span,
-.resume-page--pdf .resume-education span,
-.resume-page--pdf .resume-dated-item span,
-.resume-page--pdf .resume-footer {
-    color: #4b4b4b;
-}
-
 .resume-page--pdf .resume-highlight-panel {
-    border-color: rgba(23, 23, 23, 0.12);
     background: rgba(var(--color-primary-rgb), 0.12);
-}
-
-.resume-page--pdf .resume-skills span {
-    border-color: rgba(23, 23, 23, 0.12);
-    background: rgba(23, 23, 23, 0.04);
-    color: #171717;
-}
-
-.resume-page--pdf .resume-footer {
-    border-top-color: rgba(23, 23, 23, 0.12);
 }
 
 @media print {
@@ -135,6 +115,15 @@
     }
 
     .resume-sheet {
+        --surface: #ffffff;
+        --surface-container: #fbfbf8;
+        --surface-container-high: rgba(23, 23, 23, 0.04);
+        --on-surface: #171717;
+        --on-surface-high: rgba(23, 23, 23, 0.86);
+        --on-surface-medium: rgba(23, 23, 23, 0.76);
+        --on-surface-muted: #4b4b4b;
+        --outline: rgba(23, 23, 23, 0.12);
+        --term-shadow: none;
         width: 210mm;
         height: 297mm;
         aspect-ratio: 1 / 1.414;
@@ -165,7 +154,6 @@
         font-size: 7.5pt;
     }
 
-    .resume-kicker,
     .resume-section h2,
     .resume-role-header span,
     .resume-education span,
@@ -241,4 +229,9 @@
         margin-top: 7px;
         padding-top: 4px;
     }
+}
+
+.resume-sheet .resume-kicker,
+.resume-sheet .resume-highlight-panel span {
+    color: var(--on-surface);
 }

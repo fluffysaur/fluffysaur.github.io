@@ -29,7 +29,13 @@ export const RESUME = {
     ],
     summary:
         "Frontend software engineer with a product-design background, building customer-facing mobile and web experiences across React Native, Vue, Cordova, and TypeScript. I have led migration work, shipped app features used by insurance customers, improved delivery quality as a scrum master, and bring a practical eye for systems, usability, and collaboration.",
-    highlights: ["React Native migration", "Mobile app delivery", "Product-design fluency", "Scrum leadership"],
+    highlights: [
+        "React Native Migration",
+        "Frontend Architecture Design",
+        "Mobile App Feature Delivery",
+        "Product Design Fluency",
+        "Project Leadership",
+    ],
     experience: [
         {
             title: "Frontend Software Engineer",
