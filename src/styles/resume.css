@@ -47,29 +47,25 @@
 .resume-page--pdf .resume-sheet {
     --surface: #ffffff;
     --surface-container: #fbfbf8;
-    --surface-container-high: rgba(23, 23, 23, 0.04);
+    --surface-container-high: rgb(23 23 23 / 4%);
     --on-surface: #171717;
-    --on-surface-high: rgba(23, 23, 23, 0.86);
-    --on-surface-medium: rgba(23, 23, 23, 0.76);
+    --on-surface-high: rgb(23 23 23 / 86%);
+    --on-surface-medium: rgb(23 23 23 / 76%);
     --on-surface-muted: #4b4b4b;
-    --outline: rgba(23, 23, 23, 0.12);
+    --outline: rgb(23 23 23 / 12%);
     --term-shadow: none;
     width: 1120px;
     height: 1584px;
-    aspect-ratio: 1 / 1.414;
+    aspect-ratio: 210 / 297;
     overflow: hidden;
     border: 0;
     border-radius: 0;
     background: #fbfbf8;
     color: #171717;
-    font-size: 14.5px;
-    line-height: 1.44;
+    font-size: 15px;
+    line-height: 144%;
     padding: 52px;
     box-shadow: none;
-}
-
-.resume-page--pdf .resume-highlight-panel {
-    background: rgba(var(--color-primary-rgb), 0.12);
 }
 
 @media print {
@@ -87,8 +83,7 @@
         -webkit-print-color-adjust: exact;
     }
 
-    .intro-chrome,
-    .resume-action-bar {
+    .intro-chrome {
         display: none !important;
     }
 
@@ -103,30 +98,19 @@
         animation: none !important;
     }
 
-    .resume-page {
-        padding: 0 !important;
-        background: #ffffff !important;
-    }
-
-    .resume-page .page-wrap {
-        max-width: none;
-        margin: 0;
-        padding: 0;
-    }
-
     .resume-sheet {
         --surface: #ffffff;
         --surface-container: #fbfbf8;
-        --surface-container-high: rgba(23, 23, 23, 0.04);
+        --surface-container-high: rgb(23 23 23 / 4%);
         --on-surface: #171717;
-        --on-surface-high: rgba(23, 23, 23, 0.86);
-        --on-surface-medium: rgba(23, 23, 23, 0.76);
+        --on-surface-high: rgb(23 23 23 / 86%);
+        --on-surface-medium: rgb(23 23 23 / 76%);
         --on-surface-muted: #4b4b4b;
-        --outline: rgba(23, 23, 23, 0.12);
+        --outline: rgb(23 23 23 / 12%);
         --term-shadow: none;
         width: 210mm;
         height: 297mm;
-        aspect-ratio: 1 / 1.414;
+        aspect-ratio: 210 / 297;
         margin: 0;
         padding: 9mm;
         overflow: visible;
@@ -136,102 +120,6 @@
         box-shadow: none;
         color: #171717;
         font-size: 8pt;
-        line-height: 1.22;
+        line-height: 122%;
     }
-
-    .resume-header {
-        padding-bottom: 7px;
-        border-bottom: 1.5pt solid #111111;
-    }
-
-    .resume-header h1 {
-        font-size: 20pt;
-    }
-
-    .resume-contact {
-        max-width: 250px;
-        gap: 2px 8px;
-        font-size: 7.5pt;
-    }
-
-    .resume-section h2,
-    .resume-role-header span,
-    .resume-education span,
-    .resume-dated-item span,
-    .resume-footer {
-        color: inherit;
-    }
-
-    .resume-section {
-        margin-top: 7px;
-    }
-
-    .resume-section h2 {
-        margin-bottom: 3px;
-        font-size: 7.2pt;
-    }
-
-    .resume-section h2::before {
-        height: 1.5pt;
-        background: var(--color-primary);
-    }
-
-    .resume-summary-grid {
-        grid-template-columns: minmax(0, 1fr) 142px;
-        gap: 10px;
-    }
-
-    .resume-highlight-panel {
-        gap: 2px;
-        margin-top: 7px;
-        padding: 5px;
-        border-color: rgba(23, 23, 23, 0.12);
-        background: rgba(var(--color-primary-rgb), 0.12);
-    }
-
-    .resume-experience-list {
-        gap: 5px;
-    }
-
-    .resume-role-header h3,
-    .resume-project h3,
-    .resume-education h3 {
-        font-size: 9.2pt;
-    }
-
-    .resume-role ul {
-        margin-top: 2px;
-        padding-left: 14px;
-    }
-
-    .resume-role li {
-        margin: 0;
-    }
-
-    .resume-project-list {
-        gap: 9px;
-    }
-
-    .resume-skills {
-        gap: 3px;
-    }
-
-    .resume-skills span {
-        padding: 0 4px;
-        border-color: #d4d4d4;
-    }
-
-    .resume-bottom-grid {
-        gap: 12px;
-    }
-
-    .resume-footer {
-        margin-top: 7px;
-        padding-top: 4px;
-    }
-}
-
-.resume-sheet .resume-kicker,
-.resume-sheet .resume-highlight-panel span {
-    color: var(--on-surface);
 }

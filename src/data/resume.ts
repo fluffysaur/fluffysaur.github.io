@@ -31,8 +31,9 @@ export const RESUME = {
         "Frontend software engineer with a product-design background, building customer-facing mobile and web experiences across React Native, Vue, Cordova, and TypeScript. I have led migration work, shipped app features used by insurance customers, improved delivery quality as a scrum master, and bring a practical eye for systems, usability, and collaboration.",
     highlights: [
         "React Native Migration",
-        "Frontend Architecture Design",
-        "Mobile App Feature Delivery",
+        "FE Architecture Design",
+        "Multi-market Delivery",
+        "Mobile App Development",
         "Product Design Fluency",
         "Project Leadership",
     ],
@@ -55,7 +56,6 @@ export const RESUME = {
                 "Developed features for the Great Eastern mobile application using Cordova and VueJS, contributing to a 4.8 rating on the Google Play Store and App Store.",
                 "Led development of a claims feature as scrum master, helping the team ship a 4.8/5 customer-rated journey after 156 monthly users.",
                 "Reduced scope creep by over 50% through clearer estimation, sprint alignment, and delivery communication.",
-                "Organized two IT department-wide events with 100+ attendees each, strengthening cross-team collaboration.",
             ],
         },
         {
@@ -63,7 +63,7 @@ export const RESUME = {
             company: "StaffAny",
             dates: "Jan 2022 - Jun 2023",
             bullets: [
-                "Owned growth feature design from research and prototypes through release, with direct collaboration across product, engineering, and go-to-market teams.",
+                "Owned growth feature design from research and prototypes through deployment and release.",
                 "Built high-fidelity Figma prototypes for robust user testing and smoother handoff into development.",
                 "Revamped the design system for consistency and reuse, improving design-team speed and interface quality.",
                 "Conducted user testing with more than 30 users using the UMUX-Lite assessment to validate feature usability.",
@@ -84,12 +84,12 @@ export const RESUME = {
         {
             title: "Tempusu Bot",
             description:
-                "Developed a Telegram bot using JavaScript and MySQL that helped NUS students set custom COVID-19 temperature-taking reminders. Used by more than 280 students.",
+                "Developed a Telegram bot to help over 280 NUS students log their temperature during COVID-19.",
         },
         {
             title: "Tembusu College Orientation Website",
             description:
-                "Designed and developed an orientation website with Adobe XD, JavaScript, Bootstrap, and MySQL for over 300 incoming residents.",
+                "Designed and developed an interactive orientation website with Adobe XD, JS, Bootstrap, and MySQL for over 300 incoming residents.",
         },
     ] satisfies ResumeProject[],
     skills: ["React Native", "React", "Vue", "Cordova", "TypeScript", "Figma"],
