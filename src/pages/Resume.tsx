@@ -62,6 +62,7 @@ export function Resume() {
                                     My <strong>resume</strong>.
                                 </>
                             }
+                            subtitle="editable html, exported with playwright"
                             right={
                                 <Button
                                     href={ORIGINAL_RESUME_PDF_URL}

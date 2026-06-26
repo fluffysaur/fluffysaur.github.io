@@ -2,6 +2,7 @@ import { Footer } from "../Footer";
 import { TagRow } from "../Tag";
 import type { Project } from "../../types";
 import { CaseBackLink } from "./CaseBackLink";
+import { TerminalComment, TerminalPath } from "../TerminalPath";
 
 function extractYouTubeId(url: string): string | null {
     try {
@@ -21,9 +22,10 @@ export function Video({ project: p }: { project: Project }) {
                     <CaseBackLink />
 
                     <div className="mt-10 mb-8">
-                        <p className="mb-2 text-[11px] font-medium uppercase tracking-[0.2em] text-(--on-surface-muted)">
+                        <TerminalPath parts={["projects", p.id]} />
+                        <TerminalComment className="mt-4 mb-2">
                             {p.role} · {p.year}
-                        </p>
+                        </TerminalComment>
                         <h1
                             className="font-light text-(--on-surface)"
                             style={{

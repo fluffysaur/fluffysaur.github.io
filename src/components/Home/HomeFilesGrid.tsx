@@ -9,7 +9,7 @@ export function HomeFilesGrid() {
         <section className="pb-24">
             <div className="page-wrap">
                 <SectionIntro
-                    path="~/portfolio/"
+                    path="~/projects/"
                     title={
                         <>
                             Selected <strong>projects</strong>

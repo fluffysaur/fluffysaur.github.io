@@ -42,7 +42,7 @@ export function Projects() {
                         Stuff I've <strong>shipped</strong>.
                     </>
                 }
-                subtitle="Some projects I've worked on, from software to film."
+                subtitle="some projects I've worked on, from software to film."
             />
 
             <div className="mt-14">

@@ -10,7 +10,7 @@ export function HomeExperiencePreview() {
         <section className="pb-20">
             <div className="page-wrap">
                 <SectionIntro
-                    path="~/career/"
+                    path="~/experience/"
                     title={
                         <>
                             <strong>Experience</strong>

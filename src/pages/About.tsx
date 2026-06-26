@@ -14,6 +14,7 @@ export function About() {
                         About <strong>me</strong>.
                     </>
                 }
+                subtitle="who am I, really?"
             />
 
             <div className="flex flex-col gap-4 mt-6 mb-16">

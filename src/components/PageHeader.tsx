@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { TerminalComment, TerminalPath } from "./TerminalPath";
 
 interface PageHeaderProps {
     slug: string;
@@ -10,9 +11,7 @@ interface PageHeaderProps {
 export function PageHeader({ slug, title, subtitle, right }: PageHeaderProps) {
     return (
         <header>
-            <p className="mb-4 flex items-center gap-2.5 text-[11px] font-medium uppercase tracking-[0.2em] text-(--on-surface-subtle)">
-                <span className="inline-block w-6 h-px bg-primary" />/{slug}
-            </p>
+            <TerminalPath parts={[slug]} />
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-8">
                 <div>
                     <h1
@@ -24,11 +23,7 @@ export function PageHeader({ slug, title, subtitle, right }: PageHeaderProps) {
                     >
                         {title}
                     </h1>
-                    {subtitle && (
-                        <p className="mt-6 max-w-[60ch] text-[20px] font-light text-(--on-surface-medium)">
-                            {subtitle}
-                        </p>
-                    )}
+                    {subtitle && <TerminalComment className="mt-6">{subtitle}</TerminalComment>}
                 </div>
                 {right}
             </div>

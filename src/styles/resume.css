@@ -41,7 +41,7 @@
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #6f5c00;
+    color: var(--color-primary-deep);
 }
 
 .resume-header h1 {
@@ -127,7 +127,7 @@
 }
 
 .resume-highlight-panel span {
-    color: #4b3f00;
+    color: var(--color-tertiary);
 }
 
 .resume-experience-list {
@@ -279,10 +279,10 @@
 [data-resume-pdf="true"],
 [data-resume-pdf="true"] body,
 [data-resume-pdf="true"] #root {
-    width: 210mm;
-    min-width: 210mm;
-    height: 297mm;
-    min-height: 297mm;
+    width: 1120px;
+    min-width: 1120px;
+    height: 1584px;
+    min-height: 1584px;
     overflow: hidden !important;
     background: #ffffff !important;
 }
@@ -290,10 +290,10 @@
 [data-resume-pdf="true"] #root > div,
 [data-resume-pdf="true"] #root > div > div,
 [data-resume-pdf="true"] #page-scroll-container {
-    width: 210mm !important;
-    min-width: 210mm !important;
-    height: 297mm !important;
-    min-height: 297mm !important;
+    width: 1120px !important;
+    min-width: 1120px !important;
+    height: 1584px !important;
+    min-height: 1584px !important;
     overflow: hidden !important;
     padding: 0 !important;
     background: #ffffff !important;
@@ -301,29 +301,26 @@
 }
 
 .resume-page--pdf {
-    width: 210mm;
-    min-height: 297mm;
+    width: 1120px;
+    min-height: 1584px;
     padding: 0 !important;
     background: #ffffff;
 }
 
 .resume-page--pdf .page-wrap {
     max-width: none;
-    width: 210mm;
+    width: 1120px;
     padding: 0;
 }
 
 .resume-page--pdf .resume-sheet {
-    width: 210mm;
-    height: 297mm;
+    width: 1120px;
+    height: 1584px;
     aspect-ratio: 1 / 1.414;
-    padding: 9mm;
     overflow: hidden;
     border: 0;
     border-radius: 0;
     box-shadow: none;
-    font-size: 8pt;
-    line-height: 1.22;
 }
 
 @media print {

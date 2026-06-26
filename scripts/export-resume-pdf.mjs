@@ -9,6 +9,9 @@ const outputPath = resolve(rootDir, "public/assets/documents/TanYiJia-Resume.pdf
 const port = 4173;
 const host = "127.0.0.1";
 const url = `http://${host}:${port}/experience/resume?pdf=1`;
+const exportWidthPx = 1120;
+const exportHeightPx = Math.round(exportWidthPx * 1.414);
+const a4WidthPx = 794;
 
 function run(command, args, options = {}) {
     return new Promise((resolvePromise, reject) => {
@@ -77,13 +80,13 @@ async function exportResume() {
 
         const browser = await chromium.launch();
         const page = await browser.newPage({
-            viewport: { width: 794, height: 1123 },
+            viewport: { width: exportWidthPx, height: exportHeightPx },
             deviceScaleFactor: 1,
         });
 
         try {
             await page.goto(url, { waitUntil: "networkidle" });
-            await page.emulateMedia({ media: "print" });
+            await page.emulateMedia({ media: "screen" });
             await page.evaluate(() => document.fonts.ready);
             await page.locator(".resume-sheet").waitFor({ state: "visible" });
 
@@ -111,7 +114,8 @@ async function exportResume() {
                 path: outputPath,
                 format: "A4",
                 printBackground: true,
-                preferCSSPageSize: true,
+                preferCSSPageSize: false,
+                scale: a4WidthPx / exportWidthPx,
                 margin: { top: "0", right: "0", bottom: "0", left: "0" },
             });
 

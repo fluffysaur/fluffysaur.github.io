@@ -1,5 +1,6 @@
 import { Tag } from "../Tag";
 import type { CaseMeta } from "../../case-studies/types";
+import { TerminalComment, TerminalPath } from "../TerminalPath";
 
 interface CaseMetaHeaderProps {
     meta: CaseMeta;
@@ -21,12 +22,7 @@ export function CaseMetaHeader({ meta }: CaseMetaHeaderProps) {
 
     return (
         <div className="mt-7 border-b pb-7 border-(--outline-variant)">
-            <div className="mb-4 flex items-baseline gap-3 font-mono text-sm text-(--on-surface-muted)">
-                <span>projects</span>
-                <span>/</span>
-                <span className="font-bold text-primary">{meta.id}</span>
-                <Tag ghost>Public</Tag>
-            </div>
+            <TerminalPath parts={["projects", meta.id]} />
 
             <h1 className="mb-4 text-[56px] font-light tracking-[-0.01em] text-(--on-surface)">
                 <strong>{leadingTitle}</strong>
@@ -37,13 +33,9 @@ export function CaseMetaHeader({ meta }: CaseMetaHeaderProps) {
                 {meta.subtitle}
             </p>
 
-            <div className="mb-5 flex gap-4 text-sm text-(--on-surface-muted)">
-                <span>Date: {meta.dates}</span>
-                <span>|</span>
-                <span>Role: {meta.role}</span>
-                <span>|</span>
-                <span>Team: {meta.team}</span>
-            </div>
+            <TerminalComment className="mb-5">
+                {meta.dates} · {meta.role} · {meta.team}
+            </TerminalComment>
 
             <div className="flex flex-wrap gap-1.5">
                 {meta.tags.map((tag) => (
