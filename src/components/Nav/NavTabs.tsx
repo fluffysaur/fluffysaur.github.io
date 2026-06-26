@@ -7,8 +7,7 @@ import { scrollToPageTop } from "../../utils/navigation";
 interface NavTabsProps {
     tabs: TabDef[];
     pathname: string;
-    caseId: string | undefined;
-    onCloseCaseTab: () => void;
+    onCloseTab: (tab: TabDef) => void;
 }
 
 export function isTabActive(tab: TabDef, pathname: string): boolean {
@@ -24,10 +23,14 @@ export function isTabActive(tab: TabDef, pathname: string): boolean {
         return pathname === "/projects";
     }
 
+    if (tab.to === "/experience") {
+        return pathname === "/experience";
+    }
+
     return pathname.startsWith(tab.to);
 }
 
-export function NavTabs({ tabs, pathname, caseId, onCloseCaseTab }: NavTabsProps) {
+export function NavTabs({ tabs, pathname, onCloseTab }: NavTabsProps) {
     const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -39,7 +42,7 @@ export function NavTabs({ tabs, pathname, caseId, onCloseCaseTab }: NavTabsProps
         <div ref={containerRef} className="hidden items-stretch overflow-x-auto scrollbar-hide md:flex">
             {tabs.map((tab) => {
                 const active = isTabActive(tab, pathname);
-                const key = tab.closeable ? `case-${caseId ?? "current"}` : tab.to;
+                const key = tab.to;
 
                 const className = "flex items-center";
 
@@ -68,11 +71,11 @@ export function NavTabs({ tabs, pathname, caseId, onCloseCaseTab }: NavTabsProps
                                 type="button"
                                 onClick={(event) => {
                                     event.stopPropagation();
-                                    onCloseCaseTab();
+                                    onCloseTab(tab);
                                 }}
                                 className="ml-1.5 cursor-pointer border-0 bg-transparent p-0 text-[15px] leading-none text-inherit opacity-50 transition-opacity hover:opacity-100"
                                 title="Close"
-                                aria-label="Close case tab"
+                                aria-label="Close tab"
                             >
                                 ×
                             </button>

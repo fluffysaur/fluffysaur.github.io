@@ -8,26 +8,24 @@ import { Button } from "../Button";
 interface NavMobileMenuProps {
     tabs: TabDef[];
     pathname: string;
-    caseId: string | undefined;
     theme: "dark" | "light";
     isOpen: boolean;
     menuRef: RefObject<HTMLDivElement | null>;
     onToggle: () => void;
     onNavigate: (path: string) => void;
-    onCloseCaseTab: () => void;
+    onCloseTab: (tab: TabDef) => void;
     onToggleTheme: () => void;
 }
 
 export function NavMobileMenu({
     tabs,
     pathname,
-    caseId,
     theme,
     isOpen,
     menuRef,
     onToggle,
     onNavigate,
-    onCloseCaseTab,
+    onCloseTab,
     onToggleTheme,
 }: NavMobileMenuProps) {
     return (
@@ -48,11 +46,10 @@ export function NavMobileMenu({
                 <div className="absolute right-0 top-[calc(100%+0.5rem)] z-50 w-screen border-b border-(--outline-variant) bg-(--surface-container) shadow-2xl">
                     {tabs.map((tab) => {
                         const active = isTabActive(tab, pathname);
-                        const key = tab.closeable ? `case-${caseId ?? "current"}` : tab.to;
 
                         return (
                             <div
-                                key={key}
+                                key={tab.to}
                                 className={`group flex items-center border-l-2 transition-colors ${
                                     active
                                         ? "border-primary bg-(--surface) text-primary"
@@ -72,10 +69,10 @@ export function NavMobileMenu({
                                 {tab.closeable ? (
                                     <button
                                         type="button"
-                                        onClick={onCloseCaseTab}
+                                        onClick={() => onCloseTab(tab)}
                                         className="mr-2 flex h-8 w-8 cursor-pointer items-center justify-center border-0 bg-transparent text-[16px] leading-none text-inherit opacity-55 transition-opacity hover:opacity-100"
                                         title="Close"
-                                        aria-label="Close case tab"
+                                        aria-label="Close tab"
                                     >
                                         ×
                                     </button>

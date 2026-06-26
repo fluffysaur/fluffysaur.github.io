@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "../../contexts/ThemeContext";
 import { filterSearchItems } from "./search";
-import { deriveTabs } from "./tabs";
+import { deriveTabs, type TabDef } from "./tabs";
 import { NavTabs } from "./NavTabs";
 import { NavSearchDesktop } from "./NavSearchDesktop";
 import { NavActions } from "./NavActions";
@@ -28,7 +28,7 @@ export function Nav() {
     const mobileSearchRef = useRef<HTMLDivElement>(null);
     const mobileMenuRef = useRef<HTMLDivElement>(null);
 
-    const { tabs, caseId, caseTrack } = deriveTabs(pathname);
+    const { tabs } = deriveTabs(pathname);
     const results = filterSearchItems(query);
 
     const closeSearch = () => {
@@ -67,8 +67,8 @@ export function Nav() {
         setMobileMenuOpen(false);
     };
 
-    const handleCloseCaseTab = () => {
-        navigate(`/projects?track=${caseTrack ?? "dev"}`);
+    const handleCloseTab = (tab: TabDef) => {
+        navigate(tab.closeTo ?? tab.to);
         setMobileMenuOpen(false);
     };
 
@@ -148,7 +148,7 @@ export function Nav() {
                     <LogoMark size="sm" />
                 </div>
 
-                <NavTabs tabs={tabs} pathname={pathname} caseId={caseId} onCloseCaseTab={handleCloseCaseTab} />
+                <NavTabs tabs={tabs} pathname={pathname} onCloseTab={handleCloseTab} />
 
                 <NavMobileSearch
                     isOpen={mobileSearchOpen}
@@ -186,13 +186,12 @@ export function Nav() {
                 <NavMobileMenu
                     tabs={tabs}
                     pathname={pathname}
-                    caseId={caseId}
                     theme={theme}
                     isOpen={mobileMenuOpen}
                     menuRef={mobileMenuRef}
                     onToggle={handleMobileMenuToggle}
                     onNavigate={handleMobileMenuNavigate}
-                    onCloseCaseTab={handleCloseCaseTab}
+                    onCloseTab={handleCloseTab}
                     onToggleTheme={toggle}
                 />
             </nav>
