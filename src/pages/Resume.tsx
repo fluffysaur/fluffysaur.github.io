@@ -78,7 +78,7 @@ export function Resume() {
                                     My <strong>resume</strong>.
                                 </>
                             }
-                            subtitle="editable html, exported with playwright"
+                            subtitle="a printable summary of my professional self."
                             right={
                                 <Button
                                     href={ORIGINAL_RESUME_PDF_URL}
