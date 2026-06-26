@@ -11,6 +11,10 @@ import { About } from "./pages/About";
 import { Resume } from "./pages/Resume";
 import "./index.css";
 
+if (window.location.pathname !== "/") {
+    window.sessionStorage.setItem("homeTerminalIntroPlayed", "true");
+}
+
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
         <ThemeProvider>
