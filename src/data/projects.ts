@@ -18,7 +18,7 @@ export const PROJECTS: Project[] = [
     {
         id: "bobo-bubba-miles",
         title: "Bobo & Bubba Miles Strategy Hub",
-        blurb: "Built with Google Antigravity and React + Vite — a couples credit card miles optimizer featuring merchant MCC routing, 4 mpd cap tracking, and strategy cheatsheets.",
+        blurb: "A couples credit card miles optimizer I made for my partner and I featuring merchant MCC routing, a presentation slide deck, and strategy cheatsheets.",
         img: "/assets/thumbnails/bobo-bubba-miles-thumb.png",
         role: "Creator & Frontend Dev",
         year: "2026",
