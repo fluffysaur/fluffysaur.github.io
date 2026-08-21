@@ -25,11 +25,12 @@ export function About() {
                 </p>
                 <p className="font-light text-[20px] leading-relaxed m-0 text-(--on-surface-medium)">
                     My favourite games involve automating things like Rimworld, Prison Architect, and those old Roblox
-                    factory games (I developed my first game with Lua in Roblox too).
+                    factory games (I developed my first game with Lua in Roblox too). That same passion for automation
+                    now drives how I build software.
                 </p>
                 <p className="font-light text-[20px] leading-relaxed m-0 text-(--on-surface-medium)">
-                    Otherwise, you'll find me hosting events as an Emcee, leading worship in church, or spending time
-                    with my beautiful wife-to-be.
+                    Otherwise, you'll find me hosting events as an emcee, leading worship in church, or just spending
+                    time with my beautiful fiancée.
                 </p>
             </div>
 

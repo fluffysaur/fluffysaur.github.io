@@ -6,11 +6,11 @@ export interface CurrentItem {
 export const ABOUT_CURRENTLY: CurrentItem[] = [
     {
         key: "Building",
-        value: "Fun projects to automate things. Just set up my own Hermes agent for stock updates and financial management!",
+        value: "Fun projects to automate things — like a couples miles optimizer and finance tools with Google Antigravity and Hermes agents!",
     },
     {
         key: "Learning",
-        value: "Everything about Agentic AI and becoming a better Frontend developer.",
+        value: "Constantly exploring Agentic AI tools and AIDLC practices to level up my development skills.",
     },
     {
         key: "Watching",

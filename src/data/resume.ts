@@ -28,14 +28,14 @@ export const RESUME = {
         { label: "tanyijia.me", href: "https://tanyijia.me/" },
     ],
     summary:
-        "Frontend software engineer with a product-design background, building customer-facing mobile and web experiences across React Native, Vue, Cordova, and TypeScript. I have led migration work, shipped app features used by insurance customers, improved delivery quality as a scrum master, and bring a practical eye for systems, usability, and collaboration.",
+        "Frontend software engineer with a product-design background, building customer-facing mobile and web experiences across React Native, Vue, Cordova, and TypeScript. Experienced in AI-Driven Development Lifecycles (AIDLC) and leveraging agentic tools to accelerate production-grade engineering, maintainable architecture, and user-centric delivery.",
     highlights: [
         "React Native Migration",
         "FE Architecture Design",
+        "Agentic Dev & AIDLC",
         "Multi-market Delivery",
         "Mobile App Development",
         "Product Design Fluency",
-        "Project Leadership",
     ],
     experience: [
         {
@@ -82,9 +82,9 @@ export const RESUME = {
     ] satisfies ResumeExperience[],
     projects: [
         {
-            title: "Tempusu Bot",
+            title: "Bobo & Bubba Miles Hub",
             description:
-                "Developed a Telegram bot to help over 280 NUS students log their temperature during COVID-19.",
+                "Built an interactive couples credit card miles optimizer and merchant finder using Google Antigravity and React + Vite.",
         },
         {
             title: "Tembusu College Orientation Website",
@@ -92,7 +92,7 @@ export const RESUME = {
                 "Designed and developed an interactive orientation website with Adobe XD, JS, Bootstrap, and MySQL for over 300 incoming residents.",
         },
     ] satisfies ResumeProject[],
-    skills: ["React Native", "React", "Vue", "Cordova", "TypeScript", "Figma"],
+    skills: ["React Native", "React", "Vue", "TypeScript", "Antigravity", "Kiro", "Copilot", "AIDLC", "Figma"],
     education: {
         school: "National University of Singapore",
         dates: "Aug 2019 - May 2023",
