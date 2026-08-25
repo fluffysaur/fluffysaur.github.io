@@ -1,11 +1,16 @@
 export const ORIGINAL_RESUME_PDF_URL = "/assets/documents/TanYiJia-Resume.pdf";
 
-export interface ResumeExperience {
+export interface ResumeRole {
     title: string;
-    company: string;
-    location?: string;
     dates: string;
     bullets: string[];
+}
+
+export interface ResumeExperience {
+    company: string;
+    location?: string;
+    dates?: string;
+    roles: ResumeRole[];
 }
 
 export interface ResumeProject {
@@ -26,73 +31,87 @@ export const RESUME = {
         { label: "+65 96784612", href: "tel:+6596784612" },
         { label: "tanyijia@gmail.com", href: "mailto:tanyijia@gmail.com" },
         { label: "tanyijia.me", href: "https://tanyijia.me/" },
+        { label: "github.com/fluffysaur", href: "https://github.com/fluffysaur" },
     ],
     summary:
-        "Frontend software engineer with a product-design background, building customer-facing mobile and web experiences across React Native, Vue, Cordova, and TypeScript. Experienced in AI-Driven Development Lifecycles (AIDLC) and leveraging agentic tools to accelerate production-grade engineering, maintainable architecture, and user-centric delivery.",
-    highlights: [
-        "React Native Migration",
-        "FE Architecture Design",
-        "Agentic Dev & AIDLC",
-        "Multi-market Delivery",
-        "Mobile App Development",
-        "Product Design Fluency",
-    ],
+        "Frontend Software Engineer with a product-design background, building scalable mobile and web applications across React Native, Vue, React, and TypeScript. Experienced in microfrontend architecture, multi-market app delivery (SG & MY), and leveraging AI-Driven Development Lifecycles (AIDLC) to accelerate production-grade engineering.",
     experience: [
         {
-            title: "Frontend Software Engineer",
             company: "Great Eastern",
-            dates: "Mar 2026 - Present",
-            bullets: [
-                "Leading progressive migration work from Cordova and Vue to React Native, improving load times and development efficiency across the mobile app stack.",
-                "Revamped microfrontend architecture foundations to support multiple country builds and cleaner long-term delivery.",
-                "Partnering across product, QA, and engineering to modernize customer-facing insurance journeys without disrupting active releases.",
+            roles: [
+                {
+                    title: "Frontend Software Engineer",
+                    dates: "Mar 2026 - Present",
+                    bullets: [
+                        "Architected progressive hybrid migration from Cordova/Vue 2.7 to React Native + TypeScript (Hermes), running legacy and modernized flows in tandem with zero user disruption.",
+                        "Restructured mobile frontend into a single-repo modular architecture supporting shared component and logic reuse across Singapore (SG) and Malaysia (MY) country builds.",
+                        "Piloted AI-assisted developer workflows (Kiro CLI, Amazon Q) across sprint lifecycles to accelerate feature scaffolding, contract verification, and documentation.",
+                    ],
+                },
+                {
+                    title: "Associate Frontend Software Engineer",
+                    dates: "Aug 2023 - Mar 2026",
+                    bullets: [
+                        "Delivered customer-facing insurance features in Vue.js and Cordova, maintaining a 4.8/5 rating across Google Play and Apple App Store for high-traffic policy servicing flows.",
+                        "Led frontend development for digital claims as Scrum Master, engineering multi-step document upload and status tracking flows that achieved a 4.8/5 customer satisfaction score.",
+                        "Standardized estimation models and cross-functional QA handoffs, cutting squad scope creep by >50% and improving release consistency.",
+                    ],
+                },
             ],
         },
         {
-            title: "Associate Frontend Software Engineer",
-            company: "Great Eastern",
-            dates: "Aug 2023 - Mar 2026",
-            bullets: [
-                "Developed features for the Great Eastern mobile application using Cordova and VueJS, contributing to a 4.8 rating on the Google Play Store and App Store.",
-                "Led development of a claims feature as scrum master, helping the team ship a 4.8/5 customer-rated journey after 156 monthly users.",
-                "Reduced scope creep by over 50% through clearer estimation, sprint alignment, and delivery communication.",
-            ],
-        },
-        {
-            title: "Product Designer",
             company: "StaffAny",
-            dates: "Jan 2022 - Jun 2023",
-            bullets: [
-                "Owned growth feature design from research and prototypes through deployment and release.",
-                "Built high-fidelity Figma prototypes for robust user testing and smoother handoff into development.",
-                "Revamped the design system for consistency and reuse, improving design-team speed and interface quality.",
-                "Conducted user testing with more than 30 users using the UMUX-Lite assessment to validate feature usability.",
+            roles: [
+                {
+                    title: "Product Designer",
+                    dates: "Jan 2022 - Jun 2023",
+                    bullets: [
+                        "Designed the 'Learn & Earn' onboarding rewards feature for web and mobile, driving bottom-up product adoption and reaching 48,000+ users within 6 months.",
+                        "Overhauled the cross-platform design system in Figma, establishing reusable tokens and component specs that streamlined design-to-engineering handoff.",
+                        "Conducted rapid usability testing across 30+ retail managers using UMUX-Lite scoring, validating task completion rates before engineering sprints.",
+                    ],
+                },
             ],
         },
         {
-            title: "Frontend Developer",
             company: "YSI Southeast Asia (Interseed)",
-            dates: "Sep 2020 - Jun 2021",
-            bullets: [
-                "Developed a MERN web application that connected and supported sustainability start-ups through the Interseed platform.",
-                "Designed a landing page prototype in Figma and implemented Wix pages with self-coded CSS and JavaScript elements.",
-                "Collaborated with three developers to support a smooth soft launch to more than 200 users.",
+            roles: [
+                {
+                    title: "Frontend Developer",
+                    dates: "Sep 2020 - Jun 2021",
+                    bullets: [
+                        "Built responsive web features for the Interseed impact platform using React, TypeScript, and React-Bootstrap, ramping up in 2 weeks to deliver production screens.",
+                        "Designed Adobe XD prototypes and translated them into accessible web components for founder profiles, resource hubs, and community matchmaking.",
+                        "Collaborated with 3 engineers to deliver a soft launch onboarding 300+ regional startup founders and talent.",
+                    ],
+                },
             ],
         },
     ] satisfies ResumeExperience[],
     projects: [
         {
-            title: "Bobo & Bubba Miles Hub",
+            title: "Bobo & Bubba Miles Strategy Hub",
             description:
-                "Built an interactive couples credit card miles optimizer and merchant finder using Google Antigravity and React + Vite.",
+                "Interactive credit card rewards engine and merchant MCC routing matrix built with React, TypeScript, Vite, and Antigravity. (bobobubbamiles.vercel.app)",
         },
         {
-            title: "Tembusu College Orientation Website",
+            title: "Tembusu College Orientation Portal (Launchpad)",
             description:
-                "Designed and developed an interactive orientation website with Adobe XD, JS, Bootstrap, and MySQL for over 300 incoming residents.",
+                "Designed and developed an interactive orientation website with JS, Bootstrap, and MySQL for 300+ incoming residents, featuring a real-time collaborative pixel canvas (tPlace).",
         },
     ] satisfies ResumeProject[],
-    skills: ["React Native", "React", "Vue", "TypeScript", "Antigravity", "Kiro", "Copilot", "AIDLC", "Figma"],
+    skills: [
+        "React Native",
+        "React",
+        "Vue.js",
+        "TypeScript",
+        "JavaScript (ES6+)",
+        "HTML5 / CSS3",
+        "Tailwind CSS",
+        "Microfrontends",
+        "AIDLC",
+        "Figma",
+    ],
     education: {
         school: "National University of Singapore",
         dates: "Aug 2019 - May 2023",

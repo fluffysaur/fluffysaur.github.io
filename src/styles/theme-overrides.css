@@ -3,15 +3,11 @@
     color: var(--on-surface);
 }
 
-[data-theme="light"] .text-primary,
-[data-theme="light"] .text-primary-yellow,
-[data-theme="light"] .text-accent-yellow {
+[data-theme="light"] .text-primary {
     color: var(--on-surface) !important;
 }
 
-[data-theme="light"] .bg-primary,
-[data-theme="light"] .bg-primary-yellow,
-[data-theme="light"] .bg-accent-yellow {
+[data-theme="light"] .bg-primary {
     background-color: var(--color-primary) !important;
 }
 

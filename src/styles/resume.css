@@ -44,16 +44,23 @@
     padding: 0;
 }
 
+.resume-sheet {
+    font-family: Calibri, "Calibri Light", "Segoe UI", Arial, sans-serif;
+    font-weight: 400;
+}
+
 .resume-page--pdf .resume-sheet {
     --surface: #ffffff;
     --surface-container: #ffffff;
     --surface-container-high: rgb(23 23 23 / 4%);
     --on-surface: #171717;
-    --on-surface-high: rgb(23 23 23 / 86%);
-    --on-surface-medium: rgb(23 23 23 / 76%);
-    --on-surface-muted: #4b4b4b;
+    --on-surface-high: rgb(23 23 23 / 88%);
+    --on-surface-medium: rgb(23 23 23 / 82%);
+    --on-surface-muted: #464646;
     --outline: rgb(23 23 23 / 12%);
     --term-shadow: none;
+    font-family: Calibri, "Calibri Light", "Segoe UI", Arial, sans-serif;
+    font-weight: 400;
     width: 1120px;
     height: 1584px;
     aspect-ratio: 210 / 297;
@@ -62,10 +69,106 @@
     border-radius: 0;
     background: #ffffff;
     color: #171717;
-    font-size: 15px;
-    line-height: 144%;
-    padding: 52px;
+    font-size: 15.6px;
+    line-height: 136%;
+    padding: 34px 44px;
     box-shadow: none;
+}
+
+.resume-page--pdf .resume-header {
+    padding-bottom: 8px;
+}
+
+.resume-page--pdf .resume-kicker {
+    font-size: 15.6px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.05em;
+    margin-bottom: 3px;
+}
+
+.resume-page--pdf .resume-header h1 {
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.01em;
+}
+
+.resume-page--pdf .resume-contact {
+    font-size: 15.6px !important;
+    font-weight: 400 !important;
+    gap: 4px 14px;
+}
+
+.resume-page--pdf .resume-section {
+    margin-top: 13px;
+}
+
+.resume-page--pdf .resume-heading {
+    font-size: 15.6px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+}
+
+.resume-page--pdf .resume-title {
+    font-size: 16.8px !important;
+    font-weight: 700 !important;
+}
+
+.resume-page--pdf .resume-subrole-title {
+    font-size: 15.6px !important;
+    font-weight: 600 !important;
+    font-style: italic !important;
+}
+
+.resume-page--pdf .resume-company {
+    font-size: 15.6px !important;
+    font-weight: 500 !important;
+}
+
+.resume-page--pdf .resume-date {
+    font-size: 15.6px !important;
+    font-weight: 600 !important;
+    color: #464646 !important;
+}
+
+.resume-page--pdf .resume-pill {
+    font-size: 15.6px !important;
+    font-weight: 400 !important;
+    padding: 2.5px 8px !important;
+}
+
+.resume-page--pdf .resume-skills {
+    gap: 6px;
+}
+
+.resume-page--pdf .resume-experience-list {
+    gap: 10px;
+}
+
+.resume-page--pdf .resume-subroles-wrap {
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.resume-page--pdf .resume-project-list {
+    gap: 8px;
+}
+
+.resume-page--pdf .resume-summary,
+.resume-page--pdf ul,
+.resume-page--pdf p {
+    font-weight: 400 !important;
+    color: rgb(23 23 23 / 82%) !important;
+}
+
+.resume-page--pdf ul {
+    margin-top: 3px !important;
+    margin-bottom: 0 !important;
+    padding-left: 20px !important;
+}
+
+.resume-page--pdf li {
+    margin: 2px 0 !important;
 }
 
 @media print {

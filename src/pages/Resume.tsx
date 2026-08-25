@@ -11,10 +11,10 @@ function joinClasses(...classes: Array<string | false | null | undefined>) {
 }
 
 const resumeHeadingClass =
-    "mb-2 flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-(--on-surface) before:block before:h-1 before:w-6 before:bg-primary before:content-['']";
-const resumeTitleClass = "m-0 text-base font-extrabold tracking-normal text-(--on-surface)";
-const resumeDateClass = "shrink-0 font-mono text-xs font-semibold text-(--on-surface-muted) md:text-right";
-const resumePillClass = "inline-flex w-fit items-center rounded font-mono text-[10px] font-semibold tracking-wide";
+    "resume-heading mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-(--on-surface) before:block before:h-1 before:w-6 before:bg-primary before:content-['']";
+const resumeTitleClass = "resume-title m-0 text-base font-bold tracking-normal text-(--on-surface)";
+const resumeDateClass = "resume-date shrink-0 text-xs font-semibold text-(--on-surface-muted) md:text-right";
+const resumePillClass = "resume-pill inline-flex w-fit items-center rounded text-xs font-medium tracking-normal";
 const resumeMetaRowClass = "flex flex-col justify-between gap-1 md:flex-row md:gap-4";
 
 function ResumeSection({ title, children }: { title: string; children: ReactNode }) {
@@ -97,7 +97,7 @@ export function Resume() {
                 <article className="resume-sheet mx-auto w-full overflow-auto rounded-lg border border-(--outline) bg-(--surface-container) p-6 text-sm leading-normal text-(--on-surface-high) shadow-(--term-shadow) md:p-10 [&_a]:text-(--on-surface) [&_a]:underline [&_a]:decoration-primary/75 [&_a]:underline-offset-4">
                     <header className="resume-header flex flex-col items-start justify-between gap-1 border-b-2 border-(--on-surface) pb-4 md:flex-row md:gap-6">
                         <div>
-                            <p className="resume-kicker m-0 mb-2 font-mono text-xs font-semibold uppercase tracking-widest text-(--on-surface)">
+                            <p className="resume-kicker m-0 mb-2 text-xs font-semibold uppercase tracking-wider text-(--on-surface)">
                                 {RESUME.role}
                             </p>
                             <h1 className="m-0 text-3xl font-black tracking-normal text-(--on-surface) md:text-4xl">
@@ -117,71 +117,72 @@ export function Resume() {
                         </div>
                     </header>
 
-                    <div className="resume-summary-grid grid grid-cols-1 gap-0 md:grid-cols-[minmax(0,1fr)_180px] md:gap-6">
-                        <div>
-                            <ResumeSection title="Summary">
-                                <p className="resume-summary m-0">{RESUME.summary}</p>
-                            </ResumeSection>
-                            <ResumeSection title="Skills">
-                                <div className="resume-skills flex flex-wrap gap-2">
-                                    {RESUME.skills.map((skill) => (
-                                        <span
-                                            key={skill}
-                                            className={joinClasses(
-                                                resumePillClass,
-                                                "border border-(--outline) bg-(--surface-container-high) px-2 py-1",
-                                            )}
-                                        >
-                                            {skill}
-                                        </span>
-                                    ))}
-                                </div>
-                            </ResumeSection>
-                        </div>
-                        <div
-                            className="resume-highlight-panel mt-6 grid content-start gap-2 break-inside-avoid rounded-md border border-primary/25 bg-primary/10 p-3"
-                            aria-label="Resume highlights"
-                        >
-                            {RESUME.highlights.map((highlight) => (
-                                <span key={highlight} className={joinClasses(resumePillClass, "text-(--on-surface)")}>
-                                    {highlight}
+                    <ResumeSection title="Summary">
+                        <p className="resume-summary m-0">{RESUME.summary}</p>
+                    </ResumeSection>
+                    <ResumeSection title="Skills">
+                        <div className="resume-skills flex flex-wrap gap-2">
+                            {RESUME.skills.map((skill) => (
+                                <span
+                                    key={skill}
+                                    className={joinClasses(
+                                        resumePillClass,
+                                        "border border-(--outline) bg-(--surface-container-high) px-2 py-1",
+                                    )}
+                                >
+                                    {skill}
                                 </span>
                             ))}
                         </div>
-                    </div>
+                    </ResumeSection>
 
                     <ResumeSection title="Work Experience">
-                        <div className="resume-experience-list grid gap-4">
+                        <div className="resume-experience-list grid gap-3">
                             {RESUME.experience.map((experience) => (
                                 <article
-                                    key={`${experience.company}-${experience.title}`}
+                                    key={experience.company}
                                     className="resume-role break-inside-avoid"
                                 >
-                                    <div className={joinClasses("resume-role-header", resumeMetaRowClass)}>
-                                        <div>
-                                            <h3 className={resumeTitleClass}>{experience.title}</h3>
-                                            <p className="mt-1 mb-0">{experience.company}</p>
-                                        </div>
-                                        <span className={resumeDateClass}>{experience.dates}</span>
+                                    <div className="resume-company-header">
+                                        <h3 className={resumeTitleClass}>
+                                            <span className="font-bold">{experience.company}</span>
+                                        </h3>
                                     </div>
-                                    <ul className="mt-2 mb-0 list-outside list-disc pl-4">
-                                        {experience.bullets.map((bullet) => (
-                                            <li key={bullet} className="my-1">
-                                                {bullet}
-                                            </li>
+                                    <div className="resume-subroles-wrap grid gap-2 mt-1">
+                                        {experience.roles.map((role) => (
+                                            <div key={role.title} className="resume-subrole">
+                                                <div
+                                                    className={joinClasses(
+                                                        "resume-subrole-header",
+                                                        resumeMetaRowClass,
+                                                    )}
+                                                >
+                                                    <h4 className="resume-subrole-title m-0 text-sm font-semibold italic tracking-normal text-(--on-surface)">
+                                                        {role.title}
+                                                    </h4>
+                                                    <span className={resumeDateClass}>{role.dates}</span>
+                                                </div>
+                                                <ul className="mt-1 mb-0 list-outside list-disc pl-4 text-(--on-surface-medium)">
+                                                    {role.bullets.map((bullet) => (
+                                                        <li key={bullet} className="my-0.5">
+                                                            {bullet}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
                                         ))}
-                                    </ul>
+                                    </div>
                                 </article>
                             ))}
                         </div>
                     </ResumeSection>
 
                     <ResumeSection title="Projects">
-                        <div className="resume-project-list grid grid-cols-1 gap-4">
+                        <div className="resume-project-list grid grid-cols-1 gap-2.5">
                             {RESUME.projects.map((project) => (
                                 <article key={project.title} className="resume-project break-inside-avoid">
                                     <h3 className={resumeTitleClass}>{project.title}</h3>
-                                    <p className="mt-1 mb-0">{project.description}</p>
+                                    <p className="mt-0.5 mb-0 text-(--on-surface-medium)">{project.description}</p>
                                 </article>
                             ))}
                         </div>
@@ -190,9 +191,14 @@ export function Resume() {
                     <ResumeSection title="Education">
                         <div className={joinClasses("resume-education", resumeMetaRowClass)}>
                             <div>
-                                <h3 className={resumeTitleClass}>{RESUME.education.school}</h3>
-                                <p className="mt-1 mb-0">
-                                    {RESUME.education.degree} ({RESUME.education.detail})
+                                <h3 className={resumeTitleClass}>
+                                    {RESUME.education.school}{" "}
+                                    <span className="resume-company font-medium text-(--on-surface-muted)">
+                                        — {RESUME.education.detail}
+                                    </span>
+                                </h3>
+                                <p className="mt-0.5 mb-0 text-(--on-surface-medium)">
+                                    {RESUME.education.degree}
                                 </p>
                             </div>
                             <span className={resumeDateClass}>{RESUME.education.dates}</span>
