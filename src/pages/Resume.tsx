@@ -14,7 +14,6 @@ const resumeHeadingClass =
     "resume-heading mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-(--on-surface) before:block before:h-1 before:w-6 before:bg-primary before:content-['']";
 const resumeTitleClass = "resume-title m-0 text-base font-bold tracking-normal text-(--on-surface)";
 const resumeDateClass = "resume-date shrink-0 text-xs font-semibold text-(--on-surface-muted) md:text-right";
-const resumePillClass = "resume-pill inline-flex w-fit items-center rounded text-xs font-medium tracking-normal";
 const resumeMetaRowClass = "flex flex-col justify-between gap-1 md:flex-row md:gap-4";
 
 function ResumeSection({ title, children }: { title: string; children: ReactNode }) {
@@ -121,17 +120,19 @@ export function Resume() {
                         <p className="resume-summary m-0">{RESUME.summary}</p>
                     </ResumeSection>
                     <ResumeSection title="Skills">
-                        <div className="resume-skills flex flex-wrap gap-2">
-                            {RESUME.skills.map((skill) => (
-                                <span
-                                    key={skill}
-                                    className={joinClasses(
-                                        resumePillClass,
-                                        "border border-(--outline) bg-(--surface-container-high) px-2 py-1",
-                                    )}
+                        <div className="resume-skills grid gap-1.5 md:gap-2">
+                            {RESUME.skills.map((group) => (
+                                <div
+                                    key={group.category}
+                                    className="resume-skill-row flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2"
                                 >
-                                    {skill}
-                                </span>
+                                    <span className="resume-skill-category font-bold text-(--on-surface) shrink-0 sm:min-w-44">
+                                        {group.category}:
+                                    </span>
+                                    <span className="resume-skill-items text-(--on-surface-medium)">
+                                        {group.skills.join(", ")}
+                                    </span>
+                                </div>
                             ))}
                         </div>
                     </ResumeSection>

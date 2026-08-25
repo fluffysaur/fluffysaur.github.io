@@ -24,6 +24,11 @@ export interface ResumeDatedItem {
     date?: string;
 }
 
+export interface ResumeSkillCategory {
+    category: string;
+    skills: string[];
+}
+
 export const RESUME = {
     name: "Tan Yi Jia",
     role: "Frontend Software Engineer",
@@ -44,8 +49,8 @@ export const RESUME = {
                     title: "Frontend Software Engineer",
                     dates: "Mar 2026 - Present",
                     bullets: [
-                        "Architected progressive hybrid migration from Cordova/Vue 2.7 to React Native + TypeScript (Hermes), running legacy and modernized flows in tandem with zero user disruption.",
-                        "Restructured mobile frontend into a single-repo modular architecture supporting shared component and logic reuse across Singapore (SG) and Malaysia (MY) country builds.",
+                        "Architected the progressive migration strategy from legacy Cordova/Vue to React Native, decoupling multi-country business logic into a modular microfrontend architecture to accelerate feature delivery across SG and MY regional markets.",
+                        "Optimized mobile application launch and runtime performance, slashing average startup time from ~5s to <1s.",
                         "Piloted AI-assisted developer workflows (Kiro CLI, Amazon Q) across sprint lifecycles to accelerate feature scaffolding, contract verification, and documentation.",
                     ],
                 },
@@ -68,7 +73,7 @@ export const RESUME = {
                     dates: "Jan 2022 - Jun 2023",
                     bullets: [
                         "Designed the 'Learn & Earn' onboarding rewards feature for web and mobile, driving bottom-up product adoption and reaching 48,000+ users within 6 months.",
-                        "Overhauled the cross-platform design system in Figma, establishing reusable tokens and component specs that streamlined design-to-engineering handoff.",
+                        "Built and standardized reusable design system tokens and component primitives across Figma and codebase, reducing cross-functional design-to-engineering handoff friction.",
                         "Conducted rapid usability testing across 30+ retail managers using UMUX-Lite scoring, validating task completion rates before engineering sprints.",
                     ],
                 },
@@ -110,17 +115,28 @@ export const RESUME = {
         },
     ] satisfies ResumeProject[],
     skills: [
-        "React Native",
-        "React",
-        "Vue.js",
-        "TypeScript",
-        "JavaScript (ES6+)",
-        "HTML5 / CSS3",
-        "Tailwind CSS",
-        "Microfrontends",
-        "AIDLC",
-        "Figma",
-    ],
+        {
+            category: "Languages",
+            skills: ["TypeScript", "JavaScript (ES6+)", "HTML5", "CSS3/Tailwind"],
+        },
+        {
+            category: "Frameworks & Core",
+            skills: ["React", "React Native", "Vue.js (Vue 2/3)", "Node.js"],
+        },
+        {
+            category: "Architecture & Tools",
+            skills: [
+                "Microfrontends",
+                "Design Systems",
+                "State Management (Zustand/Query)",
+                "Git",
+                "CI/CD",
+                "Vite",
+                "Webpack",
+                "Figma",
+            ],
+        },
+    ] satisfies ResumeSkillCategory[],
     education: {
         school: "National University of Singapore",
         dates: "Aug 2019 - May 2023",

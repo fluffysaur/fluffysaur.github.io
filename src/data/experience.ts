@@ -45,7 +45,7 @@ const EXPERIENCE_ENTRIES: Experience[] = [
         startDate: { month: 3, year: 2026 },
         endDate: "now",
         description:
-            "Leading the progressive migration from Cordova + Vue to React Native. Revamped microfrontend architecture to support multiple countries.",
+            "Architected the progressive migration strategy from legacy Cordova/Vue to React Native, decoupling multi-country business logic into a modular microfrontend architecture to accelerate feature delivery across SG and MY regional markets. Optimized app launch performance from ~5s to <1s.",
         stack: ["React Native", "TypeScript", "Cordova", "Vue"],
         highlight: true,
     },
@@ -69,7 +69,7 @@ const EXPERIENCE_ENTRIES: Experience[] = [
         startDate: { month: 1, year: 2022 },
         endDate: { month: 6, year: 2023 },
         description:
-            "Owned product design for growth initiatives across research, prototyping, testing, and release. Revamped the design system for the design team for consistency and reusability.",
+            "Built and standardized reusable design system tokens and component primitives across Figma and codebase, reducing cross-functional design-to-engineering handoff friction while owning product design for growth initiatives.",
         stack: ["Figma", "Design Systems", "User Research"],
         highlight: true,
     },

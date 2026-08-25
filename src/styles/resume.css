@@ -138,7 +138,24 @@
 }
 
 .resume-page--pdf .resume-skills {
-    gap: 6px;
+    gap: 4px;
+}
+
+.resume-page--pdf .resume-skill-row {
+    flex-direction: row !important;
+    align-items: baseline !important;
+    gap: 8px !important;
+}
+
+.resume-page--pdf .resume-skill-category {
+    font-size: 15.6px !important;
+    font-weight: 700 !important;
+    min-width: 170px !important;
+}
+
+.resume-page--pdf .resume-skill-items {
+    font-size: 15.6px !important;
+    font-weight: 400 !important;
 }
 
 .resume-page--pdf .resume-experience-list {

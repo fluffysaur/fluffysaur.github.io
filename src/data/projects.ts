@@ -5,7 +5,7 @@ export const PROJECTS: Project[] = [
     {
         id: "ge-rn-migration",
         title: "Great Eastern App React Native Migration",
-        blurb: "Led the progressive migration from Cordova + Vue to React Native. Revamped microfrontend architecture to support multiple countries.",
+        blurb: "Architected the progressive migration strategy from legacy Cordova/Vue to React Native, decoupling multi-country business logic into a modular microfrontend architecture to accelerate feature delivery across SG and MY regional markets.",
         img: "/assets/thumbnails/geapp-thumb.png",
         role: "Frontend Dev",
         year: "2026—present",
