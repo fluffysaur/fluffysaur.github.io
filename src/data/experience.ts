@@ -45,7 +45,7 @@ const EXPERIENCE_ENTRIES: Experience[] = [
         startDate: { month: 3, year: 2026 },
         endDate: "now",
         description:
-            "Architected the progressive migration strategy from legacy Cordova/Vue to React Native, decoupling multi-country business logic into a modular microfrontend architecture to accelerate feature delivery across SG and MY regional markets. Optimized app launch performance from ~5s to <1s.",
+            "Architected the progressive migration strategy from legacy Cordova/Vue to React Native, decoupling multi-country business logic into a modular microfrontend architecture to accelerate feature delivery across SG and MY regional markets. Replaced eager boot initialization with on-demand micro-app lazy loading, cutting app launch from ~5s to <1s.",
         stack: ["React Native", "TypeScript", "Cordova", "Vue"],
         highlight: true,
     },

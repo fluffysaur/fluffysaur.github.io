@@ -50,7 +50,7 @@ export const RESUME = {
                     dates: "Mar 2026 - Present",
                     bullets: [
                         "Architected the progressive migration strategy from legacy Cordova/Vue to React Native, decoupling multi-country business logic into a modular microfrontend architecture to accelerate feature delivery across SG and MY regional markets.",
-                        "Optimized mobile application launch and runtime performance, slashing average startup time from ~5s to <1s.",
+                        "Replaced eager boot initialization with on-demand micro-app lazy loading, cutting app launch from ~5s to <1s.",
                         "Piloted AI-assisted developer workflows (Kiro CLI, Amazon Q) across sprint lifecycles to accelerate feature scaffolding, contract verification, and documentation.",
                     ],
                 },
