@@ -15,6 +15,7 @@ export interface ResumeExperience {
 
 export interface ResumeProject {
     title: string;
+    dates?: string;
     description: string;
 }
 
@@ -91,11 +92,19 @@ export const RESUME = {
     projects: [
         {
             title: "Bobo & Bubba Miles Strategy Hub",
+            dates: "Aug 2026",
             description:
                 "Interactive credit card rewards engine and merchant MCC routing matrix built with React, TypeScript, Vite, and Antigravity. (bobobubbamiles.vercel.app)",
         },
         {
+            title: "Tempusu Bot",
+            dates: "Mar 2020 - Dec 2021",
+            description:
+                "Telegram bot built with Telegraf.js and MySQL allowing NUS students to set custom daily reminders with direct quick-links to log COVID-19 temperature records, reaching 300+ users and groups.",
+        },
+        {
             title: "Tembusu College Orientation Portal (Launchpad)",
+            dates: "May 2020 - Aug 2020",
             description:
                 "Designed and developed an interactive orientation website with JS, Bootstrap, and MySQL for 300+ incoming residents, featuring a real-time collaborative pixel canvas (tPlace).",
         },
@@ -117,6 +126,12 @@ export const RESUME = {
         dates: "Aug 2019 - May 2023",
         degree: "BSc (Hons) in Communications and New Media, Minor in Interactive Media Development",
         detail: "GPA: 4.97 / 5.00",
+        teachingAssistant: {
+            role: "Teaching Assistant, UTC2114 Technologies & Ageing in Singapore (Tembusu College)",
+            dates: "Aug 2022 - May 2023",
+            description:
+                "Co-designed and delivered seminar workshops on WCAG-aligned accessible UX design and elderly usability testing with faculty.",
+        },
     },
     awards: [
         { title: "NTUC Income Prize, Best Student in NUS Comms & New Media" },

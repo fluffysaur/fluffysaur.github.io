@@ -181,7 +181,10 @@ export function Resume() {
                         <div className="resume-project-list grid grid-cols-1 gap-2.5">
                             {RESUME.projects.map((project) => (
                                 <article key={project.title} className="resume-project break-inside-avoid">
-                                    <h3 className={resumeTitleClass}>{project.title}</h3>
+                                    <div className={joinClasses("resume-project-header", resumeMetaRowClass)}>
+                                        <h3 className={resumeTitleClass}>{project.title}</h3>
+                                        {project.dates && <span className={resumeDateClass}>{project.dates}</span>}
+                                    </div>
                                     <p className="mt-0.5 mb-0 text-(--on-surface-medium)">{project.description}</p>
                                 </article>
                             ))}
@@ -190,18 +193,35 @@ export function Resume() {
 
                     <ResumeSection title="Education">
                         <div className={joinClasses("resume-education", resumeMetaRowClass)}>
-                            <div>
-                                <h3 className={resumeTitleClass}>
-                                    {RESUME.education.school}{" "}
-                                    <span className="resume-company font-medium text-(--on-surface-muted)">
-                                        — {RESUME.education.detail}
-                                    </span>
-                                </h3>
+                            <div className="w-full">
+                                <div className={joinClasses("resume-education-header", resumeMetaRowClass)}>
+                                    <h3 className={resumeTitleClass}>
+                                        {RESUME.education.school}{" "}
+                                        <span className="resume-company font-medium text-(--on-surface-muted)">
+                                            — {RESUME.education.detail}
+                                        </span>
+                                    </h3>
+                                    <span className={resumeDateClass}>{RESUME.education.dates}</span>
+                                </div>
                                 <p className="mt-0.5 mb-0 text-(--on-surface-medium)">
                                     {RESUME.education.degree}
                                 </p>
+                                {RESUME.education.teachingAssistant && (
+                                    <div className="resume-ta-item mt-1.5">
+                                        <div className={joinClasses("resume-ta-header", resumeMetaRowClass)}>
+                                            <span className="font-semibold text-(--on-surface)">
+                                                {RESUME.education.teachingAssistant.role}
+                                            </span>
+                                            <span className={resumeDateClass}>
+                                                {RESUME.education.teachingAssistant.dates}
+                                            </span>
+                                        </div>
+                                        <p className="mt-0.5 mb-0 text-(--on-surface-medium)">
+                                            {RESUME.education.teachingAssistant.description}
+                                        </p>
+                                    </div>
+                                )}
                             </div>
-                            <span className={resumeDateClass}>{RESUME.education.dates}</span>
                         </div>
                     </ResumeSection>
 
