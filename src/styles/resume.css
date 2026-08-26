@@ -47,6 +47,26 @@
 .resume-sheet {
     font-family: Calibri, "Calibri Light", "Segoe UI", Arial, sans-serif;
     font-weight: 400;
+    width: 1120px;
+    height: 1584px;
+    aspect-ratio: 210 / 297;
+    overflow: hidden;
+    font-size: 15.6px;
+    line-height: 136%;
+    padding: 34px 44px;
+    box-sizing: border-box;
+}
+
+.resume-scale-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: visible;
+}
+
+.resume-scale-wrapper {
+    width: 1120px;
+    flex-shrink: 0;
 }
 
 .resume-page--pdf .resume-sheet {
@@ -59,132 +79,126 @@
     --on-surface-muted: #464646;
     --outline: rgb(23 23 23 / 12%);
     --term-shadow: none;
-    font-family: Calibri, "Calibri Light", "Segoe UI", Arial, sans-serif;
-    font-weight: 400;
-    width: 1120px;
-    height: 1584px;
-    aspect-ratio: 210 / 297;
-    overflow: hidden;
     border: 0;
     border-radius: 0;
     background: #ffffff;
     color: #171717;
-    font-size: 15.6px;
-    line-height: 136%;
-    padding: 34px 44px;
     box-shadow: none;
 }
 
-.resume-page--pdf .resume-header {
+.resume-sheet .resume-header {
     padding-bottom: 8px;
 }
 
-.resume-page--pdf .resume-kicker {
+.resume-sheet .resume-kicker {
     font-size: 15.6px !important;
     font-weight: 600 !important;
     letter-spacing: 0.05em;
     margin-bottom: 3px;
 }
 
-.resume-page--pdf .resume-header h1 {
+.resume-sheet .resume-header h1 {
     font-size: 32px !important;
     font-weight: 700 !important;
     letter-spacing: -0.01em;
 }
 
-.resume-page--pdf .resume-contact {
+.resume-sheet .resume-contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
     font-size: 15.6px !important;
     font-weight: 400 !important;
     gap: 4px 14px;
+    max-width: 290px;
+    text-align: right;
 }
 
-.resume-page--pdf .resume-section {
+.resume-sheet .resume-section {
     margin-top: 13px;
 }
 
-.resume-page--pdf .resume-heading {
+.resume-sheet .resume-heading {
     font-size: 15.6px !important;
     font-weight: 700 !important;
     letter-spacing: 0.06em;
     margin-bottom: 4px;
 }
 
-.resume-page--pdf .resume-title {
+.resume-sheet .resume-title {
     font-size: 16.8px !important;
     font-weight: 700 !important;
 }
 
-.resume-page--pdf .resume-subrole-title {
+.resume-sheet .resume-subrole-title {
     font-size: 15.6px !important;
     font-weight: 600 !important;
     font-style: italic !important;
 }
 
-.resume-page--pdf .resume-company {
+.resume-sheet .resume-company {
     font-size: 15.6px !important;
     font-weight: 500 !important;
 }
 
-.resume-page--pdf .resume-date {
+.resume-sheet .resume-date {
     font-size: 15.6px !important;
     font-weight: 600 !important;
-    color: #464646 !important;
 }
 
-.resume-page--pdf .resume-pill {
+.resume-sheet .resume-pill {
     font-size: 15.6px !important;
     font-weight: 400 !important;
     padding: 2.5px 8px !important;
 }
 
-.resume-page--pdf .resume-skills {
+.resume-sheet .resume-skills {
     gap: 4px;
 }
 
-.resume-page--pdf .resume-skill-row {
+.resume-sheet .resume-skill-row {
     flex-direction: row !important;
     align-items: baseline !important;
     gap: 8px !important;
 }
 
-.resume-page--pdf .resume-skill-category {
+.resume-sheet .resume-skill-category {
     font-size: 15.6px !important;
     font-weight: 700 !important;
     min-width: 170px !important;
 }
 
-.resume-page--pdf .resume-skill-items {
+.resume-sheet .resume-skill-items {
     font-size: 15.6px !important;
     font-weight: 400 !important;
 }
 
-.resume-page--pdf .resume-experience-list {
+.resume-sheet .resume-experience-list {
     gap: 10px;
 }
 
-.resume-page--pdf .resume-subroles-wrap {
+.resume-sheet .resume-subroles-wrap {
     gap: 8px;
     margin-top: 4px;
 }
 
-.resume-page--pdf .resume-project-list {
+.resume-sheet .resume-project-list {
     gap: 8px;
 }
 
-.resume-page--pdf .resume-summary,
-.resume-page--pdf ul,
-.resume-page--pdf p {
+.resume-sheet .resume-summary,
+.resume-sheet ul,
+.resume-sheet p {
     font-weight: 400 !important;
-    color: rgb(23 23 23 / 82%) !important;
 }
 
-.resume-page--pdf ul {
+.resume-sheet ul {
     margin-top: 3px !important;
     margin-bottom: 0 !important;
     padding-left: 20px !important;
 }
 
-.resume-page--pdf li {
+.resume-sheet li {
     margin: 2px 0 !important;
 }
 
@@ -205,6 +219,14 @@
 
     .intro-chrome {
         display: none !important;
+    }
+
+    .resume-scale-container,
+    .resume-scale-wrapper {
+        width: auto !important;
+        height: auto !important;
+        transform: none !important;
+        display: block !important;
     }
 
     #root > div,
